@@ -1,18 +1,18 @@
-# Fully Convolutional Networks for Semantic Segmentation
+# 01. Fully Convolutional Networks for Semantic Segmentation
 
 Review By: Yejin Kim (가짜연구소 논문미식회 2기)
 
 Edited by: Taeyup Song
 
 
-# Summary
+## Summary
 
 - Fully Connected Layers → 1x1 Convolutional layers : input image 크기에 제약이 없다.
 - input image에 비해 feature map은 coarse한 정보들을 담고 있다 → upsampling
 - 모든 layer가 convolution layer로 구성된다.
 - 마지막 layer의 prediction만 사용하지 않고 lower layers의 predictions와 fusion을 함으로써 Deep feature와 accurate segmentation가 가능해진다.
 
-# Motivation and Problem statement
+## Motivation and Problem statement
 
 - Fully Connected Layers의 한계
     - 위치 정보의 소실
@@ -29,7 +29,7 @@ Edited by: Taeyup Song
 
         - Fully Connected Layers를 사용할 경우 input image의 크기는 항상 일정해야 하므로 항상 부분적으로 image를 잘라내야 한다.
 
-# Proposed Solution
+## Proposed Solution
 
 - **Architecture**
 

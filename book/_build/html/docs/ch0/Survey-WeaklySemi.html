@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reading List: Weakly/Semi-supervised Learning based Segmentation &#8212; Segmentation Complete</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="01. Semantic Segmentation" href="../ch1/01%20Semantic%20Segmentation.html" />
+    <link rel="prev" title="Reading List: Panoptic Segmentation" href="Survey-Panoptic.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Segmentation Complete</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   [가짜연구소 3기] Segmentation 완전정복 Crew
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00%20Survey.html">
+   Survey
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Survey-Semantic.html">
+     Reading List: Semantic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Survey-Instance.html">
+     Reading List: Instance Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Survey-Panoptic.html">
+     Reading List: Panoptic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Reading List: Weakly/Semi-supervised Learning based Segmentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01%20Semantic%20Segmentation.html">
+   01. Semantic Segmentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/fcn.html">
+     01. Fully Convolutional Networks for Semantic Segmentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
+   01. Instance Segmentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch3/03%20Panoptic%20Segmentation.html">
+   01. Panoptic Segmentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch4/04%20Weakly-supervised%20Segmentation.html">
+   01. Weakly-supervised Segmentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch5/05%20Semi-supervised%20Segmentation.html">
+   06. Semi-supervised Segmentation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/docs/ch0/Survey-WeaklySemi.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template/issues/new?title=Issue%20on%20page%20%2Fdocs/ch0/Survey-WeaklySemi.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="reading-list-weakly-semi-supervised-learning-based-segmentation">
+<h1>Reading List: Weakly/Semi-supervised Learning based Segmentation<a class="headerlink" href="#reading-list-weakly-semi-supervised-learning-based-segmentation" title="Permalink to this headline">¶</a></h1>
+<p><strong>2021</strong></p>
+<ul class="simple">
+<li><p>[ClassMix] ClassMix: Segmentation-Based Data Augmentation for Semi-Supervised Learning, WACV 21 (<a class="reference external" href="https://arxiv.org/pdf/2007.07936">paper</a>, <a class="reference external" href="https://github.com/WilhelmT/ClassMix">code</a>, review)</p></li>
+<li><p>Semi-supervised Semantic Segmentation with Directional Context-aware Consistency (paper, code, review)</p></li>
+</ul>
+<p><strong>2020</strong></p>
+<ul class="simple">
+<li><p>[DMT] Semi-Supervised Semantic Segmentation via Dynamic Self-Training and Class-Balanced Curriculum, 2020 (<a class="reference external" href="https://arxiv.org/pdf/2004.08514">paper</a> <a class="reference external" href="https://github.com/voldemortX/DST-CBC">code</a>, review)</p></li>
+<li><p>[PseudoSeg] PseudoSeg: Designing Pseudo Labels for Semantic Segmentation. ICLR 20 (<a class="reference external" href="https://arxiv.org/pdf/2010.09713">paper</a> <a class="reference external" href="https://github.com/googleinterns/wss">code</a>, review)</p></li>
+<li><p>[CutMix]Semi-supervised semantic segmentation needs strong, varied perturbations. BMVC 20 (<a class="reference external" href="https://arxiv.org/pdf/1906.01916">paper</a> <a class="reference external" href="https://github.com/Britefury/cutmix-semisup-seg">code</a>, review)</p></li>
+<li><p>[GCT] Guided Collaborative Training for Pixel-wise Semi-Supervised Learning ECCV 20 (<a class="reference external" href="https://arxiv.org/pdf/2008.05258">paper</a> <a class="reference external" href="https://github.com/ZHKKKe/PixelSSL">code</a>, review)</p></li>
+<li><p>[Three-stage] A Three-Stage Self-Training Framework for Semi-Supervised Semantic Segmentation. CVPR 20 (<a class="reference external" href="https://arxiv.org/pdf/2012.00827">paper</a>, code, review)</p></li>
+<li><p>[ShapeProp] Learning Saliency Propagation for Semi-Supervised Instance Segmentation, CVPR 20 (<a class="reference external" href="http://openaccess.thecvf.com/content_CVPR_2020/papers/Zhou_Learning_Saliency_Propagation_for_Semi-Supervised_Instance_Segmentation_CVPR_2020_paper.pdf">paper</a>, <a class="reference external" href="https://github.com/ucbdrive/ShapeProp">code</a>, review)</p></li>
+<li><p>[CCT] Semi-Supervised Semantic Segmentation with Cross-Consistency Training, CVPR 20 (<a class="reference external" href="https://arxiv.org/abs/2003.09005">paper</a>, <a class="reference external" href="https://github.com/yassouali/CCT">code</a>, review)</p></li>
+<li><p>[SCN] Semi-Supervised Semantic Image Segmentation with Self-correcting Networks, CVPR 20 (<a class="reference external" href="https://arxiv.org/abs/1811.07073">paper</a>, review)</p></li>
+<li><p>Structured consistency loss for semi-supervised semantic segmentation, arxiv 2020 (paper, code, review)</p></li>
+<li><p>[DSRG] Semi-supervised semantic segmentation via strong-weak dual-branch network. In ECCV, 2020 (paper, code, review)</p></li>
+<li><p>[Naive-student] Naive-student: Leveraging semi-supervised learning in video sequences for urban scene segmentation. In ECCV, 2020a (paper, code, review)</p></li>
+<li><p>[MCIS_wsss] Guolei Sun, Wenguan Wang, Jifeng Dai, and Luc Van Gool. Mining cross-image semantics for weakly supervised semantic segmentation. In ECCV, 2020 (paper, <a class="reference external" href="https://github.com/GuoleiSun/MCIS_wsss">code</a>, review)</p></li>
+<li><p>Yude Wang, Jie Zhang, Meina Kan, Shiguang Shan, and Xilin Chen. Self-supervised equivariant attention mechanism for weakly supervised semantic segmentation. In CVPR, 2020 (paper, code, review)</p></li>
+<li><p>Fan, J., Zhang, Z., Tan, T.: Cian: Cross-image affinity net for weakly supervised semantic segmentation. In: AAAI (2020)</p></li>
+<li><p>Semi-supervised segmentation based on error-correcting supervision (2020)</p></li>
+<li><p>Knowledge embedded generative adversarial networks for semi-supervised scene parsing (2020)</p></li>
+</ul>
+<p><strong>2019</strong></p>
+<ul class="simple">
+<li><p>Revisting Cycle-GAN for semi-supervised segmentation (<a class="reference external" href="https://arxiv.org/abs/1908.11569">paper</a>, <a class="reference external" href="https://github.com/arnab39/Semi-supervised-segmentation-cycleGAN?utm_source=catalyzex.com">code</a>, review)</p></li>
+<li><p>[s4GAN] Semi-Supervised Semantic Segmentation with High- and Low-level Consistency, TPAMI 19 (<a class="reference external" href="https://arxiv.org/abs/1908.05724">paper</a>, <a class="reference external" href="https://github.com/sud0301/semisup-semseg">code</a>, review)</p></li>
+<li><p>[USSS] Universal Semi-Supervised Semantic Segmentation, ICCV 19 (<a class="reference external" href="https://arxiv.org/abs/1811.10323">pdf</a>, <a class="reference external" href="https://github.com/tarun005/USSS_ICCV19">code</a>, review)</p></li>
+<li><p>[FickleNet] FickleNet: Weakly and Semi-Supervised Semantic Image Segmentation Using Stochastic Inference, CVPR 19 (<a class="reference external" href="https://arxiv.org/abs/1902.10421">paper</a>, code, review)</p></li>
+<li><p>[IRNet] Weakly Supervised Learning of Instance Segmentation with Inter-pixel Relations, CVPR 19 (<a class="reference external" href="https://arxiv.org/abs/1904.05044">paper</a>, <a class="reference external" href="https://github.com/jiwoon-ahn/irn">code</a>, review)</p></li>
+<li><p>Chunfeng Song, Yan Huang, Wanli Ouyang, and Liang Wang. Box-driven class-wise region masking and filling rate guided loss for weakly supervised semantic segmentation, 2019. (paper, code, review)</p></li>
+<li><p>[OOA] Jiang, P.T., Hou, Q., Cao, Y., Cheng, M.M., Wei, Y., Xiong, H.K.: Integral object mining via online attention accumulation. In: ICCV (2019)</p></li>
+<li><p>Shimoda, W., Yanai, K.: Self-supervised difference detection for weakly-supervised semantic segmentation. In: ICCV (2019)</p></li>
+</ul>
+<p><strong>2018</strong></p>
+<ul class="simple">
+<li><p>Xiaolin Zhang, Yunchao Wei, Jiashi Feng, Yi Yang, and Thomas Huang. Adversarial complementary learning for weakly supervised object localization. In CVPR, 2018.</p></li>
+<li><p>[MDC Adversarial] Adversarial Learning for Semi-Supervised Semantic Segmentation, BMVC 18 (<a class="reference external" href="https://arxiv.org/abs/1806.04659">pdf</a>, <a class="reference external" href="https://github.com/hfslyc/AdvSemiSeg">code</a>, review)</p></li>
+<li><p>[RDC] Revisiting Dilated Convolution: A Simple Approach for Weakly- and Semi-Supervised Semantic Segmentation, CVPR 18 (<a class="reference external" href="https://arxiv.org/abs/1805.04574">paper</a>, code, review)</p></li>
+<li><p>[Dynamically Instantiated Network] Weakly- and Semi-Supervised Panoptic Segmentation, ECCV 18 (<a class="reference external" href="https://arxiv.org/abs/1808.03575">pdf</a>, <a class="reference external" href="https://github.com/qizhuli/Weakly-Supervised-Panoptic-Segmentation">code</a>, review)</p></li>
+<li><p>[L-Net, P-Net] Transferable Semi-Supervised Semantic Segmentation. AAAI 18 (<a class="reference external" href="https://aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/16348">paper</a>, code, review)</p></li>
+<li><p>[AffinityNet] Learning Pixel-level semantic Affinity Image-level Labels for weakly Supervised Semantic Segmentation, CVPR 18 (paper, code, review)</p></li>
+<li><p>[GAIN] Tell Me Where to Look Guided Attention Inference Network (paper, code, review)</p></li>
+<li><p>[PSL] Object region mining with adversarial erasing: A simple classification to semantic segmentation approach. (paper, code, review)</p></li>
+<li><p>Normalized cut loss for weakly-supervised cnn segmentation. In: CVPR (paper, code, review)</p></li>
+<li><p>[SeeNet] Self-erasing network for integral object attention. In: NIPs</p></li>
+<li><p>[MCOF] Xiang Wang, Shaodi You, Xi Li, and Huimin Ma. Weakly supervised semantic segmentation by iteratively mining common object features. In IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2018 (paper, code, review)</p></li>
+<li><p><strong>[DSRG] Huang, Z., Wang, X., Wang, J., Liu, W., Wang, J.: Weakly-supervised semantic segmentation network with deep seeded region growing. In: CVPR (2018) (<a class="reference external" href="https://openaccess.thecvf.com/content_cvpr_2018/papers/Huang_Weakly-Supervised_Semantic_Segmentation_CVPR_2018_paper.pdf">paper</a>, code, review)</strong></p></li>
+<li><p>Weifeng Ge, Sibei Yang, and Yizhou Yu. Multi-evidence filtering and fusion for multi-label classification, object detection and semantic segmentation based on weakly supervised learning. In IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2018 (paper, code, review)</p></li>
+<li><p>Y. Zou, Z. Yu, B. Vijaya Kumar, J. Wang, Unsupervised domain adaptation for semantic segmentation via class-balanced self-training, in: European Conference on Computer Vision, 2018 (paper, code, review)</p></li>
+<li><p>Semi-supervised skin lesion segmentation via transformation consistent self-ensembling model (2018)</p></li>
+</ul>
+<p><strong>2017</strong></p>
+<ul class="simple">
+<li><p>Semi Supervised Semantic Segmentation Using Generative Adversarial Network. ICCV 17 (<a class="reference external" href="http://openaccess.thecvf.com/content_ICCV_2017/papers/Souly__Semi_Supervised_ICCV_2017_paper.pdf">paper</a>, code, review)</p></li>
+<li><p>Two-phase learning for weakly supervised object localization. In ICCV, 2017. (paper, code, review)</p></li>
+<li><p>[Hide-and-Seek] Hide-and-seek: Forcing a network to be meticulous for weakly-supervised object and action localization. In ICCV, 2017 (paper, code, review)</p></li>
+<li><p>Discovering class-specific pixels for weakly-supervised semantic segmentation. In: BMVC (paper, code, review)</p></li>
+<li><p>Exploiting saliency for object segmentation from image level labels. In: CVPR (paper, code, review)</p></li>
+<li><p>Anna Khoreva, Rodrigo Benenson, Jan Hendrik Hosang, Matthias Hein, and Bernt Schiele. Simple does it: Weakly supervised instance and semantic segmentation. In IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017 (paper, code, review)</p></li>
+<li><p>[WILDCAT] Thibaut Durand, Taylor Mordan, Nicolas Thome, and Matthieu Cord. WILDCAT: weakly supervised learning of deep convnets for image classification, pointwise localization and segmentation. In IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017 (paper, code, review)</p></li>
+<li><p>Qibin Hou, Puneet Kumar Dokania, Daniela Massiceti, Yunchao Wei, Ming-Ming Cheng, and Philip Torr. Bottom-up top-down cues for weakly-supervised semantic segmentation. EMMCVPR, 2017.</p></li>
+<li><p>Seunghoon Hong, Donghun Yeo, Suha Kwak, Honglak Lee, and Bohyung Han. Weakly supervised semantic segmentation using web-crawled videos. In CVPR, pages 3626–3635, 2017.</p></li>
+</ul>
+<p><strong>2016</strong></p>
+<ul class="simple">
+<li><p>Scribblesup: Scribble-supervised convolutional networks for semantic segmentation. CVPR (paper, code, review)</p></li>
+<li><p>What’s the Point: Semantic Segmentation with Point Supervision. ECCV (2016) (paper, code, review)</p></li>
+<li><p>Alexander Kolesnikov and Christoph H Lampert. Seed, expand and constrain: Three principles for weakly-supervised image segmentation. In ECCV, 2016</p></li>
+<li><p>Tokmakov, P., Alahari, K., Schmid, C.: Weakly-supervised semantic segmentation using motion cues. In: ECCV (2016)</p></li>
+</ul>
+<p><strong>2015</strong></p>
+<ul class="simple">
+<li><p>Semi-Supervised Normalized Cuts for Image Segmentation, ICCV 16 (<a class="reference external" href="http://openaccess.thecvf.com/content_iccv_2015/papers/Chew_Semi-Supervised_Normalized_Cuts_ICCV_2015_paper.pdf">paper</a>, code, review)</p></li>
+<li><p>Weakly- and Semi-Supervised Learning of a DCNN for Semantic Image Segmentation, ICCV 15 (<a class="reference external" href="https://arxiv.org/abs/1502.02734">pdf,</a> <a class="reference external" href="https://github.com/TheLegendAli/DeepLab-Context">code</a>, review)</p></li>
+<li><p>Decoupled Deep Neural Network for Semi-supervised Semantic Segmentation, NeurIPS 15 (<a class="reference external" href="https://arxiv.org/abs/1506.04924">paper</a>, code, review)</p></li>
+<li><p>[SSHMT] SSHMT: Semi-supervised Hierarchical Merge Tree for Electron Microscopy Image Segmentation, ECCV 15 (<a class="reference external" href="https://arxiv.org/abs/1608.04051">paper</a>, code, review)</p></li>
+<li><p>Boxsup: Exploiting bounding boxes to supervise convolutional networks for semantic segmentation. ICCV (paper, code, review)</p></li>
+<li><p>Wei Zhang, Sheng Zeng, Dequan Wang, and Xiangyang Xue. Weakly supervised semantic segmentation for social images. In IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2015 (paper, code, review)</p></li>
+<li><p>Jia Xu, Alexander G. Schwing, and Raquel Urtasun. Learning to segment under various forms of weak supervision. In IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2015 (paper, code, review)</p></li>
+<li><p>Deepak Pathak, Philipp Krahenbuhl, and Trevor Darrell. Constrained convolutional neural networks for weakly supervised segmentation. In ICCV, 2015</p></li>
+<li><p>Pedro O Pinheiro and Ronan Collobert. From image-level to pixel-level labeling with convolutional networks. In CVPR, 2015.</p></li>
+</ul>
+<p><strong>2013</strong></p>
+<ul class="simple">
+<li><p>Semi-supervised Learning for Large Scale Image Cosegmentation, ICCV 13 (<a class="reference external" href="http://openaccess.thecvf.com/content_iccv_2013/papers/Wang_Semi-supervised_Learning_for_2013_ICCV_paper.pdf">paper</a>, code, review)</p></li>
+<li><p>Semi-supervised Learning for Large Scale Image Cosegmentation, AAAI 13 (<a class="reference external" href="https://www.ijcai.org/Proceedings/13/Papers/279.pdf">paper</a>, code, review)</p></li>
+</ul>
+<p><em>Latest update: Oct, 2021</em></p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/ch0"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="Survey-Panoptic.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Reading List: Panoptic Segmentation</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../ch1/01%20Semantic%20Segmentation.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">01. Semantic Segmentation</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By PseudoLab<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

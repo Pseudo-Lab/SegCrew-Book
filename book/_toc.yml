@@ -1,6 +1,12 @@
 format: jb-book
 root: docs/index
 chapters:
+- file: docs/ch0/00 Survey
+  sections:
+  - file: docs/ch0/Survey-Semantic
+  - file: docs/ch0/Survey-Instance
+  - file: docs/ch0/Survey-Panoptic
+  - file: docs/ch0/Survey-WeaklySemi
 - file: docs/ch1/01 Semantic Segmentation
   sections:
   - file: docs/ch1/fcn
