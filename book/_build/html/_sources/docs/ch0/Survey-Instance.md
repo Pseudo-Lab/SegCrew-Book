@@ -1,6 +1,6 @@
 # Reading List: Instance Segmentation
 
-![survey6.png](https://pseudo-lab.github.io/SegCrew-Book/book/docs/ch0/pic/survey6.png)
+![survey6.png](pic/survey6.png)
 
 - [SDS] Simultaneous Detection and Segmentation, ECCV 14 ([paper](https://arxiv.org/abs/1407.1808), code, review)
 - **[Mask R-CNN] Mask R-CNN , ICCV 17 (paper, code, review)**

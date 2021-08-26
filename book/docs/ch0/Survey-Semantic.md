@@ -1,6 +1,6 @@
 # Reading List: Semantic Segmentation
 
-![survey5.png](https://pseudo-lab.github.io/SegCrew-Book/book/docs/ch0/pic/survey5.png)
+![survey5.png](pic/survey5.png)
 
 - [FCN] Fully Convolutional Networks for Semantic Segmentation, CVPR 15 ([paper](https://arxiv.org/abs/1411.4038), code, review)
 - [DeconvNet] Learning Deconvolution Network for Semantic Segmentation, ([paper](https://arxiv.org/abs/1505.04366), code, review)

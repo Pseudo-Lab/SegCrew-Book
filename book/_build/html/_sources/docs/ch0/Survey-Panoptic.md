@@ -1,6 +1,6 @@
 # Reading List: Panoptic Segmentation
 
-![survey7.png](https://pseudo-lab.github.io/SegCrew-Book/book/docs/ch0/pic/survey7.png)
+![survey7.png](pic/survey7.png)
 
 - [Panoptic-FPN] Panoptic Feature Pyramid Networks, CVPR 19 ([paper](https://arxiv.org/abs/1901.02446), code, review)
 - [PS] Panoptic segmentation, CVPR 19 ([paper](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwja8dmKvNnwAhUTw4sBHRLSB9UQFjAAegQIBBAD&url=https%3A%2F%2Farxiv.org%2Fabs%2F1801.00868&usg=AOvVaw2LercgZpTpYn3HatKqr7Nt), code, review)

@@ -17,13 +17,13 @@ Edited by: Taeyup Song
 - Fully Connected Layers의 한계
     - 위치 정보의 소실
 
-        ![fcn1.png](https://pseudo-lab.github.io/SegCrew-Book/book/docs/ch1/pic/FCN/fcn1.png)
+        ![fcn1.png](pic/FCN/fcn1.png)
 
         출처: [https://medium.com/@msmapark2/fcn-논문-리뷰-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=입력 이미지에 대해 픽셀,에 맞춰 변형시킨 것이다](https://medium.com/@msmapark2/fcn-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=%EC%9E%85%EB%A0%A5%20%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90%20%EB%8C%80%ED%95%B4%20%ED%94%BD%EC%85%80,%EC%97%90%20%EB%A7%9E%EC%B6%B0%20%EB%B3%80%ED%98%95%EC%8B%9C%ED%82%A8%20%EA%B2%83%EC%9D%B4%EB%8B%A4).
 
     - 입력 이미지 크기의 고정
 
-        ![fcn2.png](https://pseudo-lab.github.io/SegCrew-Book/book/docs/ch1/pic/FCN/fcn2.png)
+        ![fcn2.png](pic/FCN/fcn2.png)
 
         출처: [https://medium.com/@msmapark2/fcn-논문-리뷰-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=입력 이미지에 대해 픽셀,에 맞춰 변형시킨 것이다](https://medium.com/@msmapark2/fcn-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=%EC%9E%85%EB%A0%A5%20%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90%20%EB%8C%80%ED%95%B4%20%ED%94%BD%EC%85%80,%EC%97%90%20%EB%A7%9E%EC%B6%B0%20%EB%B3%80%ED%98%95%EC%8B%9C%ED%82%A8%20%EA%B2%83%EC%9D%B4%EB%8B%A4).
 
@@ -33,21 +33,21 @@ Edited by: Taeyup Song
 
 - **Architecture**
 
-![fcn3.png](https://pseudo-lab.github.io/SegCrew-Book/book/docs/ch1/pic/FCN/fcn3.png)
+![fcn3.png](pic/FCN/fcn3.png)
 
 Convolutioanl Neural Network에서는 마지막에 Fully Connected Layers가 있으며 이로인해 Location Information을 얻기가 어렵다.
 
-![fcn4.png](https://pseudo-lab.github.io/SegCrew-Book/book/docs/ch1/pic/FCN/fcn4.png)
+![fcn4.png](pic/FCN/fcn4.png)
 
 따라서 Fully Connected Layers가 1x1 Convolutional Layers로 대체되었다. 하지만 여전히 output의 크기가 input 크기와 일치하지 않는다. 
 
-![fcn5.png](https://pseudo-lab.github.io/SegCrew-Book/book/docs/ch1/pic/FCN/fcn5.png)
+![fcn5.png](pic/FCN/fcn5.png)
 
 Semantic Segmentation의 목표는 pixelwise prediction이기 때문에 Upsampling을 통해 output prediction의 크기를 확대하여 input과 동일하게 만들어준다. 
 
 - **Improvement of segmentation**
 
-![fcn6.png](https://pseudo-lab.github.io/SegCrew-Book/book/docs/ch1/pic/FCN/fcn6.png)
+![fcn6.png](pic/FCN/fcn6.png)
 
 Figure 1. Refining fully convolutional nets
 
@@ -57,7 +57,7 @@ Figure 1. Refining fully convolutional nets
 
 더 정밀하고 상세한 segmentation을 얻으면서 layer 개수는 유지하기 위해 이 논문에서는 final layer와 lower layers의 output이 함께 사용됐다. 
 
-![fcn7.png](https://pseudo-lab.github.io/SegCrew-Book/book/docs/ch1/pic/FCN/fcn7.png)
+![fcn7.png](pic/FCN/fcn7.png)
 
 - FCN-32s: final layout의 output prediction을 stride32로 upsampling해줌
 - FCN-16s: fianl layout의 output prediction을 stride2로 upsampling + pool4 layer의 output prediction → 결과물을 stride16로 upsampling
