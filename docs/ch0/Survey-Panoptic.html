@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>01. Semantic Segmentation &#8212; Segmentation Complete</title>
+    <title>Reading List: Panoptic Segmentation &#8212; Segmentation Complete</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="01. Fully Convolutional Networks for Semantic Segmentation" href="fcn.html" />
-    <link rel="prev" title="Reading List: Weakly/Semi-supervised Learning based Segmentation" href="../ch0/Survey-WeaklySemi.html" />
+    <link rel="next" title="Reading List: Weakly/Semi-supervised Learning based Segmentation" href="Survey-WeaklySemi.html" />
+    <link rel="prev" title="Reading List: Instance Segmentation" href="Survey-Instance.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -92,50 +92,50 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../ch0/00%20Survey.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00%20Survey.html">
    Survey
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch0/Survey-Semantic.html">
+    <a class="reference internal" href="Survey-Semantic.html">
      Reading List: Semantic Segmentation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch0/Survey-Instance.html">
+    <a class="reference internal" href="Survey-Instance.html">
      Reading List: Instance Segmentation
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch0/Survey-Panoptic.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Reading List: Panoptic Segmentation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch0/Survey-WeaklySemi.html">
+    <a class="reference internal" href="Survey-WeaklySemi.html">
      Reading List: Weakly/Semi-supervised Learning based Segmentation
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01%20Semantic%20Segmentation.html">
    01. Semantic Segmentation
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="fcn.html">
+    <a class="reference internal" href="../ch1/fcn.html">
      01. Fully Convolutional Networks for Semantic Segmentation
     </a>
    </li>
@@ -202,7 +202,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/ch1/01 Semantic Segmentation.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/ch0/Survey-Panoptic.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -222,7 +222,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/pseudo-lab/Jupyter-Book-Template/issues/new?title=Issue%20on%20page%20%2Fdocs/ch1/01 Semantic Segmentation.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template/issues/new?title=Issue%20on%20page%20%2Fdocs/ch0/Survey-Panoptic.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -243,19 +243,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Semantic Segmentation
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -264,15 +251,21 @@
         
               <div>
                 
-  <div class="section" id="semantic-segmentation">
-<h1>01. Semantic Segmentation<a class="headerlink" href="#semantic-segmentation" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
-<div class="section" id="id1">
-<h2>Semantic Segmentation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-</div>
-<hr class="docutils" />
-<div class="toctree-wrapper compound">
-</div>
+  <div class="section" id="reading-list-panoptic-segmentation">
+<h1>Reading List: Panoptic Segmentation<a class="headerlink" href="#reading-list-panoptic-segmentation" title="Permalink to this headline">¶</a></h1>
+<p><img alt="survey7.png" src="https://pseudo-lab.github.io/SegCrew-Book/book/docs/ch0/pic/survey7.png" /></p>
+<ul class="simple">
+<li><p>[Panoptic-FPN] Panoptic Feature Pyramid Networks, CVPR 19 (<a class="reference external" href="https://arxiv.org/abs/1901.02446">paper</a>, code, review)</p></li>
+<li><p>[PS] Panoptic segmentation, CVPR 19 (<a class="reference external" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwja8dmKvNnwAhUTw4sBHRLSB9UQFjAAegQIBBAD&amp;url=https%3A%2F%2Farxiv.org%2Fabs%2F1801.00868&amp;usg=AOvVaw2LercgZpTpYn3HatKqr7Nt">paper</a>, code, review)</p></li>
+<li><p>[UPSNet] UPSNet: A Unified Panoptic Segmentation Network, CVPR 19 (<a class="reference external" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjAgKuevNnwAhW5w4sBHZJOC6wQFjAAegQIBBAD&amp;url=https%3A%2F%2Farxiv.org%2Fabs%2F1901.03784&amp;usg=AOvVaw0vjq_N9NQampUJXRm1Rfgg">paper</a>, code, review)</p></li>
+<li><p>[Axial-DeepLab] Axial-DeepLab: Stand-Alone Axial-Attention for Panoptic Segmentation, ECCV 20 (<a class="reference external" href="https://arxiv.org/abs/2003.07853">paper</a>, <a class="reference external" href="https://github.com/csrhddlam/axial-deeplab">code</a>, review)</p></li>
+<li><p><strong>[DETR] End-to-End Object Detection with Transformers, ECCV 20 (<a class="reference external" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwj63I_LvNnwAhWJPZQKHUW3Af4QFjABegQIAxAD&amp;url=https%3A%2F%2Farxiv.org%2Fabs%2F2005.12872&amp;usg=AOvVaw1fNz92-EEj1d91Nfiv875y">paper</a>, <a class="reference external" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwj63I_LvNnwAhWJPZQKHUW3Af4QFjACegQIBhAD&amp;url=https%3A%2F%2Fgithub.com%2Ffacebookresearch%2Fdetr&amp;usg=AOvVaw38IItGrhmHCiOA5aYi5Rh7">code</a>, review)</strong></p></li>
+<li><p>[VPS] Video Panoptic Segmentation, CVPR 20 (<a class="reference external" href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjgxIW0vNnwAhXqyIsBHTxQDQMQFjABegQIAxAD&amp;url=https%3A%2F%2Farxiv.org%2Fabs%2F2006.11339&amp;usg=AOvVaw2F3RrQ6MLITfxP0PCzLQrl">paper</a>, code, review)</p></li>
+<li><p>[MaX-DeepLab] MaX-DeepLab: End-to-End Panoptic Segmentation with Mask Transformers, (<a class="reference external" href="https://arxiv.org/abs/2012.00759v1">paper</a>, code, review)</p></li>
+<li><p>[EOPSN] Exemplar-Based Open-Set Panoptic Segmentation Network, CVPR 21 (<a class="reference external" href="https://arxiv.org/abs/2105.08336v2">paper</a>, code, review)</p></li>
+<li><p><strong>[PanopticFCN] Fully Convolutional Networks for Panoptic Segmentation, CVPR 21 (<a class="reference external" href="https://arxiv.org/abs/2012.00720v2">paper</a>, code, review)</strong></p></li>
+</ul>
+<p><em>Latest update: Oct, 2021</em></p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -288,7 +281,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs/ch1"
+            path: "./docs/ch0"
         },
         predefinedOutput: true
     }
@@ -305,19 +298,19 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../ch0/Survey-WeaklySemi.html" title="previous page">
+        <a class="left-prev" href="Survey-Instance.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Reading List: Weakly/Semi-supervised Learning based Segmentation</p>
+                <p class="prevnext-title">Reading List: Instance Segmentation</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="fcn.html" title="next page">
+        <a class="right-next" href="Survey-WeaklySemi.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">01. Fully Convolutional Networks for Semantic Segmentation</p>
+                <p class="prevnext-title">Reading List: Weakly/Semi-supervised Learning based Segmentation</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fully Convolutional Networks for Semantic Segmentation &#8212; Segmentation Complete</title>
+    <title>01. Fully Convolutional Networks for Semantic Segmentation &#8212; Segmentation Complete</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -92,19 +92,51 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch0/00%20Survey.html">
+   Survey
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Semantic.html">
+     Reading List: Semantic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Instance.html">
+     Reading List: Instance Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Panoptic.html">
+     Reading List: Panoptic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-WeaklySemi.html">
+     Reading List: Weakly/Semi-supervised Learning based Segmentation
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="01%20Semantic%20Segmentation.html">
    01. Semantic Segmentation
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Fully Convolutional Networks for Semantic Segmentation
+     01. Fully Convolutional Networks for Semantic Segmentation
     </a>
    </li>
   </ul>
@@ -216,22 +248,17 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Fully Convolutional Networks for Semantic Segmentation
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
    Summary
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#motivation-and-problem-statement">
    Motivation and Problem statement
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#proposed-solution">
    Proposed Solution
   </a>
@@ -248,12 +275,11 @@
               <div>
                 
   <div class="section" id="fully-convolutional-networks-for-semantic-segmentation">
-<h1>Fully Convolutional Networks for Semantic Segmentation<a class="headerlink" href="#fully-convolutional-networks-for-semantic-segmentation" title="Permalink to this headline">¶</a></h1>
+<h1>01. Fully Convolutional Networks for Semantic Segmentation<a class="headerlink" href="#fully-convolutional-networks-for-semantic-segmentation" title="Permalink to this headline">¶</a></h1>
 <p>Review By: Yejin Kim (가짜연구소 논문미식회 2기)</p>
 <p>Edited by: Taeyup Song</p>
-</div>
 <div class="section" id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Fully Connected Layers → 1x1 Convolutional layers : input image 크기에 제약이 없다.</p></li>
 <li><p>input image에 비해 feature map은 coarse한 정보들을 담고 있다 → upsampling</p></li>
@@ -262,7 +288,7 @@
 </ul>
 </div>
 <div class="section" id="motivation-and-problem-statement">
-<h1>Motivation and Problem statement<a class="headerlink" href="#motivation-and-problem-statement" title="Permalink to this headline">¶</a></h1>
+<h2>Motivation and Problem statement<a class="headerlink" href="#motivation-and-problem-statement" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>Fully Connected Layers의 한계</p>
 <ul>
@@ -282,7 +308,7 @@
 </ul>
 </div>
 <div class="section" id="proposed-solution">
-<h1>Proposed Solution<a class="headerlink" href="#proposed-solution" title="Permalink to this headline">¶</a></h1>
+<h2>Proposed Solution<a class="headerlink" href="#proposed-solution" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Architecture</strong></p></li>
 </ul>
@@ -307,6 +333,7 @@
 <li><p>FCN-8s: finaly layer와 pool4의 output prediction의 합 + pool3의 output prediction → 결과물을 stride8로 upsampling</p></li>
 </ul>
 <p>Lower layer의 output prediction을 이용하여 final prediction을 계산하므로써 점점 더 정밀한 segmentation이 가능함 (Figure 1 참조)</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
