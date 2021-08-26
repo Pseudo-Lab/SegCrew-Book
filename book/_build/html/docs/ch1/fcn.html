@@ -53,8 +53,6 @@
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="01. Instance Segmentation" href="../ch2/02%20Instance%20Segmentation.html" />
-    <link rel="prev" title="01. Semantic Segmentation" href="01%20Semantic%20Segmentation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -86,51 +84,11 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
+  <a class="reference internal" href="../../intro.html">
    [가짜연구소 3기] Segmentation 완전정복 Crew
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="01%20Semantic%20Segmentation.html">
-   01. Semantic Segmentation
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Fully Convolutional Networks for Semantic Segmentation
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
-   01. Instance Segmentation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ch3/03%20Panoptic%20Segmentation.html">
-   01. Panoptic Segmentation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ch4/04%20Weakly-supervised%20Segmentation.html">
-   01. Weakly-supervised Segmentation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ch5/05%20Semi-supervised%20Segmentation.html">
-   06. Semi-supervised Segmentation
-  </a>
- </li>
-</ul>
-
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -268,11 +226,11 @@
 <ul>
 <li><p>위치 정보의 소실</p>
 <p><img alt="fcn1.png" src="https://pseudo-lab.github.io/SegCrew-Book/book/docs/ch1/pic/FCN/fcn1.png" /></p>
-<p>출처: <a class="reference external" href="https://medium.com/&#64;msmapark2/fcn-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=%EC%9E%85%EB%A0%A5%20%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90%20%EB%8C%80%ED%95%B4%20%ED%94%BD%EC%85%80,%EC%97%90%20%EB%A7%9E%EC%B6%B0%20%EB%B3%80%ED%98%95%EC%8B%9C%ED%82%A8%20%EA%B2%83%EC%9D%B4%EB%8B%A4">https://medium.com/&#64;msmapark2/fcn-논문-리뷰-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=입력 이미지에 대해 픽셀,에 맞춰 변형시킨 것이다</a>.</p>
+<p>출처: <a class="reference external" href="https://medium.com/&#64;msmapark2/fcn-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:%7E:text=%EC%9E%85%EB%A0%A5%20%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90%20%EB%8C%80%ED%95%B4%20%ED%94%BD%EC%85%80,%EC%97%90%20%EB%A7%9E%EC%B6%B0%20%EB%B3%80%ED%98%95%EC%8B%9C%ED%82%A8%20%EA%B2%83%EC%9D%B4%EB%8B%A4">https://medium.com/&#64;msmapark2/fcn-논문-리뷰-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=입력 이미지에 대해 픽셀,에 맞춰 변형시킨 것이다</a>.</p>
 </li>
 <li><p>입력 이미지 크기의 고정</p>
 <p><img alt="fcn2.png" src="https://pseudo-lab.github.io/SegCrew-Book/book/docs/ch1/pic/FCN/fcn2.png" /></p>
-<p>출처: <a class="reference external" href="https://medium.com/&#64;msmapark2/fcn-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=%EC%9E%85%EB%A0%A5%20%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90%20%EB%8C%80%ED%95%B4%20%ED%94%BD%EC%85%80,%EC%97%90%20%EB%A7%9E%EC%B6%B0%20%EB%B3%80%ED%98%95%EC%8B%9C%ED%82%A8%20%EA%B2%83%EC%9D%B4%EB%8B%A4">https://medium.com/&#64;msmapark2/fcn-논문-리뷰-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=입력 이미지에 대해 픽셀,에 맞춰 변형시킨 것이다</a>.</p>
+<p>출처: <a class="reference external" href="https://medium.com/&#64;msmapark2/fcn-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:%7E:text=%EC%9E%85%EB%A0%A5%20%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90%20%EB%8C%80%ED%95%B4%20%ED%94%BD%EC%85%80,%EC%97%90%20%EB%A7%9E%EC%B6%B0%20%EB%B3%80%ED%98%95%EC%8B%9C%ED%82%A8%20%EA%B2%83%EC%9D%B4%EB%8B%A4">https://medium.com/&#64;msmapark2/fcn-논문-리뷰-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=입력 이미지에 대해 픽셀,에 맞춰 변형시킨 것이다</a>.</p>
 <ul class="simple">
 <li><p>Fully Connected Layers를 사용할 경우 input image의 크기는 항상 일정해야 하므로 항상 부분적으로 image를 잘라내야 한다.</p></li>
 </ul>
@@ -338,24 +296,6 @@
 
 <div class='prev-next-bottom'>
     
-    <div id="prev">
-        <a class="left-prev" href="01%20Semantic%20Segmentation.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">01. Semantic Segmentation</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="../ch2/02%20Instance%20Segmentation.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">01. Instance Segmentation</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
