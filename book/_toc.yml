@@ -1,7 +1,11 @@
-format: jb-article
-root: intro
-sections:
-- file: docs/markdown-example
-  title: "markdown \uC608\uC2DC"
-- file: docs/notebook-example
-  title: ".ipynb \uD30C\uC77C \uC608\uC2DC"
+format: jb-book
+root: docs/index
+chapters:
+- file: docs/ch1/01 Semantic Segmentation
+  sections:
+  - file: docs/ch1/fcn
+- file: docs/ch2/02 Instance Segmentation
+- file: docs/ch3/03 Panoptic Segmentation
+- file: docs/ch4/04 Weakly-supervised Segmentation
+- file: docs/ch5/05 Semi-supervised Segmentation
+
