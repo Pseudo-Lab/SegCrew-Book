@@ -7,9 +7,19 @@ chapters:
   - file: docs/ch0/Survey-Instance
   - file: docs/ch0/Survey-Panoptic
   - file: docs/ch0/Survey-WeaklySemi
-- file: docs/ch1/01 Semantic Segmentation
+- file: docs/ch1/01_Semantic Segmentation
   sections:
-  - file: docs/ch1/fcn
+  - file: docs/ch1/01_01_fullyconvNet
+    sections:
+    - file: docs/ch1/01_01_01_fcn
+    - file: docs/ch1/01_01_02_DeepLabv3
+    - file: docs/ch1/01_01_03_pspnet
+  - file: docs/ch1/01_02_encodedecode
+    sections:
+    - file: docs/ch1/01_02_01_unet
+    - file: docs/ch1/01_02_01_multiresunet
+    - file: docs/ch1/01_02_02_segnet
+    - file: docs/ch1/01_02_03_DeconvNet
 - file: docs/ch2/02 Instance Segmentation
 - file: docs/ch3/03 Panoptic Segmentation
 - file: docs/ch4/04 Weakly-supervised Segmentation

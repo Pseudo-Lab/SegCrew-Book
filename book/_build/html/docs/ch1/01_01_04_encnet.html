@@ -1,0 +1,626 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pyramid Scene Parsing Network &#8212; Segmentation Complete</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Segmentation Complete</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   [가짜연구소 3기] Segmentation 완전정복 Crew
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch0/00%20Survey.html">
+   Survey
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Semantic.html">
+     Reading List: Semantic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Instance.html">
+     Reading List: Instance Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Panoptic.html">
+     Reading List: Panoptic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-WeaklySemi.html">
+     Reading List: Weakly/Semi-supervised Learning based Segmentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="01_Semantic%20Segmentation.html">
+   01. Semantic Segmentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="01_01_fullyconvNet.html">
+     A. Fully Convolutional Network
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_01_01_fcn.html">
+       Fully Convolutional Networks for Semantic Segmentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_01_02_DeepLabv3.html">
+       Rethinking Atrous Convolution for Semantic Image Segmentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_01_03_pspnet.html">
+       Pyramid Scene Parsing Network
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="01_02_encodedecode.html">
+     B. Convolutional encoder-decoder
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_02_01_unet.html">
+       U-Net: Convolutional Networks for Biomedical Image Segmentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_02_01_multiresunet.html">
+       MultiResUNet : Rethinking the U-Net Architecture for Multimodal Biomedical Image Segmentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_02_02_segnet.html">
+       SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_02_03_DeconvNet.html">
+       Learning Deconvolution Network for Semantic Segmentation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
+   01. Instance Segmentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch3/03%20Panoptic%20Segmentation.html">
+   01. Panoptic Segmentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch4/04%20Weakly-supervised%20Segmentation.html">
+   01. Weakly-supervised Segmentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch5/05%20Semi-supervised%20Segmentation.html">
+   06. Semi-supervised Segmentation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/docs/ch1/01_01_04_encnet.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template/issues/new?title=Issue%20on%20page%20%2Fdocs/ch1/01_01_04_encnet.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   1. Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution">
+   2. Contribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#context-encoding-module-se-loss">
+     Context Encoding Module &amp; SE-loss
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#context-encoding-network-encnet">
+     Context Encoding Network(EncNet)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   3. 실험 결과
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#segmentation">
+     Segmentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ablation-study">
+     Ablation study
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-datasets">
+     Other datasets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification">
+     Classification
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   4. 정리
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pyramid-scene-parsing-network">
+<h1>Pyramid Scene Parsing Network<a class="headerlink" href="#pyramid-scene-parsing-network" title="Permalink to this headline">¶</a></h1>
+<p>Review By: Junmyeong Lee (가짜연구소 논문미식회 2기)</p>
+<p>Edited by: Taeyup Song</p>
+<p>Paper : <a class="reference external" href="https://openaccess.thecvf.com/content_cvpr_2018/papers/Zhang_Context_Encoding_for_CVPR_2018_paper.pdf">https://openaccess.thecvf.com/content_cvpr_2018/papers/Zhang_Context_Encoding_for_CVPR_2018_paper.pdf</a></p>
+<ul class="simple">
+<li><p>channel attention을 통해 scene에 존재하는 label외의 label에 대한 prediction을 suppress해줌.</p></li>
+<li><p>입력에 대해 CNN을 통해 feature map을 추출하고, 각 channel별로 서로 다른 attention을 주는 방법을 학습함.
+→ input image의 global context를 고려하여 attention이 주어지도록 학습함.
+→ 부수적으로 input image의 classification도 수행</p></li>
+<li><p>Soft attention: attention를 통한 feature channel의 select가 아닌 weight의 역할을 함.</p></li>
+</ul>
+<div class="section" id="motivation">
+<h2>1. Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Vanila CNN → Dilated CNN 활용으로 패러다임 전환이 되면서 문제가 생김.</p>
+<ul>
+<li><p>Vanila CNN : Stacked CNN네트워크 구조에서, downsampling을 해가며 global context를 포착할 수 있었음. But 해상도가 낮아져 detail 손실이 일어남.</p></li>
+<li><p>Dilated CNN : Spatial resolution loss 문제는 해결했지만, 픽셀을 고립(isolates the pixels)시키는 문제가 있기 때문에, global context를 잘 포착하지 못함.</p></li>
+</ul>
+</li>
+<li><p>Receptive field가 커지는 것과 global context를 잘 포착하는 것이 꼭 비례할까?</p>
+<ul>
+<li><p>Dilated CNN으로 receptive field를 늘리는 방향으로만 발전하는 것에 대해 질문함.</p></li>
+</ul>
+</li>
+<li><p>만약 Global Context를 잘 포착한다면, scene의 search space가 크게 줄어들 수 있다!</p>
+<ul>
+<li><p>침실 → 침대, 의자 등과 연관되어 있다.</p></li>
+<li><p>위와 같은 Strong correlation을 잘 활용하자.</p></li>
+<li><p>전통적인 방법에서 사용된 statistical method에서 힌트를 얻음.</p>
+<ul>
+<li><p>BoF(Bag-of-Features), VLAD … : Global feature statistics를 잘 포착한다.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="contribution">
+<h2>2. Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
+<p><img alt="encnet1.png" src="../../_images/encnet1.png" /></p>
+<div class="section" id="context-encoding-module-se-loss">
+<h3>Context Encoding Module &amp; SE-loss<a class="headerlink" href="#context-encoding-module-se-loss" title="Permalink to this headline">¶</a></h3>
+<p>(i) Context Encoding Module</p>
+<ul class="simple">
+<li><p>Global Context를 포착</p></li>
+<li><p>각 채널에 대해 가중치 부여, 강조할 채널을 강조한다. (Attention Scheme)</p></li>
+</ul>
+<ol>
+<li><p>식 설명</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(C\times H \times W\)</span> 크기의 입력을 C 채널의 입력 N개로 나눌 수 있음.( <span class="math notranslate nohighlight">\(N = H\times W\)</span>)</p>
+<div class="math notranslate nohighlight">
+\[X=\{x_1,...,x_N\}\]</div>
+</li>
+<li><p>K개의 codewords(visual center)들과 smoothing factor 정의</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}D=\{d_1,...,d_K\} \\ S=\{s_1,...,s_K\}\end{split}\]</div>
+</li>
+<li><p>Encoding module의 출력</p>
+<div class="math notranslate nohighlight">
+\[e_k=\sum_{i=1}^{N}e_{ik}\]</div>
+</li>
+<li><p><span class="math notranslate nohighlight">\(r_{ik}\)</span>와 <span class="math notranslate nohighlight">\(e_{ik}\)</span>의 식</p>
+<div class="math notranslate nohighlight">
+\[e_{ik}=\frac{\exp \left( -s_k ||r_{ik}||^2\right)}{\sum_{j=1}^{K}\exp \left( -s_j||r_{ij}||^2\right)}r_{ik}\]</div>
+<div class="math notranslate nohighlight">
+\[r_{ik}=x_i-d_k\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(e_{ik}\)</span>는 입력의 잔차(residual) 에 가중치를 곱한 벡터이다.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(e_k\)</span>는 weighted sum한 C차원 결과 벡터가 되는데, 이는 각 channel 별 중요도를 잘 mapping할 수 있도록 만든다.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(s_i\)</span>는 smoothing해주는 역할을 하는데, <span class="math notranslate nohighlight">\(||r_{ik}||^2\)</span>항의 크기에 따른 영향을 반감시켜 조금 더 안정적인 학습이 가능하게 한다.(실험 결과, 보통 학습 시 0.5 근처로 수렴한다고 한다.)</p>
+<ul>
+<li><p>벡터 크기의 분산을 줄이기 때문에 안정적인 학습(수렴)이 가능해질 것이다.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>어텐션 적용</p>
+<ul class="simple">
+<li><p>나온 output 벡터를 FC레이어에 통과시켜 Encoding 전의 feature map에 channelwise product한다.</p></li>
+<li><p>output벡터는 각 채널에 대한 가중치이다.</p></li>
+</ul>
+</li>
+<li><p>직관적 해석</p>
+<ul class="simple">
+<li><p>직관적으로 생각하면, cluster의 center를 찾는 알고리즘이라고도 볼 수 있을 것 같다.</p>
+<ul>
+<li><p>따라서, 우리는 <span class="math notranslate nohighlight">\(e_k\)</span>라는 벡터로 각 채널과  <span class="math notranslate nohighlight">\(d_k\)</span>(visual center)사이의 거리를 aggregation한 것이라고 볼 수 있다.</p></li>
+<li><p>각 위치가 있을 때, 각 위치에서 <span class="math notranslate nohighlight">\(d_k\)</span>라는 center의 비중을 곱해 더한 것이다.</p></li>
+<li><p>한마디로, 각 channel이 어떤 global context에 가까운지 통계적으로 구할 수 있다.</p></li>
+</ul>
+</li>
+</ul>
+<p>⇒ 따라서 <span class="math notranslate nohighlight">\(d_k\)</span>는 <span class="math notranslate nohighlight">\(x_i\)</span>가 임베딩된 context 공간상에서, context를 나타내는 클러스터의 중심이라고 할 수 있다.</p>
+<ul class="simple">
+<li><p>어텐션 또한, context 공간에서 찾은 최적 벡터를 fc레이어를 통해 가중치 벡터로 바꿔준 것으로 생각할 수 있다.</p></li>
+</ul>
+</li>
+</ol>
+<p>(ii) SE Loss(Semantic Encoding Loss)</p>
+<ul class="simple">
+<li><p>Per-pixel cross entorpy는 isolated되어 있기 때문에(분리되어 있기 때문에), 작은 물체를 segmentation하는 데는 효과적으로 동작하지 못할 수 있다.</p></li>
+<li><p>SE Loss는 Context Encoding Module에서 구한 output vector를 바탕으로, 어떤 물체들이 있는지 binary classification으로 학습한다.</p>
+<ul>
+<li><p>물체가 있는지/없는지에 대해서만 예측한다.</p></li>
+<li><p>작은 물체에 대해서 성능 개선 효과를 보인다.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="context-encoding-network-encnet">
+<h3>Context Encoding Network(EncNet)<a class="headerlink" href="#context-encoding-network-encnet" title="Permalink to this headline">¶</a></h3>
+<p><img alt="encnet1.png" src="../../_images/encnet1.png" /></p>
+<ul class="simple">
+<li><p>앞서 제시한 module들을 기반으로 제시한 Segmentation architecture</p></li>
+<li><p>Backbone : Dilated FCN(ResNet 기반)</p>
+<ul>
+<li><p>3번, 4번 블록에 Context Encoding module + SE Loss적용</p></li>
+<li><p>이런 auxiliary loss는 PSPNet보다 저렴하다.</p></li>
+</ul>
+</li>
+<li><p>기존 pixelwise crossentropy loss와 가중합을 통해 total loss를 구한다</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>3. 실험 결과<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="segmentation">
+<h3>Segmentation<a class="headerlink" href="#segmentation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>PASCAL context, PASCAL VOC 2012, ADE20K 사용</p></li>
+<li><p>K = 32</p></li>
+<li><p>Final loss : 두 loss의 가중합으로 정의</p></li>
+</ul>
+<p><img alt="encnet2.png" src="../../_images/encnet2.png" /></p>
+<p><img alt="encnet3.png" src="../../_images/encnet3.png" /></p>
+</div>
+<div class="section" id="ablation-study">
+<h3>Ablation study<a class="headerlink" href="#ablation-study" title="Permalink to this headline">¶</a></h3>
+<p><img alt="encnet4.png" src="../../_images/encnet4.png" /></p>
+<ul class="simple">
+<li><p>SE-loss를 통해 성능 향상을 이룰 수 있다는 것을 검증하였다.</p></li>
+<li><p>또한, K를 증가시킬수록 mIOU가 높아지기 때문에, 성능 향상이 이루어진다는 것을 알 수 있다.</p></li>
+</ul>
+</div>
+<div class="section" id="other-datasets">
+<h3>Other datasets<a class="headerlink" href="#other-datasets" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>PASCAL VOC 2012</p>
+<p><img alt="encnet5.png" src="../../_images/encnet5.png" /></p>
+<ul class="simple">
+<li><p>대부분 좋은 성능을 보였고, 다른 무거운 모델들(PSPNet, DeepLabv3)들과도 비교할만한 좋은 성능을 얻었다.</p></li>
+</ul>
+</li>
+<li><p>ADE20K</p>
+<p><img alt="encnet6.png" src="../../_images/encnet6.png" /></p>
+<p><img alt="encnet7.png" src="../../_images/encnet7.png" /></p>
+<ul class="simple">
+<li><p>PSP(Res-269)에 비해 shallow한 네트워크 구조(Res-101)로 비슷한 성능을 얻어냈다.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="classification">
+<h3>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Context Encoding Module을 classification에 적용해 보았다.</p></li>
+<li><p>SE-Net의 SE 모듈을 Context Encoding Module로 교체하여 적용했다.</p></li>
+<li><p>s는 0.5로 고정했다.</p>
+<ul>
+<li><p>학습 시, 0.5에 가깝게 <span class="math notranslate nohighlight">\(s_k\)</span> 가 수렴했기 때문이다</p></li>
+</ul>
+</li>
+<li><p>기존 네트워크와 비교하여 큰 성능향상을 달성하였다.</p></li>
+</ul>
+<p><img alt="encnet8.png" src="../../_images/encnet8.png" /></p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>4. 정리<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Global Context를 잘 포착하기 위해 저자들은 여러 방법들을 생각해냈다.</p>
+<ul class="simple">
+<li><p>Context Encoding module</p></li>
+<li><p>SE-loss</p></li>
+</ul>
+<p>⇒ EncNet을 만들었다.</p>
+</li>
+<li><p>실험 결과, 가볍고 효과적인 Segmentation architecture임을 검증하였다.</p></li>
+<li><p>앞서 제시한 두 가지 모듈 또한 성능 향상에 확실히 기여함을 밝힐 수 있었다.</p></li>
+<li><p>Classification에도 적용해본 결과, Context Encoding module이 효과적으로 scene의 context를 잘 포착하여 classification 정확도 또한 올라가는 것을 관찰했다.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/ch1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By PseudoLab<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,552 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Deconvolution Network for Semantic Segmentation &#8212; Segmentation Complete</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="01. Instance Segmentation" href="../ch2/02%20Instance%20Segmentation.html" />
+    <link rel="prev" title="SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation" href="01_02_02_segnet.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Segmentation Complete</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   [가짜연구소 3기] Segmentation 완전정복 Crew
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch0/00%20Survey.html">
+   Survey
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Semantic.html">
+     Reading List: Semantic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Instance.html">
+     Reading List: Instance Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Panoptic.html">
+     Reading List: Panoptic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-WeaklySemi.html">
+     Reading List: Weakly/Semi-supervised Learning based Segmentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="01_Semantic%20Segmentation.html">
+   01. Semantic Segmentation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="01_01_fullyconvNet.html">
+     A. Fully Convolutional Network
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_01_01_fcn.html">
+       Fully Convolutional Networks for Semantic Segmentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_01_02_DeepLabv3.html">
+       Fully Convolutional Networks for Semantic Segmentation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="01_02_encodedecode.html">
+     B. Convolutional encoder-decoder
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_02_01_unet.html">
+       U-Net: Convolutional Networks for Biomedical Image Segmentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_02_01_multiresunet.html">
+       MultiResUNet : Rethinking the U-Net Architecture for Multimodal Biomedical Image Segmentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_02_02_segnet.html">
+       SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Learning Deconvolution Network for Semantic Segmentation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
+   01. Instance Segmentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch3/03%20Panoptic%20Segmentation.html">
+   01. Panoptic Segmentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch4/04%20Weakly-supervised%20Segmentation.html">
+   01. Weakly-supervised Segmentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch5/05%20Semi-supervised%20Segmentation.html">
+   06. Semi-supervised Segmentation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/docs/ch1/01_02_03_DeconvNet.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template/issues/new?title=Issue%20on%20page%20%2Fdocs/ch1/01_02_03_DeconvNet.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Learning Deconvolution Network for Semantic Segmentation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resource">
+     Resource
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   Motivation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#method">
+   Method
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training">
+   Training
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inference">
+   Inference
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experiments-and-conclusion">
+   Experiments and Conclusion
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="learning-deconvolution-network-for-semantic-segmentation">
+<h1>Learning Deconvolution Network for Semantic Segmentation<a class="headerlink" href="#learning-deconvolution-network-for-semantic-segmentation" title="Permalink to this headline">¶</a></h1>
+<p>Review By: Yejin Kim, Seongsu Park (가짜연구소 논문미식회 2기)</p>
+<p>Edited by: Taeyup Song</p>
+<div class="section" id="resource">
+<h2>Resource<a class="headerlink" href="#resource" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Noh_Learning_Deconvolution_Network_ICCV_2015_paper.pdf">https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Noh_Learning_Deconvolution_Network_ICCV_2015_paper.pdf</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="motivation">
+<h1>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Segmentation 모델인 FCN의 문제점을 지적하면서 논문의 introduction을 구성함</p></li>
+<li><p>네트워크가 고정된 사이즈의 receptive field(한 결과 픽셀이 참고하는 픽셀 수)가 고정되어 있기 때문에, 이보다 작거나 큰 물체는 fragment되거나 mislabel될 수 있음</p>
+<ul>
+<li><p>큰 물체들은 나뉘어지거나, 작은 물체들은 무시됨</p></li>
+<li><p>Skip architecture 구조에도 근본적 해결 방식이 될 수 없음</p>
+<p><img alt="deconv1" src="../../_images/deconv1.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>Detail structure가 smooth됨.</p>
+<ul class="simple">
+<li><p>FCN의 경우 16x16의 결과가 bilinear interpolation되어, deconvolution 레이어 없이는 물체의 경계를 제대로 표현하지 못함</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="method">
+<h1>Method<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>이 논문에서는 deconvolutional network를 활용해 전체적인 네트워크를 제안함</p>
+<p><img alt="deconv2" src="../../_images/deconv2.png" /></p>
+</li>
+<li><p>Deconvolutional network에서는 크게 Unpooling, Deconvolution을 주로 소개함</p></li>
+<li><p>Unpooling: 하나의 픽셀을 각 축으로 factor만큼 늘림</p>
+<ul class="simple">
+<li><p>Pooling의 경우 가장 높은 값을 가진 index를 switch함</p></li>
+<li><p>Unpooling은 그 때 선택한 index에 그 값을 넣고 나머지는 0으로 둠</p></li>
+<li><p>결과가 sparse함 (한 번 수행할 때마다 [1/factor**2]의 값들이 채워져 있음)</p></li>
+<li><p>즉, unpooling을 사용하기 위해서는 convolution/deconvolution 대칭 구조여야 함</p></li>
+</ul>
+</li>
+<li><p>Deconvolution: 하나의 입력 픽셀이 근처 결과 패치까지 영향을 미치는 연산자</p>
+<ul>
+<li><p>Convolution의 경우, 하나의 입력 픽셀이 다른 결과 픽셀에 영향을 미치지 않음</p></li>
+<li><p>Deconvolution의 경우 operator 크기가 3일 때, 총 9개의 deconvolution 결과를 모두 합한 값이 결과값</p></li>
+<li><p>수학적으로 정확한 정의로는 deconvolution이 아니라, <strong>transposed convolution</strong>이라는 말이 더 정확함</p>
+<p><img alt="deconv3" src="../../_images/deconv3.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>이를 종합했을 때, Unpooling 연산자에서 0으로 채워진 부분은, deconvolution operator를 통해 정상적으로 복구함을 알 수 있음</p>
+<p><img alt="deconv4" src="../../_images/deconv4.png" /></p>
+</li>
+<li><p>Unpooling을 통해 resolution이 높아짐. Deconvolution을 통해 중요한 activations는 증폭되고 noisy activations는 억제되면서 배경과 object가 더 뚜렷하게 구분됨.</p></li>
+<li><p><strong>Instancewise segmentation</strong>: input image 전체가 아닌 일부분을 input으로 사용</p>
+<ul class="simple">
+<li><p>input: sub-image (instance) of the input image</p></li>
+<li><p>output: pixelwise class prediction</p></li>
+<li><p>장점:</p>
+<ul>
+<li><p>여러 scale을 segmentation함 → 크거나 작은 object를 identify 할수 있음</p></li>
+<li><p>instance의 크기 &gt; input image의 크기: training complexity↓ &amp; memory requirement↓</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="training">
+<h1>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>Batch Normalization</strong>: reducing internal-covariate-shift</p></li>
+<li><p><strong>Two-stage training</strong>:</p>
+<ul>
+<li><p>first stage: training with the centered easy examples</p></li>
+<li><p>second stage: training with the partially overlapped examples</p></li>
+<li><p>장점: misaligned proposals에 더 robust하게 학습됨.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="inference">
+<h1>Inference<a class="headerlink" href="#inference" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>input image를 잘라내 candidate proposals를 생성 → 각 proposal을 학습된 네트워크에 적용해 semantic segmentation map을 계산 → 모든 proposals의 output을 aggregate</p></li>
+<li><p><strong>Aggregation</strong>: 각 proposal의 semantic segmentation map을 합쳐서 하나의 output map을 생성</p>
+<ul>
+<li><p>각 semantic segmentation map을 input image 크기만큼 늘리고 빈값은 0으로 채움.</p></li>
+<li><p>확대된 모든 semantic segmentation maps을 대상으로</p>
+<ol class="simple">
+<li><p>pixelwise maximum 또는</p></li>
+<li><p>average of the score maps corresponding all classes를 계산</p></li>
+</ol>
+</li>
+<li><p>이후 softmax function과 fully-connected CRF를 거쳐 최종 pixelwise class prediction 생성</p></li>
+</ul>
+</li>
+<li><p><strong>Ensemble with FCN</strong>:  Deconvolution network와 FCN의 장점을 합침</p>
+<ul>
+<li><p>Deconvolution network의 장점: capturing fine-details에 탁월, 다양한 scale의 object를 다룰수있음</p></li>
+<li><p>FCN의 장점: object의 전체적인 형체를 잘 추출함</p></li>
+<li><p>두 알고리즘의 output을 각각 구함 → 두 output의 평균을 구함 → CRF를 적용해 final semantic segmentation 생성</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="experiments-and-conclusion">
+<h1>Experiments and Conclusion<a class="headerlink" href="#experiments-and-conclusion" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>candidate proposal 생성을 위해 edge-box 이용</p></li>
+<li><p>결과</p>
+<ul>
+<li><p>CRF를 적용하면 accuracy가 근소하게 향상됨.</p></li>
+<li><p>Deconvolution Network (DeconvNet)보다 ensemble Deconvolution Network (EDeconvNet)가 전반적으로 더 좋은 결과를 냄.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="deconv5" src="../../_images/deconv5.png" /></p>
+<ul class="simple">
+<li><p>Aggregation을 위한 proposal의 개수가 늘어나면 알고리즘이 더 세밀하게 segmentation함</p></li>
+</ul>
+<p><img alt="deconv6" src="../../_images/deconv6.png" /></p>
+<ul class="simple">
+<li><p>Deconvolution network, FCN, CRF, instancewise prediction의 장점을 이용해 더 정밀하고 자세한obejct segmentation mask를 생성.</p></li>
+</ul>
+<p><img alt="deconv7" src="../../_images/deconv7.png" /></p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/ch1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="01_02_02_segnet.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../ch2/02%20Instance%20Segmentation.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">01. Instance Segmentation</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By PseudoLab<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
