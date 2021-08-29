@@ -1,4 +1,6 @@
-# MultiResUNet : Rethinking the U-Net Architecture for Multimodal Biomedical Image Segmentation
+# MultiResUNet - arxiv 2019
+
+Title: MultiResUNet : Rethinking the U-Net Architecture for Multimodal Biomedical Image Segmentation
 
 Review By: Taeyup Song (가짜연구소 논문미식회 2기)
 

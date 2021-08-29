@@ -1,7 +1,2 @@
-# 01. Panoptic Segmentation
+# 03. Panoptic Segmentation
 
----
-
-## Panoptic Segmentation
-
----

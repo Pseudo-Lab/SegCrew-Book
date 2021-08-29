@@ -1,7 +1,2 @@
-# 01. Weakly-supervised Segmentation
+# 04. Weakly-supervised Segmentation
 
----
-
-## Weakly-supervised Segmentation
-
----

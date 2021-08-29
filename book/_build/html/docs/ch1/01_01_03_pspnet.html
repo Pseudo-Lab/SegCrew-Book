@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pyramid Scene Parsing Network &#8212; Segmentation Complete</title>
+    <title>PSPNet - CVPR 2017 &#8212; Segmentation Complete</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,7 +54,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="B. Convolutional encoder-decoder" href="01_02_encodedecode.html" />
-    <link rel="prev" title="Rethinking Atrous Convolution for Semantic Image Segmentation" href="01_01_02_DeepLabv3.html" />
+    <link rel="prev" title="DeepLab v3 - arXiv 2017" href="01_01_02_DeepLabv3.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -146,17 +146,17 @@
     <ul class="current">
      <li class="toctree-l3">
       <a class="reference internal" href="01_01_01_fcn.html">
-       Fully Convolutional Networks for Semantic Segmentation
+       FCN - CVPR 2015
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="01_01_02_DeepLabv3.html">
-       Rethinking Atrous Convolution for Semantic Image Segmentation
+       DeepLab v3 - arXiv 2017
       </a>
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       Pyramid Scene Parsing Network
+       PSPNet - CVPR 2017
       </a>
      </li>
     </ul>
@@ -173,22 +173,22 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="01_02_01_unet.html">
-       U-Net: Convolutional Networks for Biomedical Image Segmentation
+       U-Net - arxiv 2015
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="01_02_01_multiresunet.html">
-       MultiResUNet : Rethinking the U-Net Architecture for Multimodal Biomedical Image Segmentation
+       MultiResUNet - arxiv 2019
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="01_02_02_segnet.html">
-       SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation
+       SegNet - TPAMI 2017
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="01_02_03_DeconvNet.html">
-       Learning Deconvolution Network for Semantic Segmentation
+       DeconvNet - ICCV 2015
       </a>
      </li>
     </ul>
@@ -205,10 +205,22 @@
    01. Panoptic Segmentation
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../ch4/04%20Weakly-supervised%20Segmentation.html">
    01. Weakly-supervised Segmentation
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch4/04_02_Adversarial%20Erasing.html">
+     B. Adversarial Erasing
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch5/05%20Semi-supervised%20Segmentation.html">
@@ -304,7 +316,7 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Pyramid Scene Parsing Network
+   PSPNet - CVPR 2017
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -318,7 +330,7 @@
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#pyramid-scene-parsing-network">
    Pyramid Scene Parsing Network
   </a>
  </li>
@@ -343,8 +355,9 @@
         
               <div>
                 
-  <div class="section" id="pyramid-scene-parsing-network">
-<h1>Pyramid Scene Parsing Network<a class="headerlink" href="#pyramid-scene-parsing-network" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="pspnet-cvpr-2017">
+<h1>PSPNet - CVPR 2017<a class="headerlink" href="#pspnet-cvpr-2017" title="Permalink to this headline">¶</a></h1>
+<p>Title: Pyramid Scene Parsing Network</p>
 <p>Review By: Seongsu Park (가짜연구소 논문미식회 2기)</p>
 <p>Edited by: Taeyup Song</p>
 </div>
@@ -385,8 +398,8 @@
 </li>
 </ul>
 </div>
-<div class="section" id="id1">
-<h1>Pyramid Scene Parsing Network<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pyramid-scene-parsing-network">
+<h1>Pyramid Scene Parsing Network<a class="headerlink" href="#pyramid-scene-parsing-network" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>ResNet의 receptive field는 이론적으로는 이미 input image 크기보다 크지만 Zhou et al.에 의하면 실질적인 크기는 high-level layer에 대해서 매우 작음</p>
 <ul>
@@ -675,7 +688,7 @@ class PSPUpsample(nn.Module):
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Rethinking Atrous Convolution for Semantic Image Segmentation</p>
+                <p class="prevnext-title">DeepLab v3 - arXiv 2017</p>
             </div>
         </a>
     </div>

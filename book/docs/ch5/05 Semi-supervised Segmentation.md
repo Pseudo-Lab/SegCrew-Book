@@ -1,7 +1,2 @@
-# 06. Semi-supervised Segmentation
+# 05. Semi-supervised Segmentation
 
----
-
-## Semi-supervised Segmentation
-
----

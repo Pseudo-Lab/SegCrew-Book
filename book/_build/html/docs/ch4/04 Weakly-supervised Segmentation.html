@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>01. Weakly-supervised Segmentation &#8212; Segmentation Complete</title>
+    <title>04. Weakly-supervised Segmentation &#8212; Segmentation Complete</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="06. Semi-supervised Segmentation" href="../ch5/05%20Semi-supervised%20Segmentation.html" />
-    <link rel="prev" title="01. Panoptic Segmentation" href="../ch3/03%20Panoptic%20Segmentation.html" />
+    <link rel="next" title="A. Learning Pixel Affinity" href="04_01_LearningPixelAffinity.html" />
+    <link rel="prev" title="03. Panoptic Segmentation" href="../ch3/03%20Panoptic%20Segmentation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -146,12 +146,17 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch1/01_01_01_fcn.html">
-       Fully Convolutional Networks for Semantic Segmentation
+       FCN - CVPR 2015
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch1/01_01_02_DeepLabv3.html">
-       Fully Convolutional Networks for Semantic Segmentation
+       DeepLab v3 - arXiv 2017
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_03_pspnet.html">
+       PSPNet - CVPR 2017
       </a>
      </li>
     </ul>
@@ -168,22 +173,22 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch1/01_02_01_unet.html">
-       U-Net: Convolutional Networks for Biomedical Image Segmentation
+       U-Net - arxiv 2015
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch1/01_02_01_multiresunet.html">
-       MultiResUNet : Rethinking the U-Net Architecture for Multimodal Biomedical Image Segmentation
+       MultiResUNet - arxiv 2019
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch1/01_02_02_segnet.html">
-       SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation
+       SegNet - TPAMI 2017
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch1/01_02_03_DeconvNet.html">
-       Learning Deconvolution Network for Semantic Segmentation
+       DeconvNet - ICCV 2015
       </a>
      </li>
     </ul>
@@ -192,22 +197,46 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
-   01. Instance Segmentation
+   02. Instance Segmentation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch3/03%20Panoptic%20Segmentation.html">
-   01. Panoptic Segmentation
+   03. Panoptic Segmentation
   </a>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   01. Weakly-supervised Segmentation
+   04. Weakly-supervised Segmentation
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="04_01_LearningPixelAffinity.html">
+     A. Learning Pixel Affinity
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04_01_01_AffinityNet.html">
+       AffinityNet - CVPR 2018
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch5/05%20Semi-supervised%20Segmentation.html">
-   06. Semi-supervised Segmentation
+   05. Semi-supervised Segmentation
   </a>
  </li>
 </ul>
@@ -292,19 +321,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Weakly-supervised Segmentation
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -314,11 +330,8 @@
               <div>
                 
   <div class="section" id="weakly-supervised-segmentation">
-<h1>01. Weakly-supervised Segmentation<a class="headerlink" href="#weakly-supervised-segmentation" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
-<div class="section" id="id1">
-<h2>Weakly-supervised Segmentation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<hr class="docutils" />
+<h1>04. Weakly-supervised Segmentation<a class="headerlink" href="#weakly-supervised-segmentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -356,15 +369,15 @@
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">01. Panoptic Segmentation</p>
+                <p class="prevnext-title">03. Panoptic Segmentation</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../ch5/05%20Semi-supervised%20Segmentation.html" title="next page">
+        <a class="right-next" href="04_01_LearningPixelAffinity.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">06. Semi-supervised Segmentation</p>
+                <p class="prevnext-title">A. Learning Pixel Affinity</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
