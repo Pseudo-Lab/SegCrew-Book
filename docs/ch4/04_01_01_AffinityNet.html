@@ -1,0 +1,703 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AffinityNet - CVPR 2018 &#8212; Segmentation Complete</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="06. Semi-supervised Segmentation" href="../ch5/05%20Semi-supervised%20Segmentation.html" />
+    <link rel="prev" title="A. Learning Pixel Affinity" href="04_01_LearningPixelAffinity.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Segmentation Complete</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   [가짜연구소 3기] Segmentation 완전정복 Crew
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch0/00%20Survey.html">
+   Survey
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Semantic.html">
+     Reading List: Semantic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Instance.html">
+     Reading List: Instance Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Panoptic.html">
+     Reading List: Panoptic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-WeaklySemi.html">
+     Reading List: Weakly/Semi-supervised Learning based Segmentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_Semantic%20Segmentation.html">
+   01. Semantic Segmentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch1/01_01_fullyconvNet.html">
+     A. Fully Convolutional Network
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_01_fcn.html">
+       FCN - CVPR 2015
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_02_DeepLabv3.html">
+       DeepLab v3 - arXiv 2017
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_03_pspnet.html">
+       PSPNet - CVPR 2017
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch1/01_02_encodedecode.html">
+     B. Convolutional encoder-decoder
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_01_unet.html">
+       U-Net - arxiv 2015
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_01_multiresunet.html">
+       MultiResUNet - arxiv 2019
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_02_segnet.html">
+       SegNet - TPAMI 2017
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_03_DeconvNet.html">
+       DeconvNet - ICCV 2015
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
+   01. Instance Segmentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch3/03%20Panoptic%20Segmentation.html">
+   01. Panoptic Segmentation
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="04%20Weakly-supervised%20Segmentation.html">
+   01. Weakly-supervised Segmentation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="04_01_LearningPixelAffinity.html">
+     A. Learning Pixel Affinity
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       AffinityNet - CVPR 2018
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch5/05%20Semi-supervised%20Segmentation.html">
+   06. Semi-supervised Segmentation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/docs/ch4/04_01_01_AffinityNet.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template/issues/new?title=Issue%20on%20page%20%2Fdocs/ch4/04_01_01_AffinityNet.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-statement">
+   Problem Statement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution">
+   Contribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#key-idea">
+     1. Key Idea
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cam">
+     2. CAM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#affinitynet">
+     3. AffinityNet
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generating-pseudo-segmentation-labels">
+     4. Generating Pseudo Segmentation Labels
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-segmentation-network">
+     5. Train Segmentation network
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experimental-result">
+   Experimental Result
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     1. Implementation Details
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-of-synthesized-segmentation-labels">
+     2. Analysis of Synthesized Segmentation Labels
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="affinitynet-cvpr-2018">
+<h1>AffinityNet - CVPR 2018<a class="headerlink" href="#affinitynet-cvpr-2018" title="Permalink to this headline">¶</a></h1>
+<p>Title: Learning Pixel-level Semantic Affinity Image-level Labels for Weakly Supervised Semantic Segmentation</p>
+<p>Review By: Taeyup Song</p>
+<p>Edited by: Taeyup Song</p>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Paper: <a class="reference external" href="https://arxiv.org/abs/1803.10464">https://arxiv.org/abs/1803.10464</a>, <a class="reference external" href="https://openaccess.thecvf.com/content_cvpr_2018/papers/Ahn_Learning_Pixel-Level_Semantic_CVPR_2018_paper.pdf">CVPR18 open repo.</a></p></li>
+<li><p>Code: <a class="reference external" href="https://github.com/jiwoon-ahn/psa">https://github.com/jiwoon-ahn/psa</a></p></li>
+<li><p>review</p></li>
+<li><p><a class="reference external" href="http://www.navisphere.net/6101/learning-pixel-level-semantic-affinity-with-image-level-supervision-for-weakly-supervised-semantic-segmentation/">http://www.navisphere.net/6101/learning-pixel-level-semantic-affinity-with-image-level-supervision-for-weakly-supervised-semantic-segmentation/</a></p></li>
+</ul>
+</div>
+<div class="section" id="problem-statement">
+<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Semantic segmentation model을 학습하기 위해서는 dense class label이 필요하지만, data를 수집하고 labeling 하는 것은 비용이 많이 든다.</p></li>
+<li><p>Class Attention Map(CAM)을 활용하여 pseudo label 생성하고 이를 이용하여 semantic segmentation을 위한 network를 학습할 수 있지만, CAM이 sparse하고 blur한 정보이기 때문에 정확도가 떨어진다.</p></li>
+</ul>
+</div>
+<div class="section" id="contribution">
+<h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>입력영상/CAM에서 semantic affinities(의미론적 유사도)를 계산하는 AffinityNet과 이를 기반으로 CAM에서 random walk를 이용하여 dense semantic label을 propagation하는 방법 제안.</p></li>
+<li><p>Class label만 포함된 DB를 이용하여 생성한 pseudo label로 DeepLab model를 학습.
+VOC 12 test set 평가한 결과 weakly supervised learning 기반 방법 중 최초로 FCN보다 높은 mIoU를 달성함.</p></li>
+</ul>
+</div>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p><strong>(1) Class Attention/Activation Map (CAM)</strong></p>
+<p><img alt="aff1.png" src="../../_images/aff1.png" /></p>
+<p>learning deep features for discriminative localization, CVPR 2016</p>
+<ul class="simple">
+<li><p>CAM은 Network가 image를 특정 class로 prediction하게 하는 feature 내의 위치 정보를 표현함.</p></li>
+<li><p>마지막 conv. layer의 output feature map <span class="math notranslate nohighlight">\(f^{\text{CAM}}\)</span> 특정 class로 분류될 activation value를 구하기 위한 weight와 weighted sum을 수행하여 CAM을 도출함.</p></li>
+<li><p>Properties</p>
+<ul>
+<li><p>Classification을 위한 Network에서 특정 object에서 나타나는 특정한 pattern의 경우 score가 학습이 됨. 다양한 예제에서 공통적으로 나타나는 object들은 score가 낮게 학습이 됨.
+→ discriminate 한 part에 집중하여 학습이 됨.  (sparse하고 blurrly함. 외각영역에 집중되는 경향이 있음.)
+→ instance-agnostic 함 ⇒ Pseudo Label로 바로 사용하기에는 한계가 있음</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>(2) Pseudo Label을 만드는 이유</strong></p>
+<ul class="simple">
+<li><p>Pseudo label을 만드는 과정은 매우 복잡함 → 연산량이 많으므로, pseudo label을 이용하여 network를 학습하는게 test time에서 효율적임</p></li>
+<li><p>Network 학습을 과정에서 pseudo label의 noise에 강인한 모델을 만들 수 있음</p></li>
+<li><p>보통 pseudo label을 바로 적용하는 것 보다 성능이 더 좋음</p></li>
+</ul>
+</div>
+<div class="section" id="proposed-method">
+<h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="key-idea">
+<h3>1. Key Idea<a class="headerlink" href="#key-idea" title="Permalink to this headline">¶</a></h3>
+<p><img alt="aff2.png" src="../../_images/aff2.png" /></p>
+<p>Figure 1. Illustration of our approach.
+in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervision”, CVPR 2018</p>
+<ul class="simple">
+<li><p>Semantic affinity를 구하는 AffinityNet을 제안</p></li>
+<li><p>AffinityNet으로 구한 Semantic affinity(동치관계)을 이용하여 CAM을 propagation하여 정확한 pseudo label을 생성
+: Semantically identical한 area에는 propagation하고, 다른 class의 영역으로는 panalized 함.</p></li>
+<li><p>생성된 pseudo label을 이용하여 semantic segmentation network(DeepLab)을 학습시킴.</p></li>
+</ul>
+</div>
+<div class="section" id="cam">
+<h3>2. CAM<a class="headerlink" href="#cam" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>학습된 network가 주어졌을 때, groundtruth class <span class="math notranslate nohighlight">\(c\)</span>에 대한 CAM <span class="math notranslate nohighlight">\(M_c\)</span>은 다음과 같이 계산된다.
+computed by</p>
+<div class="math notranslate nohighlight">
+\[M_c(x,y)=\mathbf{w}^{\top}_cf^{\text{cam}}(x,y)\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(\mathbf{w}_c\)</span> 는 class <span class="math notranslate nohighlight">\(c\)</span> classification weights이며, <span class="math notranslate nohighlight">\(f^{\text{cam}}(x,y)\)</span>는 <span class="math notranslate nohighlight">\((x,y)\)</span>위치의 GAP 이전 feature vector이다. <span class="math notranslate nohighlight">\(M_c\)</span>는 최대 activation이 1이 되도록 normalized 된다.</p>
+<div class="math notranslate nohighlight">
+\[M_c(x,y) \rightarrow \frac{M_c(x,y)}{\max_{x,y}M_c(x,y)}\]</div>
+<p>어떤 class <span class="math notranslate nohighlight">\(c'\)</span>가 GT와 대응되지 않는 경우 무시하며, activation이 0이 되도록 만든다.</p>
+</li>
+<li><p>background activation map은 다음과 같이 계산된다.</p>
+<div class="math notranslate nohighlight">
+\[M_{\text{bg}}=\{1-\max_{c\in C}M_c(x,y)\}^{\alpha}\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(C\)</span>는 set of object classes이며 <span class="math notranslate nohighlight">\(\alpha\geq1\)</span> 은 background confidence score를 조절하는 hyper-parameter이다.</p>
+</li>
+<li><p>CAM을 구하기 위한 Network는 ResNet38에 L4~L6를 dilated conv.로 변경한 backbone에 3x3 conv. layer와 GAP, FC를 추가한 network를 사용한다.</p></li>
+</ul>
+<p><img alt="aff3.png" src="../../_images/aff3.png" /></p>
+<p>Figure 7. (b) Backbone network</p>
+<p><img alt="aff4.png" src="../../_images/aff4.png" /></p>
+<p>Figure 7. (c) Network for computing CAM</p>
+</div>
+<div class="section" id="affinitynet">
+<h3>3. AffinityNet<a class="headerlink" href="#affinitynet" title="Permalink to this headline">¶</a></h3>
+<p><strong>(1) Architecture</strong></p>
+<ul class="simple">
+<li><p>ResNet38 backbone의 마지막 3개 layer를 dilated conv. layer로 변경하여  <span class="math notranslate nohighlight">\(f^{\text{aff}}\)</span>를 구함</p></li>
+</ul>
+<p><img alt="aff5.png" src="../../_images/aff5.png" /></p>
+<p>Modified from Figure 7.
+in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervision”, CVPR 2018</p>
+<ul>
+<li><p>feature <span class="math notranslate nohighlight">\(i\)</span>와 <span class="math notranslate nohighlight">\(j\)</span>에서의 semantic affinity <span class="math notranslate nohighlight">\(W_{ij}\)</span>는 두 위치의 affinity map <span class="math notranslate nohighlight">\(f^{\text{aff}}\)</span>의 pairwise <span class="math notranslate nohighlight">\(L_1\)</span>distance에 exponentiation 함수를 적용한 값을 사용</p>
+<div class="math notranslate nohighlight">
+\[W_{ij}=\exp\{-||f^{\text{aff}}-f^{\text{aff}}(x_i,y_i)||_1\}\]</div>
+<p>두 feature가 같은 class label을 가지면 <span class="math notranslate nohighlight">\(W_{ij}\)</span>가 1이 되고, 아니면 0이 되도록 AffinityNet을 학습시킴.</p>
+</li>
+</ul>
+<p><strong>(2) Learning AffinityNet</strong></p>
+<ul>
+<li><p>모든 pixel에 대해 pairing을 하면 computational cost가 너무 높기 때문에 전처리를 수행 후 뽑힌 pair에 대해 affinity label을 생성한다.</p>
+<ul>
+<li><p>입력 영상에 대해 CAM을 추출</p></li>
+<li><p>FG/BG를 각각 구분할 수 있도록 thresholding하고 dense CRF 후처리를 수행</p></li>
+<li><p>여기서 threshold는 아주 보수적으로 설정함.</p></li>
+<li><p>각 feature 위치에서 인접한 feature와의 pair를 구성하고, supervision으로 주어진 affinity label을 이용하여 학습</p></li>
+<li><p>선정한 pair가 서로 같은 class를 가지는 positive affinity label과 서로 다른 class를 가지는 negative affinity label을 추출</p></li>
+<li><p>FG/BG threshold의 중간 값을 가지는 feature(Figure 4에서 흰색 영역)는 affinity label 생성 시 사용하지 않음 (Don’t care)</p>
+<p><img alt="aff6.png" src="../../_images/aff6.png" /></p>
+<p>Figure 4. Conceptual illustration of generating semantic affinity labels.
+in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervision”, CVPR 2018</p>
+</li>
+</ul>
+</li>
+<li><p>Set of coordinate pairs <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>는 다음과 같이 정의 가능하다.</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{P}=\{(i,j)|\text{d}\left((x_i,y_i),(x_j,y_j)\right)&lt;\gamma, \forall i\neq j\}\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(d\)</span>는 Euclidean distance이고, <span class="math notranslate nohighlight">\(\gamma\)</span>는 pair가 가질 수 있는 최대 거리이다(거리검색 반경)</p>
+<ul class="simple">
+<li><p>보통 object boundary에 negative pair가 편중되어 있고, 영상에서 객체보다 배경이 더 많기 때문에 class imbalance 문제가 발생함.</p></li>
+<li><p>이를 해결하기 위해 우선 positive/negative subset으로 분리함.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathcal{P}^+=\{(i,j)|(i,j)\in\mathcal{P}, W_{i,j}^{*}=1\}, \\\mathcal{P}^-=\{(i,j)|(i,j)\in\mathcal{P}, W_{i,j}^{*}=0\},\end{split}\]</div>
+<ul class="simple">
+<li><p>positive subset <span class="math notranslate nohighlight">\(\mathcal{P}^+\)</span>를 객체/배경의 subset <span class="math notranslate nohighlight">\(\mathcal{P}^+_{\text{fg}}\)</span>, <span class="math notranslate nohighlight">\(\mathcal{P}^+_{\text{bg}}\)</span> 로 한번 더 분리한다</p></li>
+</ul>
+</li>
+<li><p>AffinityNet의 Loss function은 다음과 같이 정의된다.</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}=\mathcal{L}^+_{\text{fg}}+\mathcal{L}^+_{\text{bg}}+2\mathcal{L}^-\]</div>
+<p>각 subset의 loss는 cross-entropy loss로 다음과 같이 정의된다.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned} \mathcal{L^+_{\text{fg}}}&amp;=-\frac{1}{|\mathcal{P}^+_{\text{fg}}|} \sum_{(i,j)\in \mathcal{p}^+_{\text{fg}}}\log W_{ij} \\ \mathcal{L^+_{\text{bg}}}&amp;=-\frac{1}{|\mathcal{P}^+_{\text{bg}}|} \sum_{(i,j)\in \mathcal{p}^+_{\text{bg}}}\log W_{ij} \\ \mathcal{L^-}&amp;=-\frac{1}{|\mathcal{P}^-|} \sum_{(i,j)\in \mathcal{p}^-}\log (1-W_{ij}) \end{aligned}\end{split}\]</div>
+<p>Loss <span class="math notranslate nohighlight">\(\mathcal{L}\)</span>은 class-agnostic하다. 즉 학습된 AffinityNet은 class를 명시적으로 인식하지 못한 채 인접한 두 좌표가 클래스가 동일한지 여부(class consistency)만 판단한다. 따라서 general representation을 학습할 수 있게 된다.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="generating-pseudo-segmentation-labels">
+<h3>4. Generating Pseudo Segmentation Labels<a class="headerlink" href="#generating-pseudo-segmentation-labels" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Training image들의 CAM을 이용하여 학습된 AffinityNet이 주어지면, 이를 이용하여 local semantic affinities를 예측하고 transition probability matrix로 변환한다.</p></li>
+</ul>
+<p><img alt="aff7.png" src="../../_images/aff7.png" /></p>
+<div class="math notranslate nohighlight">
+\[T=D^{-1}W^{\alpha\beta},\,\text{where}\,D_{ij}=\sum_{j}W_{ij}^\beta \]</div>
+<ul class="simple">
+<li><p>Random walk에서 transition probability는 입력(CAM)에 대해 transition matrix <span class="math notranslate nohighlight">\(T\)</span>를 곱하는 형태로 구할 수 있다.
+→ sementic affinity matrix는 각 coordinate pair로 구성되어 있으므로, CAM을 vectorize해서 multiply해야 dimension이 맞음.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\text{vec}(M_c^{*})=T^t\cdot \text{vec}(M_c)\,\forall c \in \cup\{\text{bg}\}\]</div>
+<ul class="simple">
+<li><p>이 과정을 <span class="math notranslate nohighlight">\(t\)</span>번 반복하여 semantic을 propagation한다.</p></li>
+</ul>
+</div>
+<div class="section" id="train-segmentation-network">
+<h3>5. Train Segmentation network<a class="headerlink" href="#train-segmentation-network" title="Permalink to this headline">¶</a></h3>
+<p><img alt="aff8.png" src="../../_images/aff8.png" /></p>
+<p>Figure 7. (d) Semantic segmentation network
+in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervision”, CVPR 2018</p>
+<ul class="simple">
+<li><p>위 과정을 거처 생성한 semantic label은 입력 영상보다 작으므로, bilinear interpolation 및 dense CRF 후처리를 적용한 후 supervised learning 기반의 semantic segmentation network를 학습하는데 사용한다.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="experimental-result">
+<h2>Experimental Result<a class="headerlink" href="#experimental-result" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="implementation-details">
+<h3>1. Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h3>
+<p>(1) Dataset: PASCAL VOC 2012 Benchmark</p>
+<ul class="simple">
+<li><p>대부분의 weakly-supervised learning 기법에서 사용함</p></li>
+<li><p>Super vision이 적고, Attention을 중점적으로 사용하기 때문에 COCO 같은 대용량 DB에서는 아직 성능이 낮게 나옴.</p></li>
+</ul>
+<p>(2) Optimization</p>
+<ul class="simple">
+<li><p>ImageNet pre-trained backbone</p></li>
+<li><p>Adam optimizer를 이용하여 PASCAL VOC 2012로 finetune</p></li>
+</ul>
+<p>(3) Data augmentation</p>
+<ul class="simple">
+<li><p>모든 training image에 대해 horizontal flip, random cropping, color jittering 수행</p></li>
+<li><p>AffinityNet이 scale invariant 하도록 학습하기 위해 input image를 random하게 scale조절</p></li>
+</ul>
+<p>(4) Hyper parameter</p>
+<ul class="simple">
+<li><p>Background attention map의 parameter <span class="math notranslate nohighlight">\(\alpha\)</span> 는 16을 기본값으로 4~24사이에서 가변</p></li>
+<li><p>affinity search radius <span class="math notranslate nohighlight">\(\gamma=5\)</span></p></li>
+<li><p>Hadamard power of the original affinity matrix <span class="math notranslate nohighlight">\(\beta=8\)</span></p></li>
+<li><p>Number of iteration in random walk process <span class="math notranslate nohighlight">\(t=256\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="analysis-of-synthesized-segmentation-labels">
+<h3>2. Analysis of Synthesized Segmentation Labels<a class="headerlink" href="#analysis-of-synthesized-segmentation-labels" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>PASCAL VOC training set과 생성한 pseudo label을 mIoU로 비교한 결과 기존 방법대비 개선됨을 확인함.</p></li>
+</ul>
+<p><img alt="aff9.png" src="../../_images/aff9.png" /></p>
+<ul class="simple">
+<li><p>supervised learning으로 학슴한 FCN보다 높은 성능 나타냄
+(fully supervision을 이용한 network보다 성능이 좋은 최초의 사례임.)</p></li>
+</ul>
+<p><img alt="aff10.png" src="../../_images/aff10.png" /></p>
+<ul class="simple">
+<li><p>Semantic Affinity를 보면 AffinityNet이 의도한대로 object에 경계부분에 affinity score가 낮게 나옴을 알 수 있음.</p></li>
+</ul>
+<p><img alt="aff11.png" src="../../_images/aff11.png" /></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/ch4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="04_01_LearningPixelAffinity.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">A. Learning Pixel Affinity</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../ch5/05%20Semi-supervised%20Segmentation.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">06. Semi-supervised Segmentation</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By PseudoLab<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

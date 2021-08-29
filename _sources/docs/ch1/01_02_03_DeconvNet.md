@@ -1,4 +1,6 @@
-# Learning Deconvolution Network for Semantic Segmentation
+# DeconvNet - ICCV 2015
+
+Title: Learning Deconvolution Network for Semantic Segmentation
 
 Review By: Yejin Kim, Seongsu Park (가짜연구소 논문미식회 2기)
 

@@ -1,7 +1,2 @@
-# 01. Instance Segmentation
+# 02. Instance Segmentation
 
----
-
-## Instance Segmentation
-
----
