@@ -21,6 +21,12 @@ chapters:
     - file: docs/ch1/01_02_02_segnet
     - file: docs/ch1/01_02_03_DeconvNet
 - file: docs/ch2/02 Instance Segmentation
+  sections:
+  - file: docs/ch2/02_01_one_stage
+    sections:
+    - file: docs/ch2/02_01_01_YOLACT
+  sections:
+  - file: docs/ch2/02_02_two_stage
 - file: docs/ch3/03 Panoptic Segmentation
 - file: docs/ch4/04 Weakly-supervised Segmentation
   sections:

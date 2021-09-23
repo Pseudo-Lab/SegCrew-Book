@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>02. Instance Segmentation &#8212; Segmentation Complete</title>
+    <title>YOLACT - Most Innovative Award, COCO Object Detection Challenge, ICCV 19 &#8212; Segmentation Complete</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -42,6 +42,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -53,8 +55,6 @@
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="B. Two-stage based Method" href="02_02_two_stage.html" />
-    <link rel="prev" title="DeconvNet - ICCV 2015" href="../ch1/01_02_03_DeconvNet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -91,7 +91,7 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../ch0/00%20Survey.html">
    Survey
@@ -195,11 +195,11 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="02%20Instance%20Segmentation.html">
    02. Instance Segmentation
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
@@ -292,7 +292,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/ch2/02 Instance Segmentation.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/ch2/02_01_01_YOLACT.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -312,7 +312,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/pseudo-lab/Jupyter-Book-Template/issues/new?title=Issue%20on%20page%20%2Fdocs/ch2/02 Instance Segmentation.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template/issues/new?title=Issue%20on%20page%20%2Fdocs/ch2/02_01_01_YOLACT.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -333,6 +333,49 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-statement">
+   Problem Statement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution">
+   Contribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experiments">
+   Experiments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   Discussion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -341,9 +384,164 @@
         
               <div>
                 
-  <div class="section" id="instance-segmentation">
-<h1>02. Instance Segmentation<a class="headerlink" href="#instance-segmentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <div class="section" id="yolact-most-innovative-award-coco-object-detection-challenge-iccv-19">
+<h1>YOLACT - Most Innovative Award, COCO Object Detection Challenge, ICCV 19<a class="headerlink" href="#yolact-most-innovative-award-coco-object-detection-challenge-iccv-19" title="Permalink to this headline">¶</a></h1>
+<p>Title: YOLACT: Real-time Instance Segmentation</p>
+<p>Review By: Geonsoo Kim</p>
+<p>Edited by:</p>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Paper: <a class="reference external" href="https://arxiv.org/abs/1904.02689">https://arxiv.org/abs/1904.02689</a></p></li>
+<li><p>Code: <a class="reference external" href="https://github.com/dbolya/yolact">https://github.com/dbolya/yolact</a></p></li>
+<li><p>Blog: <a class="reference external" href="https://ganghee-lee.tistory.com/42?category=863370">https://ganghee-lee.tistory.com/42?category=863370</a></p></li>
+</ul>
+</div>
+<div class="section" id="problem-statement">
+<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>State-of-the-art instance segmentation 네트워크들은 accuracy performance 를 집중해서 연구되었고, 이를 위해 localization 과
+segmentation 순차적으로 진행되었습니다. 예를들면 Mask R-CNN 은 region proposal 을 통해 class 가 있는 곳을 예측하고나서 mask segmentation 를
+진행하는 구조를 가집니다.</p></li>
+<li><p>이런 구조는 accuracy 측면에서 장점을 가지지만, 크게 두개의 단계를 거쳐야하는 과정 때문에 final output (segmenation mask) 를 얻기까지 상대적으로
+오랜 시간이 걸립니다. COCO Dataset 으로 SOTA 모델 (accuracy 기준) 이였던 Mask R-CNN, MS R-CNN, FCIS, RetinaMask, and PA-Net 은 모두
+10 FPS 보다 느린 speed performance 를 보여줍니다.</p></li>
+<li><p>보통 25~30 FPS 이 넘으면 real-time 이라고 할수있는데 기존의 모델들은 그 기준에 한참 미치지 못합니다.</p></li>
+</ul>
+<p><img alt="figure1.png" src="../../_images/figure1.png" /></p>
+</div>
+<div class="section" id="contribution">
+<h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>YOLACT is the first real-time (above 30 FPS) approach with around 30 mask mAP on COCO test-dev</p></li>
+<li><p>A novel Fast NMS approach (12 ms faster than traditional NMS)</p></li>
+</ul>
+</div>
+<div class="section" id="proposed-method">
+<h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
+<p><strong>(1) Overview</strong></p>
+<p><img alt="figure2.png" src="../../_images/figure2.png" /></p>
+<p><strong>(2) Prototype Generation</strong></p>
+<ul class="simple">
+<li><p>Prototype generation branch (protonet) predicts a set of k prototype masks for the entire image (no explicit localization step)</p></li>
+<li><p>Learns how to localize the feature map</p></li>
+<li><p>Takes deeper backbone feature as input and produces more robust mask and higher resolution prototypes</p></li>
+<li><p>Learns a distributed representation whose instance is segmented with a combination of prototypes that are shared
+across categories</p></li>
+</ul>
+<p><img alt="figure3.png" src="../../_images/figure3.png" /></p>
+<p><strong>(3) Mask Coefficient &amp; Assembly</strong></p>
+<ul class="simple">
+<li><p>Typical branches</p>
+<ul>
+<li><p>class branch - to predict class confidences</p></li>
+<li><p>bounding box branch - to predict 4 bounding box regressors</p></li>
+</ul>
+</li>
+<li><p>Mask coefficient branch</p>
+<ul>
+<li><p>third branch to predict k mask coefficients</p></li>
+<li><p>Localize (activate) only one instance among k prototype masks</p></li>
+</ul>
+</li>
+<li><p>Mask assembly</p>
+<ul>
+<li><p>Combine the prototype masks and mask coefficient by using a matrix multiplication</p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[M=\sigma(PC^{T})\]</div>
+<ul class="simple">
+<li><p>Apply a sigmoid non-linearity to produce final mask</p></li>
+<li><p>To train the model, three loss functions are used - classification loss, L_cls, box regression loss, L_box,
+and mask loss, L_mask (=BCE(M, M_gt)) with weights 1, 1.5, 6.125</p></li>
+</ul>
+<p><strong>(4) Fast NMS</strong></p>
+<ul class="simple">
+<li><p>Non-Maximum suppression (NMS) to suppress duplicated detections</p></li>
+<li><p>Typical NMS</p>
+<ul>
+<li><p>Sort the detected boxes by confidence</p></li>
+<li><p>Remove the anchor boxes sequentially</p></li>
+</ul>
+</li>
+<li><p>Fast NMS</p>
+<ul>
+<li><p>Remove the anchor boxes in parallel</p></li>
+</ul>
+</li>
+<li><p>Reference: <a class="reference external" href="https://ganghee-lee.tistory.com/46">https://https://ganghee-lee.tistory.com/46</a></p></li>
+</ul>
+</div>
+<div class="section" id="experiments">
+<h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this headline">¶</a></h2>
+<p><strong>(1) Datasets</strong></p>
+<ul class="simple">
+<li><p>MS COCO and Pascal 2012 SBD</p></li>
+</ul>
+<p><strong>(2) Parameter setting</strong></p>
+<ul class="simple">
+<li><p>Batch size 8 on a single GPU</p></li>
+<li><p>ImageNet pre-trained weight</p></li>
+<li><p>SGD optimizer for 800k iterations</p></li>
+<li><p>Initial learning rate of 10^-3, weight decay of 5*10^-4, and momentum of 0.9</p></li>
+</ul>
+<p><strong>(3) Results</strong></p>
+<ul class="simple">
+<li><p>Comparison of speed and accuracy performance with other models</p></li>
+<li><p>YOLACT-500 offers 3.9x faster speed than previous fastest approach</p></li>
+<li><p>Also, offers competitive mask mAP</p></li>
+<li><p>Speed vs accuracy trade-off in YOLACT models</p></li>
+</ul>
+<p><img alt="table1.png" src="../../_images/table1.png" />
+<img alt="table3.png" src="../../_images/table3.png" />
+<img alt="table2.png" src="../../_images/table2.png" /></p>
+</div>
+<div class="section" id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Despite being much faster, YOLACT fall behind SOTA instance segmentation methods in overall performance</p></li>
+<li><p>Errors caused by mistakes in the detector</p>
+<ul>
+<li><p>misclassification and box misalignment</p></li>
+</ul>
+</li>
+<li><p>Errors caused by mask generation algorithm</p>
+<ul>
+<li><p>Localization failure</p>
+<ul>
+<li><p>If there are too many objects in one spot in a scene, the network can fail to localize each object in its own prototype</p></li>
+</ul>
+</li>
+<li><p>Leakage</p>
+<ul>
+<li><p>The model works fine when the bounding box is accurate, but when it is not, the noise outside of the cropped region
+can creep into the instance mask</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="figure6r1c1.png" src="../../_images/figure6r1c1.png" />
+<img alt="figure6r2c4.png" src="../../_images/figure6r2c4.png" /></p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Goal: faster (real-time) instance segmentation with competitive accuracy performance</p></li>
+<li><p>Contributions</p>
+<ul>
+<li><p>parallel subtasks</p>
+<ul>
+<li><p>Prototype mask branch - generates prototype masks</p></li>
+<li><p>Mask coefficient branch - predicts mask coefficients for each instances</p></li>
+</ul>
+</li>
+<li><p>Fast NMS</p></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 
@@ -376,24 +574,6 @@
 
 <div class='prev-next-bottom'>
     
-    <div id="prev">
-        <a class="left-prev" href="../ch1/01_02_03_DeconvNet.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">DeconvNet - ICCV 2015</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="02_02_two_stage.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">B. Two-stage based Method</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
