@@ -14,6 +14,7 @@ chapters:
     - file: docs/ch1/01_01_01_fcn
     - file: docs/ch1/01_01_02_DeepLabv3
     - file: docs/ch1/01_01_03_pspnet
+    - file: docs/ch1/01_01_04_encnet
   - file: docs/ch1/01_02_encodedecode
     sections:
     - file: docs/ch1/01_02_01_unet
@@ -25,8 +26,6 @@ chapters:
   - file: docs/ch2/02_01_one_stage
     sections:
     - file: docs/ch2/02_01_01_YOLACT
-  sections:
-  - file: docs/ch2/02_02_two_stage
 - file: docs/ch3/03 Panoptic Segmentation
 - file: docs/ch4/04 Weakly-supervised Segmentation
   sections:
