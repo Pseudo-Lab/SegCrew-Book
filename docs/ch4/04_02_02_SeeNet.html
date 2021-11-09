@@ -1,0 +1,875 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Draft] SeeNet - NeurIPS 2018 &#8212; Segmentation Complete</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="05. Semi-supervised Segmentation" href="../ch5/05%20Semi-supervised%20Segmentation.html" />
+    <link rel="prev" title="B. Adversarial Erasing" href="04_02_AdversarialErasing.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Segmentation Complete</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   [가짜연구소 3기] Segmentation 완전정복 Crew
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch0/00%20Survey.html">
+   Survey
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Semantic.html">
+     Reading List: Semantic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Instance.html">
+     Reading List: Instance Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Panoptic.html">
+     Reading List: Panoptic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-WeaklySemi.html">
+     Reading List: Weakly/Semi-supervised Learning based Segmentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_Semantic%20Segmentation.html">
+   01. Semantic Segmentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch1/01_01_fullyconvNet.html">
+     A. Fully Convolutional Network
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_01_fcn.html">
+       FCN - CVPR 2015
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_02_DeepLabv3.html">
+       DeepLab v3 - arXiv 2017
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_03_pspnet.html">
+       PSPNet - CVPR 2017
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_04_encnet.html">
+       EncNet - CVPR 2018
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch1/01_02_encodedecode.html">
+     B. Convolutional encoder-decoder
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_01_unet.html">
+       U-Net - arxiv 2015
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_01_multiresunet.html">
+       MultiResUNet - arxiv 2019
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_02_segnet.html">
+       SegNet - TPAMI 2017
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_03_DeconvNet.html">
+       DeconvNet - ICCV 2015
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
+   02. Instance Segmentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch2/02_01_one_stage.html">
+     A. One-stage based Method
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch2/02_01_01_YOLACT.html">
+       YOLACT - ICCV 19
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch3/03%20Panoptic%20Segmentation.html">
+   03. Panoptic Segmentation
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="04%20Weakly-supervised%20Segmentation.html">
+   04. Weakly-supervised Segmentation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="04_01_LearningPixelAffinity.html">
+     A. Learning Pixel Affinity
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04_01_01_AffinityNet.html">
+       AffinityNet - CVPR 2018
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04_01_02_IAL.html">
+       IAL - IJCV 2020
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="04_02_AdversarialErasing.html">
+     B. Adversarial Erasing
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       [Draft] SeeNet - NeurIPS 2018
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch5/05%20Semi-supervised%20Segmentation.html">
+   05. Semi-supervised Segmentation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/docs/ch4/04_02_02_SeeNet.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template/issues/new?title=Issue%20on%20page%20%2Fdocs/ch4/04_02_02_SeeNet.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-statement">
+   <strong>
+    Problem Statement
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution">
+   <strong>
+    Contribution
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   <strong>
+    BackGround
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   <strong>
+    Proposed Method
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#observations">
+     <strong>
+      1. Observations
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#self-erasing">
+     <strong>
+      2. Self-Erasing
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#self-erasing-network">
+     <strong>
+      3. Self-Erasing Network
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experimental-results">
+   <strong>
+    Experimental Results
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     <strong>
+      1. Implementation Details
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-role-of-self-erasing">
+     <strong>
+      2. The Role of Self-Erasing
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparison-with-the-state-of-the-arts">
+     <strong>
+      3. Comparison with the State-of-the-Arts
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discussion">
+     <strong>
+      4. Discussion
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   <strong>
+    Conclusion
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limits">
+   <strong>
+    Limits
+   </strong>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="draft-seenet-neurips-2018">
+<h1>[Draft] SeeNet - NeurIPS 2018<a class="headerlink" href="#draft-seenet-neurips-2018" title="Permalink to this headline">¶</a></h1>
+<p>Title: Self-Erasing Network for Integral Object Attention</p>
+<p>Review By: 김현우</p>
+<p>Edited by:</p>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Paper : <a class="reference external" href="https://arxiv.org/pdf/1810.09821">https://arxiv.org/pdf/1810.09821</a></p></li>
+<li><p>Reviews : <a class="reference external" href="https://proceedings.neurips.cc/paper/2018/file/c042f4db68f23406c6cecf84a7ebb0fe-Reviews.html">https://proceedings.neurips.cc/paper/2018/file/c042f4db68f23406c6cecf84a7ebb0fe-Reviews.html</a></p></li>
+</ul>
+</div>
+<div class="section" id="problem-statement">
+<h2><strong>Problem Statement</strong><a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Semantic segmentation model을 학습하기 위해서는 dense class label이 필요하지만, data를 수집하고 labeling 하는 것은 비용이 많이 든다.</p></li>
+<li><p>Adversarial Erasing 기법을 계속 적용할 경우 배경에도 Attention 영역이 넓혀지는 문제가 존재한다.</p></li>
+</ul>
+</div>
+<div class="section" id="contribution">
+<h2><strong>Contribution</strong><a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Self-Erasing이라는 전략을 통해서 위에서 발생하는 문제점을 해결</p>
+<ul>
+<li><p>배경의 영역이 보통 유사한 모습을 보이는 것에 착안해서, 배경의 사전확률 (prior)을 통해서 배경영역으로 Attention이 퍼지는 것을 방지</p></li>
+<li><p>Adversarial Erasing을 몇번 적용할지에 대해서 모델 스스로가 Adaptively 하게 학습함</p></li>
+</ul>
+</li>
+<li><p>Pascal VOC에서 SOTA 성능을 달성</p></li>
+</ul>
+</div>
+<div class="section" id="background">
+<h2><strong>BackGround</strong><a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p><strong>(1) Earlier Work</strong></p>
+<p><img alt="seenet1.png" src="../../_images/seenet1.png" /></p>
+<ul class="simple">
+<li><p>GAP와 Weight를 곱해서 CAM 결과를 생성</p></li>
+</ul>
+<p><strong>(2) Adversarial Erasing Strategy</strong></p>
+<p><img alt="seenet2.png" src="../../_images/seenet2.png" /></p>
+<ul class="simple">
+<li><p>입력 이미지에서 CAM을 지속적으로 제거해서 Object 영역을 추출</p></li>
+<li><p>단, 언제까지 영역을 지워야할지에 대한 한계가 존재</p></li>
+</ul>
+<p><img alt="seenet3.png" src="../../_images/seenet3.png" /></p>
+<ul class="simple">
+<li><p>Object Region Mining과 비슷한 전략이지만, Classifier Branch를 두개 두어서 A에서 얻은 특징맵을 B에 들어가기전에 제거해서 사용</p></li>
+<li><p>하지만, 배경영역까지 Attention 결과가 넓혀지는 문제가 존재</p></li>
+</ul>
+<p><img alt="seenet4.png" src="../../_images/seenet4.png" /></p>
+<p>출처 : Tell Me Where to Look: Guided Attention Inference Network</p>
+<p><strong>(3) Weakly Supervised Semantic Segmentation</strong></p>
+<p><img alt="seenet5.png" src="../../_images/seenet5.png" /></p>
+<ul class="simple">
+<li><p>4개의 레이블로 Weakly Supervised Semantic Segmentation을 수행하지만, 대체적으로 image-level labels가 가장 많이 사용됨</p></li>
+</ul>
+</div>
+<div class="section" id="proposed-method">
+<h2><strong>Proposed Method</strong><a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
+<p><img alt="seenet6.png" src="../../_images/seenet6.png" /></p>
+<div class="section" id="observations">
+<h3><strong>1. Observations</strong><a class="headerlink" href="#observations" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>AE Step이 진행됨에 따라서 Object 영역 이외까지 Attention이 확장되는 문제발생</p></li>
+<li><p>일반적으로, 사람도 가장 중요한 부분을 먼저 보고 그 외로 관심있는 부분을 보는 것은 (b-e) 동일하지만 차이는 사람은 배경을 제대로 구분해서 그 부분을 보지 않는다는 점</p></li>
+<li><p>하지만, Attention network는 이미지 레이블만으로 배경을 구분하는 능력이 없음</p></li>
+<li><p>그렇기에, 배경에 대한 Prior을 Attention network에 전달해주는 것이 필요하고 이러한 방법을 제안</p></li>
+</ul>
+</div>
+<div class="section" id="self-erasing">
+<h3><strong>2. Self-Erasing</strong><a class="headerlink" href="#self-erasing" title="Permalink to this headline">¶</a></h3>
+<p><img alt="seenet7.png" src="../../_images/seenet7.png" /></p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(S_A\)</span>에서 초기 Attention을 생성. 단, 이때 생성된 Attention을 Fig2의 c에 나온 그럼처럼 2개의 Threshold를 통해서 3가지의 영역으로 나눔</p>
+<ul class="simple">
+<li><p>attention zone : 노란색 영역으로 객체를 인식할 때 중요한 부분 (attention 값이 큰 부분)</p></li>
+<li><p>background zone : 배경에 대한 prior (attention 값이 작은 부분)</p></li>
+<li><p>potential zone : 높은 확률로 semantic objects가 포함된 영역 (attention 값이 중간인 영역?)</p></li>
+</ul>
+<p><img alt="seenet8.png" src="../../_images/seenet8.png" /></p>
+</li>
+<li><p>단, Observation에서 언급한 것처럼 attention 영역을 background 영역으로 넓혀지지 않게 해야하는데, 이를 위해서는 다음의 두가지 문제를 해결해야함</p>
+<ul class="simple">
+<li><p>이미지 레이블만을 가지고 배경에 대한 부분을 어떻게 정의하고 얻을지?</p>
+<ul>
+<li><p>Fig3에서 소개한 것처럼 Attention으로 얻은 초기 영역을 2개의 threshold를 통해서 나눠서 얻음. <span class="math notranslate nohighlight">\(\delta_h\)</span>보다 큰 영역은 <span class="math notranslate nohighlight">\(M_A\)</span>로 <span class="math notranslate nohighlight">\(\delta_l\)</span>보다 작은 영역은 배경으로 구분.
+이를 통해서 Ternary Mask T를 <span class="math notranslate nohighlight">\(**\delta_h\)</span>보다 크면 <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(\delta_l\)</span> 보다 작으면 <span class="math notranslate nohighlight">\(-1\)</span>, 그렇지 않으면 <span class="math notranslate nohighlight">\(1\)</span>**으로 해서 생성할 수 있음</p></li>
+</ul>
+</li>
+<li><p>self-erasing을 어떻게 attention network 내부로 넣을지?</p>
+<ul>
+<li><p>3장에서 Conditionally Reversed Linear Units (<strong>C-ReLUs</strong>)를 통해서 해결</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="self-erasing-network">
+<h3><strong>3. Self-Erasing Network</strong><a class="headerlink" href="#self-erasing-network" title="Permalink to this headline">¶</a></h3>
+<p><img alt="seenet7.png" src="../../_images/seenet7.png" /></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(S_A\)</span>부터 <span class="math notranslate nohighlight">\(S_C\)</span>로 구성된 3가지의 브랜치로 구성된 형태</p></li>
+<li><p><span class="math notranslate nohighlight">\(S_A\)</span>는 초기의 Attention을 추출하는 역할을, <span class="math notranslate nohighlight">\(S_B\)</span>, <span class="math notranslate nohighlight">\(S_C\)</span>는 Self-Erasing을 수행</p></li>
+</ul>
+<p><strong>Conditionally Reversed Linear Units (C-ReLUs)</strong></p>
+<p><img alt="seenet9.png" src="../../_images/seenet9.png" /></p>
+<ul class="simple">
+<li><p>목적 : 배경에 속한 Attention 영역에 집중된 특징? 관심을 Potential Zone으로 바꿔주는 역할을 수행</p></li>
+<li><p><span class="math notranslate nohighlight">\(T_A(x)\)</span> 가 Binary Mask로 <span class="math notranslate nohighlight">\(\{-1,1\}\)</span>을 가져서 non-negative만 가지던 값에서 negative도 가지도록 변경</p>
+<ul>
+<li><p>배경영역의 Feature map은 <span class="math notranslate nohighlight">\(-x\)</span>를 가지고 그렇지 않은 영역은 <span class="math notranslate nohighlight">\(x\)</span>를 가짐</p>
+<ul>
+<li><p>C-ReLU 이후 양수인 영역에 대해서 좀 더 집중하게 됨</p></li>
+<li><p>Potential한 영역과 Background 영역이 대비되어서 모델이 이를 더 잘 인식하게 됨</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Self-erasing strategy I</strong></p>
+<ul class="simple">
+<li><p><strong>목적 : Attention 영역을 입력 이미지에서 제거하고 배경 영역은 음수로 두어서 potential 영역을 강조 (</strong><span class="math notranslate nohighlight">\(S_B\)</span>)</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(T_A(x)\)</span>가 1인 영역인 가장 Discriminative한 영역은 입력 Feature map에서 제거 (Erasing)</p></li>
+<li><p><span class="math notranslate nohighlight">\(T_A(x)\)</span>와 Feature map에 <span class="math notranslate nohighlight">\(\max(x,0)\)</span> 취한 값을 곱하게되면, 배경에 있는 영역은 -1로 그렇지 않은 영역은 <span class="math notranslate nohighlight">\(x\)</span> 그대로 나오면서 배경에 있는 부분을 덜 강조하게 되고 potential 영역에 있는 부분을 강조하게됨</p>
+<ul>
+<li><p>배경의 값은 이때 <span class="math notranslate nohighlight">\(-x\)</span>이고, Discriminative한 영역은 이미 0으로 제거되었고 양수의 값은 potential한 영역만 남아있음</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Self-erasing strategy II</strong></p>
+<ul class="simple">
+<li><p><strong>목적 : 배경영역으로 attention이 뻗어나가는 것을 방지 (<span class="math notranslate nohighlight">\(S_C\)</span>)</strong></p>
+<ul>
+<li><p>위와는 반대로, 배경을 1로 그렇지 않은 영역을 0으로 취해서 Binary Mask를 구성</p></li>
+<li><p>Feature map과 이를 곱하면 배경 영역만 양수의 값을 가지고, 그 외의 영역은 0을 가져서 배경 부분에 모델이 집중하게됨</p>
+<ul>
+<li><p>배경 부분에 잘못된 값이 생기면, 모델이 이 값을 통해서 조정할 수 있도록 해주는 역할</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Others</strong></p>
+<ul class="simple">
+<li><p>Loss</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[L=L_{S_A}+L_{S_B}+L_{S_C}\]</div>
+<ul class="simple">
+<li><p>모든 브랜치는 multi-label classification을 수행</p></li>
+<li><p><span class="math notranslate nohighlight">\(S_A\)</span>, <span class="math notranslate nohighlight">\(S_B\)</span>에 대한 Label은 Class에 대한 binary label vector 이며 <span class="math notranslate nohighlight">\(**S_C\)</span>에 대한 Label 배경영역에 Object가 없으면 Zero vector을 가지는 형태**</p></li>
+</ul>
+<p><strong>Test phase</strong></p>
+<ul class="simple">
+<li><p>Segmentation 학습을 위한 Attention Mask 생성하는 부분인듯</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(M_A\)</span> and <span class="math notranslate nohighlight">\(M_B\)</span> to the range <span class="math notranslate nohighlight">\([0,1]\)</span> and denote the results as <span class="math notranslate nohighlight">\(\hat{M_A}\)</span> and <span class="math notranslate nohighlight">\(\hat{M_B}\)</span></p></li>
+<li><p>fused attention map <span class="math notranslate nohighlight">\(M_F\)</span> is calculated by <span class="math notranslate nohighlight">\(M_{F,i}=\max\left(\hat{M_{M,i}}, \hat{M_{B,i}}\right)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(M_{\text{final, i}}\)</span>can be computed by <span class="math notranslate nohighlight">\(M_{\text{final, i}}=\max\left(M_{F,i}, M_{H,i}\right)\)</span>. (horizontal flip)</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+    <span class="n">im</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">resize</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">test_size</span><span class="p">)</span>
+    <span class="n">net</span><span class="o">.</span><span class="n">blobs</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">net</span><span class="o">.</span><span class="n">blobs</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="n">im</span>
+    <span class="n">net</span><span class="o">.</span><span class="n">blobs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="n">net</span><span class="o">.</span><span class="n">blobs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">net</span><span class="o">.</span><span class="n">forward</span><span class="p">()</span>
+    <span class="n">att1</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">blobs</span><span class="p">[</span><span class="s1">&#39;score_b1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">label</span><span class="p">]</span>
+    <span class="n">att2</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">blobs</span><span class="p">[</span><span class="s1">&#39;score_b2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">label</span><span class="p">]</span>
+    <span class="n">att1</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">att1</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_CUBIC</span><span class="p">)</span>
+    <span class="n">att2</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">att2</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_CUBIC</span><span class="p">)</span>
+    <span class="n">att1</span><span class="p">[</span><span class="n">att1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">att2</span><span class="p">[</span><span class="n">att2</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">att1</span> <span class="o">=</span> <span class="n">att1</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">att1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-8</span><span class="p">)</span>
+    <span class="n">att2</span> <span class="o">=</span> <span class="n">att2</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">att2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-8</span><span class="p">)</span>
+    <span class="n">att</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">att1</span><span class="p">,</span> <span class="n">att2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">att</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">im_labels</span><span class="p">:</span>
+    <span class="n">att</span> <span class="o">=</span> <span class="n">forward</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">with_flip</span><span class="p">:</span>
+        <span class="n">img_flip</span> <span class="o">=</span> <span class="n">img</span><span class="p">[:,::</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span>
+        <span class="n">att_flip</span> <span class="o">=</span> <span class="n">forward</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">img_flip</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+        <span class="n">att</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">att</span><span class="p">,</span> <span class="n">att_flip</span><span class="p">[:,::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">att</span> <span class="o">=</span> <span class="n">att</span> <span class="o">*</span> <span class="mf">0.8</span> <span class="o">+</span> <span class="n">img_gray</span> <span class="o">/</span> <span class="mf">255.</span> <span class="o">*</span> <span class="mf">0.2</span>
+    <span class="n">att_maps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">att</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Proxy ground-truth 생성</strong></p>
+<p><img alt="seenet10.png" src="../../_images/seenet10.png" /></p>
+</div>
+</div>
+<div class="section" id="experimental-results">
+<h2><strong>Experimental Results</strong><a class="headerlink" href="#experimental-results" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="implementation-details">
+<h3><strong>1. Implementation Details</strong><a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h3>
+<p>(1) Datasets and evaluation metrics</p>
+<ul class="simple">
+<li><p>PASCAL VOC 2012 : 20 Semantic classes and background</p>
+<ul>
+<li><p>Train 10,582</p></li>
+<li><p>Valid 1,449</p></li>
+<li><p>Test 1,456</p></li>
+</ul>
+</li>
+</ul>
+<p>(2) Network settings</p>
+<ul class="simple">
+<li><p>Classification</p>
+<ul>
+<li><p>VGGNet</p>
+<ul>
+<li><p>마지막 3개의 fully-connected layers를 제거하고 3개의 convolutional layer를 추가</p></li>
+<li><p>batch size : 16</p></li>
+<li><p>weight decay : 0.0002</p></li>
+<li><p>learning rate : 0.001, divided by 10 after 15,000 iterations. We run our network for totally 25,000 iterations</p></li>
+</ul>
+</li>
+<li><p>Data Augmentation</p></li>
+<li><p>Thresholds</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(S_B\)</span> : <span class="math notranslate nohighlight">\(\delta_h\)</span> and <span class="math notranslate nohighlight">\(\delta_l\)</span> are set to 0.7 and 0.05 times of the maximum value of the attention map inputted to C-ReLU layer, respectively</p></li>
+<li><p><span class="math notranslate nohighlight">\(S_C\)</span> : ( <span class="math notranslate nohighlight">\(\delta_h\)</span> + <span class="math notranslate nohighlight">\(\delta_l\)</span> ) / 2</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Segmentation</p>
+<ul>
+<li><p>DeepLab-LargeFov</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="the-role-of-self-erasing">
+<h3><strong>2. The Role of Self-Erasing</strong><a class="headerlink" href="#the-role-of-self-erasing" title="Permalink to this headline">¶</a></h3>
+<p><img alt="seenet11.png" src="../../_images/seenet11.png" /></p>
+<ul class="simple">
+<li><p>ACoL 대비해서 성능 향상</p></li>
+<li><p>C-ReLU 적용해야 성능이 높은 것을 확인 가능</p></li>
+</ul>
+<p><img alt="seenet12.png" src="../../_images/seenet12.png" /></p>
+<ul class="simple">
+<li><p>SeeNet의 경우 다른 두개의 방법보다 Semantic objects에 더 잘 초점을 맞춤</p>
+<ul>
+<li><p>SC 브랜치가 배경을 인식하는 것을 도와주고 배경에 영역을 퍼지는 것을 방지하기 때문</p></li>
+<li><p>특히, 아래의 2개 이미지처럼 큰 Object의 경우 더 좋은 것을 확인 가능 (모니터)</p></li>
+</ul>
+</li>
+<li><p>Table1에서 ACoL 부분에서 확인할 수 있듯이, 배경부분을 추출시에 saliency map을 배경으로 사용하는 것보다 우리의 접근법이 효율적</p></li>
+</ul>
+</div>
+<div class="section" id="comparison-with-the-state-of-the-arts">
+<h3><strong>3. Comparison with the State-of-the-Arts</strong><a class="headerlink" href="#comparison-with-the-state-of-the-arts" title="Permalink to this headline">¶</a></h3>
+<p><img alt="seenet13.png" src="../../_images/seenet13.png" /></p>
+<ul class="simple">
+<li><p>CAM을 기반으로 attention map을 생성한 DCSP보다 SeeNet이 성능이 높음</p></li>
+<li><p>기존 adversarial erasing 접근법인 AE-PSL, GAIN 보다 성능이 높음</p></li>
+</ul>
+</div>
+<div class="section" id="discussion">
+<h3><strong>4. Discussion</strong><a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h3>
+<p><img alt="seenet14.png" src="../../_images/seenet14.png" /></p>
+<ul class="simple">
+<li><p>다른 레이블을 가지는 Semantic Objects가 결합된 경우 attention model이 정확하게 이를 분리를 잘 못함</p></li>
+</ul>
+<p><img alt="seenet15.png" src="../../_images/seenet15.png" /></p>
+<ul class="simple">
+<li><p>Fig5의 그림을 보면 PASCAL VOC 데이터의 경우 배경과 객체를 구분하기 어려운 경우가 많음</p></li>
+<li><p>또한, 첫번째 행을 보면 같은 클래스를 가지는 객체들이 많이 등장하는 경우가 많음 (사람이 엄청 많음)</p></li>
+<li><p>그렇기에, 논문에서는 두가지의 어려움을 미래의 극복 과제로 생각</p>
+<ul>
+<li><p>The pixel-level information will tell attention networks where the boundaries of semantic objects are and also accurate background regions that will help produce more integral results</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2><strong>Conclusion</strong><a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>초기 Attention map을 기반으로 배경 정보를 추출</p></li>
+<li><p>배경 정보에 기반하여 2개의 Self-Erasing 전략 2개를 적용하여 배경영역으로 attention이 퍼지는 것을 방지</p></li>
+<li><p>attention map의 quality를 평가하기 위해서, attention map을 weakly-supervised semantic segmentation task에 saliency map과 결합해서 적용</p></li>
+<li><p>proxy ground-truths에 기반한 세그멘테이션 결과가 기존 SOTA 모델 성능보다 높았음</p></li>
+</ul>
+</div>
+<div class="section" id="limits">
+<h2><strong>Limits</strong><a class="headerlink" href="#limits" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>논문을 읽고 든 생각이 두개의 Branch에 대한 효과가 Feature map에서 어떻게 영향을 끼치는지 시각적으로 보여줬으면, 더 이해가 좋았을 것 같음</p></li>
+<li><p>Review에서 언급된 것처럼 <span class="math notranslate nohighlight">\(S_C\)</span>의 영역이 학습에는 왜 필요하고, 테스트과정에는 왜 필요하지 않은지에 대한 명확한 언급이 없음</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/ch4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="04_02_AdversarialErasing.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">B. Adversarial Erasing</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../ch5/05%20Semi-supervised%20Segmentation.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">05. Semi-supervised Segmentation</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By PseudoLab<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
