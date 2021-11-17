@@ -510,17 +510,22 @@
 <h2>Problem statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>full label을 생성하기에 time-consuming이 많이 듬</p></li>
-<li><p>기존의 supervised learning은 적은 data로 인해서 overfitting이 많이 일어남 (그림1 참조)</p></li>
+<li><p>기존의 supervised learning은 적은 data로 인해서 overfitting이 많이 일어남 (Fig. 1 참조)</p></li>
 </ul>
-<p><img alt="그림1) grad cam으로 visualization을 한 결과 (1/8 의 label만 사용함)" src="../../_images/semicontext1.png" /></p>
-<p>그림1) grad cam으로 visualization을 한 결과 (1/8 의 label만 사용함)</p>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext1.png"><img alt="context1" class="bg-primary mb-1" src="../../_images/semicontext1.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">grad cam으로 visualization을 한 결과 (1/8 의 label만 사용함)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>기존의 segmentation은 receptive field의 한계로 인해서 context information에 대해서 학습을 하지 않음.</p></li>
 </ul>
 </div>
 <div class="section" id="contribution">
 <h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
-<p><img alt="context2.png" src="../../_images/semicontext2.png" /></p>
+<div class="figure align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext2.png"><img alt="context2" class="bg-primary mb-1" src="../../_images/semicontext2.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Crop1 and Crop2 are randomly cropped from the same image with an overlapping region.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>위의 그림과 같이 label이 있는 부분을 overlapping을 해서 patch데이터간의 consistency 를 주어지며 이른 context aware consistency라고 명시함</p></li>
 <li><p>contextual alignment를 주기 위해서 directional contrastive loss를 제시함 이는 pixel wise로 cosine similarity 주게 되는 방법을 의미함.</p></li>
@@ -533,13 +538,19 @@
 <li><p>semi supervised 의 대표적인 방법중에 하나 permutation 다양하게 주게됨으로 invaraince를 높임</p></li>
 <li><p>weakly label이 필요없음</p></li>
 </ul>
-<p><img alt="context3.png" src="../../_images/semicontext3.png" /></p>
+<div class="figure align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext3.png"><img alt="context3" class="bg-primary mb-1" src="../../_images/semicontext3.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">figure from ..</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 <div class="section" id="proposed-method">
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="motivation">
 <h3>1. motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h3>
-<p><img alt="context4.png" src="../../_images/semicontext4.png" /></p>
+<div class="figure align-default" id="id3">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext4.png"><img alt="context4" class="bg-primary mb-1" src="../../_images/semicontext4.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Visual comparison between contextual augmentation (I and II) and low-level augmentation (I and III)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>노란색으로 되어진 overlapping region에서 weak augmentation (gaussian noise, color jitter) 했을때와 다른 위치의 patch를 구헀을때의 이미지임</p></li>
 <li><p>두번째 행에서 보는 바와 feature에서 T-SNE를 적용하면 weak augmentation에서는 feature space가 전혀 바뀌지 않음.</p></li>
@@ -547,7 +558,10 @@
 </div>
 <div class="section" id="network">
 <h3>2 Network<a class="headerlink" href="#network" title="Permalink to this headline">¶</a></h3>
-<p><img alt="context5.png" src="../../_images/semicontext5.png" /></p>
+<div class="figure align-default" id="id4">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext5.png"><img alt="context5" class="bg-primary mb-1" src="../../_images/semicontext5.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Overview of framework</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>label,target image, unlabel image: <span class="math notranslate nohighlight">\(y_t ,x_t,x_u\)</span></p></li>
 <li><p>overlapping image(w/label),non overlapping image(wo/label) : <span class="math notranslate nohighlight">\(x_{u1},x_o,x_{u2}\)</span></p></li>
@@ -565,12 +579,21 @@
 <h3>2.2 Directional Contrastive loss(DC loss)<a class="headerlink" href="#directional-contrastive-loss-dc-loss" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>기존의 contrastive loss의 경우 MSE를 적용하여주었지만 저자는 cosine simliarity를 통해서 문제를 접근함.</p>
-<p><img alt="context6.png" src="../../_images/semicontext6.png" /></p>
-<p><img alt="context7.png" src="../../_images/semicontext7.png" /></p>
+<div class="figure align-default" id="id5">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext6.png"><img alt="context6" class="bg-primary mb-1" src="../../_images/semicontext6.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Comparison between vanilla CL and DCL</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="math notranslate nohighlight">
+\[l_{dc}^{b}(\phi_{o_1},\phi_{o_2})=-\frac{1}{N}\sum_{h,w}\mathcal{M}_{d}^{h,w}\cdot\log\frac{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})}{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})+\sum_{\phi_n \in \mathcal{F_u}}r(\phi_{o_1}^{h,w},\phi_{n})}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathcal{M}_{d}^{h,w}=\mathbf{1}\{\max C(f_{o_1}^{h,w}&lt;\max C(f_{o_2}^{h,w})\}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}_{dc}^b=l_{dc}^b(\phi_{o_1},\phi_{o_2})+l_{dc}^b(\phi_{o_2},\phi_{o_1})\]</div>
+<div class="figure align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/semicontext8.png"><img alt="context8" src="../../_images/semicontext8.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Cosine similarity</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
 </li>
-</ul>
-<p><img alt="context8.png" src="../../_images/semicontext8.png" /></p>
-<ul class="simple">
 <li><p>식에서 있듯이 overlapping이 된 영역끼지의 cosine  similarity를 loss를 줄여줌</p></li>
 <li><p>반면에 negative pair에 관해서는 분모로 두어서 더 similarity를 멀게 만듬</p></li>
 <li><p><span class="math notranslate nohighlight">\(M_d^{h,w}\)</span> 같은 경우 pixel단위로 target되어지는 pixel이 source pixel보다 크면 loss를 계산함.</p></li>
@@ -580,23 +603,28 @@
 <h3>2.3 sampling Strategies<a class="headerlink" href="#sampling-strategies" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>negative pair의 양을 조절해야되기때문에 pseudo label에서 negative의 prediction을 값을 통해서 filtering을 함</p>
-<p><img alt="context9.png" src="../../_images/semicontext9.png" /></p>
-<p><img alt="context10.png" src="../../_images/semicontext10.png" /></p>
+<div class="math notranslate nohighlight">
+\[\tilde{y}_{ui}=\arg\max C(f_{ui}) \ \ \ i \in \{1,2\}\]</div>
+<div class="math notranslate nohighlight">
+\[l_{dc}^{b,n,s}(\phi_{o_1},\phi_{o_2})=-\frac{1}{N}\sum_{h,w}\mathcal{M}_d^{h,w}\cdot\log\frac{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})}{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})+\sum_{\phi_n \in \mathcal{F_u}}\mathcal{M}_{n,1}^{h,w}\cdot r(\phi_{o_1}^{h,w},\phi_{n})}\]</div>
 </li>
 <li><p>Positive 에서도 prediction의 낮은 값의 경우 <span class="math notranslate nohighlight">\(\gamma\)</span>를 통해서 filtering을 적용하여줌</p></li>
 </ul>
-<p><img alt="context11.png" src="../../_images/semicontext11.png" /></p>
+<div class="math notranslate nohighlight">
+\[l_{dc}^{b,ns,pf}(\phi_{o_1},\phi_{o_2})=-\frac{1}{N}\sum_{h,w}\mathcal{M}_{d,pf}^{h,w}\cdot\log\frac{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})}{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})+\sum_{\phi_n \in \mathcal{F_u}}\mathcal{M}_{n,1}^{h,w}\cdot r(\phi_{o_1}^{h,w},\phi_{n})}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathcal{M}_{d,pf}^{h,w}=\mathcal{M_d^{h,w}}\cdot\mathbf{1}\{\max C(f_{o_2}^{h,w})&gt;\gamma\}\]</div>
 <ul class="simple">
 <li><p>이러한 방법들을 바탕으로 CAM을 통해서 weak-superivsed도 문제를 접근할수 있음</p></li>
 </ul>
 </div>
 <div class="section" id="experimnets">
 <h3>Experimnets<a class="headerlink" href="#experimnets" title="Permalink to this headline">¶</a></h3>
-<p><img alt="context12.png" src="../../_images/semicontext12.png" /></p>
-<p><img alt="context13.png" src="../../_images/semicontext13.png" /></p>
-<p><img alt="context14.png" src="../../_images/semicontext14.png" /></p>
-<p><img alt="context15.png" src="../../_images/semicontext15.png" /></p>
-<p><img alt="context16.png" src="../../_images/semicontext16.png" /></p>
+<img alt="context12.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext12.png" />
+<img alt="context13.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext13.png" />
+<img alt="context14.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext14.png" />
+<img alt="context15.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext15.png" />
+<img alt="context16.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext16.png" />
 </div>
 </div>
 </div>

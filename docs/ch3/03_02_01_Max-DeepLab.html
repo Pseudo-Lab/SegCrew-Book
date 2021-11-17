@@ -612,21 +612,25 @@
 <div class="section" id="notations">
 <h2>Notations:<a class="headerlink" href="#notations" title="Permalink to this headline">¶</a></h2>
 <p>Class-labeled masks:</p>
-<p><img alt="maxdeeplab2.png" src="../../_images/maxdeeplab2.png" /></p>
+<div class="math notranslate nohighlight">
+\[\{\hat{y}\}_{i=0}^N=\{\left(\hat{m}_i,\hat{p}_i(c)\right)\}_{i=0}^N\]</div>
 <p><span class="math notranslate nohighlight">\(\hat{m}_i\)</span> = predicted masks</p>
 <p><span class="math notranslate nohighlight">\(\hat{p}_i\)</span> = predicted probability of assigning class c to mask hat(m)_i</p>
 </div>
 <div class="section" id="pq-style-loss">
 <h2>PQ-style loss<a class="headerlink" href="#pq-style-loss" title="Permalink to this headline">¶</a></h2>
-<p><img alt="maxdeeplab3.png" src="../../_images/maxdeeplab3.png" /></p>
+<div class="math notranslate nohighlight">
+\[\text{PQ}=\text{RQ}\times\text{SQ}\]</div>
 <p>PQ = panoptic quality, RQ = recognition quality, SQ = segmentation quality</p>
-<p><img alt="maxdeeplab4.png" src="../../_images/maxdeeplab4.png" /></p>
+<div class="math notranslate nohighlight">
+\[\text{sim}\left(y_i,\hat{y}_j\right)=\hat{p}_j(c_j)\times\text{Dice}(m_i,\hat{m}_i)\approx\text{RQ}\times\text{SQ}\]</div>
 <p>(Dice coefficient definition)</p>
 </div>
 <div class="section" id="mask-matching">
 <h2>Mask Matching<a class="headerlink" href="#mask-matching" title="Permalink to this headline">¶</a></h2>
 <p>To assign a predicted mask to each ground truth, solve a one-to-one bipartite matching problem between the prediction set and the ground truth set. Use <strong>Hungarian algorithm</strong>.</p>
-<p><img alt="maxdeeplab5.png" src="../../_images/maxdeeplab5.png" /></p>
+<div class="math notranslate nohighlight">
+\[\hat{\sigma}=\argmax_{\sigma\in \mathfrak{S}_n}\sum_{i=1}^{K}\text{sim}(y_i,\hat{y}_{\sigma(i)})\]</div>
 <ul class="simple">
 <li><p>K matches predictions = positive masks</p></li>
 <li><p>(N-K) masks left = negative masks (i.e. no object)</p></li>
@@ -635,14 +639,18 @@
 <div class="section" id="loss">
 <h2>Loss<a class="headerlink" href="#loss" title="Permalink to this headline">¶</a></h2>
 <p>For positive masks, we need to maximize (substitue mask matching equation’s similarity with equation in PQ-style loss)</p>
-<p><img alt="maxdeeplab6.png" src="../../_images/maxdeeplab6.png" /></p>
+<div class="math notranslate nohighlight">
+\[\max_{\theta}\mathcal{O}_{\text{PQ}}^{\text{pos}}=\sum_{i=1}^{K}\hat{p}_{\hat{\sigma}(i)}(c_i)\times\text{Dice}(m_i,\hat{m}_{\hat{\sigma}(i)})\approx\text{RQ}\times\text{SQ}\]</div>
 <p>In practice, apply product rule of gradient and change probability into log p (since log p aligns with the common cross-entropy loss that scales gradients better for optimization):</p>
-<p><img alt="maxdeeplab7.png" src="../../_images/maxdeeplab7.png" /></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}\mathcal{L}_{\text{PQ}}^{\text{pos}}&amp;=\sum_{i=1}^{K}\hat{p}_{\hat{\sigma}(i)}(c_i)\cdot\left[-\text{Dice}(m_i,\hat{m}_{\hat{\sigma}(i)})\right] \\&amp;+\sum_{i=1}^{K}\text{Dice}(m_i,\hat{m}_{\hat{\sigma}(i)})\cdot\left[-\log \hat{p}_{\hat{\sigma}(i)}(c_i)\right] \end{aligned}\end{split}\]</div>
 <p>Loss for negative masks Total Loss:</p>
-<p><img alt="maxdeeplab8.png" src="../../_images/maxdeeplab8.png" /></p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}_{\text{PQ}}^{\text{neg}}=\sum_{i=K+1}^{N}\left[-\log \hat{p}_{\hat{\sigma}(i)}(\oslash)\right]\]</div>
 <p><img alt="maxdeeplab9.png" src="../../_images/maxdeeplab9.png" /></p>
 <p>Total Loss:</p>
-<p><img alt="maxdeeplab10.png" src="../../_images/maxdeeplab10.png" /></p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}_{\text{PQ}}=\alpha\mathcal{L}_{\text{PQ}}^{\text{pos}}+(1-\alpha)\mathcal{L}_{\text{PQ}}^{\text{neg}}\]</div>
 </div>
 <div class="section" id="model-architecture">
 <h2>Model Architecture<a class="headerlink" href="#model-architecture" title="Permalink to this headline">¶</a></h2>
@@ -658,9 +666,11 @@
 <li><p>pixel-to-pixel (P2P) self-attention (axial attention blocks)</p></li>
 </ul>
 <p>Feedback attention’s output <strong>(Pixel-to-memory)</strong> at pixel position a:</p>
-<p><img alt="maxdeeplab13.png" src="../../_images/maxdeeplab13.png" /></p>
+<div class="math notranslate nohighlight">
+\[y_a^{p}=\sum_{n=1}^{N}\text{softmax}_n(q_a^p\cdot k_n^m)v_n^m\]</div>
 <p>Output of <strong>memory-to-pixel (M2P)</strong> and <strong>memory-to-memory (M2M)</strong> attention:</p>
-<p><img alt="maxdeeplab14.png" src="../../_images/maxdeeplab14.png" /></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}q_b^m=\sum_{n=1}^{\hat{H}\hat{W}+N}\text{softmax}_n(q_a^p\cdot k_n^m)v_n^m,\\ k^{\text{pm}}=\left[\begin{matrix}k ^p \\k^m \end{matrix}\right], v^{\text{pm}}=\left[\begin{matrix}v^p  \\v^m \end{matrix}\right]\end{split}\]</div>
 <p><strong>Stacked Decoder:</strong> stack L times traversing through (4, 8 and 16 output strides)</p>
 <ul class="simple">
 <li><p>Note: different to feature pyramid networks, the stacked decoder in this model does not directly use intermediate pyramidal features for prediction!</p></li>
@@ -680,7 +690,8 @@
 </li>
 </ul>
 <p>Then, mask prediction m:</p>
-<p><img alt="maxdeeplab15.png" src="../../_images/maxdeeplab15.png" /></p>
+<div class="math notranslate nohighlight">
+\[\hat{m}=\text{softmax}_N(f\cdot g)\in \mathbb{R}^{N\times\frac{H}{4}\times\frac{W}{4}}\]</div>
 <p>Mask prediction inspired by CondInst and SOLOv2</p>
 </div>
 <div class="section" id="auxiliary-losses">

@@ -84,7 +84,7 @@ Box based method. Box free method들 모두 일종의 "hand-coded prior"을 사�
 
 Class-labeled masks:
 
-![maxdeeplab2.png](pic/max-deeplab/maxdeeplab2.png)
+$$\{\hat{y}\}_{i=0}^N=\{\left(\hat{m}_i,\hat{p}_i(c)\right)\}_{i=0}^N$$
 
 $\hat{m}_i$ = predicted masks
 
@@ -92,11 +92,11 @@ $\hat{p}_i$ = predicted probability of assigning class c to mask hat(m)_i
 
 ## PQ-style loss
 
-![maxdeeplab3.png](pic/max-deeplab/maxdeeplab3.png)
+$$\text{PQ}=\text{RQ}\times\text{SQ}$$
 
 PQ = panoptic quality, RQ = recognition quality, SQ = segmentation quality
 
-![maxdeeplab4.png](pic/max-deeplab/maxdeeplab4.png)
+$$\text{sim}\left(y_i,\hat{y}_j\right)=\hat{p}_j(c_j)\times\text{Dice}(m_i,\hat{m}_i)\approx\text{RQ}\times\text{SQ}$$
 
 (Dice coefficient definition)
 
@@ -104,7 +104,7 @@ PQ = panoptic quality, RQ = recognition quality, SQ = segmentation quality
 
 To assign a predicted mask to each ground truth, solve a one-to-one bipartite matching problem between the prediction set and the ground truth set. Use **Hungarian algorithm**.
 
-![maxdeeplab5.png](pic/max-deeplab/maxdeeplab5.png)
+$$\hat{\sigma}=\argmax_{\sigma\in \mathfrak{S}_n}\sum_{i=1}^{K}\text{sim}(y_i,\hat{y}_{\sigma(i)})$$
 
 - K matches predictions = positive masks
 - (N-K) masks left = negative masks (i.e. no object)
@@ -113,21 +113,21 @@ To assign a predicted mask to each ground truth, solve a one-to-one bipartite ma
 
 For positive masks, we need to maximize (substitue mask matching equation's similarity with equation in PQ-style loss)
 
-![maxdeeplab6.png](pic/max-deeplab/maxdeeplab6.png)
+$$\max_{\theta}\mathcal{O}_{\text{PQ}}^{\text{pos}}=\sum_{i=1}^{K}\hat{p}_{\hat{\sigma}(i)}(c_i)\times\text{Dice}(m_i,\hat{m}_{\hat{\sigma}(i)})\approx\text{RQ}\times\text{SQ}$$
 
 In practice, apply product rule of gradient and change probability into log p (since log p aligns with the common cross-entropy loss that scales gradients better for optimization):
 
-![maxdeeplab7.png](pic/max-deeplab/maxdeeplab7.png)
+$$\begin{aligned}\mathcal{L}_{\text{PQ}}^{\text{pos}}&=\sum_{i=1}^{K}\hat{p}_{\hat{\sigma}(i)}(c_i)\cdot\left[-\text{Dice}(m_i,\hat{m}_{\hat{\sigma}(i)})\right] \\&+\sum_{i=1}^{K}\text{Dice}(m_i,\hat{m}_{\hat{\sigma}(i)})\cdot\left[-\log \hat{p}_{\hat{\sigma}(i)}(c_i)\right] \end{aligned}$$
 
 Loss for negative masks Total Loss:
 
-![maxdeeplab8.png](pic/max-deeplab/maxdeeplab8.png)
+$$\mathcal{L}_{\text{PQ}}^{\text{neg}}=\sum_{i=K+1}^{N}\left[-\log \hat{p}_{\hat{\sigma}(i)}(\oslash)\right]$$
 
 ![maxdeeplab9.png](pic/max-deeplab/maxdeeplab9.png)
 
 Total Loss: 
 
-![maxdeeplab10.png](pic/max-deeplab/maxdeeplab10.png)
+$$\mathcal{L}_{\text{PQ}}=\alpha\mathcal{L}_{\text{PQ}}^{\text{pos}}+(1-\alpha)\mathcal{L}_{\text{PQ}}^{\text{neg}}$$
 
 ## Model Architecture
 
@@ -148,11 +148,11 @@ Types of communications:
 
 Feedback attention's output **(Pixel-to-memory)** at pixel position a:
 
-![maxdeeplab13.png](pic/max-deeplab/maxdeeplab13.png)
+$$y_a^{p}=\sum_{n=1}^{N}\text{softmax}_n(q_a^p\cdot k_n^m)v_n^m$$
 
 Output of **memory-to-pixel (M2P)** and **memory-to-memory (M2M)** attention:
 
-![maxdeeplab14.png](pic/max-deeplab/maxdeeplab14.png)
+$$q_b^m=\sum_{n=1}^{\hat{H}\hat{W}+N}\text{softmax}_n(q_a^p\cdot k_n^m)v_n^m,\\ k^{\text{pm}}=\left[\begin{matrix}k ^p \\k^m \end{matrix}\right], v^{\text{pm}}=\left[\begin{matrix}v^p  \\v^m \end{matrix}\right]$$
 
 **Stacked Decoder:** stack L times traversing through (4, 8 and 16 output strides)
 
@@ -168,7 +168,7 @@ Output of **memory-to-pixel (M2P)** and **memory-to-memory (M2M)** attention:
 
 Then, mask prediction m:
 
-![maxdeeplab15.png](pic/max-deeplab/maxdeeplab15.png)
+$$\hat{m}=\text{softmax}_N(f\cdot g)\in \mathbb{R}^{N\times\frac{H}{4}\times\frac{W}{4}}$$
 
 Mask prediction inspired by CondInst and SOLOv2
 
