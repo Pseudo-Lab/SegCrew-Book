@@ -26,11 +26,23 @@ chapters:
   - file: docs/ch2/02_01_one_stage
     sections:
     - file: docs/ch2/02_01_01_YOLACT
-- file: docs/ch3/03 Panoptic Segmentation
-- file: docs/ch4/04 Weakly-supervised Segmentation
+- file: docs/ch3/03_Panoptic Segmentation
+  sections:
+  - file: docs/ch3/03_02_transformer
+    sections:
+    - file: docs/ch3/03_02_01_Max-DeepLab
+- file: docs/ch4/04_Weakly-supervised Segmentation
   sections:
   - file: docs/ch4/04_01_LearningPixelAffinity
     sections:
     - file: docs/ch4/04_01_01_AffinityNet
+    - file: docs/ch4/04_01_02_IAL
+  - file: docs/ch4/04_02_AdversarialErasing
+    sections:
+    - file: docs/ch4/04_02_02_SeeNet
 - file: docs/ch5/05 Semi-supervised Segmentation
+  sections:
+  - file: docs/ch5/05_01_Consistency_reg
+    sections:
+    - file: docs/ch5/05_01_02_SemiContexAware
 

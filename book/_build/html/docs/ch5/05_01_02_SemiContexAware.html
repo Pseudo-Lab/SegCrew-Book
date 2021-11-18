@@ -1,0 +1,695 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Draft] Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021 &#8212; Segmentation Complete</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="A. Consistency Regularization" href="05_01_Consistency_reg.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Segmentation Complete</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   [가짜연구소 3기] Segmentation 완전정복 Crew
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch0/00%20Survey.html">
+   Survey
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Semantic.html">
+     Reading List: Semantic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Instance.html">
+     Reading List: Instance Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Panoptic.html">
+     Reading List: Panoptic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-WeaklySemi.html">
+     Reading List: Weakly/Semi-supervised Learning based Segmentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_Semantic%20Segmentation.html">
+   01. Semantic Segmentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch1/01_01_fullyconvNet.html">
+     A. Fully Convolutional Network
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_01_fcn.html">
+       FCN - CVPR 2015
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_02_DeepLabv3.html">
+       DeepLab v3 - arXiv 2017
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_03_pspnet.html">
+       PSPNet - CVPR 2017
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_04_encnet.html">
+       EncNet - CVPR 2018
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch1/01_02_encodedecode.html">
+     B. Convolutional encoder-decoder
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_01_unet.html">
+       U-Net - arxiv 2015
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_01_multiresunet.html">
+       MultiResUNet - arxiv 2019
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_02_segnet.html">
+       SegNet - TPAMI 2017
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_03_DeconvNet.html">
+       DeconvNet - ICCV 2015
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
+   02. Instance Segmentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch2/02_01_one_stage.html">
+     A. One-stage based Method
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch2/02_01_01_YOLACT.html">
+       YOLACT - ICCV 19
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation.html">
+   03. Panoptic Segmentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch3/03_02_transformer.html">
+     B. Transformer based Method
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch3/03_02_01_Max-DeepLab.html">
+       [Draft] MaX-DeepLab - CVPR 21
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation.html">
+   04. Weakly-supervised Segmentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch4/04_01_LearningPixelAffinity.html">
+     A. Learning Pixel Affinity
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch4/04_01_01_AffinityNet.html">
+       AffinityNet - CVPR 2018
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch4/04_01_02_IAL.html">
+       IAL - IJCV 2020
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch4/04_02_AdversarialErasing.html">
+     B. Adversarial Erasing
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch4/04_02_02_SeeNet.html">
+       [Draft] SeeNet - NeurIPS 2018
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="05%20Semi-supervised%20Segmentation.html">
+   05. Semi-supervised Segmentation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="05_01_Consistency_reg.html">
+     A. Consistency Regularization
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       [Draft] Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/docs/ch5/05_01_02_SemiContexAware.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template/issues/new?title=Issue%20on%20page%20%2Fdocs/ch5/05_01_02_SemiContexAware.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-statement">
+   Problem statement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution">
+   Contribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#related-work">
+   Related work
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#motivation">
+     1. motivation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#network">
+     2 Network
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#context-aware-consistency">
+     2.1 Context-aware Consistency
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#directional-contrastive-loss-dc-loss">
+     2.2 Directional Contrastive loss(DC loss)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sampling-strategies">
+     2.3 sampling Strategies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#experimnets">
+     Experimnets
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="draft-semi-supervised-semantic-segmentation-with-directional-context-aware-consistency-cvpr-2021">
+<h1>[Draft] Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021<a class="headerlink" href="#draft-semi-supervised-semantic-segmentation-with-directional-context-aware-consistency-cvpr-2021" title="Permalink to this headline">¶</a></h1>
+<p>Title: Semi-supervised Semantic Segmentation with Directional Context-aware Consistency</p>
+<p>Review By: Chanmin Park</p>
+<p>Edited by:</p>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>paper : <a class="reference external" href="https://jiaya.me/papers/semiseg_cvpr21.pdf">https://jiaya.me/papers/semiseg_cvpr21.pdf</a> (CVPR 2021)</p></li>
+<li><p>code : <a class="reference external" href="https://github.55860.com/dvlab-research/Context-Aware-Consistency">https://github.55860.com/dvlab-research/Context-Aware-Consistency</a></p></li>
+</ul>
+</div>
+<div class="section" id="problem-statement">
+<h2>Problem statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>full label을 생성하기에 time-consuming이 많이 듬</p></li>
+<li><p>기존의 supervised learning은 적은 data로 인해서 overfitting이 많이 일어남 (Fig. 1 참조)</p></li>
+</ul>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext1.png"><img alt="context1" class="bg-primary mb-1" src="../../_images/semicontext1.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">grad cam으로 visualization을 한 결과 (1/8 의 label만 사용함)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>기존의 segmentation은 receptive field의 한계로 인해서 context information에 대해서 학습을 하지 않음.</p></li>
+</ul>
+</div>
+<div class="section" id="contribution">
+<h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext2.png"><img alt="context2" class="bg-primary mb-1" src="../../_images/semicontext2.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Crop1 and Crop2 are randomly cropped from the same image with an overlapping region.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>위의 그림과 같이 label이 있는 부분을 overlapping을 해서 patch데이터간의 consistency 를 주어지며 이른 context aware consistency라고 명시함</p></li>
+<li><p>contextual alignment를 주기 위해서 directional contrastive loss를 제시함 이는 pixel wise로 cosine similarity 주게 되는 방법을 의미함.</p></li>
+<li><p>데이터의 sampling 하는 새로운 방법을 제시함으로 negative sample와 ambiguous한 postive sample을 filtering함</p></li>
+</ul>
+</div>
+<div class="section" id="related-work">
+<h2>Related work<a class="headerlink" href="#related-work" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>semi supervised 의 대표적인 방법중에 하나 permutation 다양하게 주게됨으로 invaraince를 높임</p></li>
+<li><p>weakly label이 필요없음</p></li>
+</ul>
+<div class="figure align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext3.png"><img alt="context3" class="bg-primary mb-1" src="../../_images/semicontext3.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">figure from ..</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="proposed-method">
+<h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="motivation">
+<h3>1. motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default" id="id3">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext4.png"><img alt="context4" class="bg-primary mb-1" src="../../_images/semicontext4.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Visual comparison between contextual augmentation (I and II) and low-level augmentation (I and III)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>노란색으로 되어진 overlapping region에서 weak augmentation (gaussian noise, color jitter) 했을때와 다른 위치의 patch를 구헀을때의 이미지임</p></li>
+<li><p>두번째 행에서 보는 바와 feature에서 T-SNE를 적용하면 weak augmentation에서는 feature space가 전혀 바뀌지 않음.</p></li>
+</ul>
+</div>
+<div class="section" id="network">
+<h3>2 Network<a class="headerlink" href="#network" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default" id="id4">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext5.png"><img alt="context5" class="bg-primary mb-1" src="../../_images/semicontext5.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Overview of framework</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>label,target image, unlabel image: <span class="math notranslate nohighlight">\(y_t ,x_t,x_u\)</span></p></li>
+<li><p>overlapping image(w/label),non overlapping image(wo/label) : <span class="math notranslate nohighlight">\(x_{u1},x_o,x_{u2}\)</span></p></li>
+<li><p>project feature : <span class="math notranslate nohighlight">\(\varPhi\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="context-aware-consistency">
+<h3>2.1 Context-aware Consistency<a class="headerlink" href="#context-aware-consistency" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>low level feature projection을 시킨후 upsacaling을 한결과를 label의 영역간의 pixel wise constrative loss를 적용시켜줌</p></li>
+<li><p>저자는 low level에서 feature를 projection을 시키면 좀더 context에 대해서 학습할수있다고 ablation result를 통해서 보여줌</p></li>
+</ul>
+</div>
+<div class="section" id="directional-contrastive-loss-dc-loss">
+<h3>2.2 Directional Contrastive loss(DC loss)<a class="headerlink" href="#directional-contrastive-loss-dc-loss" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>기존의 contrastive loss의 경우 MSE를 적용하여주었지만 저자는 cosine simliarity를 통해서 문제를 접근함.</p>
+<div class="figure align-default" id="id5">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext6.png"><img alt="context6" class="bg-primary mb-1" src="../../_images/semicontext6.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Comparison between vanilla CL and DCL</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="math notranslate nohighlight">
+\[l_{dc}^{b}(\phi_{o_1},\phi_{o_2})=-\frac{1}{N}\sum_{h,w}\mathcal{M}_{d}^{h,w}\cdot\log\frac{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})}{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})+\sum_{\phi_n \in \mathcal{F_u}}r(\phi_{o_1}^{h,w},\phi_{n})}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathcal{M}_{d}^{h,w}=\mathbf{1}\{\max C(f_{o_1}^{h,w}&lt;\max C(f_{o_2}^{h,w})\}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}_{dc}^b=l_{dc}^b(\phi_{o_1},\phi_{o_2})+l_{dc}^b(\phi_{o_2},\phi_{o_1})\]</div>
+<div class="figure align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/semicontext8.png"><img alt="context8" src="../../_images/semicontext8.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Cosine similarity</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p>식에서 있듯이 overlapping이 된 영역끼지의 cosine  similarity를 loss를 줄여줌</p></li>
+<li><p>반면에 negative pair에 관해서는 분모로 두어서 더 similarity를 멀게 만듬</p></li>
+<li><p><span class="math notranslate nohighlight">\(M_d^{h,w}\)</span> 같은 경우 pixel단위로 target되어지는 pixel이 source pixel보다 크면 loss를 계산함.</p></li>
+</ul>
+</div>
+<div class="section" id="sampling-strategies">
+<h3>2.3 sampling Strategies<a class="headerlink" href="#sampling-strategies" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>negative pair의 양을 조절해야되기때문에 pseudo label에서 negative의 prediction을 값을 통해서 filtering을 함</p>
+<div class="math notranslate nohighlight">
+\[\tilde{y}_{ui}=\arg\max C(f_{ui}) \ \ \ i \in \{1,2\}\]</div>
+<div class="math notranslate nohighlight">
+\[l_{dc}^{b,n,s}(\phi_{o_1},\phi_{o_2})=-\frac{1}{N}\sum_{h,w}\mathcal{M}_d^{h,w}\cdot\log\frac{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})}{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})+\sum_{\phi_n \in \mathcal{F_u}}\mathcal{M}_{n,1}^{h,w}\cdot r(\phi_{o_1}^{h,w},\phi_{n})}\]</div>
+</li>
+<li><p>Positive 에서도 prediction의 낮은 값의 경우 <span class="math notranslate nohighlight">\(\gamma\)</span>를 통해서 filtering을 적용하여줌</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[l_{dc}^{b,ns,pf}(\phi_{o_1},\phi_{o_2})=-\frac{1}{N}\sum_{h,w}\mathcal{M}_{d,pf}^{h,w}\cdot\log\frac{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})}{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})+\sum_{\phi_n \in \mathcal{F_u}}\mathcal{M}_{n,1}^{h,w}\cdot r(\phi_{o_1}^{h,w},\phi_{n})}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathcal{M}_{d,pf}^{h,w}=\mathcal{M_d^{h,w}}\cdot\mathbf{1}\{\max C(f_{o_2}^{h,w})&gt;\gamma\}\]</div>
+<ul class="simple">
+<li><p>이러한 방법들을 바탕으로 CAM을 통해서 weak-superivsed도 문제를 접근할수 있음</p></li>
+</ul>
+</div>
+<div class="section" id="experimnets">
+<h3>Experimnets<a class="headerlink" href="#experimnets" title="Permalink to this headline">¶</a></h3>
+<img alt="context12.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext12.png" />
+<img alt="context13.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext13.png" />
+<img alt="context14.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext14.png" />
+<img alt="context15.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext15.png" />
+<img alt="context16.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext16.png" />
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/ch5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="05_01_Consistency_reg.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">A. Consistency Regularization</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By PseudoLab<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

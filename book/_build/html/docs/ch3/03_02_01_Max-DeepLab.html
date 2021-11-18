@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Draft] MaX-DeepLab - CVPR 21 &#8212; Segmentation Complete</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="04. Weakly-supervised Segmentation" href="../ch4/04_Weakly-supervised%20Segmentation.html" />
+    <link rel="prev" title="B. Transformer based Method" href="03_02_transformer.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Segmentation Complete</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   [가짜연구소 3기] Segmentation 완전정복 Crew
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch0/00%20Survey.html">
+   Survey
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Semantic.html">
+     Reading List: Semantic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Instance.html">
+     Reading List: Instance Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-Panoptic.html">
+     Reading List: Panoptic Segmentation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch0/Survey-WeaklySemi.html">
+     Reading List: Weakly/Semi-supervised Learning based Segmentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_Semantic%20Segmentation.html">
+   01. Semantic Segmentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch1/01_01_fullyconvNet.html">
+     A. Fully Convolutional Network
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_01_fcn.html">
+       FCN - CVPR 2015
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_02_DeepLabv3.html">
+       DeepLab v3 - arXiv 2017
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_03_pspnet.html">
+       PSPNet - CVPR 2017
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_04_encnet.html">
+       EncNet - CVPR 2018
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch1/01_02_encodedecode.html">
+     B. Convolutional encoder-decoder
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_01_unet.html">
+       U-Net - arxiv 2015
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_01_multiresunet.html">
+       MultiResUNet - arxiv 2019
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_02_segnet.html">
+       SegNet - TPAMI 2017
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_02_03_DeconvNet.html">
+       DeconvNet - ICCV 2015
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
+   02. Instance Segmentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch2/02_01_one_stage.html">
+     A. One-stage based Method
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch2/02_01_01_YOLACT.html">
+       YOLACT - ICCV 19
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="03_Panoptic%20Segmentation.html">
+   03. Panoptic Segmentation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="03_02_transformer.html">
+     B. Transformer based Method
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       [Draft] MaX-DeepLab - CVPR 21
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation.html">
+   04. Weakly-supervised Segmentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch4/04_01_LearningPixelAffinity.html">
+     A. Learning Pixel Affinity
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch4/04_01_01_AffinityNet.html">
+       AffinityNet - CVPR 2018
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch4/04_01_02_IAL.html">
+       IAL - IJCV 2020
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch4/04_02_AdversarialErasing.html">
+     B. Adversarial Erasing
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch4/04_02_02_SeeNet.html">
+       [Draft] SeeNet - NeurIPS 2018
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch5/05%20Semi-supervised%20Segmentation.html">
+   05. Semi-supervised Segmentation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../ch5/05_01_Consistency_reg.html">
+     A. Consistency Regularization
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch5/05_01_02_SemiContexAware.html">
+       [Draft] Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/docs/ch3/03_02_01_Max-DeepLab.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/pseudo-lab/Jupyter-Book-Template/issues/new?title=Issue%20on%20page%20%2Fdocs/ch3/03_02_01_Max-DeepLab.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   [Draft] MaX-DeepLab - CVPR 21
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reference">
+     Reference
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-statement">
+   Problem Statement
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution">
+   Contribution
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#box-based-method-in-panoptic-segmentation">
+     Box Based Method in Panoptic Segmentation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#box-free-method-in-panoptic-segmentation">
+     Box Free Method in Panoptic Segmentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notations">
+     Notations:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pq-style-loss">
+     PQ-style loss
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mask-matching">
+     Mask Matching
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loss">
+     Loss
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-architecture">
+     Model Architecture
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#auxiliary-losses">
+     Auxiliary Losses
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experimentation-result">
+   Experimentation Result
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="draft-max-deeplab-cvpr-21">
+<h1>[Draft] MaX-DeepLab - CVPR 21<a class="headerlink" href="#draft-max-deeplab-cvpr-21" title="Permalink to this headline">¶</a></h1>
+<p>Title: End-to-End Panoptic Segmentation with Mask Transformers</p>
+<p>Review By: Jeunghyun Byun</p>
+<p>Edited by:</p>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Paper: <a class="reference external" href="https://arxiv.org/abs/2012.00759">https://arxiv.org/abs/2012.00759</a></p></li>
+<li><p>Code: <a class="reference external" href="https://github.com/google-research/deeplab2">https://github.com/google-research/deeplab2</a></p></li>
+<li><p>review: <a class="reference external" href="https://ai.googleblog.com/2021/04/max-deeplab-dual-path-transformers-for.html">https://ai.googleblog.com/2021/04/max-deeplab-dual-path-transformers-for.html</a>,</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="problem-statement">
+<h1>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h1>
+<p>Panoptic segmentation task이란:</p>
+<ul class="simple">
+<li><p>“overlap하지 않는 각각의 class label에 해당되는 mask를 구하는 것”</p></li>
+</ul>
+<p><strong>Panoptic</strong> segmentation = Merging <strong>semantic (assigning a class label to each pixel) + instance</strong> (<strong>detecting and segmenting each object instance</strong>) segmentation results</p>
+</div>
+<div class="section" id="contribution">
+<h1>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>MaX-DeepLab is the <strong>first end-to-end model for panoptic segmentation (초록색으로 색칠된 부분 참고)</strong>:</p>
+<ul>
+<li><p>기존의 방법들은 surrogate sub-task들 (e.g. box detection, anchor design rules, non-maximum suppression, 등등)을 포함한 pipeline을 사용함 (즉, hand-coded 된 prior에 의존)</p></li>
+</ul>
+</li>
+<li><p>MaX-DeepLab은 mask transformer을 사용하고 bipartite matching으로부터 inspire된 loss을 사용함</p></li>
+<li><p>Dual-path transformer 사용</p></li>
+<li><p>COCO dataset에 대해서 새로운 SOTA 결과</p></li>
+</ul>
+</div>
+<div class="section" id="background">
+<h1>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h1>
+<p>(Transformer에 대한 설명은 생략! 이준형님께서 잘 정리해주셔서 <a class="reference external" href="https://www.notion.so/9398a7eabb1048a1ab98993e02a9fd1d">여기</a> 참고하면 될 것 같습니다! )</p>
+<p>기존의 Panoptic Segmentation method:</p>
+<ul>
+<li><p>여러 surrogate sub-task들에 의존하여 panoptic segmentation mask 결과를 구함.</p></li>
+<li><p>즉 기존의 panoptic segmentation은 한번에 결과값을 구하는 것이 아니라 여러 surrogate-task들로 구성되어 있는 다소 복잡한 pipeline <strong>(빨간색으로 색칠된 부분)</strong> 으로 구성되어 있다.</p></li>
+<li><p>e.g. anchors, box assignment rules, non-maximum suppression, thing-stuff merging</p>
+<p><img alt="maxdeeplab1.png" src="../../_images/maxdeeplab1.png" /></p>
+</li>
+</ul>
+<p>복잡한 pipeline의 문제점:</p>
+<ul class="simple">
+<li><p>각각의 surrogate task들로부터 “undesired artifact”가 발생할 수 있고 pipeline을 거치면서 더 큰 artifact / noise 로 번질 수 있다. <strong>(빨간색으로 색칠된 부분)</strong></p></li>
+</ul>
+<p>(Box based pipeline, box free methods에 대해서 살펴볼 필요 있음!)</p>
+<p>최근의 여러 연구들이 <strong>pipeline을 간단화하는데</strong> 많이 노력함</p>
+<div class="section" id="box-based-method-in-panoptic-segmentation">
+<h2>Box Based Method in Panoptic Segmentation<a class="headerlink" href="#box-based-method-in-panoptic-segmentation" title="Permalink to this headline">¶</a></h2>
+<p>먼저 <strong>Box based method가</strong> 있다. 이 방법은 Mask R-CNN과 같은 object detection 모델로 먼저 object bounding boxes들을 구하고 각 box안의 object에 해당되는 mask을 구한다. <strong>Instance segmentation</strong>와 <strong>Semantic segmentation</strong>가 서로 merge돼서 최종적인 panoptic segmentation을 구하게 된다.</p>
+<p>Exemplary Works:</p>
+<ul class="simple">
+<li><p><strong>Panoptic FPN</strong>: 대표적인 모델</p></li>
+<li><p><strong>UPSNet</strong>: parameter-free panoptic head</p></li>
+<li><p><strong>DETR</strong>: end-to-end approach for box detection (to replace detectors in panoptic segmentation</p>
+<ul>
+<li><p><strong>한계</strong>: <strong>training process still relies heavily on box detection</strong></p></li>
+</ul>
+</li>
+<li><p><strong>DetectoRS</strong>: SOTA work in Box Based methods. Uses recursive feature pyramid and switachable atrous convolution.</p></li>
+</ul>
+</div>
+<div class="section" id="box-free-method-in-panoptic-segmentation">
+<h2>Box Free Method in Panoptic Segmentation<a class="headerlink" href="#box-free-method-in-panoptic-segmentation" title="Permalink to this headline">¶</a></h2>
+<p>그리고 <strong>Box free method</strong>들이 있다. 먼저 semantic segment들을 구하고, 각각의 semantic segment에 속해 있는 pixel들을 group하여 instance segment들을 구한다. Grouping 방법으로는 예를 들어:</p>
+<ul class="simple">
+<li><p>Instance Center Regression</p></li>
+<li><p>Watershed transform</p></li>
+<li><p>Hough-voting</p></li>
+<li><p>Pixel affinity가 있다.</p></li>
+</ul>
+<p>Exemplary Works:</p>
+<ul class="simple">
+<li><p><strong>Axial-DeepLab</strong>: predict pixel-wise offsets to pre-defined instance centers <strong>(Panoptic-DeepLab + Fully axial-attention)</strong></p>
+<ul>
+<li><p><strong>한계: challenges with highly deformable objects (which have a large variety of shapes) or nearby objects with close centers in the image</strong></p></li>
+</ul>
+</li>
+<li><p>비슷한 맥락의 논문으로: Deeperlab Single-shot image parser, Leveraging Semi-Supervised Learning in Video Sequneces for Urban Scene Segmentation (ECCV 2020), Semantic image-segmentation with deep convolutional nets and fully connected crfs (ICLR 2015) 등등이 있다.</p></li>
+</ul>
+<p>Box based method. Box free method들 모두 일종의 “hand-coded prior”을 사용하므로 end-to-end pipeline이 아니다.</p>
+</div>
+</div>
+<div class="section" id="proposed-method">
+<h1>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="notations">
+<h2>Notations:<a class="headerlink" href="#notations" title="Permalink to this headline">¶</a></h2>
+<p>Class-labeled masks:</p>
+<div class="math notranslate nohighlight">
+\[\{\hat{y}\}_{i=0}^N=\{\left(\hat{m}_i,\hat{p}_i(c)\right)\}_{i=0}^N\]</div>
+<p><span class="math notranslate nohighlight">\(\hat{m}_i\)</span> = predicted masks</p>
+<p><span class="math notranslate nohighlight">\(\hat{p}_i\)</span> = predicted probability of assigning class c to mask hat(m)_i</p>
+</div>
+<div class="section" id="pq-style-loss">
+<h2>PQ-style loss<a class="headerlink" href="#pq-style-loss" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[\text{PQ}=\text{RQ}\times\text{SQ}\]</div>
+<p>PQ = panoptic quality, RQ = recognition quality, SQ = segmentation quality</p>
+<div class="math notranslate nohighlight">
+\[\text{sim}\left(y_i,\hat{y}_j\right)=\hat{p}_j(c_j)\times\text{Dice}(m_i,\hat{m}_i)\approx\text{RQ}\times\text{SQ}\]</div>
+<p>(Dice coefficient definition)</p>
+</div>
+<div class="section" id="mask-matching">
+<h2>Mask Matching<a class="headerlink" href="#mask-matching" title="Permalink to this headline">¶</a></h2>
+<p>To assign a predicted mask to each ground truth, solve a one-to-one bipartite matching problem between the prediction set and the ground truth set. Use <strong>Hungarian algorithm</strong>.</p>
+<div class="math notranslate nohighlight">
+\[\hat{\sigma}=\argmax_{\sigma\in \mathfrak{S}_n}\sum_{i=1}^{K}\text{sim}(y_i,\hat{y}_{\sigma(i)})\]</div>
+<ul class="simple">
+<li><p>K matches predictions = positive masks</p></li>
+<li><p>(N-K) masks left = negative masks (i.e. no object)</p></li>
+</ul>
+</div>
+<div class="section" id="loss">
+<h2>Loss<a class="headerlink" href="#loss" title="Permalink to this headline">¶</a></h2>
+<p>For positive masks, we need to maximize (substitue mask matching equation’s similarity with equation in PQ-style loss)</p>
+<div class="math notranslate nohighlight">
+\[\max_{\theta}\mathcal{O}_{\text{PQ}}^{\text{pos}}=\sum_{i=1}^{K}\hat{p}_{\hat{\sigma}(i)}(c_i)\times\text{Dice}(m_i,\hat{m}_{\hat{\sigma}(i)})\approx\text{RQ}\times\text{SQ}\]</div>
+<p>In practice, apply product rule of gradient and change probability into log p (since log p aligns with the common cross-entropy loss that scales gradients better for optimization):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}\mathcal{L}_{\text{PQ}}^{\text{pos}}&amp;=\sum_{i=1}^{K}\hat{p}_{\hat{\sigma}(i)}(c_i)\cdot\left[-\text{Dice}(m_i,\hat{m}_{\hat{\sigma}(i)})\right] \\&amp;+\sum_{i=1}^{K}\text{Dice}(m_i,\hat{m}_{\hat{\sigma}(i)})\cdot\left[-\log \hat{p}_{\hat{\sigma}(i)}(c_i)\right] \end{aligned}\end{split}\]</div>
+<p>Loss for negative masks Total Loss:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}_{\text{PQ}}^{\text{neg}}=\sum_{i=K+1}^{N}\left[-\log \hat{p}_{\hat{\sigma}(i)}(\oslash)\right]\]</div>
+<p><img alt="maxdeeplab9.png" src="../../_images/maxdeeplab9.png" /></p>
+<p>Total Loss:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}_{\text{PQ}}=\alpha\mathcal{L}_{\text{PQ}}^{\text{pos}}+(1-\alpha)\mathcal{L}_{\text{PQ}}^{\text{neg}}\]</div>
+</div>
+<div class="section" id="model-architecture">
+<h2>Model Architecture<a class="headerlink" href="#model-architecture" title="Permalink to this headline">¶</a></h2>
+<p><img alt="maxdeeplab11.png" src="../../_images/maxdeeplab11.png" /></p>
+<p><strong>components:</strong> dual-path transformer, stacked decoder, output heads (for mask and classes prediction)</p>
+<p><img alt="maxdeeplab12.png" src="../../_images/maxdeeplab12.png" /></p>
+<p><strong>Dual-path</strong>: Augment a <strong>2D pixel-based CNN (H x W x d_in)</strong> with a <strong>1D global memory (N x d_in)</strong> of size N (i.e. total number of predictions)</p>
+<p>Types of communications:</p>
+<ul class="simple">
+<li><p>traditional memory-to-pixel (M2P) attention</p></li>
+<li><p>memory-to-memory (M2M) self-attention</p></li>
+<li><p>pixel-to-memory (P2M) feedback attention</p></li>
+<li><p>pixel-to-pixel (P2P) self-attention (axial attention blocks)</p></li>
+</ul>
+<p>Feedback attention’s output <strong>(Pixel-to-memory)</strong> at pixel position a:</p>
+<div class="math notranslate nohighlight">
+\[y_a^{p}=\sum_{n=1}^{N}\text{softmax}_n(q_a^p\cdot k_n^m)v_n^m\]</div>
+<p>Output of <strong>memory-to-pixel (M2P)</strong> and <strong>memory-to-memory (M2M)</strong> attention:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}q_b^m=\sum_{n=1}^{\hat{H}\hat{W}+N}\text{softmax}_n(q_a^p\cdot k_n^m)v_n^m,\\ k^{\text{pm}}=\left[\begin{matrix}k ^p \\k^m \end{matrix}\right], v^{\text{pm}}=\left[\begin{matrix}v^p  \\v^m \end{matrix}\right]\end{split}\]</div>
+<p><strong>Stacked Decoder:</strong> stack L times traversing through (4, 8 and 16 output strides)</p>
+<ul class="simple">
+<li><p>Note: different to feature pyramid networks, the stacked decoder in this model does not directly use intermediate pyramidal features for prediction!</p></li>
+</ul>
+<p><strong>Output heads:</strong></p>
+<ul class="simple">
+<li><p>Memory Path:</p>
+<ul>
+<li><p>predict mask classes with 2 FC and softmax (N x C) → <strong>p(c)</strong></p></li>
+<li><p>another 2FCs predict mask features → <strong>feature f</strong> (N x D)</p></li>
+</ul>
+</li>
+<li><p>Pixel Path:</p>
+<ul>
+<li><p>employ 2 Convs to produce normalized → <strong>feature g</strong> ( D x H/4 x W/4)</p></li>
+</ul>
+</li>
+</ul>
+<p>Then, mask prediction m:</p>
+<div class="math notranslate nohighlight">
+\[\hat{m}=\text{softmax}_N(f\cdot g)\in \mathbb{R}^{N\times\frac{H}{4}\times\frac{W}{4}}\]</div>
+<p>Mask prediction inspired by CondInst and SOLOv2</p>
+</div>
+<div class="section" id="auxiliary-losses">
+<h2>Auxiliary Losses<a class="headerlink" href="#auxiliary-losses" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Instance discrimination: helps cluster decoder features into instances</p></li>
+<li><p>Mask-ID Cross-Entropy: classifies each pixel in N masks</p></li>
+<li><p>Semantic Segmentation</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="experimentation-result">
+<h1>Experimentation Result<a class="headerlink" href="#experimentation-result" title="Permalink to this headline">¶</a></h1>
+<p>Computing resources:</p>
+<ul class="simple">
+<li><p>32 TPU cores for 100k iterations (54 epochs)</p></li>
+</ul>
+<p>Data: COCO</p>
+<p>Models:</p>
+<ul>
+<li><p><strong>Max-DeepLab-L</strong> (Wide-ResNet-41, L=2 stacking)</p></li>
+<li><p><strong>Max-DeepLab-S</strong> (ResNet-50 with axial attention blocks, no stacking L=0)</p>
+<p><img alt="maxdeeplab16.png" src="../../_images/maxdeeplab16.png" /></p>
+<p><img alt="maxdeeplab17.png" src="../../_images/maxdeeplab17.png" /></p>
+<p><img alt="maxdeeplab18.png" src="../../_images/maxdeeplab18.png" /></p>
+</li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/ch3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="03_02_transformer.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">B. Transformer based Method</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../ch4/04_Weakly-supervised%20Segmentation.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">04. Weakly-supervised Segmentation</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By PseudoLab<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
