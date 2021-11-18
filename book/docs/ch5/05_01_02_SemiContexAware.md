@@ -1,11 +1,14 @@
 # [Draft] Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
 
-Title: Semi-supervised Semantic Segmentation with Directional Context-aware Consistency
+---
 
-Review By: Chanmin Park
+- **Title:** Semi-supervised Semantic Segmentation with Directional Context-aware Consistency
 
-Edited by: Taeyup Song
+- **Review By:** Chanmin Park
 
+- **Edited by:** Taeyup Song
+
+---
 
 ## Reference
 
@@ -39,14 +42,15 @@ Crop1 and Crop2 are randomly cropped from the same image with an overlapping reg
 
 ## Related work
 
-- semi supervised 의 대표적인 방법중에 하나 permutation 다양하게 주게됨으로 invaraince를 높임
-- weakly label이 필요없음
+- Semi-Supervised Semantic Segmentation with Cross-Consistency Training, CVPR 2020
+	- semi supervised 의 대표적인 방법중에 하나로 permutation 다양하게 부여하여 invaraince를 높임
+	- weakly label이 필요없는 장점이 있음.
 
-:::{figure-md} markdown-fig
-<img src="pic/semicontext/semicontext3.png" alt="context3" class="bg-primary mb-1" width="500px">
+	:::{figure-md} markdown-fig
+	<img src="pic/semicontext/semicontext3.png" alt="context3" class="bg-primary mb-1" width="500px">
 
-figure from ..
-:::
+	figure from ..
+	:::
 
 
 ## Proposed Method

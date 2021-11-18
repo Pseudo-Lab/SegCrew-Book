@@ -26,6 +26,12 @@ chapters:
   - file: docs/ch2/02_01_one_stage
     sections:
     - file: docs/ch2/02_01_01_YOLACT
+  - file: docs/ch2/02_02_two_stage
+    sections:
+    - file: docs/ch2/02_02_01_MaskRCNN
+    - file: docs/ch2/02_02_02_HTC
+    - file: docs/ch2/02_02_03_Deep-MAC
+    - file: docs/ch2/02_02_04_BCNet
 - file: docs/ch3/03_Panoptic Segmentation
   sections:
   - file: docs/ch3/03_02_transformer
@@ -39,10 +45,15 @@ chapters:
     - file: docs/ch4/04_01_02_IAL
   - file: docs/ch4/04_02_AdversarialErasing
     sections:
+    - file: docs/ch4/04_02_01_AE-PSL
     - file: docs/ch4/04_02_02_SeeNet
 - file: docs/ch5/05 Semi-supervised Segmentation
   sections:
   - file: docs/ch5/05_01_Consistency_reg
     sections:
+    - file: docs/ch5/05_01_01_CCT
     - file: docs/ch5/05_01_02_SemiContexAware
-
+  - file: docs/ch5/05_02_GAN
+    sections:
+    - file: docs/ch5/05_02_01_Revisiting_CycleGAN
+    - file: docs/ch5/05_02_02_s4GAN
