@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>U-Net - arxiv 2015 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,21 +32,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -58,7 +59,10 @@
     <link rel="next" title="MultiResUNet - arxiv 2019" href="01_02_01_multiresunet.html" />
     <link rel="prev" title="B. Convolutional encoder-decoder" href="01_02_encodedecode.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -74,6 +78,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -544,26 +552,30 @@
         
               <div>
                 
-  <div class="section" id="u-net-arxiv-2015">
+  <section class="tex2jax_ignore mathjax_ignore" id="u-net-arxiv-2015">
 <h1>U-Net - arxiv 2015<a class="headerlink" href="#u-net-arxiv-2015" title="Permalink to this headline">¶</a></h1>
-<p>Title: U-Net: Convolutional Networks for Biomedical Image Segmentation</p>
-<p>Review By: Taeyup Song (가짜연구소 논문미식회 2기)</p>
-<p>Edited by: Taeyup Song</p>
-<div class="section" id="resource">
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Title:</strong> U-Net: Convolutional Networks for Biomedical Image Segmentation</p></li>
+<li><p><strong>Review By:</strong> Taeyup Song (가짜연구소 논문미식회 2기)</p></li>
+<li><p><strong>Edited by:</strong> Taeyup Song</p></li>
+</ul>
+<hr class="docutils" />
+<section id="resource">
 <h2>Resource<a class="headerlink" href="#resource" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://arxiv.org/pdf/1505.04597.pdf">https://arxiv.org/pdf/1505.04597.pdf</a></p></li>
 <li><p><a class="reference external" href="https://awesomeopensource.com/project/ShawnBIT/UNet-family">https://awesomeopensource.com/project/ShawnBIT/UNet-family</a></p></li>
 </ul>
-</div>
-<div class="section" id="contribution">
+</section>
+<section id="contribution">
 <h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Biomedical image segmentation을 위한 end-to-end architecture 제안.</p></li>
 <li><p>Fully-Convolutional Network을 확장한 expansive(upsample) path와 skip-connection을 적용한 U자 형태의 architecture.</p></li>
 </ul>
-</div>
-<div class="section" id="problem-statement">
+</section>
+<section id="problem-statement">
 <h2>Problem statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>CNN은 주로 classification에 적용됨. Biomedical image processing 같은 경우 localization이 포함된 output이 필요함.</p></li>
@@ -572,10 +584,10 @@
 → Network를 deformation에 invariance하게 학습</p></li>
 <li><p>많은 cell segmentation task의 경우 동일한 세포(cell)들이 붙어있는 object를 찾아야함. (경계를 찾는 것이 중요함) → weighted loss 적용</p></li>
 </ul>
-</div>
-<div class="section" id="architecture">
+</section>
+<section id="architecture">
 <h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="fcn">
+<section id="fcn">
 <h3>(1) FCN 대비 변경점<a class="headerlink" href="#fcn" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Full connected layer를 적용하지 않음 (overlap-tile strategy 적용 가능)</p></li>
@@ -590,16 +602,16 @@
 : expansive path의 block은 up-convolution(transposed conv.) 적용한 후 2번의 3x3 conv. 적용하고, contracting path에서 전달된 feature를 crop하여 concatenation 함.
 : 별도의 pad를 사용하지 않음. →input 대비 output size가 축소됨.</p></li>
 </ul>
-</div>
-<div class="section" id="overlap-tile-strategy">
+</section>
+<section id="overlap-tile-strategy">
 <h3>(2) overlap-tile strategy<a class="headerlink" href="#overlap-tile-strategy" title="Permalink to this headline">¶</a></h3>
 <p><img alt="unet2.png" src="../../_images/unet2.png" /></p>
 <ul class="simple">
 <li><p>큰 영상에 대해 GPU memory 한계 없이 적용가능하기 위해 overlap 방식 사용</p></li>
 <li><p>network 구조상 pad를 적용하지 않아 input/output 크기 차이가 존재하는데, segmentation map이 구해지지 않는 외각 영역에 대해서는 mirroring을 이용한 extrapolation을 적용함.</p></li>
 </ul>
-</div>
-<div class="section" id="training">
+</section>
+<section id="training">
 <h3>(3) Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Optimizer: SGD</p></li>
@@ -618,13 +630,13 @@
 <p>여기서 <span class="math notranslate nohighlight">\(w_c\)</span>는 class frequencies를 나타내는 weight map 이고, <span class="math notranslate nohighlight">\(d_1\)</span>은 nearest cell간의 거리, <span class="math notranslate nohighlight">\(d_2\)</span>는 두번째 nearest cell간의 distance이다.</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="experimental-result">
+</section>
+</section>
+<section id="experimental-result">
 <h2>Experimental Result<a class="headerlink" href="#experimental-result" title="Permalink to this headline">¶</a></h2>
 <p><img alt="unet4.png" src="../../_images/unet4.png" /></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -678,7 +690,7 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -694,8 +706,7 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

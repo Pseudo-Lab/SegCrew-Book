@@ -1,11 +1,14 @@
 # DeepLab v3 - arXiv 2017
 
-Title: Rethinking Atrous Convolution for Semantic Image Segmentation
+---
 
-Review By: Geonsoo Kim, jooeun kim, 김동현­, Seongsu Park, 김한중­, Yejin Kim, Junmyeong Lee (가짜연구소 논문미식회 2기)
+- **Title:** Rethinking Atrous Convolution for Semantic Image Segmentation
 
-Edited by: Taeyup Song
+- **Review By:** Geonsoo Kim, jooeun kim, 김동현­, Seongsu Park, 김한중, Yejin Kim, Junmyeong Lee (가짜연구소 논문미식회 2기)
 
+- **Edited by:** Taeyup Song
+
+---
 
 ## Background
 

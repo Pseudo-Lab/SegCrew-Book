@@ -1,15 +1,18 @@
 # DeconvNet - ICCV 2015
 
-Title: Learning Deconvolution Network for Semantic Segmentation
+---
 
-Review By: Yejin Kim, Seongsu Park (가짜연구소 논문미식회 2기)
+- **Title:** Learning Deconvolution Network for Semantic Segmentation
 
-Edited by: Taeyup Song
+- **Review By:** Yejin Kim, Seongsu Park (가짜연구소 논문미식회 2기)
 
+- **Edited by:** Taeyup Song
+
+---
 
 ## Resource
 
-- [https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Noh_Learning_Deconvolution_Network_ICCV_2015_paper.pdf](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Noh_Learning_Deconvolution_Network_ICCV_2015_paper.pdf)
+- paper : [https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Noh_Learning_Deconvolution_Network_ICCV_2015_paper.pdf](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Noh_Learning_Deconvolution_Network_ICCV_2015_paper.pdf)
 
 # Motivation
 

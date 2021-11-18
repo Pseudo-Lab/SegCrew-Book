@@ -1,11 +1,14 @@
 # AffinityNet - CVPR 2018
 
-Title: Learning Pixel-level Semantic Affinity Image-level Labels for Weakly Supervised Semantic Segmentation
+---
 
-Review By: Taeyup Song
+- **Title:** Learning Pixel-level Semantic Affinity Image-level Labels for Weakly Supervised Semantic Segmentation
 
-Edited by: Taeyup Song
+- **Review By:** Taeyup Song 
 
+- **Edited by:** Taeyup Song 
+
+---
 
 ## Reference
 

@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>SegNet - TPAMI 2017 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,19 +32,19 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -56,7 +57,10 @@
     <link rel="next" title="DeconvNet - ICCV 2015" href="01_02_03_DeconvNet.html" />
     <link rel="prev" title="MultiResUNet - arxiv 2019" href="01_02_01_multiresunet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -72,6 +76,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -549,27 +557,31 @@
         
               <div>
                 
-  <div class="section" id="segnet-tpami-2017">
+  <section class="tex2jax_ignore mathjax_ignore" id="segnet-tpami-2017">
 <h1>SegNet - TPAMI 2017<a class="headerlink" href="#segnet-tpami-2017" title="Permalink to this headline">¶</a></h1>
-<p>Title: SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation</p>
-<p>Review By: Junmyeong Lee (가짜연구소 논문미식회 2기)</p>
-<p>Edited by: Taeyup Song</p>
-<div class="section" id="resource">
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Title:</strong> SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation</p></li>
+<li><p><strong>Review By:</strong> Junmyeong Lee (가짜연구소 논문미식회 2기)</p></li>
+<li><p><strong>Edited by:</strong> Taeyup Song</p></li>
+</ul>
+<hr class="docutils" />
+<section id="resource">
 <h2>Resource<a class="headerlink" href="#resource" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://arxiv.org/abs/1511.00561">https://arxiv.org/abs/1511.00561</a></p></li>
-<li><p><a class="reference external" href="https://kuklife.tistory.com/120">https://kuklife.tistory.com/120</a></p></li>
-<li><p><a class="reference external" href="https://cool24151.tistory.com/m/92?category=932873">https://cool24151.tistory.com/m/92?category=932873</a></p></li>
+<li><p>paper : <a class="reference external" href="https://arxiv.org/abs/1511.00561">https://arxiv.org/abs/1511.00561</a></p></li>
+<li><p>reference : <a class="reference external" href="https://kuklife.tistory.com/120">https://kuklife.tistory.com/120</a></p></li>
+<li><p>reference : <a class="reference external" href="https://cool24151.tistory.com/m/92?category=932873">https://cool24151.tistory.com/m/92?category=932873</a></p></li>
 </ul>
-</div>
-<div class="section" id="id1">
+</section>
+<section id="id1">
 <h2>목표<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Image segmenetation task를 위한 Deep-learning based architecture 제시</p></li>
 <li><p>적은 parameter로 효율적으로 동작하도록 하고, 좋은 성능을 달성하고자 함.</p></li>
 </ul>
-</div>
-<div class="section" id="architecture">
+</section>
+<section id="architecture">
 <h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Encoder-Decoder 구조 채택</p></li>
@@ -578,7 +590,7 @@
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                        Fig 1. SegNet architecture
 </pre></div>
 </div>
-<div class="section" id="encoder">
+<section id="encoder">
 <h3>Encoder<a class="headerlink" href="#encoder" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>VGG-16 구조</p>
@@ -592,8 +604,8 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="main-contribution-max-pooling">
+</section>
+<section id="main-contribution-max-pooling">
 <h3>Main contribution : Max-pooling 인덱스 저장<a class="headerlink" href="#main-contribution-max-pooling" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Boundary detail은 Segmentation의 품질을 위해 꼭 필요한 정보이다. 하지만, Encoding과정에서 max-pooling이 적용되며 이러한 detail들이 손실되기 때문에, 여러 아키텍처들은 문제를 해결하고자 방법을 강구하였다.</p></li>
@@ -625,8 +637,8 @@
 </ol>
 </li>
 </ul>
-</div>
-<div class="section" id="decoder">
+</section>
+<section id="decoder">
 <h3>Decoder<a class="headerlink" href="#decoder" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Encoding된 feature map을 활용, Upsampling해서 최종 segmentation map을 생성한다.</p></li>
@@ -642,11 +654,11 @@
 </ol>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="performance">
+</section>
+</section>
+<section id="performance">
 <h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="road-scene-segmentation-camvid-dataset">
+<section id="road-scene-segmentation-camvid-dataset">
 <h3>Road Scene Segmentation(CamVid dataset)<a class="headerlink" href="#road-scene-segmentation-camvid-dataset" title="Permalink to this headline">¶</a></h3>
 <p><img alt="segnet4.png" src="../../_images/segnet4.png" /></p>
 <ol>
@@ -692,8 +704,8 @@
 </li>
 </ol>
 <p><img alt="segnet6.png" src="../../_images/segnet6.png" /></p>
-</div>
-<div class="section" id="indoor-scene-segmentation-sun-rgb-d">
+</section>
+<section id="indoor-scene-segmentation-sun-rgb-d">
 <h3>Indoor Scene segmentation(SUN RGB-D)<a class="headerlink" href="#indoor-scene-segmentation-sun-rgb-d" title="Permalink to this headline">¶</a></h3>
 <p><img alt="segnet7.png" src="../../_images/segnet7.png" /></p>
 <ol class="simple">
@@ -712,9 +724,9 @@
 </li>
 </ol>
 <p><img alt="segnet8.png" src="../../_images/segnet8.png" /></p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -768,7 +780,7 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -784,8 +796,7 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

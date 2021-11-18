@@ -1,10 +1,14 @@
 # [Draft] MaX-DeepLab - CVPR 21
 
-Title: End-to-End Panoptic Segmentation with Mask Transformers
+---
 
-Review By: Jeunghyun Byun
+- **Title:** End-to-End Panoptic Segmentation with Mask Transformers
 
-Edited by: 
+- **Review By:** Jeunghyun Byun
+
+- **Edited by:** 
+
+---
 
 ## Reference
 
