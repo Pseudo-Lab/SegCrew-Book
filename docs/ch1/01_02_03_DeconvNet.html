@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DeconvNet - ICCV 2015 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -23,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,19 +31,19 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -57,10 +56,7 @@
     <link rel="next" title="02. Instance Segmentation" href="../ch2/02%20Instance%20Segmentation.html" />
     <link rel="prev" title="SegNet - TPAMI 2017" href="01_02_02_segnet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -76,10 +72,6 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -545,7 +537,7 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="deconvnet-iccv-2015">
+  <div class="section" id="deconvnet-iccv-2015">
 <h1>DeconvNet - ICCV 2015<a class="headerlink" href="#deconvnet-iccv-2015" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <ul class="simple">
@@ -554,14 +546,14 @@
 <li><p><strong>Edited by:</strong> Taeyup Song</p></li>
 </ul>
 <hr class="docutils" />
-<section id="resource">
+<div class="section" id="resource">
 <h2>Resource<a class="headerlink" href="#resource" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>paper : <a class="reference external" href="https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Noh_Learning_Deconvolution_Network_ICCV_2015_paper.pdf">https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Noh_Learning_Deconvolution_Network_ICCV_2015_paper.pdf</a></p></li>
 </ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="motivation">
+</div>
+</div>
+<div class="section" id="motivation">
 <h1>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h1>
 <ul>
 <li><p>Segmentation 모델인 FCN의 문제점을 지적하면서 논문의 introduction을 구성함</p></li>
@@ -579,8 +571,8 @@
 </ul>
 </li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="method">
+</div>
+<div class="section" id="method">
 <h1>Method<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h1>
 <ul>
 <li><p>이 논문에서는 deconvolutional network를 활용해 전체적인 네트워크를 제안함</p>
@@ -621,8 +613,8 @@
 </ul>
 </li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="training">
+</div>
+<div class="section" id="training">
 <h1>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Batch Normalization</strong>: reducing internal-covariate-shift</p></li>
@@ -634,8 +626,8 @@
 </ul>
 </li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="inference">
+</div>
+<div class="section" id="inference">
 <h1>Inference<a class="headerlink" href="#inference" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>input image를 잘라내 candidate proposals를 생성 → 각 proposal을 학습된 네트워크에 적용해 semantic segmentation map을 계산 → 모든 proposals의 output을 aggregate</p></li>
@@ -659,8 +651,8 @@
 </ul>
 </li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="experiments-and-conclusion">
+</div>
+<div class="section" id="experiments-and-conclusion">
 <h1>Experiments and Conclusion<a class="headerlink" href="#experiments-and-conclusion" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>candidate proposal 생성을 위해 edge-box 이용</p></li>
@@ -680,7 +672,7 @@
 <li><p>Deconvolution network, FCN, CRF, instancewise prediction의 장점을 이용해 더 정밀하고 자세한obejct segmentation mask를 생성.</p></li>
 </ul>
 <p><img alt="deconv7" src="../../_images/deconv7.png" /></p>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -734,7 +726,7 @@
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -750,7 +742,8 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>
