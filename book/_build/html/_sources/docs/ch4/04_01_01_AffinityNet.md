@@ -14,8 +14,7 @@
 
 - Paper: [https://arxiv.org/abs/1803.10464](https://arxiv.org/abs/1803.10464), [CVPR18 open repo.](https://openaccess.thecvf.com/content_cvpr_2018/papers/Ahn_Learning_Pixel-Level_Semantic_CVPR_2018_paper.pdf)
 - Code: [https://github.com/jiwoon-ahn/psa](https://github.com/jiwoon-ahn/psa)
-- review
-- [http://www.navisphere.net/6101/learning-pixel-level-semantic-affinity-with-image-level-supervision-for-weakly-supervised-semantic-segmentation/](http://www.navisphere.net/6101/learning-pixel-level-semantic-affinity-with-image-level-supervision-for-weakly-supervised-semantic-segmentation/)
+- review: [http://www.navisphere.net/6101/learning-pixel-level-semantic-affinity-with-image-level-supervision-for-weakly-supervised-semantic-segmentation/](http://www.navisphere.net/6101/learning-pixel-level-semantic-affinity-with-image-level-supervision-for-weakly-supervised-semantic-segmentation/)
 
 ## Problem Statement
 
@@ -32,7 +31,11 @@
 
 **(1) Class Attention/Activation Map (CAM)**
 
-![aff1.png](pic/affinitynet/aff1.png)
+:::{figure-md} markdown-fig
+<img src="pic/affinitynet/aff1.png" alt="aff1" class="bg-primary mb-1" width="600px">
+
+Class Attention Map (CAM)
+:::
 
 learning deep features for discriminative localization, CVPR 2016
 
@@ -54,10 +57,12 @@ learning deep features for discriminative localization, CVPR 2016
 
 ### 1. Key Idea
 
-![aff2.png](pic/affinitynet/aff2.png)
+:::{figure-md} markdown-fig
+<img src="pic/affinitynet/aff2.png" alt="aff2" class="bg-primary mb-1" width="600px">
 
 Figure 1. Illustration of our approach.
 in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision", CVPR 2018
+:::
 
 - Semantic affinity를 구하는 AffinityNet을 제안
 - AffinityNet으로 구한 Semantic affinity(동치관계)을 이용하여 CAM을 propagation하여 정확한 pseudo label을 생성
@@ -85,13 +90,17 @@ computed by
 
 - CAM을 구하기 위한 Network는 ResNet38에 L4~L6를 dilated conv.로 변경한 backbone에 3x3 conv. layer와 GAP, FC를 추가한 network를 사용한다.
 
-![aff3.png](pic/affinitynet/aff3.png)
+:::{figure-md} markdown-fig
+<img src="pic/affinitynet/aff3.png" alt="aff3" class="bg-primary mb-1" width="600px">
 
 Figure 7. (b) Backbone network
+:::
 
-![aff4.png](pic/affinitynet/aff4.png)
+:::{figure-md} markdown-fig
+<img src="pic/affinitynet/aff4.png" alt="aff4" class="bg-primary mb-1" width="600px">
 
 Figure 7. (c) Network for computing CAM
+:::
 
 ### 3. AffinityNet
 
@@ -99,10 +108,12 @@ Figure 7. (c) Network for computing CAM
 
 - ResNet38 backbone의 마지막 3개 layer를 dilated conv. layer로 변경하여  $f^{\text{aff}}$를 구함
 
-![aff5.png](pic/affinitynet/aff5.png)
+:::{figure-md} markdown-fig
+<img src="pic/affinitynet/aff5.png" alt="aff5" class="bg-primary mb-1" width="600px">
 
 Modified from Figure 7.
 in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision", CVPR 2018
+:::
 
 - feature $i$와 $j$에서의 semantic affinity $W_{ij}$는 두 위치의 affinity map $f^{\text{aff}}$의 pairwise $L_1$distance에 exponentiation 함수를 적용한 값을 사용
 
@@ -120,10 +131,12 @@ in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision"
     - 선정한 pair가 서로 같은 class를 가지는 positive affinity label과 서로 다른 class를 가지는 negative affinity label을 추출
     - FG/BG threshold의 중간 값을 가지는 feature(Figure 4에서 흰색 영역)는 affinity label 생성 시 사용하지 않음 (Don't care)
 
-        ![aff6.png](pic/affinitynet/aff6.png)
+:::{figure-md} markdown-fig
+<img src="pic/affinitynet/aff6.png" alt="aff6" class="bg-primary mb-1" width="600px">
 
-        Figure 4. Conceptual illustration of generating semantic affinity labels.
-        in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision", CVPR 2018
+Figure 4. Conceptual illustration of generating semantic affinity labels.
+in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision", CVPR 2018
+:::
 
 - Set of coordinate pairs $\mathcal{P}$는 다음과 같이 정의 가능하다.
 
@@ -152,7 +165,12 @@ in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision"
 
 - Training image들의 CAM을 이용하여 학습된 AffinityNet이 주어지면, 이를 이용하여 local semantic affinities를 예측하고 transition probability matrix로 변환한다.
 
-![aff7.png](pic/affinitynet/aff7.png)
+:::{figure-md} markdown-fig
+<img src="pic/affinitynet/aff7.png" alt="aff7" class="bg-primary mb-1" width="600px">
+
+Calculate transition probability matrix
+:::
+
 
 $$T=D^{-1}W^{\alpha\beta},\,\text{where}\,D_{ij}=\sum_{j}W_{ij}^\beta $$
 
@@ -165,10 +183,12 @@ $$\text{vec}(M_c^{*})=T^t\cdot \text{vec}(M_c)\,\forall c \in \cup\{\text{bg}\}$
 
 ### 5. Train Segmentation network
 
-![aff8.png](pic/affinitynet/aff8.png)
+:::{figure-md} markdown-fig
+<img src="pic/affinitynet/aff8.png" alt="aff8" class="bg-primary mb-1" width="600px">
 
 Figure 7. (d) Semantic segmentation network
 in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision", CVPR 2018
+:::
 
 - 위 과정을 거처 생성한 semantic label은 입력 영상보다 작으므로, bilinear interpolation 및 dense CRF 후처리를 적용한 후 supervised learning 기반의 semantic segmentation network를 학습하는데 사용한다.
 
@@ -202,13 +222,25 @@ in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision"
 
 - PASCAL VOC training set과 생성한 pseudo label을 mIoU로 비교한 결과 기존 방법대비 개선됨을 확인함.
 
-![aff9.png](pic/affinitynet/aff9.png)
+```{image} pic/affinitynet/aff9.png
+:alt: aff9.png
+:class: bg-primary mb-1
+:align: center
+```
 
 - supervised learning으로 학슴한 FCN보다 높은 성능 나타냄
 (fully supervision을 이용한 network보다 성능이 좋은 최초의 사례임.)
 
-![aff10.png](pic/affinitynet/aff10.png)
+```{image} pic/affinitynet/aff10.png
+:alt: aff10.png
+:class: bg-primary mb-1
+:align: center
+```
 
 - Semantic Affinity를 보면 AffinityNet이 의도한대로 object에 경계부분에 affinity score가 낮게 나옴을 알 수 있음.
 
-![aff11.png](pic/affinitynet/aff11.png)
+```{image} pic/affinitynet/aff11.png
+:alt: aff11.png
+:class: bg-primary mb-1
+:align: center
+```

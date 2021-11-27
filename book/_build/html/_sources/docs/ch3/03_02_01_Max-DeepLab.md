@@ -42,8 +42,11 @@ Panoptic segmentation task이란:
 - 즉 기존의 panoptic segmentation은 한번에 결과값을 구하는 것이 아니라 여러 surrogate-task들로 구성되어 있는 다소 복잡한 pipeline **(빨간색으로 색칠된 부분)** 으로 구성되어 있다.
 - e.g. anchors, box assignment rules, non-maximum suppression, thing-stuff merging
     
-    ![maxdeeplab1.png](pic/max-deeplab/maxdeeplab1.png)
-    
+:::{figure-md} markdown-fig
+<img src="pic/max-deeplab/maxdeeplab1.png" alt="maxdeeplab1" class="bg-primary mb-1" width="600px">
+
+Overview of Previous Method
+:::
 
 복잡한 pipeline의 문제점:
 
@@ -127,7 +130,11 @@ Loss for negative masks Total Loss:
 
 $$\mathcal{L}_{\text{PQ}}^{\text{neg}}=\sum_{i=K+1}^{N}\left[-\log \hat{p}_{\hat{\sigma}(i)}(\oslash)\right]$$
 
-![maxdeeplab9.png](pic/max-deeplab/maxdeeplab9.png)
+:::{figure-md} markdown-fig
+<img src="pic/max-deeplab/maxdeeplab9.png" alt="maxdeeplab9" class="bg-primary mb-1" width="600px">
+
+Mask Matching
+:::
 
 Total Loss: 
 
@@ -135,11 +142,19 @@ $$\mathcal{L}_{\text{PQ}}=\alpha\mathcal{L}_{\text{PQ}}^{\text{pos}}+(1-\alpha)\
 
 ## Model Architecture
 
-![maxdeeplab11.png](pic/max-deeplab/maxdeeplab11.png)
+:::{figure-md} markdown-fig
+<img src="pic/max-deeplab/maxdeeplab11.png" alt="maxdeeplab11" class="bg-primary mb-1" width="600px">
+
+Overview of MaX-DeepLab
+:::
 
 **components:** dual-path transformer, stacked decoder, output heads (for mask and classes prediction)
 
-![maxdeeplab12.png](pic/max-deeplab/maxdeeplab12.png)
+:::{figure-md} markdown-fig
+<img src="pic/max-deeplab/maxdeeplab12.png" alt="maxdeeplab12" class="bg-primary mb-1" width="600px">
+
+An overview of the dual-path transformer architecture
+:::
 
 **Dual-path**: Augment a **2D pixel-based CNN (H x W x d_in)** with a **1D global memory (N x d_in)** of size N (i.e. total number of predictions)
 
@@ -194,10 +209,21 @@ Models:
 
 - **Max-DeepLab-L** (Wide-ResNet-41, L=2 stacking)
 - **Max-DeepLab-S** (ResNet-50 with axial attention blocks, no stacking L=0)
+
+```{image} pic/max-deeplab/maxdeeplab16.png
+:alt: maxdeeplab16.png
+:class: bg-primary mb-1
+:align: center
+```
+
+```{image} pic/max-deeplab/maxdeeplab17.png
+:alt: maxdeeplab17.png
+:class: bg-primary mb-1
+:align: center
+```
     
-    ![maxdeeplab16.png](pic/max-deeplab/maxdeeplab16.png)
-
-    ![maxdeeplab17.png](pic/max-deeplab/maxdeeplab17.png)
-
-    ![maxdeeplab18.png](pic/max-deeplab/maxdeeplab18.png)
-
+```{image} pic/max-deeplab/maxdeeplab18.png
+:alt: maxdeeplab18.png
+:class: bg-primary mb-1
+:align: center
+```

@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>[Draft] SeeNet - NeurIPS 2018 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -23,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,21 +31,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -59,10 +58,7 @@
     <link rel="next" title="05. Semi-supervised Segmentation" href="../ch5/05%20Semi-supervised%20Segmentation.html" />
     <link rel="prev" title="[Draft] AE-PSL - CVPR 2017" href="04_02_01_AE-PSL.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -78,10 +74,6 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -617,7 +609,7 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="draft-seenet-neurips-2018">
+  <div class="section" id="draft-seenet-neurips-2018">
 <h1>[Draft] SeeNet - NeurIPS 2018<a class="headerlink" href="#draft-seenet-neurips-2018" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <ul class="simple">
@@ -626,21 +618,21 @@
 <li><p><strong>Edited by:</strong></p></li>
 </ul>
 <hr class="docutils" />
-<section id="reference">
+<div class="section" id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Paper : <a class="reference external" href="https://arxiv.org/pdf/1810.09821">https://arxiv.org/pdf/1810.09821</a></p></li>
 <li><p>Reviews : <a class="reference external" href="https://proceedings.neurips.cc/paper/2018/file/c042f4db68f23406c6cecf84a7ebb0fe-Reviews.html">https://proceedings.neurips.cc/paper/2018/file/c042f4db68f23406c6cecf84a7ebb0fe-Reviews.html</a></p></li>
 </ul>
-</section>
-<section id="problem-statement">
+</div>
+<div class="section" id="problem-statement">
 <h2><strong>Problem Statement</strong><a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Semantic segmentation model을 학습하기 위해서는 dense class label이 필요하지만, data를 수집하고 labeling 하는 것은 비용이 많이 든다.</p></li>
 <li><p>Adversarial Erasing 기법을 계속 적용할 경우 배경에도 Attention 영역이 넓혀지는 문제가 존재한다.</p></li>
 </ul>
-</section>
-<section id="contribution">
+</div>
+<div class="section" id="contribution">
 <h2><strong>Contribution</strong><a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Self-Erasing이라는 전략을 통해서 위에서 발생하는 문제점을 해결</p>
@@ -651,37 +643,54 @@
 </li>
 <li><p>Pascal VOC에서 SOTA 성능을 달성</p></li>
 </ul>
-</section>
-<section id="background">
+</div>
+<div class="section" id="background">
 <h2><strong>BackGround</strong><a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p><strong>(1) Earlier Work</strong></p>
-<p><img alt="seenet1.png" src="../../_images/seenet1.png" /></p>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet1.png"><img alt="seenet1" class="bg-primary mb-1" src="../../_images/seenet1.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Class Attention Map (CAM)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>GAP와 Weight를 곱해서 CAM 결과를 생성</p></li>
 </ul>
 <p><strong>(2) Adversarial Erasing Strategy</strong></p>
-<p><img alt="seenet2.png" src="../../_images/seenet2.png" /></p>
+<div class="figure align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet2.png"><img alt="seenet2" class="bg-primary mb-1" src="../../_images/seenet2.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Source: Object Region Mining with Adversarial Erasing: A Simple Classification to Semantic Segmentation Approach, CVPR 2017</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>입력 이미지에서 CAM을 지속적으로 제거해서 Object 영역을 추출</p></li>
 <li><p>단, 언제까지 영역을 지워야할지에 대한 한계가 존재</p></li>
 </ul>
-<p><img alt="seenet3.png" src="../../_images/seenet3.png" /></p>
+<div class="figure align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet3.png"><img alt="seenet3" class="bg-primary mb-1" src="../../_images/seenet3.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Source: Adversarial Complementary Learning for Weakly supervised Object Localization, CVPR 2018</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>Object Region Mining과 비슷한 전략이지만, Classifier Branch를 두개 두어서 A에서 얻은 특징맵을 B에 들어가기전에 제거해서 사용</p></li>
 <li><p>하지만, 배경영역까지 Attention 결과가 넓혀지는 문제가 존재</p></li>
 </ul>
-<p><img alt="seenet4.png" src="../../_images/seenet4.png" /></p>
-<p>출처 : Tell Me Where to Look: Guided Attention Inference Network</p>
+<div class="figure align-default" id="id3">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet4.png"><img alt="seenet4" class="bg-primary mb-1" src="../../_images/seenet4.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Source: Tell Me Where to Look: Guided Attention Inference Network, TPAMI 2020</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 <p><strong>(3) Weakly Supervised Semantic Segmentation</strong></p>
-<p><img alt="seenet5.png" src="../../_images/seenet5.png" /></p>
+<div class="figure align-default" id="id4">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet5.png"><img alt="seenet5" class="bg-primary mb-1" src="../../_images/seenet5.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Source: Weakly Supervised Learning for Computper Vision, CVPR2018 Tutorial</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>4개의 레이블로 Weakly Supervised Semantic Segmentation을 수행하지만, 대체적으로 image-level labels가 가장 많이 사용됨</p></li>
 </ul>
-</section>
-<section id="proposed-method">
+</div>
+<div class="section" id="proposed-method">
 <h2><strong>Proposed Method</strong><a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
-<p><img alt="seenet6.png" src="../../_images/seenet6.png" /></p>
-<section id="observations">
+<div class="figure align-default" id="id5">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet6.png"><img alt="seenet6" class="bg-primary mb-1" src="../../_images/seenet6.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Figure 1: (a) A typical adversarial erasing approach and (b-e) Attention maps</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="observations">
 <h3><strong>1. Observations</strong><a class="headerlink" href="#observations" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>AE Step이 진행됨에 따라서 Object 영역 이외까지 Attention이 확장되는 문제발생</p></li>
@@ -689,21 +698,29 @@
 <li><p>하지만, Attention network는 이미지 레이블만으로 배경을 구분하는 능력이 없음</p></li>
 <li><p>그렇기에, 배경에 대한 Prior을 Attention network에 전달해주는 것이 필요하고 이러한 방법을 제안</p></li>
 </ul>
-</section>
-<section id="self-erasing">
+</div>
+<div class="section" id="self-erasing">
 <h3><strong>2. Self-Erasing</strong><a class="headerlink" href="#self-erasing" title="Permalink to this headline">¶</a></h3>
-<p><img alt="seenet7.png" src="../../_images/seenet7.png" /></p>
-<ul>
-<li><p><span class="math notranslate nohighlight">\(S_A\)</span>에서 초기 Attention을 생성. 단, 이때 생성된 Attention을 Fig2의 c에 나온 그럼처럼 2개의 Threshold를 통해서 3가지의 영역으로 나눔</p>
+<div class="figure align-default" id="id6">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet7.png"><img alt="seenet7" class="bg-primary mb-1" src="../../_images/seenet7.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Figure 3: Overview of the proposed approach.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(S_A\)</span>에서 초기 Attention을 생성. 단, 이때 생성된 Attention을 Fig2의 c에 나온 그럼처럼 2개의 Threshold를 통해서 3가지의 영역으로 나눔</p>
+<ul>
 <li><p>attention zone : 노란색 영역으로 객체를 인식할 때 중요한 부분 (attention 값이 큰 부분)</p></li>
 <li><p>background zone : 배경에 대한 prior (attention 값이 작은 부분)</p></li>
 <li><p>potential zone : 높은 확률로 semantic objects가 포함된 영역 (attention 값이 중간인 영역?)</p></li>
 </ul>
-<p><img alt="seenet8.png" src="../../_images/seenet8.png" /></p>
 </li>
-<li><p>단, Observation에서 언급한 것처럼 attention 영역을 background 영역으로 넓혀지지 않게 해야하는데, 이를 위해서는 다음의 두가지 문제를 해결해야함</p>
+</ul>
+<div class="figure align-default" id="id7">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet8.png"><img alt="seenet8" class="bg-primary mb-1" src="../../_images/seenet8.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Figure 2: Illustrations explaining how to generate ternary masks.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
+<li><p>단, Observation에서 언급한 것처럼 attention 영역을 background 영역으로 넓혀지지 않게 해야하는데, 이를 위해서는 다음의 두가지 문제를 해결해야함</p>
+<ul>
 <li><p>이미지 레이블만을 가지고 배경에 대한 부분을 어떻게 정의하고 얻을지?</p>
 <ul>
 <li><p>Fig3에서 소개한 것처럼 Attention으로 얻은 초기 영역을 2개의 threshold를 통해서 나눠서 얻음. <span class="math notranslate nohighlight">\(\delta_h\)</span>보다 큰 영역은 <span class="math notranslate nohighlight">\(M_A\)</span>로 <span class="math notranslate nohighlight">\(\delta_l\)</span>보다 작은 영역은 배경으로 구분.
@@ -718,16 +735,20 @@
 </ul>
 </li>
 </ul>
-</section>
-<section id="self-erasing-network">
+</div>
+<div class="section" id="self-erasing-network">
 <h3><strong>3. Self-Erasing Network</strong><a class="headerlink" href="#self-erasing-network" title="Permalink to this headline">¶</a></h3>
-<p><img alt="seenet7.png" src="../../_images/seenet7.png" /></p>
+<div class="figure align-default" id="id8">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet7.png"><img alt="seenet7" class="bg-primary mb-1" src="../../_images/seenet7.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Figure 3: Overview of the proposed approach.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(S_A\)</span>부터 <span class="math notranslate nohighlight">\(S_C\)</span>로 구성된 3가지의 브랜치로 구성된 형태</p></li>
 <li><p><span class="math notranslate nohighlight">\(S_A\)</span>는 초기의 Attention을 추출하는 역할을, <span class="math notranslate nohighlight">\(S_B\)</span>, <span class="math notranslate nohighlight">\(S_C\)</span>는 Self-Erasing을 수행</p></li>
 </ul>
 <p><strong>Conditionally Reversed Linear Units (C-ReLUs)</strong></p>
-<p><img alt="seenet9.png" src="../../_images/seenet9.png" /></p>
+<div class="math notranslate nohighlight">
+\[\text{C-ReLU}(x)=\max(x,0)\times T_A(x)\]</div>
 <ul class="simple">
 <li><p>목적 : 배경에 속한 Attention 영역에 집중된 특징? 관심을 Potential Zone으로 바꿔주는 역할을 수행</p></li>
 <li><p><span class="math notranslate nohighlight">\(T_A(x)\)</span> 가 Binary Mask로 <span class="math notranslate nohighlight">\(\{-1,1\}\)</span>을 가져서 non-negative만 가지던 값에서 negative도 가지도록 변경</p>
@@ -817,12 +838,12 @@
 </pre></div>
 </div>
 <p><strong>Proxy ground-truth 생성</strong></p>
-<p><img alt="seenet10.png" src="../../_images/seenet10.png" /></p>
-</section>
-</section>
-<section id="experimental-results">
+<img alt="seenet10.png" class="bg-primary mb-1 align-center" src="../../_images/seenet10.png" />
+</div>
+</div>
+<div class="section" id="experimental-results">
 <h2><strong>Experimental Results</strong><a class="headerlink" href="#experimental-results" title="Permalink to this headline">¶</a></h2>
-<section id="implementation-details">
+<div class="section" id="implementation-details">
 <h3><strong>1. Implementation Details</strong><a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h3>
 <p>(1) Datasets and evaluation metrics</p>
 <ul class="simple">
@@ -861,15 +882,15 @@
 </ul>
 </li>
 </ul>
-</section>
-<section id="the-role-of-self-erasing">
+</div>
+<div class="section" id="the-role-of-self-erasing">
 <h3><strong>2. The Role of Self-Erasing</strong><a class="headerlink" href="#the-role-of-self-erasing" title="Permalink to this headline">¶</a></h3>
-<p><img alt="seenet11.png" src="../../_images/seenet11.png" /></p>
+<img alt="seenet11.png" class="bg-primary mb-1 align-center" src="../../_images/seenet11.png" />
 <ul class="simple">
 <li><p>ACoL 대비해서 성능 향상</p></li>
 <li><p>C-ReLU 적용해야 성능이 높은 것을 확인 가능</p></li>
 </ul>
-<p><img alt="seenet12.png" src="../../_images/seenet12.png" /></p>
+<img alt="seenet12.png" class="bg-primary mb-1 align-center" src="../../_images/seenet12.png" />
 <ul class="simple">
 <li><p>SeeNet의 경우 다른 두개의 방법보다 Semantic objects에 더 잘 초점을 맞춤</p>
 <ul>
@@ -879,22 +900,22 @@
 </li>
 <li><p>Table1에서 ACoL 부분에서 확인할 수 있듯이, 배경부분을 추출시에 saliency map을 배경으로 사용하는 것보다 우리의 접근법이 효율적</p></li>
 </ul>
-</section>
-<section id="comparison-with-the-state-of-the-arts">
+</div>
+<div class="section" id="comparison-with-the-state-of-the-arts">
 <h3><strong>3. Comparison with the State-of-the-Arts</strong><a class="headerlink" href="#comparison-with-the-state-of-the-arts" title="Permalink to this headline">¶</a></h3>
-<p><img alt="seenet13.png" src="../../_images/seenet13.png" /></p>
+<img alt="seenet13.png" class="bg-primary mb-1 align-center" src="../../_images/seenet13.png" />
 <ul class="simple">
 <li><p>CAM을 기반으로 attention map을 생성한 DCSP보다 SeeNet이 성능이 높음</p></li>
 <li><p>기존 adversarial erasing 접근법인 AE-PSL, GAIN 보다 성능이 높음</p></li>
 </ul>
-</section>
-<section id="discussion">
+</div>
+<div class="section" id="discussion">
 <h3><strong>4. Discussion</strong><a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h3>
-<p><img alt="seenet14.png" src="../../_images/seenet14.png" /></p>
+<img alt="seenet14.png" class="bg-primary mb-1 align-center" src="../../_images/seenet14.png" />
 <ul class="simple">
 <li><p>다른 레이블을 가지는 Semantic Objects가 결합된 경우 attention model이 정확하게 이를 분리를 잘 못함</p></li>
 </ul>
-<p><img alt="seenet15.png" src="../../_images/seenet15.png" /></p>
+<img alt="seenet15.png" class="bg-primary mb-1 align-center" src="../../_images/seenet15.png" />
 <ul class="simple">
 <li><p>Fig5의 그림을 보면 PASCAL VOC 데이터의 경우 배경과 객체를 구분하기 어려운 경우가 많음</p></li>
 <li><p>또한, 첫번째 행을 보면 같은 클래스를 가지는 객체들이 많이 등장하는 경우가 많음 (사람이 엄청 많음)</p></li>
@@ -904,9 +925,9 @@
 </ul>
 </li>
 </ul>
-</section>
-</section>
-<section id="conclusion">
+</div>
+</div>
+<div class="section" id="conclusion">
 <h2><strong>Conclusion</strong><a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>초기 Attention map을 기반으로 배경 정보를 추출</p></li>
@@ -914,15 +935,15 @@
 <li><p>attention map의 quality를 평가하기 위해서, attention map을 weakly-supervised semantic segmentation task에 saliency map과 결합해서 적용</p></li>
 <li><p>proxy ground-truths에 기반한 세그멘테이션 결과가 기존 SOTA 모델 성능보다 높았음</p></li>
 </ul>
-</section>
-<section id="limits">
+</div>
+<div class="section" id="limits">
 <h2><strong>Limits</strong><a class="headerlink" href="#limits" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>논문을 읽고 든 생각이 두개의 Branch에 대한 효과가 Feature map에서 어떻게 영향을 끼치는지 시각적으로 보여줬으면, 더 이해가 좋았을 것 같음</p></li>
 <li><p>Review에서 언급된 것처럼 <span class="math notranslate nohighlight">\(S_C\)</span>의 영역이 학습에는 왜 필요하고, 테스트과정에는 왜 필요하지 않은지에 대한 명확한 언급이 없음</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -976,7 +997,7 @@
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -992,7 +1013,8 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>
