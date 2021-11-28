@@ -42,6 +42,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -489,9 +491,43 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reference">
-   Reference
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   [Draft] BCNet - CVPR 2021
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reference">
+     Reference
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#occlusion-aware-instance-segmentation">
+   2. Occlusion-Aware Instance Segmentation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bilayer-occluder-occludee-modeling">
+     Bilayer Occluder-Occludee Modeling
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#end-to-end-patameter-learning">
+     End-to-end Patameter Learning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experiments">
+   4. Experiments
   </a>
  </li>
 </ul>
@@ -521,6 +557,167 @@
 <li><p>code : <a class="reference external" href="https://github.com/lkeab/BCNet">https://github.com/lkeab/BCNet</a></p></li>
 </ul>
 </div>
+</div>
+<div class="section" id="introduction">
+<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>많은 segmentation error는 overlapping object에서 발생한다. 특히 같은 class의 object가 overlap 된 경우에 더 심하다.</p></li>
+<li><p>본 논문에서는 occluder / occludee 를 나누는 layer를 추가하는 것으로 해당 문제를 해결하고자 한다.</p></li>
+<li><p>해당 구조를 Bilayer Occluder-Occludee structure 라고 하고 있으며, RoI Head 부분에 위치시켰다.</p></li>
+</ul>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/20211027185503.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/20211027185503.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">BCNet : Mask head architecture</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/20211027185904.png"><img alt="figure2" class="bg-primary mb-1" src="../../_images/20211027185904.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Architecture of our BCNet with bilayer occluder-occludee relational modeling</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="occlusion-aware-instance-segmentation">
+<h1>2. Occlusion-Aware Instance Segmentation<a class="headerlink" href="#occlusion-aware-instance-segmentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="bilayer-occluder-occludee-modeling">
+<h2>Bilayer Occluder-Occludee Modeling<a class="headerlink" href="#bilayer-occluder-occludee-modeling" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Represent the graph convolution operation as,</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[Z = \sigma(AXW_{g}) + X\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X \in \mathbb{R}^{N \times K}\)</span> is the input feature</p></li>
+<li><p><span class="math notranslate nohighlight">\(N=H \times W\)</span> is the number of pixel grids within the ROI region</p></li>
+<li><p><span class="math notranslate nohighlight">\(A \in \mathbb{R}^{N \times N}\)</span> is the adjacency matrix</p></li>
+<li><p><span class="math notranslate nohighlight">\(W_{g} \in \mathbb{R}^{K \times K^{'}}\)</span> is the learnable weight matrix</p></li>
+<li><p>Adjacency matrix <span class="math notranslate nohighlight">\(A\)</span>는 graph node 사이의 similarity로 정의 된다.</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_{ij} = \text{softmax}(F(\textbf{x}_{i}, \textbf{x}_{j}))\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F(\textbf{x}_{i}, \textbf{x}_{j}) = \theta(\textbf{x}_{i})^{T} \phi(\textbf{x}_{j})\)</span></p></li>
+<li><p>아무리 봐도 attention과 다를바가 없는 것 같아서 코드를 확인해보니 attention하고 동일하다.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://github.com/lkeab/BCNet/blob/main/detectron2/modeling/roi_heads/mask_head.py#L411</span>
+
+<span class="c1"># x: B,C,H,W</span>
+<span class="c1"># x_query: B,C,HW</span>
+<span class="n">x_query_bound</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_transform_bound</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># x_query: B,HW,C</span>
+<span class="n">x_query_bound</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x_query_bound</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># x_key: B,C,HW</span>
+<span class="n">x_key_bound</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">key_transform_bound</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># x_value: B,C,HW</span>
+<span class="n">x_value_bound</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value_transform_bound</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># x_value: B,HW,C</span>
+<span class="n">x_value_bound</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x_value_bound</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># W = Q^T K: B,HW,HW</span>
+<span class="n">x_w_bound</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_query_bound</span><span class="p">,</span> <span class="n">x_key_bound</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
+<span class="n">x_w_bound</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">x_w_bound</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># x_relation = WV: B,HW,C</span>
+<span class="n">x_relation_bound</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_w_bound</span><span class="p">,</span> <span class="n">x_value_bound</span><span class="p">)</span>
+
+<span class="c1"># x_relation = B,C,HW</span>
+<span class="n">x_relation_bound</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x_relation_bound</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># x_relation = B,C,H,W</span>
+<span class="n">x_relation_bound</span> <span class="o">=</span> <span class="n">x_relation_bound</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">W</span><span class="p">)</span>
+<span class="n">x_relation_bound</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_transform_bound</span><span class="p">(</span><span class="n">x_relation_bound</span><span class="p">)</span>
+<span class="n">x_relation_bound</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocker_bound</span><span class="p">(</span><span class="n">x_relation_bound</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x_relation_bound</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Z^{0} = \sigma(A^{0} X_{\text{roi}} W_{g}^{0}) + X_{\text{roi}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(X_{f} = Z^{0}W_{f}^{0} + X_{\text{roi}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Z^{1} = \sigma(A^{1}X_{f}W_{g}^{1}) + X_{f}\)</span></p></li>
+<li><p>Occluder feature (<span class="math notranslate nohighlight">\(Z^{0}\)</span>)를 추출한 뒤에, 그 feature를 Occludee feature(<span class="math notranslate nohighlight">\(Z^{1}\)</span>)를 만들 때 사용한다.</p></li>
+</ul>
+<br>
+</div>
+<div class="section" id="end-to-end-patameter-learning">
+<h2>End-to-end Patameter Learning<a class="headerlink" href="#end-to-end-patameter-learning" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Backbone ~ RoI Head는 FCOS를 사용했다.</p></li>
+<li><p>Mask Head 부분은 mask-rcnn과 거의 비슷하다.</p>
+<ul class="simple">
+<li><p>각 class에 대해 BCE로 학습한다.</p></li>
+<li><p>Boundary에 대한 loss가 추가 된다.</p></li>
+<li><p>Occluder region은 offline으로 미리 구해둔다.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://github.com/lkeab/BCNet/blob/main/detectron2/data/datasets/process_dataset.py#L254:L296</span>
+
+<span class="k">for</span> <span class="n">index1</span><span class="p">,</span> <span class="n">a_box</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">box_list</span><span class="p">):</span>
+	<span class="n">union_mask_whole</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">img_dict</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">img_dict</span><span class="p">[</span><span class="s2">&quot;width&quot;</span><span class="p">])),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">index2</span><span class="p">,</span> <span class="n">b_box</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">box_list</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">index1</span> <span class="o">!=</span> <span class="n">index2</span><span class="p">:</span>
+			<span class="n">iou</span> <span class="o">=</span> <span class="n">bb_intersection_over_union</span><span class="p">(</span><span class="n">a_box</span><span class="p">,</span> <span class="n">b_box</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">iou</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">:</span>
+				<span class="n">union_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">box_mask_list</span><span class="p">[</span><span class="n">index1</span><span class="p">],</span> <span class="n">bitmask_list</span><span class="p">[</span><span class="n">index2</span><span class="p">])</span>
+				<span class="n">union_mask_whole</span> <span class="o">+=</span> <span class="n">union_mask</span>
+
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===========================================&quot;</span><span class="p">)</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;bit mask area:&#39;</span><span class="p">,</span> <span class="n">bitmask_list</span><span class="p">[</span><span class="n">index1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+	<span class="n">union_mask_whole</span><span class="p">[</span><span class="n">union_mask_whole</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;cropped union mask area:&#39;</span><span class="p">,</span> <span class="n">union_mask_whole</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+	<span class="n">intersect_mask</span> <span class="o">=</span> <span class="n">union_mask_whole</span> <span class="o">*</span> <span class="n">bitmask_list</span><span class="p">[</span><span class="n">index1</span><span class="p">]</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;intersect mask area:&#39;</span><span class="p">,</span> <span class="n">intersect_mask</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> 
+	<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;intersect rate:&#39;</span><span class="p">,</span> <span class="n">intersect_mask</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">bitmask_list</span><span class="p">[</span><span class="n">index1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===========================================&quot;</span><span class="p">)</span>
+
+	<span class="k">if</span> <span class="n">intersect_mask</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mf">1.0</span><span class="p">:</span>
+		<span class="n">intersect_num</span> <span class="o">+=</span> <span class="mi">1</span>
+
+	<span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">bitmask_list</span><span class="p">[</span><span class="n">index1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">:</span>
+		<span class="n">intersect_rate</span> <span class="o">+=</span> <span class="n">intersect_mask</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">bitmask_list</span><span class="p">[</span><span class="n">index1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+	<span class="n">union_mask_non_zero_num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">union_mask_whole</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+	<span class="n">record</span><span class="p">[</span><span class="s2">&quot;annotations&quot;</span><span class="p">][</span><span class="n">index1</span><span class="p">][</span><span class="s1">&#39;bg_object_segmentation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="k">if</span> <span class="n">union_mask_non_zero_num</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+		<span class="n">sum_co_box</span> <span class="o">+=</span> <span class="mi">1</span>
+		<span class="n">contours</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">find_contours</span><span class="p">(</span><span class="n">union_mask_whole</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+		<span class="k">for</span> <span class="n">contour</span> <span class="ow">in</span> <span class="n">contours</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">contour</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">:</span> 
+				<span class="n">contour</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">contour</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[::</span><span class="mi">10</span><span class="p">,:]</span>
+			<span class="k">elif</span> <span class="n">contour</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span> 
+				<span class="n">contour</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">contour</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[::</span><span class="mi">5</span><span class="p">,:]</span>
+			<span class="k">elif</span> <span class="n">contour</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span> 
+				<span class="n">contour</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">contour</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[::</span><span class="mi">3</span><span class="p">,:]</span>
+			<span class="k">elif</span> <span class="n">contour</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span> 
+				<span class="n">contour</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">contour</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[::</span><span class="mi">2</span><span class="p">,:]</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">contour</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">contour</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+			<span class="n">segmentation</span> <span class="o">=</span> <span class="n">contour</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+			<span class="n">record</span><span class="p">[</span><span class="s2">&quot;annotations&quot;</span><span class="p">][</span><span class="n">index1</span><span class="p">][</span><span class="s1">&#39;bg_object_segmentation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">segmentation</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</li>
+<li><p>target object를 occludee로 설정한다.</p></li>
+<li><p>target object box안에 있는 다른 object pixel을 전부 union 하는 것으로 occluder region를 구한다.</p></li>
+<li><p>따라서, 실제로는 occlusion이 일어나지 않아도 occluder가 될 수 있다.</p></li>
+<li><p>참고: <a class="reference external" href="https://github.com/lkeab/BCNet/issues/11">link</a></p></li>
+</ul>
+<img alt="20211027194937.png" class="bg-primary mb-1 align-center" src="../../_images/20211027194937.png" />
+<ul class="simple">
+<li><p>이후 occluder region은 ground truth로 이용된다.</p></li>
+<li><p>bondary ground truth는 online으로 구한다.</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/lkeab/BCNet/blob/main/detectron2/modeling/roi_heads/mask_head.py#L83:L89">https://github.com/lkeab/BCNet/blob/main/detectron2/modeling/roi_heads/mask_head.py#L83:L89</a></p></li>
+<li><p><a class="reference external" href="https://github.com/lkeab/BCNet/blob/main/detectron2/layers/boundary.py#L38:L59">https://github.com/lkeab/BCNet/blob/main/detectron2/layers/boundary.py#L38:L59</a></p></li>
+<li><p><a class="reference external" href="https://github.com/lkeab/BCNet/blob/main/detectron2/layers/boundary.py#L12:L26">https://github.com/lkeab/BCNet/blob/main/detectron2/layers/boundary.py#L12:L26</a></p></li>
+<li><p>skimage의 <code class="docutils literal notranslate"><span class="pre">binary_dilation</span></code> 함수를 통해서 counter를 약간 두껍게 만든다.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="experiments">
+<h1>4. Experiments<a class="headerlink" href="#experiments" title="Permalink to this headline">¶</a></h1>
+<img alt="20211027201227.png" class="bg-primary mb-1 align-center" src="../../_images/20211027201227.png" />
 </div>
 
     <script type="text/x-thebe-config">
