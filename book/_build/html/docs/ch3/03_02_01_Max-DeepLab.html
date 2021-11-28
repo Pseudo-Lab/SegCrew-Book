@@ -633,7 +633,7 @@
 </ul>
 <div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab1.png"><img alt="maxdeeplab1" class="bg-primary mb-1" src="../../_images/maxdeeplab1.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Overview of Previous Method</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Overview of Previous Method</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 <p>복잡한 pipeline의 문제점:</p>
 <ul class="simple">
@@ -700,7 +700,7 @@
 <h2>Mask Matching<a class="headerlink" href="#mask-matching" title="Permalink to this headline">¶</a></h2>
 <p>To assign a predicted mask to each ground truth, solve a one-to-one bipartite matching problem between the prediction set and the ground truth set. Use <strong>Hungarian algorithm</strong>.</p>
 <div class="math notranslate nohighlight">
-\[\hat{\sigma}=\argmax_{\sigma\in \mathfrak{S}_n}\sum_{i=1}^{K}\text{sim}(y_i,\hat{y}_{\sigma(i)})\]</div>
+\[\hat{\sigma}=\arg\max_{\sigma\in \mathfrak{S}_n}\sum_{i=1}^{K}\text{sim}(y_i,\hat{y}_{\sigma(i)})\]</div>
 <ul class="simple">
 <li><p>K matches predictions = positive masks</p></li>
 <li><p>(N-K) masks left = negative masks (i.e. no object)</p></li>
@@ -719,7 +719,7 @@
 \[\mathcal{L}_{\text{PQ}}^{\text{neg}}=\sum_{i=K+1}^{N}\left[-\log \hat{p}_{\hat{\sigma}(i)}(\oslash)\right]\]</div>
 <div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab9.png"><img alt="maxdeeplab9" class="bg-primary mb-1" src="../../_images/maxdeeplab9.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Mask Matching</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Mask Matching</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>Total Loss:</p>
 <div class="math notranslate nohighlight">
@@ -729,12 +729,12 @@
 <h2>Model Architecture<a class="headerlink" href="#model-architecture" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab11.png"><img alt="maxdeeplab11" class="bg-primary mb-1" src="../../_images/maxdeeplab11.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Overview of MaX-DeepLab</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Overview of MaX-DeepLab</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>components:</strong> dual-path transformer, stacked decoder, output heads (for mask and classes prediction)</p>
 <div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab12.png"><img alt="maxdeeplab12" class="bg-primary mb-1" src="../../_images/maxdeeplab12.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">An overview of the dual-path transformer architecture</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">An overview of the dual-path transformer architecture</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Dual-path</strong>: Augment a <strong>2D pixel-based CNN (H x W x d_in)</strong> with a <strong>1D global memory (N x d_in)</strong> of size N (i.e. total number of predictions)</p>
 <p>Types of communications:</p>

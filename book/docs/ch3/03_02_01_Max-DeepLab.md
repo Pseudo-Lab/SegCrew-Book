@@ -111,7 +111,7 @@ $$\text{sim}\left(y_i,\hat{y}_j\right)=\hat{p}_j(c_j)\times\text{Dice}(m_i,\hat{
 
 To assign a predicted mask to each ground truth, solve a one-to-one bipartite matching problem between the prediction set and the ground truth set. Use **Hungarian algorithm**.
 
-$$\hat{\sigma}=\argmax_{\sigma\in \mathfrak{S}_n}\sum_{i=1}^{K}\text{sim}(y_i,\hat{y}_{\sigma(i)})$$
+$$\hat{\sigma}=\arg\max_{\sigma\in \mathfrak{S}_n}\sum_{i=1}^{K}\text{sim}(y_i,\hat{y}_{\sigma(i)})$$
 
 - K matches predictions = positive masks
 - (N-K) masks left = negative masks (i.e. no object)
