@@ -22,8 +22,8 @@
 
 | Index |                     주제						   |                 크루원                  |
 | :---: | :----------------------------------------------: | :------------------------------------: |
-|  02   | Instance Seg.: One-stage Det.                    | [오휘건](https://github.com/Pseudo-Lab) |
-|  02   | Instance Seg.: Two-stage Det.                    | [김건수](https://github.com/Pseudo-Lab) |
+|  02   | Instance Seg.: One-stage Det.                    | [김건수](https://github.com/Pseudo-Lab) |
+|  02   | Instance Seg.: Two-stage Det.                    | [오휘건](https://github.com/Pseudo-Lab) |
 |  01   | Instance Seg.: Vision Transformer                | [이준형](https://github.com/Pseudo-Lab) |
 |  02   | Panoptic Seg.: Vision Transformer                | [변정현](https://github.com/Pseudo-Lab) |
 |  02   | Weakly-supervised Seg.: Adversarial Erasing      | [김현우](https://github.com/Pseudo-Lab) |
