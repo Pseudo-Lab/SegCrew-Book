@@ -58,10 +58,9 @@ learning deep features for discriminative localization, CVPR 2016
 ### 1. Key Idea
 
 :::{figure-md} markdown-fig
-<img src="pic/affinitynet/aff2.png" alt="aff2" class="bg-primary mb-1" width="600px">
+<img src="pic/affinitynet/aff2.png" alt="aff2" class="bg-primary mb-1" width="800px">
 
-Figure 1. Illustration of our approach.
-in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision", CVPR 2018
+Illustration of our approach. (source: in AffinityNet, CVPR 2018)
 :::
 
 - Semantic affinity를 구하는 AffinityNet을 제안
@@ -91,15 +90,15 @@ computed by
 - CAM을 구하기 위한 Network는 ResNet38에 L4~L6를 dilated conv.로 변경한 backbone에 3x3 conv. layer와 GAP, FC를 추가한 network를 사용한다.
 
 :::{figure-md} markdown-fig
-<img src="pic/affinitynet/aff3.png" alt="aff3" class="bg-primary mb-1" width="600px">
+<img src="pic/affinitynet/aff3.png" alt="aff3" class="bg-primary mb-1" width="400px">
 
-Figure 7. (b) Backbone network
+Backbone network
 :::
 
 :::{figure-md} markdown-fig
-<img src="pic/affinitynet/aff4.png" alt="aff4" class="bg-primary mb-1" width="600px">
+<img src="pic/affinitynet/aff4.png" alt="aff4" class="bg-primary mb-1" width="400px">
 
-Figure 7. (c) Network for computing CAM
+Network for computing CAM
 :::
 
 ### 3. AffinityNet
@@ -109,10 +108,9 @@ Figure 7. (c) Network for computing CAM
 - ResNet38 backbone의 마지막 3개 layer를 dilated conv. layer로 변경하여  $f^{\text{aff}}$를 구함
 
 :::{figure-md} markdown-fig
-<img src="pic/affinitynet/aff5.png" alt="aff5" class="bg-primary mb-1" width="600px">
+<img src="pic/affinitynet/aff5.png" alt="aff5" class="bg-primary mb-1" width="800px">
 
-Modified from Figure 7.
-in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision", CVPR 2018
+Modified from Figure 7 in AffinityNet, CVPR 2018
 :::
 
 - feature $i$와 $j$에서의 semantic affinity $W_{ij}$는 두 위치의 affinity map $f^{\text{aff}}$의 pairwise $L_1$distance에 exponentiation 함수를 적용한 값을 사용
@@ -184,7 +182,7 @@ $$\text{vec}(M_c^{*})=T^t\cdot \text{vec}(M_c)\,\forall c \in \cup\{\text{bg}\}$
 ### 5. Train Segmentation network
 
 :::{figure-md} markdown-fig
-<img src="pic/affinitynet/aff8.png" alt="aff8" class="bg-primary mb-1" width="600px">
+<img src="pic/affinitynet/aff8.png" alt="aff8" class="bg-primary mb-1" width="400px">
 
 Figure 7. (d) Semantic segmentation network
 in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision", CVPR 2018

@@ -634,9 +634,8 @@ VOC 12 test set 평가한 결과 weakly supervised learning 기반 방법 중 �
 <div class="section" id="key-idea">
 <h3>1. Key Idea<a class="headerlink" href="#key-idea" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="id1">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff2.png"><img alt="aff2" class="bg-primary mb-1" src="../../_images/aff2.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Figure 1. Illustration of our approach.
-in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervision”, CVPR 2018</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff2.png"><img alt="aff2" class="bg-primary mb-1" src="../../_images/aff2.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Illustration of our approach. (source: in AffinityNet, CVPR 2018)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>Semantic affinity를 구하는 AffinityNet을 제안</p></li>
@@ -665,12 +664,12 @@ computed by</p>
 <li><p>CAM을 구하기 위한 Network는 ResNet38에 L4~L6를 dilated conv.로 변경한 backbone에 3x3 conv. layer와 GAP, FC를 추가한 network를 사용한다.</p></li>
 </ul>
 <div class="figure align-default" id="id2">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff3.png"><img alt="aff3" class="bg-primary mb-1" src="../../_images/aff3.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Figure 7. (b) Backbone network</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff3.png"><img alt="aff3" class="bg-primary mb-1" src="../../_images/aff3.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Backbone network</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="id3">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff4.png"><img alt="aff4" class="bg-primary mb-1" src="../../_images/aff4.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Figure 7. (c) Network for computing CAM</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff4.png"><img alt="aff4" class="bg-primary mb-1" src="../../_images/aff4.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Network for computing CAM</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="affinitynet">
@@ -680,9 +679,8 @@ computed by</p>
 <li><p>ResNet38 backbone의 마지막 3개 layer를 dilated conv. layer로 변경하여  <span class="math notranslate nohighlight">\(f^{\text{aff}}\)</span>를 구함</p></li>
 </ul>
 <div class="figure align-default" id="id4">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff5.png"><img alt="aff5" class="bg-primary mb-1" src="../../_images/aff5.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Modified from Figure 7.
-in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervision”, CVPR 2018</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff5.png"><img alt="aff5" class="bg-primary mb-1" src="../../_images/aff5.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Modified from Figure 7 in AffinityNet, CVPR 2018</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>feature <span class="math notranslate nohighlight">\(i\)</span>와 <span class="math notranslate nohighlight">\(j\)</span>에서의 semantic affinity <span class="math notranslate nohighlight">\(W_{ij}\)</span>는 두 위치의 affinity map <span class="math notranslate nohighlight">\(f^{\text{aff}}\)</span>의 pairwise <span class="math notranslate nohighlight">\(L_1\)</span>distance에 exponentiation 함수를 적용한 값을 사용</p>
@@ -758,7 +756,7 @@ in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervisio
 <div class="section" id="train-segmentation-network">
 <h3>5. Train Segmentation network<a class="headerlink" href="#train-segmentation-network" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="id7">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff8.png"><img alt="aff8" class="bg-primary mb-1" src="../../_images/aff8.png" style="width: 600px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff8.png"><img alt="aff8" class="bg-primary mb-1" src="../../_images/aff8.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Figure 7. (d) Semantic segmentation network
 in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervision”, CVPR 2018</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>

@@ -131,7 +131,7 @@ Loss for negative masks Total Loss:
 $$\mathcal{L}_{\text{PQ}}^{\text{neg}}=\sum_{i=K+1}^{N}\left[-\log \hat{p}_{\hat{\sigma}(i)}(\oslash)\right]$$
 
 :::{figure-md} markdown-fig
-<img src="pic/max-deeplab/maxdeeplab9.png" alt="maxdeeplab9" class="bg-primary mb-1" width="600px">
+<img src="pic/max-deeplab/maxdeeplab9.png" alt="maxdeeplab9" class="bg-primary mb-1" width="400px">
 
 Mask Matching
 :::
