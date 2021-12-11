@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>FCN - CVPR 2015 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,19 +32,19 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -56,7 +57,10 @@
     <link rel="next" title="DeepLab v3 - arXiv 2017" href="01_01_02_DeepLabv3.html" />
     <link rel="prev" title="A. Fully Convolutional Network" href="01_01_fullyconvNet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -72,6 +76,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -515,7 +523,7 @@
         
               <div>
                 
-  <div class="section" id="fcn-cvpr-2015">
+  <section class="tex2jax_ignore mathjax_ignore" id="fcn-cvpr-2015">
 <h1>FCN - CVPR 2015<a class="headerlink" href="#fcn-cvpr-2015" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <ul class="simple">
@@ -524,7 +532,7 @@
 <li><p><strong>Edited by:</strong> Taeyup Song</p></li>
 </ul>
 <hr class="docutils" />
-<div class="section" id="summary">
+<section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Fully Connected Layers → 1x1 Convolutional layers : input image 크기에 제약이 없다.</p></li>
@@ -532,19 +540,19 @@
 <li><p>모든 layer가 convolution layer로 구성된다.</p></li>
 <li><p>마지막 layer의 prediction만 사용하지 않고 lower layers의 predictions와 fusion을 함으로써 Deep feature와 accurate segmentation가 가능해진다.</p></li>
 </ul>
-</div>
-<div class="section" id="motivation-and-problem-statement">
+</section>
+<section id="motivation-and-problem-statement">
 <h2>Motivation and Problem statement<a class="headerlink" href="#motivation-and-problem-statement" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>Fully Connected Layers의 한계</p>
 <ul>
 <li><p>위치 정보의 소실</p>
 <p><img alt="fcn1.png" src="../../_images/fcn1.png" /></p>
-<p>출처: <a class="reference external" href="https://medium.com/&#64;msmapark2/fcn-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=%EC%9E%85%EB%A0%A5%20%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90%20%EB%8C%80%ED%95%B4%20%ED%94%BD%EC%85%80,%EC%97%90%20%EB%A7%9E%EC%B6%B0%20%EB%B3%80%ED%98%95%EC%8B%9C%ED%82%A8%20%EA%B2%83%EC%9D%B4%EB%8B%A4">https://medium.com/&#64;msmapark2/fcn-논문-리뷰-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=입력 이미지에 대해 픽셀,에 맞춰 변형시킨 것이다</a>.</p>
+<p>출처: <a class="reference external" href="https://medium.com/&#64;msmapark2/fcn-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:%7E:text=%EC%9E%85%EB%A0%A5%20%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90%20%EB%8C%80%ED%95%B4%20%ED%94%BD%EC%85%80,%EC%97%90%20%EB%A7%9E%EC%B6%B0%20%EB%B3%80%ED%98%95%EC%8B%9C%ED%82%A8%20%EA%B2%83%EC%9D%B4%EB%8B%A4">https://medium.com/&#64;msmapark2/fcn-논문-리뷰-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=입력 이미지에 대해 픽셀,에 맞춰 변형시킨 것이다</a>.</p>
 </li>
 <li><p>입력 이미지 크기의 고정</p>
 <p><img alt="fcn2.png" src="../../_images/fcn2.png" /></p>
-<p>출처: <a class="reference external" href="https://medium.com/&#64;msmapark2/fcn-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=%EC%9E%85%EB%A0%A5%20%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90%20%EB%8C%80%ED%95%B4%20%ED%94%BD%EC%85%80,%EC%97%90%20%EB%A7%9E%EC%B6%B0%20%EB%B3%80%ED%98%95%EC%8B%9C%ED%82%A8%20%EA%B2%83%EC%9D%B4%EB%8B%A4">https://medium.com/&#64;msmapark2/fcn-논문-리뷰-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=입력 이미지에 대해 픽셀,에 맞춰 변형시킨 것이다</a>.</p>
+<p>출처: <a class="reference external" href="https://medium.com/&#64;msmapark2/fcn-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:%7E:text=%EC%9E%85%EB%A0%A5%20%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90%20%EB%8C%80%ED%95%B4%20%ED%94%BD%EC%85%80,%EC%97%90%20%EB%A7%9E%EC%B6%B0%20%EB%B3%80%ED%98%95%EC%8B%9C%ED%82%A8%20%EA%B2%83%EC%9D%B4%EB%8B%A4">https://medium.com/&#64;msmapark2/fcn-논문-리뷰-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=입력 이미지에 대해 픽셀,에 맞춰 변형시킨 것이다</a>.</p>
 <ul class="simple">
 <li><p>Fully Connected Layers를 사용할 경우 input image의 크기는 항상 일정해야 하므로 항상 부분적으로 image를 잘라내야 한다.</p></li>
 </ul>
@@ -552,8 +560,8 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="proposed-solution">
+</section>
+<section id="proposed-solution">
 <h2>Proposed Solution<a class="headerlink" href="#proposed-solution" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Architecture</strong></p></li>
@@ -579,8 +587,8 @@
 <li><p>FCN-8s: finaly layer와 pool4의 output prediction의 합 + pool3의 output prediction → 결과물을 stride8로 upsampling</p></li>
 </ul>
 <p>Lower layer의 output prediction을 이용하여 final prediction을 계산하므로써 점점 더 정밀한 segmentation이 가능함 (Figure 1 참조)</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -634,7 +642,7 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -650,8 +658,7 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

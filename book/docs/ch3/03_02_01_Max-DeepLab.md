@@ -213,17 +213,20 @@ Models:
 ```{image} pic/max-deeplab/maxdeeplab16.png
 :alt: maxdeeplab16.png
 :class: bg-primary mb-1
+:width: 500px
 :align: center
 ```
 
 ```{image} pic/max-deeplab/maxdeeplab17.png
 :alt: maxdeeplab17.png
 :class: bg-primary mb-1
+:width: 500px
 :align: center
 ```
     
 ```{image} pic/max-deeplab/maxdeeplab18.png
 :alt: maxdeeplab18.png
 :class: bg-primary mb-1
+:width: 500px
 :align: center
 ```

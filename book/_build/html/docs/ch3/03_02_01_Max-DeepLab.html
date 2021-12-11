@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>[Draft] MaX-DeepLab - CVPR 21 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,21 +32,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -58,7 +59,10 @@
     <link rel="next" title="04. Weakly-supervised Segmentation" href="../ch4/04_Weakly-supervised%20Segmentation.html" />
     <link rel="prev" title="B. Transformer based Method" href="03_02_transformer.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -74,6 +78,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -583,7 +591,7 @@
         
               <div>
                 
-  <div class="section" id="draft-max-deeplab-cvpr-21">
+  <section class="tex2jax_ignore mathjax_ignore" id="draft-max-deeplab-cvpr-21">
 <h1>[Draft] MaX-DeepLab - CVPR 21<a class="headerlink" href="#draft-max-deeplab-cvpr-21" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <ul class="simple">
@@ -592,24 +600,24 @@
 <li><p><strong>Edited by:</strong></p></li>
 </ul>
 <hr class="docutils" />
-<div class="section" id="reference">
+<section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Paper: <a class="reference external" href="https://arxiv.org/abs/2012.00759">https://arxiv.org/abs/2012.00759</a></p></li>
 <li><p>Code: <a class="reference external" href="https://github.com/google-research/deeplab2">https://github.com/google-research/deeplab2</a></p></li>
 <li><p>review: <a class="reference external" href="https://ai.googleblog.com/2021/04/max-deeplab-dual-path-transformers-for.html">https://ai.googleblog.com/2021/04/max-deeplab-dual-path-transformers-for.html</a>,</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="problem-statement">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="problem-statement">
 <h1>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h1>
 <p>Panoptic segmentation task이란:</p>
 <ul class="simple">
 <li><p>“overlap하지 않는 각각의 class label에 해당되는 mask를 구하는 것”</p></li>
 </ul>
 <p><strong>Panoptic</strong> segmentation = Merging <strong>semantic (assigning a class label to each pixel) + instance</strong> (<strong>detecting and segmenting each object instance</strong>) segmentation results</p>
-</div>
-<div class="section" id="contribution">
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="contribution">
 <h1>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>MaX-DeepLab is the <strong>first end-to-end model for panoptic segmentation (초록색으로 색칠된 부분 참고)</strong>:</p>
@@ -621,8 +629,8 @@
 <li><p>Dual-path transformer 사용</p></li>
 <li><p>COCO dataset에 대해서 새로운 SOTA 결과</p></li>
 </ul>
-</div>
-<div class="section" id="background">
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="background">
 <h1>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h1>
 <p>(Transformer에 대한 설명은 생략! 이준형님께서 잘 정리해주셔서 <a class="reference external" href="https://www.notion.so/9398a7eabb1048a1ab98993e02a9fd1d">여기</a> 참고하면 될 것 같습니다! )</p>
 <p>기존의 Panoptic Segmentation method:</p>
@@ -631,17 +639,19 @@
 <li><p>즉 기존의 panoptic segmentation은 한번에 결과값을 구하는 것이 아니라 여러 surrogate-task들로 구성되어 있는 다소 복잡한 pipeline <strong>(빨간색으로 색칠된 부분)</strong> 으로 구성되어 있다.</p></li>
 <li><p>e.g. anchors, box assignment rules, non-maximum suppression, thing-stuff merging</p></li>
 </ul>
-<div class="figure align-default" id="markdown-fig">
+<figure class="align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab1.png"><img alt="maxdeeplab1" class="bg-primary mb-1" src="../../_images/maxdeeplab1.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Overview of Previous Method</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Overview of Previous Method</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>복잡한 pipeline의 문제점:</p>
 <ul class="simple">
 <li><p>각각의 surrogate task들로부터 “undesired artifact”가 발생할 수 있고 pipeline을 거치면서 더 큰 artifact / noise 로 번질 수 있다. <strong>(빨간색으로 색칠된 부분)</strong></p></li>
 </ul>
 <p>(Box based pipeline, box free methods에 대해서 살펴볼 필요 있음!)</p>
 <p>최근의 여러 연구들이 <strong>pipeline을 간단화하는데</strong> 많이 노력함</p>
-<div class="section" id="box-based-method-in-panoptic-segmentation">
+<section id="box-based-method-in-panoptic-segmentation">
 <h2>Box Based Method in Panoptic Segmentation<a class="headerlink" href="#box-based-method-in-panoptic-segmentation" title="Permalink to this headline">¶</a></h2>
 <p>먼저 <strong>Box based method가</strong> 있다. 이 방법은 Mask R-CNN과 같은 object detection 모델로 먼저 object bounding boxes들을 구하고 각 box안의 object에 해당되는 mask을 구한다. <strong>Instance segmentation</strong>와 <strong>Semantic segmentation</strong>가 서로 merge돼서 최종적인 panoptic segmentation을 구하게 된다.</p>
 <p>Exemplary Works:</p>
@@ -655,8 +665,8 @@
 </li>
 <li><p><strong>DetectoRS</strong>: SOTA work in Box Based methods. Uses recursive feature pyramid and switachable atrous convolution.</p></li>
 </ul>
-</div>
-<div class="section" id="box-free-method-in-panoptic-segmentation">
+</section>
+<section id="box-free-method-in-panoptic-segmentation">
 <h2>Box Free Method in Panoptic Segmentation<a class="headerlink" href="#box-free-method-in-panoptic-segmentation" title="Permalink to this headline">¶</a></h2>
 <p>그리고 <strong>Box free method</strong>들이 있다. 먼저 semantic segment들을 구하고, 각각의 semantic segment에 속해 있는 pixel들을 group하여 instance segment들을 구한다. Grouping 방법으로는 예를 들어:</p>
 <ul class="simple">
@@ -675,19 +685,19 @@
 <li><p>비슷한 맥락의 논문으로: Deeperlab Single-shot image parser, Leveraging Semi-Supervised Learning in Video Sequneces for Urban Scene Segmentation (ECCV 2020), Semantic image-segmentation with deep convolutional nets and fully connected crfs (ICLR 2015) 등등이 있다.</p></li>
 </ul>
 <p>Box based method. Box free method들 모두 일종의 “hand-coded prior”을 사용하므로 end-to-end pipeline이 아니다.</p>
-</div>
-</div>
-<div class="section" id="proposed-method">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="proposed-method">
 <h1>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="notations">
+<section id="notations">
 <h2>Notations:<a class="headerlink" href="#notations" title="Permalink to this headline">¶</a></h2>
 <p>Class-labeled masks:</p>
 <div class="math notranslate nohighlight">
 \[\{\hat{y}\}_{i=0}^N=\{\left(\hat{m}_i,\hat{p}_i(c)\right)\}_{i=0}^N\]</div>
 <p><span class="math notranslate nohighlight">\(\hat{m}_i\)</span> = predicted masks</p>
 <p><span class="math notranslate nohighlight">\(\hat{p}_i\)</span> = predicted probability of assigning class c to mask hat(m)_i</p>
-</div>
-<div class="section" id="pq-style-loss">
+</section>
+<section id="pq-style-loss">
 <h2>PQ-style loss<a class="headerlink" href="#pq-style-loss" title="Permalink to this headline">¶</a></h2>
 <div class="math notranslate nohighlight">
 \[\text{PQ}=\text{RQ}\times\text{SQ}\]</div>
@@ -695,8 +705,8 @@
 <div class="math notranslate nohighlight">
 \[\text{sim}\left(y_i,\hat{y}_j\right)=\hat{p}_j(c_j)\times\text{Dice}(m_i,\hat{m}_i)\approx\text{RQ}\times\text{SQ}\]</div>
 <p>(Dice coefficient definition)</p>
-</div>
-<div class="section" id="mask-matching">
+</section>
+<section id="mask-matching">
 <h2>Mask Matching<a class="headerlink" href="#mask-matching" title="Permalink to this headline">¶</a></h2>
 <p>To assign a predicted mask to each ground truth, solve a one-to-one bipartite matching problem between the prediction set and the ground truth set. Use <strong>Hungarian algorithm</strong>.</p>
 <div class="math notranslate nohighlight">
@@ -705,8 +715,8 @@
 <li><p>K matches predictions = positive masks</p></li>
 <li><p>(N-K) masks left = negative masks (i.e. no object)</p></li>
 </ul>
-</div>
-<div class="section" id="loss">
+</section>
+<section id="loss">
 <h2>Loss<a class="headerlink" href="#loss" title="Permalink to this headline">¶</a></h2>
 <p>For positive masks, we need to maximize (substitue mask matching equation’s similarity with equation in PQ-style loss)</p>
 <div class="math notranslate nohighlight">
@@ -717,25 +727,31 @@
 <p>Loss for negative masks Total Loss:</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{L}_{\text{PQ}}^{\text{neg}}=\sum_{i=K+1}^{N}\left[-\log \hat{p}_{\hat{\sigma}(i)}(\oslash)\right]\]</div>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab9.png"><img alt="maxdeeplab9" class="bg-primary mb-1" src="../../_images/maxdeeplab9.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Mask Matching</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Mask Matching</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Total Loss:</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{L}_{\text{PQ}}=\alpha\mathcal{L}_{\text{PQ}}^{\text{pos}}+(1-\alpha)\mathcal{L}_{\text{PQ}}^{\text{neg}}\]</div>
-</div>
-<div class="section" id="model-architecture">
+</section>
+<section id="model-architecture">
 <h2>Model Architecture<a class="headerlink" href="#model-architecture" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-default" id="id2">
+<figure class="align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab11.png"><img alt="maxdeeplab11" class="bg-primary mb-1" src="../../_images/maxdeeplab11.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Overview of MaX-DeepLab</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Overview of MaX-DeepLab</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p><strong>components:</strong> dual-path transformer, stacked decoder, output heads (for mask and classes prediction)</p>
-<div class="figure align-default" id="id3">
+<figure class="align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab12.png"><img alt="maxdeeplab12" class="bg-primary mb-1" src="../../_images/maxdeeplab12.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">An overview of the dual-path transformer architecture</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">An overview of the dual-path transformer architecture</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p><strong>Dual-path</strong>: Augment a <strong>2D pixel-based CNN (H x W x d_in)</strong> with a <strong>1D global memory (N x d_in)</strong> of size N (i.e. total number of predictions)</p>
 <p>Types of communications:</p>
 <ul class="simple">
@@ -772,17 +788,17 @@
 <div class="math notranslate nohighlight">
 \[\hat{m}=\text{softmax}_N(f\cdot g)\in \mathbb{R}^{N\times\frac{H}{4}\times\frac{W}{4}}\]</div>
 <p>Mask prediction inspired by CondInst and SOLOv2</p>
-</div>
-<div class="section" id="auxiliary-losses">
+</section>
+<section id="auxiliary-losses">
 <h2>Auxiliary Losses<a class="headerlink" href="#auxiliary-losses" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Instance discrimination: helps cluster decoder features into instances</p></li>
 <li><p>Mask-ID Cross-Entropy: classifies each pixel in N masks</p></li>
 <li><p>Semantic Segmentation</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="experimentation-result">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="experimentation-result">
 <h1>Experimentation Result<a class="headerlink" href="#experimentation-result" title="Permalink to this headline">¶</a></h1>
 <p>Computing resources:</p>
 <ul class="simple">
@@ -794,10 +810,10 @@
 <li><p><strong>Max-DeepLab-L</strong> (Wide-ResNet-41, L=2 stacking)</p></li>
 <li><p><strong>Max-DeepLab-S</strong> (ResNet-50 with axial attention blocks, no stacking L=0)</p></li>
 </ul>
-<img alt="maxdeeplab16.png" class="bg-primary mb-1 align-center" src="../../_images/maxdeeplab16.png" />
-<img alt="maxdeeplab17.png" class="bg-primary mb-1 align-center" src="../../_images/maxdeeplab17.png" />
-<img alt="maxdeeplab18.png" class="bg-primary mb-1 align-center" src="../../_images/maxdeeplab18.png" />
-</div>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab16.png"><img alt="maxdeeplab16.png" class="bg-primary mb-1 align-center" src="../../_images/maxdeeplab16.png" style="width: 500px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab17.png"><img alt="maxdeeplab17.png" class="bg-primary mb-1 align-center" src="../../_images/maxdeeplab17.png" style="width: 500px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab18.png"><img alt="maxdeeplab18.png" class="bg-primary mb-1 align-center" src="../../_images/maxdeeplab18.png" style="width: 500px;" /></a>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -851,7 +867,7 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -867,8 +883,7 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
