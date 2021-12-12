@@ -11,7 +11,6 @@ chapters:
   sections:
   - file: docs/ch1/01_01_fullyconvNet
     sections:
-    - file: docs/ch1/01_01_01_fcn
     - file: docs/ch1/01_01_02_DeepLabv3
     - file: docs/ch1/01_01_03_pspnet
     - file: docs/ch1/01_01_04_encnet

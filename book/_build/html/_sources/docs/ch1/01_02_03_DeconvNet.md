@@ -12,7 +12,7 @@
 
 ## Resource
 
-- paper : [https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Noh_Learning_Deconvolution_Network_ICCV_2015_paper.pdf](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Noh_Learning_Deconvolution_Network_ICCV_2015_paper.pdf)
+- paper : [https://arxiv.org/abs/1505.04366](https://arxiv.org/abs/1505.04366)
 
 # Motivation
 
@@ -21,7 +21,11 @@
     - 큰 물체들은 나뉘어지거나, 작은 물체들은 무시됨
     - Skip architecture 구조에도 근본적 해결 방식이 될 수 없음
 
-        ![deconv1](pic/deconv/deconv1.png)
+        :::{figure-md} markdown-fig
+        <img src="pic/deconv/deconv1.png" alt="deconv1" class="bg-primary mb-1" width="400px">
+
+        Limitations of semantic segmentation algorithm based on FCN  (source: arXiv:1505.04366)
+        :::
 
 - Detail structure가 smooth됨.
     - FCN의 경우 16x16의 결과가 bilinear interpolation되어, deconvolution 레이어 없이는 물체의 경계를 제대로 표현하지 못함
@@ -30,7 +34,11 @@
 
 - 이 논문에서는 deconvolutional network를 활용해 전체적인 네트워크를 제안함
 
-    ![deconv2](pic/deconv/deconv2.png)
+:::{figure-md} markdown-fig
+<img src="pic/deconv/deconv2.png" alt="deconv2" class="bg-primary mb-1" width="800px">
+
+Overall architecture of the DeconvNet (source: arXiv:1505.04366)
+:::
 
 - Deconvolutional network에서는 크게 Unpooling, Deconvolution을 주로 소개함
 - Unpooling: 하나의 픽셀을 각 축으로 factor만큼 늘림
@@ -43,11 +51,19 @@
     - Deconvolution의 경우 operator 크기가 3일 때, 총 9개의 deconvolution 결과를 모두 합한 값이 결과값
     - 수학적으로 정확한 정의로는 deconvolution이 아니라, **transposed convolution**이라는 말이 더 정확함
 
-        ![deconv3](pic/deconv/deconv3.png)
+:::{figure-md} markdown-fig
+<img src="pic/deconv/deconv3.png" alt="deconv3" class="bg-primary mb-1" width="400px">
+
+Overall architecture of the DeconvNet (source: arXiv:1505.04366)
+:::
 
 - 이를 종합했을 때, Unpooling 연산자에서 0으로 채워진 부분은, deconvolution operator를 통해 정상적으로 복구함을 알 수 있음
 
-    ![deconv4](pic/deconv/deconv4.png)
+:::{figure-md} markdown-fig
+<img src="pic/deconv/deconv4.png" alt="deconv4" class="bg-primary mb-1" width="800px">
+
+Visualization of activations in DeconvNet (source: arXiv:1505.04366)
+:::
 
 - Unpooling을 통해 resolution이 높아짐. Deconvolution을 통해 중요한 activations는 증폭되고 noisy activations는 억제되면서 배경과 object가 더 뚜렷하게 구분됨.
 - **Instancewise segmentation**: input image 전체가 아닌 일부분을 input으로 사용
@@ -86,12 +102,24 @@
     - CRF를 적용하면 accuracy가 근소하게 향상됨.
     - Deconvolution Network (DeconvNet)보다 ensemble Deconvolution Network (EDeconvNet)가 전반적으로 더 좋은 결과를 냄.
 
-![deconv5](pic/deconv/deconv5.png)
+```{image} pic/deconv/deconv5.png
+:alt: deconv5.png
+:class: bg-primary mb-1
+:align: center
+```
 
 - Aggregation을 위한 proposal의 개수가 늘어나면 알고리즘이 더 세밀하게 segmentation함
 
-![deconv6](pic/deconv/deconv6.png)
+```{image} pic/deconv/deconv6.png
+:alt: deconv6.png
+:class: bg-primary mb-1
+:align: center
+```
 
 - Deconvolution network, FCN, CRF, instancewise prediction의 장점을 이용해 더 정밀하고 자세한obejct segmentation mask를 생성.
 
-![deconv7](pic/deconv/deconv7.png)
+```{image} pic/deconv/deconv7.png
+:alt: deconv7.png
+:class: bg-primary mb-1
+:align: center
+```

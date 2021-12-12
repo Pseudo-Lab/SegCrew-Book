@@ -31,21 +31,9 @@
 
 **(1) Class Attention/Activation Map (CAM)**
 
-:::{figure-md} markdown-fig
-<img src="pic/affinitynet/aff1.png" alt="aff1" class="bg-primary mb-1" width="600px">
-
-Class Attention Map (CAM)
-:::
-
-learning deep features for discriminative localization, CVPR 2016
-
-- CAM은 Network가 image를 특정 class로 prediction하게 하는 feature 내의 위치 정보를 표현함.
-- 마지막 conv. layer의 output feature map $f^{\text{CAM}}$ 특정 class로 분류될 activation value를 구하기 위한 weight와 weighted sum을 수행하여 CAM을 도출함.
-- Properties
-
-    - Classification을 위한 Network에서 특정 object에서 나타나는 특정한 pattern의 경우 score가 학습이 됨. 다양한 예제에서 공통적으로 나타나는 object들은 score가 낮게 학습이 됨. 
-    → discriminate 한 part에 집중하여 학습이 됨.  (sparse하고 blurrly함. 외각영역에 집중되는 경향이 있음.)
-    → instance-agnostic 함 ⇒ Pseudo Label로 바로 사용하기에는 한계가 있음 
+- Classification을 위한 Network에서 특정 object에서 나타나는 특정한 pattern의 경우 score가 학습이 됨. 다양한 예제에서 공통적으로 나타나는 object들은 score가 낮게 학습이 됨. 
+    - discriminate 한 part에 집중하여 학습이 됨.  (sparse하고 blurrly함. 외각영역에 집중되는 경향이 있음.)
+    - instance-agnostic 함 ⇒ Pseudo Label로 바로 사용하기에는 한계가 있음 
 
 **(2) Pseudo Label을 만드는 이유**
 
@@ -60,7 +48,7 @@ learning deep features for discriminative localization, CVPR 2016
 :::{figure-md} markdown-fig
 <img src="pic/affinitynet/aff2.png" alt="aff2" class="bg-primary mb-1" width="800px">
 
-Illustration of our approach. (source: in AffinityNet, CVPR 2018)
+Illustration of our approach. (source: arXiv:1803.10464)
 :::
 
 - Semantic affinity를 구하는 AffinityNet을 제안
@@ -92,13 +80,13 @@ computed by
 :::{figure-md} markdown-fig
 <img src="pic/affinitynet/aff3.png" alt="aff3" class="bg-primary mb-1" width="400px">
 
-Backbone network
+Backbone network (source: arXiv:1803.10464)
 :::
 
 :::{figure-md} markdown-fig
 <img src="pic/affinitynet/aff4.png" alt="aff4" class="bg-primary mb-1" width="400px">
 
-Network for computing CAM
+Network for computing CAM (source: arXiv:1803.10464)
 :::
 
 ### 3. AffinityNet
@@ -110,7 +98,7 @@ Network for computing CAM
 :::{figure-md} markdown-fig
 <img src="pic/affinitynet/aff5.png" alt="aff5" class="bg-primary mb-1" width="800px">
 
-Modified from Figure 7 in AffinityNet, CVPR 2018
+AffinityNet architecture (modified from arXiv:1803.10464)
 :::
 
 - feature $i$와 $j$에서의 semantic affinity $W_{ij}$는 두 위치의 affinity map $f^{\text{aff}}$의 pairwise $L_1$distance에 exponentiation 함수를 적용한 값을 사용
@@ -132,8 +120,7 @@ Modified from Figure 7 in AffinityNet, CVPR 2018
 :::{figure-md} markdown-fig
 <img src="pic/affinitynet/aff6.png" alt="aff6" class="bg-primary mb-1" width="600px">
 
-Figure 4. Conceptual illustration of generating semantic affinity labels.
-in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision", CVPR 2018
+Conceptual illustration of generating semantic affinity labels. (source: arXiv:1803.10464)
 :::
 
 - Set of coordinate pairs $\mathcal{P}$는 다음과 같이 정의 가능하다.
@@ -166,7 +153,7 @@ in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision"
 :::{figure-md} markdown-fig
 <img src="pic/affinitynet/aff7.png" alt="aff7" class="bg-primary mb-1" width="600px">
 
-Calculate transition probability matrix
+Calculate transition probability matrix (modified from arXiv:1803.10464)
 :::
 
 
@@ -184,8 +171,7 @@ $$\text{vec}(M_c^{*})=T^t\cdot \text{vec}(M_c)\,\forall c \in \cup\{\text{bg}\}$
 :::{figure-md} markdown-fig
 <img src="pic/affinitynet/aff8.png" alt="aff8" class="bg-primary mb-1" width="400px">
 
-Figure 7. (d) Semantic segmentation network
-in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision", CVPR 2018
+Semantic segmentation network (source: arXiv:1803.10464)
 :::
 
 - 위 과정을 거처 생성한 semantic label은 입력 영상보다 작으므로, bilinear interpolation 및 dense CRF 후처리를 적용한 후 supervised learning 기반의 semantic segmentation network를 학습하는데 사용한다.
@@ -207,7 +193,7 @@ in J, Ahn, "Learning Pixel-level Semantic Affinity with Image-level Supervision"
 (3) Data augmentation
 
 - 모든 training image에 대해 horizontal flip, random cropping, color jittering 수행
-- AffinityNet이 scale invariant 하도록 학습하기 위해 input image를 random하게 scale조절  
+- AffinityNet이 scale invariant 하도록 학습하기 위해 input image를 random하게 scale조절 
 
 (4) Hyper parameter
 

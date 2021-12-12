@@ -18,7 +18,11 @@
 
 ## Conventional Method: U-Net
 
-![multiunet1.png](pic/multiunet/multiunet1.png)
+:::{figure-md} markdown-fig
+<img src="pic/multiunet/multiunet1.png" alt="multiunet1" class="bg-primary mb-1" width="800px">
+
+U-Net architecture (source: arXiv:1902.04049)
+:::
 
 - semantic segmentation에 주로 사용되는 encoder-decoder structure에 skip-connection 적용
 - Pooling layer에서 소실되는 spatial info.를 retrieve해줌
@@ -28,6 +32,11 @@
 ### 1. U-Net 구조 개선
 
 ![multiunet2.png](pic/multiunet/multiunet2.png)
+:::{figure-md} markdown-fig
+<img src="pic/multiunet/multiunet2.png" alt="multiunet2" class="bg-primary mb-1" width="800px">
+
+Devolping the Proposed MultiRes block. (source: arXiv:1902.04049)
+:::
 
 medical imaging 분야에서 잘 쓰이던 U-Net을 최신 architecture를 적용해서 개선
 
@@ -46,7 +55,11 @@ medical imaging 분야에서 잘 쓰이던 U-Net을 최신 architecture를 적�
 - 이 과정에서 발생할 수 있는 spatial information loss를 줄이기 위해 추가적인 non-linear transformation이 필요하며, residual connection이 포함된 conv layer(ResPath)를 추가하여 학습을 쉽게 할수도 있음. [33, 39]
 - 논문에서는 3x3 conv 사용
 
-![multiunet3.png](pic/multiunet/multiunet3.png)
+:::{figure-md} markdown-fig
+<img src="pic/multiunet/multiunet3.png" alt="multiunet3" class="bg-primary mb-1" width="800px">
+
+Proposed Res Path. (source: arXiv:1902.04049)
+:::
 
 ### 3. Proposed Architecture
 
@@ -59,4 +72,8 @@ $\alpha$ is a scalar coefficient.
 
 논문에서는 $\alpha=1.67$적용
 
-![multiunet4.png](pic/multiunet/multiunet4.png)
+```{image} pic/multiunet/multiunet4.png
+:alt: multiunet4.png
+:class: bg-primary mb-1
+:align: center
+```
