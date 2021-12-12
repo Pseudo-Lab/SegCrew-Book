@@ -145,11 +145,6 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="01_01_01_fcn.html">
-       FCN - CVPR 2015
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="01_01_02_DeepLabv3.html">
        DeepLab v3 - arXiv 2017
       </a>
@@ -578,9 +573,9 @@
 <ul class="simple">
 <li><p>Encoder-Decoder 구조 채택</p></li>
 </ul>
-<p><img alt="segnet1.png" src="../../_images/segnet1.png" /></p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                        Fig 1. SegNet architecture
-</pre></div>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/segnet1.png"><img alt="segnet1" class="bg-primary mb-1" src="../../_images/segnet1.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">SegNet architecture (source: arXiv:1511.00561)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="encoder">
 <h3>Encoder<a class="headerlink" href="#encoder" title="Permalink to this headline">¶</a></h3>
@@ -616,9 +611,9 @@
 </ul>
 </li>
 </ul>
-<p><img alt="segnet2.png" src="../../_images/segnet2.png" /></p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                    Fig 2. SegNet의 방법론과 기존 Encoder feature map 활용법의 비교.
-</pre></div>
+<div class="figure align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/segnet2.png"><img alt="segnet2" class="bg-primary mb-1" src="../../_images/segnet2.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">SegNet의 방법론과 기존 Encoder feature map 활용법의 비교. (source: arXiv:1511.00561)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>Summary</p>
@@ -632,12 +627,13 @@
 </div>
 <div class="section" id="decoder">
 <h3>Decoder<a class="headerlink" href="#decoder" title="Permalink to this headline">¶</a></h3>
-<ul>
+<ul class="simple">
 <li><p>Encoding된 feature map을 활용, Upsampling해서 최종 segmentation map을 생성한다.</p></li>
 <li><p>Encoder에서 전달된 max-feature index + CNN을 사용하여 원래 해상도의 dense feature map으로 복원한다.</p></li>
-<li><p>저자들은 논문에서 제시한 contribution을 검증하기 위해 여러 종류의 Decoder에 대하여 실험하였다.</p>
-<p><img alt="segnet3.png" src="../../_images/segnet3.png" /></p>
-</li>
+<li><p>저자들은 논문에서 제시한 contribution을 검증하기 위해 여러 종류의 Decoder에 대하여 실험하였다.</p></li>
+</ul>
+<img alt="segnet3.png" class="bg-primary mb-1 align-center" src="../../_images/segnet3.png" />
+<ul class="simple">
 <li><p>실험 결과</p>
 <ol class="simple">
 <li><p>Encoder feature map을 완전히 저장하여 decoder에 넣어주는 방법이 가장 좋은 성능을  보인다.</p></li>
@@ -652,7 +648,7 @@
 <h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="road-scene-segmentation-camvid-dataset">
 <h3>Road Scene Segmentation(CamVid dataset)<a class="headerlink" href="#road-scene-segmentation-camvid-dataset" title="Permalink to this headline">¶</a></h3>
-<p><img alt="segnet4.png" src="../../_images/segnet4.png" /></p>
+<img alt="segnet4.png" class="bg-primary mb-1 align-center" src="../../_images/segnet4.png" />
 <ol>
 <li><p><strong>Quantitative result</strong></p>
 <ul>
@@ -695,11 +691,11 @@
 </ul>
 </li>
 </ol>
-<p><img alt="segnet6.png" src="../../_images/segnet6.png" /></p>
+<img alt="segnet6.png" class="bg-primary mb-1 align-center" src="../../_images/segnet6.png" />
 </div>
 <div class="section" id="indoor-scene-segmentation-sun-rgb-d">
 <h3>Indoor Scene segmentation(SUN RGB-D)<a class="headerlink" href="#indoor-scene-segmentation-sun-rgb-d" title="Permalink to this headline">¶</a></h3>
-<p><img alt="segnet7.png" src="../../_images/segnet7.png" /></p>
+<img alt="segnet7.png" class="bg-primary mb-1 align-center" src="../../_images/segnet7.png" />
 <ol class="simple">
 <li><p><strong>Quantitative result</strong></p>
 <ul class="simple">
@@ -715,7 +711,7 @@
 </ul>
 </li>
 </ol>
-<p><img alt="segnet8.png" src="../../_images/segnet8.png" /></p>
+<img alt="segnet8.png" class="bg-primary mb-1 align-center" src="../../_images/segnet8.png" />
 </div>
 </div>
 </div>

@@ -10,19 +10,13 @@
 
 ---
 
-## Background
+## Reference
 
-- Semantic segmentation
-: 영상을 의미적/인지적 관점에서 서로 비슷한 영역으로 구분
-: pixel level classification
-
-    ![deeplabv3_1.png](pic/deeplabv3/deeplabv3_1.png)
+- Paper: [https://arxiv.org/abs/1706.05587](https://arxiv.org/abs/1706.05587)
 
 ## Related Works
 
 ### 1. FCN for Semantic Segmentation
-
- [[FCN] Fully Convolutional Networks for Semantic Segmentation](https://www.notion.so/FCN-Fully-Convolutional-Networks-for-Semantic-Segmentation-81950953fe854bae833d2025db92c994) 
 
 - Image Classification에 적용된 CNN 모델을 변형하여 semantic segmentation 수행
 
@@ -36,14 +30,22 @@
 
     → output model output을 upsample하여 원본과 동일한 크기의 segmentation 결과를 도출
 
-![deeplabv3_2.png](pic/deeplabv3/deeplabv3_2.png)
+:::{figure-md} markdown-fig
+<img src="pic/deeplabv3/deeplabv3_2.png" alt="deeplabv3_2.png" class="bg-primary mb-1" width="600px">
+
+Fully Convolutional Networks (source: arXiv:1411.4038)
+:::
 
 - ConvNet은 layer가 깊어질 수록 pooling/stride에 의해 spatial dimension이 작아지기 때문에 output을 upsample 하는 과정에서 디테일이 손상될 수 있음
 - 이를 보완하기 위해 ConvNet의 layer의 output에서 segmentation을 수행하고 결과를 sum하는 과정을 거침. (FCN-32s, FCN-16s, ...)
 
 ### 2. DeepLab
 
-![deeplabv3_3.png](pic/deeplabv3/deeplabv3_3.png)
+:::{figure-md} markdown-fig
+<img src="pic/deeplabv3/deeplabv3_3.png" alt="deeplabv3_3.png" class="bg-primary mb-1" width="500px">
+
+DeepLab v3 and DeepLab v3+ (source: arXiv:1802.02611)
+:::
 
 - DeepLab v1 - atrous convolution 및 Conditional Random Field(CRF) 도입
 - DeepLab v2 - A*trous spatial pyramid pooling* (ASPP) 이용하여 다양한 크기의 객체에 대응
@@ -87,11 +89,11 @@
 
 $$y[i]=\sum_{k}^{K}x[i+r\cdot{k}]w[k]$$
 
-![deeplabv3_4.gif](pic/deeplabv3/deeplabv3_4.gif)
+:::{figure-md} markdown-fig
+<img src="pic/deeplabv3/deeplabv3_5.gif" alt="deeplabv3_5.gif" class="bg-primary mb-1" width="300px">
 
-2D Convolution
-
-![deeplabv3_5.gif](pic/deeplabv3/deeplabv3_5.gif)
+Atrous Convolution
+:::
 
 **Atrous Convolution**
 
@@ -102,7 +104,11 @@ $$y[i]=\sum_{k}^{K}x[i+r\cdot{k}]w[k]$$
 
     :  Atrous Convolution의 rate를 변형하여 padding 및 stride를 최소화
 
-![deeplabv3_6.png](pic/deeplabv3/deeplabv3_6.png)
+:::{figure-md} markdown-fig
+<img src="pic/deeplabv3/deeplabv3_6.png" alt="deeplabv3_6.png" class="bg-primary mb-1" width="800px">
+
+Cascaded modules without and with atrous convolution (source: arXiv:1706.05587)
+:::
 
  layer 4부터 atrous rate를 2,4,8로 조절하여 output layer의 stride를 16으로 유지
 
@@ -114,22 +120,35 @@ $$y[i]=\sum_{k}^{K}x[i+r\cdot{k}]w[k]$$
 
     → ConvLayer의 output을 다양한 Atrous rate를 가지는 kernel을 병렬로 연산하여 multi-scale 특징을 추출하고자 함.
 
-![deeplabv3_7.png](pic/deeplabv3/deeplabv3_7.png)
+:::{figure-md} markdown-fig
+<img src="pic/deeplabv3/deeplabv3_7.png" alt="deeplabv3_7.png" class="bg-primary mb-1" width="300px">
+
+Spatial Pyramid Pooling (source: arXiv:1706.05587)
+:::
 
 - Atrous rate가 커질수록 유효한 weight의 수가 작아지는 경향을 보임.
 
-    ⇒  Atorus rate가 커지면 3x3 kernel이 1x1처럼 동작함.
+    ⇒  Atrous rate가 커지면 3x3 kernel이 1x1처럼 동작함.
 
     ⇒ large scale context는 output에 반영 안됨. (receptive field를 크게 만들고 싶은데 안됨..)
 
-![deeplabv3_8.png](pic/deeplabv3/deeplabv3_8.png)
+:::{figure-md} markdown-fig
+<img src="pic/deeplabv3/deeplabv3_8.png" alt="deeplabv3_8.png" class="bg-primary mb-1" width="500px">
+
+Atrous rate and vaild weight
+:::
 
 5x5 feature map 과 Atrous rate = 4 인 3x3 dilated kernel 의 예시. Valid weight의 개수가 중앙 영역에 대해서는 1x1으로 줄어듬.
 
 - 이런 degenerate 문제 해결을 위해 이미지의 last feature map에 대해서 "Global average pooling"을 적용.
 - 성능 개선을 위해 각 module에 batch normalization 적용
 
-![deeplabv3_9.png](pic/deeplabv3/deeplabv3_9.png)
+:::{figure-md} markdown-fig
+<img src="pic/deeplabv3/deeplabv3_9.png" alt="deeplabv3_9.png" class="bg-primary mb-1" width="800px">
+
+Parallel modules with atrous convolution (ASPP), augmented with image-level features. (source: arXiv:1706.05587)
+:::
+
 
 Global average Pooling + 1x1 Convolution module을 거친 후, Bilinear upsampling을 적용하여 입력 크기의 segmentation result 도출
 
@@ -152,7 +171,11 @@ a) PASCAL VOC 2012
 
 $$\left( 1-\frac{iter}{max_iter}\right)^{power}$$
 
-![deeplabv3_10.png](pic/deeplabv3/deeplabv3_10.png)
+:::{figure-md} markdown-fig
+<img src="pic/deeplabv3/deeplabv3_10.png" alt="deeplabv3_10.png" class="bg-primary mb-1" width="300px">
+
+Learning Rate
+:::
 
 - Crop Size
 
@@ -188,7 +211,12 @@ $$\left( 1-\frac{iter}{max_iter}\right)^{power}$$
 
     Cascaded atrous convolution module 보다 ASPP를 적용했을 때 더 높은 성능을 나타냄. 
 
-    ![deeplabv3_11.png](pic/deeplabv3/deeplabv3_11.png)
+```{image} pic/deeplabv3/deeplabv3_11.png
+:alt: deeplabv3_11.png
+:class: bg-primary mb-1
+:width: 600
+:align: center
+```
 
 ### 3. 추가 실험 : DeepLab v2와의 비교
 
@@ -197,5 +225,8 @@ $$\left( 1-\frac{iter}{max_iter}\right)^{power}$$
     1. Batch normalization의 추가, fine-tuning에 의한 성능 향상
     2. Global average pooling의 추가로 인한 multi-scale context 활용 성능 향상
 
-![deeplabv3_12.png](pic/deeplabv3/deeplabv3_12.png)
-
+```{image} pic/deeplabv3/deeplabv3_12.png
+:alt: deeplabv3_12.png
+:class: bg-primary mb-1
+:align: center
+```

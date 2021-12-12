@@ -147,11 +147,6 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../ch1/01_01_01_fcn.html">
-       FCN - CVPR 2015
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="../ch1/01_01_02_DeepLabv3.html">
        DeepLab v3 - arXiv 2017
       </a>
@@ -606,19 +601,11 @@ VOC 12 test set 평가한 결과 weakly supervised learning 기반 방법 중 �
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p><strong>(1) Class Attention/Activation Map (CAM)</strong></p>
-<div class="figure align-default" id="markdown-fig">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff1.png"><img alt="aff1" class="bg-primary mb-1" src="../../_images/aff1.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Class Attention Map (CAM)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</div>
-<p>learning deep features for discriminative localization, CVPR 2016</p>
 <ul class="simple">
-<li><p>CAM은 Network가 image를 특정 class로 prediction하게 하는 feature 내의 위치 정보를 표현함.</p></li>
-<li><p>마지막 conv. layer의 output feature map <span class="math notranslate nohighlight">\(f^{\text{CAM}}\)</span> 특정 class로 분류될 activation value를 구하기 위한 weight와 weighted sum을 수행하여 CAM을 도출함.</p></li>
-<li><p>Properties</p>
+<li><p>Classification을 위한 Network에서 특정 object에서 나타나는 특정한 pattern의 경우 score가 학습이 됨. 다양한 예제에서 공통적으로 나타나는 object들은 score가 낮게 학습이 됨.</p>
 <ul>
-<li><p>Classification을 위한 Network에서 특정 object에서 나타나는 특정한 pattern의 경우 score가 학습이 됨. 다양한 예제에서 공통적으로 나타나는 object들은 score가 낮게 학습이 됨.
-→ discriminate 한 part에 집중하여 학습이 됨.  (sparse하고 blurrly함. 외각영역에 집중되는 경향이 있음.)
-→ instance-agnostic 함 ⇒ Pseudo Label로 바로 사용하기에는 한계가 있음</p></li>
+<li><p>discriminate 한 part에 집중하여 학습이 됨.  (sparse하고 blurrly함. 외각영역에 집중되는 경향이 있음.)</p></li>
+<li><p>instance-agnostic 함 ⇒ Pseudo Label로 바로 사용하기에는 한계가 있음</p></li>
 </ul>
 </li>
 </ul>
@@ -633,10 +620,9 @@ VOC 12 test set 평가한 결과 weakly supervised learning 기반 방법 중 �
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="key-idea">
 <h3>1. Key Idea<a class="headerlink" href="#key-idea" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="id1">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff2.png"><img alt="aff2" class="bg-primary mb-1" src="../../_images/aff2.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Figure 1. Illustration of our approach.
-in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervision”, CVPR 2018</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff2.png"><img alt="aff2" class="bg-primary mb-1" src="../../_images/aff2.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Illustration of our approach. (source: arXiv:1803.10464)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>Semantic affinity를 구하는 AffinityNet을 제안</p></li>
@@ -664,13 +650,13 @@ computed by</p>
 </li>
 <li><p>CAM을 구하기 위한 Network는 ResNet38에 L4~L6를 dilated conv.로 변경한 backbone에 3x3 conv. layer와 GAP, FC를 추가한 network를 사용한다.</p></li>
 </ul>
-<div class="figure align-default" id="id2">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff3.png"><img alt="aff3" class="bg-primary mb-1" src="../../_images/aff3.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Figure 7. (b) Backbone network</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<div class="figure align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff3.png"><img alt="aff3" class="bg-primary mb-1" src="../../_images/aff3.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">Backbone network (source: arXiv:1803.10464)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure align-default" id="id3">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff4.png"><img alt="aff4" class="bg-primary mb-1" src="../../_images/aff4.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Figure 7. (c) Network for computing CAM</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<div class="figure align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff4.png"><img alt="aff4" class="bg-primary mb-1" src="../../_images/aff4.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Network for computing CAM (source: arXiv:1803.10464)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="affinitynet">
@@ -679,10 +665,9 @@ computed by</p>
 <ul class="simple">
 <li><p>ResNet38 backbone의 마지막 3개 layer를 dilated conv. layer로 변경하여  <span class="math notranslate nohighlight">\(f^{\text{aff}}\)</span>를 구함</p></li>
 </ul>
-<div class="figure align-default" id="id4">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff5.png"><img alt="aff5" class="bg-primary mb-1" src="../../_images/aff5.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Modified from Figure 7.
-in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervision”, CVPR 2018</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<div class="figure align-default" id="id3">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff5.png"><img alt="aff5" class="bg-primary mb-1" src="../../_images/aff5.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">AffinityNet architecture (modified from arXiv:1803.10464)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>feature <span class="math notranslate nohighlight">\(i\)</span>와 <span class="math notranslate nohighlight">\(j\)</span>에서의 semantic affinity <span class="math notranslate nohighlight">\(W_{ij}\)</span>는 두 위치의 affinity map <span class="math notranslate nohighlight">\(f^{\text{aff}}\)</span>의 pairwise <span class="math notranslate nohighlight">\(L_1\)</span>distance에 exponentiation 함수를 적용한 값을 사용</p>
@@ -704,10 +689,9 @@ in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervisio
 </ul>
 </li>
 </ul>
-<div class="figure align-default" id="id5">
+<div class="figure align-default" id="id4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff6.png"><img alt="aff6" class="bg-primary mb-1" src="../../_images/aff6.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Figure 4. Conceptual illustration of generating semantic affinity labels.
-in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervision”, CVPR 2018</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Conceptual illustration of generating semantic affinity labels. (source: arXiv:1803.10464)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>Set of coordinate pairs <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>는 다음과 같이 정의 가능하다.</p>
@@ -739,9 +723,9 @@ in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervisio
 <ul class="simple">
 <li><p>Training image들의 CAM을 이용하여 학습된 AffinityNet이 주어지면, 이를 이용하여 local semantic affinities를 예측하고 transition probability matrix로 변환한다.</p></li>
 </ul>
-<div class="figure align-default" id="id6">
+<div class="figure align-default" id="id5">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff7.png"><img alt="aff7" class="bg-primary mb-1" src="../../_images/aff7.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Calculate transition probability matrix</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">Calculate transition probability matrix (modified from arXiv:1803.10464)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <div class="math notranslate nohighlight">
 \[T=D^{-1}W^{\alpha\beta},\,\text{where}\,D_{ij}=\sum_{j}W_{ij}^\beta \]</div>
@@ -757,10 +741,9 @@ in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervisio
 </div>
 <div class="section" id="train-segmentation-network">
 <h3>5. Train Segmentation network<a class="headerlink" href="#train-segmentation-network" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="id7">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff8.png"><img alt="aff8" class="bg-primary mb-1" src="../../_images/aff8.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Figure 7. (d) Semantic segmentation network
-in J, Ahn, “Learning Pixel-level Semantic Affinity with Image-level Supervision”, CVPR 2018</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<div class="figure align-default" id="id6">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff8.png"><img alt="aff8" class="bg-primary mb-1" src="../../_images/aff8.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">Semantic segmentation network (source: arXiv:1803.10464)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>위 과정을 거처 생성한 semantic label은 입력 영상보다 작으므로, bilinear interpolation 및 dense CRF 후처리를 적용한 후 supervised learning 기반의 semantic segmentation network를 학습하는데 사용한다.</p></li>

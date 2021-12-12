@@ -145,11 +145,6 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="01_01_01_fcn.html">
-       FCN - CVPR 2015
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="01_01_02_DeepLabv3.html">
        DeepLab v3 - arXiv 2017
       </a>
@@ -549,7 +544,7 @@
 <div class="section" id="resource">
 <h2>Resource<a class="headerlink" href="#resource" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>paper : <a class="reference external" href="https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Noh_Learning_Deconvolution_Network_ICCV_2015_paper.pdf">https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Noh_Learning_Deconvolution_Network_ICCV_2015_paper.pdf</a></p></li>
+<li><p>paper : <a class="reference external" href="https://arxiv.org/abs/1505.04366">https://arxiv.org/abs/1505.04366</a></p></li>
 </ul>
 </div>
 </div>
@@ -561,7 +556,10 @@
 <ul>
 <li><p>큰 물체들은 나뉘어지거나, 작은 물체들은 무시됨</p></li>
 <li><p>Skip architecture 구조에도 근본적 해결 방식이 될 수 없음</p>
-<p><img alt="deconv1" src="../../_images/deconv1.png" /></p>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deconv1.png"><img alt="deconv1" class="bg-primary mb-1" src="../../_images/deconv1.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Limitations of semantic segmentation algorithm based on FCN  (source: arXiv:1505.04366)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
 </li>
 </ul>
 </li>
@@ -574,13 +572,17 @@
 </div>
 <div class="section" id="method">
 <h1>Method<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h1>
-<ul>
-<li><p>이 논문에서는 deconvolutional network를 활용해 전체적인 네트워크를 제안함</p>
-<p><img alt="deconv2" src="../../_images/deconv2.png" /></p>
-</li>
+<ul class="simple">
+<li><p>이 논문에서는 deconvolutional network를 활용해 전체적인 네트워크를 제안함</p></li>
+</ul>
+<div class="figure align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deconv2.png"><img alt="deconv2" class="bg-primary mb-1" src="../../_images/deconv2.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Overall architecture of the DeconvNet (source: arXiv:1505.04366)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
 <li><p>Deconvolutional network에서는 크게 Unpooling, Deconvolution을 주로 소개함</p></li>
 <li><p>Unpooling: 하나의 픽셀을 각 축으로 factor만큼 늘림</p>
-<ul class="simple">
+<ul>
 <li><p>Pooling의 경우 가장 높은 값을 가진 index를 switch함</p></li>
 <li><p>Unpooling은 그 때 선택한 index에 그 값을 넣고 나머지는 0으로 둠</p></li>
 <li><p>결과가 sparse함 (한 번 수행할 때마다 [1/factor**2]의 값들이 채워져 있음)</p></li>
@@ -591,17 +593,25 @@
 <ul>
 <li><p>Convolution의 경우, 하나의 입력 픽셀이 다른 결과 픽셀에 영향을 미치지 않음</p></li>
 <li><p>Deconvolution의 경우 operator 크기가 3일 때, 총 9개의 deconvolution 결과를 모두 합한 값이 결과값</p></li>
-<li><p>수학적으로 정확한 정의로는 deconvolution이 아니라, <strong>transposed convolution</strong>이라는 말이 더 정확함</p>
-<p><img alt="deconv3" src="../../_images/deconv3.png" /></p>
-</li>
+<li><p>수학적으로 정확한 정의로는 deconvolution이 아니라, <strong>transposed convolution</strong>이라는 말이 더 정확함</p></li>
 </ul>
 </li>
-<li><p>이를 종합했을 때, Unpooling 연산자에서 0으로 채워진 부분은, deconvolution operator를 통해 정상적으로 복구함을 알 수 있음</p>
-<p><img alt="deconv4" src="../../_images/deconv4.png" /></p>
-</li>
+</ul>
+<div class="figure align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deconv3.png"><img alt="deconv3" class="bg-primary mb-1" src="../../_images/deconv3.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Overall architecture of the DeconvNet (source: arXiv:1505.04366)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>이를 종합했을 때, Unpooling 연산자에서 0으로 채워진 부분은, deconvolution operator를 통해 정상적으로 복구함을 알 수 있음</p></li>
+</ul>
+<div class="figure align-default" id="id3">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deconv4.png"><img alt="deconv4" class="bg-primary mb-1" src="../../_images/deconv4.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Visualization of activations in DeconvNet (source: arXiv:1505.04366)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
 <li><p>Unpooling을 통해 resolution이 높아짐. Deconvolution을 통해 중요한 activations는 증폭되고 noisy activations는 억제되면서 배경과 object가 더 뚜렷하게 구분됨.</p></li>
 <li><p><strong>Instancewise segmentation</strong>: input image 전체가 아닌 일부분을 input으로 사용</p>
-<ul class="simple">
+<ul>
 <li><p>input: sub-image (instance) of the input image</p></li>
 <li><p>output: pixelwise class prediction</p></li>
 <li><p>장점:</p>
@@ -663,15 +673,15 @@
 </ul>
 </li>
 </ul>
-<p><img alt="deconv5" src="../../_images/deconv5.png" /></p>
+<img alt="deconv5.png" class="bg-primary mb-1 align-center" src="../../_images/deconv5.png" />
 <ul class="simple">
 <li><p>Aggregation을 위한 proposal의 개수가 늘어나면 알고리즘이 더 세밀하게 segmentation함</p></li>
 </ul>
-<p><img alt="deconv6" src="../../_images/deconv6.png" /></p>
+<img alt="deconv6.png" class="bg-primary mb-1 align-center" src="../../_images/deconv6.png" />
 <ul class="simple">
 <li><p>Deconvolution network, FCN, CRF, instancewise prediction의 장점을 이용해 더 정밀하고 자세한obejct segmentation mask를 생성.</p></li>
 </ul>
-<p><img alt="deconv7" src="../../_images/deconv7.png" /></p>
+<img alt="deconv7.png" class="bg-primary mb-1 align-center" src="../../_images/deconv7.png" />
 </div>
 
     <script type="text/x-thebe-config">

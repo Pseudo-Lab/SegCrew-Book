@@ -147,11 +147,6 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../ch1/01_01_01_fcn.html">
-       FCN - CVPR 2015
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="../ch1/01_01_02_DeepLabv3.html">
        DeepLab v3 - arXiv 2017
       </a>
@@ -618,7 +613,7 @@
 </ul>
 <div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/20211013181442.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/20211013181442.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Relation between perfermance and Input IoU</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Relation between perfermance and Input IoU (source: arXiv:1906.09756)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">IoU</span></code>는 RPN의 output, <code class="docutils literal notranslate"><span class="pre">Output</span> <span class="pre">IoU</span></code>는 최종 prediction이다.</p></li>
@@ -634,7 +629,7 @@
 </ul>
 <div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/20211013181121.png"><img alt="20211013181121" class="bg-primary mb-1" src="../../_images/20211013181121.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Approach to improving performance</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Approach to improving performance (source: arXiv:1906.09756)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>따라서 Cascade R-CNN에서는:</p>
@@ -653,7 +648,7 @@
 </ul>
 <div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/20211013182818.png"><img alt="20211013182818" class="bg-primary mb-1" src="../../_images/20211013182818.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Cascade Mask R-CNN</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">Cascade Mask R-CNN (source: arXiv:1906.09756)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>bbox AP + 3.5%, mask AP + 1.2%</p></li>
@@ -688,7 +683,7 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/20211013184718.png"><img alt="20211013184718" class="bg-primary mb-1" src="../../_images/20211013184718.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">The architecture evolution from Cascade Mask R-CNN to Hybrid Task Cascade</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">The architecture evolution from Cascade Mask R-CNN to Hybrid Task Cascade (source: arXiv:1901.07518)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>Nontations:</p>
@@ -733,7 +728,7 @@
 </ul>
 <div class="figure align-default" id="id5">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/20211013191211.png"><img alt="20211013191211" class="bg-primary mb-1" src="../../_images/20211013191211.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Architecture of multi-stage mask branches</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Architecture of multi-stage mask branches (source: arXiv:1901.07518)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathcal{F}(\textbf{x}_{t}^{mask}, \textbf{m}_{t-1}^{-}) = \textbf{x}_{t}^{mask} + \mathcal{G}_{t}(\textbf{m}_{t-1}^{-})\)</span></p></li>
@@ -763,7 +758,7 @@ m_{\bar{t}-1}&amp;=M_{\bar{t}}(\mathcal{F}(x_t^{\text{mask}},\mathbf{m}_{\bar{t}
 </ul>
 <div class="figure align-default" id="id6">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/20211013192425.png"><img alt="20211013192425" class="bg-primary mb-1" src="../../_images/20211013192425.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">We introduce complementary contextual information by adding semantic segmentation branch.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">We introduce complementary contextual information by adding semantic segmentation branch. (source: arXiv:1901.07518)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="learning">

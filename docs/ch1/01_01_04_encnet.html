@@ -147,11 +147,6 @@
     </label>
     <ul class="current">
      <li class="toctree-l3">
-      <a class="reference internal" href="01_01_01_fcn.html">
-       FCN - CVPR 2015
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="01_01_02_DeepLabv3.html">
        DeepLab v3 - arXiv 2017
       </a>
@@ -492,6 +487,16 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#motivation">
    1. Motivation
   </a>
@@ -565,14 +570,23 @@
 <li><p><strong>Edited by:</strong> Taeyup Song</p></li>
 </ul>
 <hr class="docutils" />
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Paper : <a class="reference external" href="https://openaccess.thecvf.com/content_cvpr_2018/papers/Zhang_Context_Encoding_for_CVPR_2018_paper.pdf">https://openaccess.thecvf.com/content_cvpr_2018/papers/Zhang_Context_Encoding_for_CVPR_2018_paper.pdf</a></p></li>
+<li><p>Paper: <a class="reference external" href="https://arxiv.org/abs/1803.08904">https://arxiv.org/abs/1803.08904</a></p></li>
+<li><p>Code: <a class="reference external" href="https://github.com/zhanghang1989/PyTorch-Encoding">https://github.com/zhanghang1989/PyTorch-Encoding</a></p></li>
+</ul>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
 <li><p>channel attention을 통해 scene에 존재하는 label외의 label에 대한 prediction을 suppress해줌.</p></li>
 <li><p>입력에 대해 CNN을 통해 feature map을 추출하고, 각 channel별로 서로 다른 attention을 주는 방법을 학습함.
 → input image의 global context를 고려하여 attention이 주어지도록 학습함.
 → 부수적으로 input image의 classification도 수행</p></li>
 <li><p>Soft attention: attention를 통한 feature channel의 select가 아닌 weight의 역할을 함.</p></li>
 </ul>
+</div>
 <div class="section" id="motivation">
 <h2>1. Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -602,7 +616,10 @@
 </div>
 <div class="section" id="contribution">
 <h2>2. Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
-<p><img alt="encnet1.png" src="../../_images/encnet1.png" /></p>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/encnet1.png"><img alt="encnet1" class="bg-primary mb-1" src="../../_images/encnet1.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Overview of the EncNet (source: arXiv:1803.08904)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
 <div class="section" id="context-encoding-module-se-loss">
 <h3>Context Encoding Module &amp; SE-loss<a class="headerlink" href="#context-encoding-module-se-loss" title="Permalink to this headline">¶</a></h3>
 <p>(i) Context Encoding Module</p>
@@ -680,7 +697,6 @@
 </div>
 <div class="section" id="context-encoding-network-encnet">
 <h3>Context Encoding Network(EncNet)<a class="headerlink" href="#context-encoding-network-encnet" title="Permalink to this headline">¶</a></h3>
-<p><img alt="encnet1.png" src="../../_images/encnet1.png" /></p>
 <ul class="simple">
 <li><p>앞서 제시한 module들을 기반으로 제시한 Segmentation architecture</p></li>
 <li><p>Backbone : Dilated FCN(ResNet 기반)</p>
@@ -702,12 +718,13 @@
 <li><p>K = 32</p></li>
 <li><p>Final loss : 두 loss의 가중합으로 정의</p></li>
 </ul>
-<p><img alt="encnet2.png" src="../../_images/encnet2.png" /></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/encnet2.png"><img alt="encnet2.png" class="bg-primary mb-1 align-center" src="../../_images/encnet2.png" style="width: 400px;" /></a>
 <p><img alt="encnet3.png" src="../../_images/encnet3.png" /></p>
+<img alt="encnet3.png" class="bg-primary mb-1 align-center" src="../../_images/encnet3.png" />
 </div>
 <div class="section" id="ablation-study">
 <h3>Ablation study<a class="headerlink" href="#ablation-study" title="Permalink to this headline">¶</a></h3>
-<p><img alt="encnet4.png" src="../../_images/encnet4.png" /></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/encnet4.png"><img alt="encnet4.png" class="bg-primary mb-1 align-center" src="../../_images/encnet4.png" style="width: 400px;" /></a>
 <ul class="simple">
 <li><p>SE-loss를 통해 성능 향상을 이룰 수 있다는 것을 검증하였다.</p></li>
 <li><p>또한, K를 증가시킬수록 mIOU가 높아지기 때문에, 성능 향상이 이루어진다는 것을 알 수 있다.</p></li>
@@ -715,21 +732,22 @@
 </div>
 <div class="section" id="other-datasets">
 <h3>Other datasets<a class="headerlink" href="#other-datasets" title="Permalink to this headline">¶</a></h3>
-<ul>
-<li><p>PASCAL VOC 2012</p>
-<p><img alt="encnet5.png" src="../../_images/encnet5.png" /></p>
 <ul class="simple">
-<li><p>대부분 좋은 성능을 보였고, 다른 무거운 모델들(PSPNet, DeepLabv3)들과도 비교할만한 좋은 성능을 얻었다.</p></li>
+<li><p>PASCAL VOC 2012</p></li>
 </ul>
-</li>
-<li><p>ADE20K</p>
-<p><img alt="encnet6.png" src="../../_images/encnet6.png" /></p>
-<p><img alt="encnet7.png" src="../../_images/encnet7.png" /></p>
+<img alt="encnet5.png" class="bg-primary mb-1 align-center" src="../../_images/encnet5.png" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- 대부분 좋은 성능을 보였고, 다른 무거운 모델들(PSPNet, DeepLabv3)들과도 비교할만한 좋은 성능을 얻었다.
+</pre></div>
+</div>
 <ul class="simple">
+<li><p>ADE20K</p>
+<ul>
 <li><p>PSP(Res-269)에 비해 shallow한 네트워크 구조(Res-101)로 비슷한 성능을 얻어냈다.</p></li>
 </ul>
 </li>
 </ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/encnet6.png"><img alt="encnet6.png" class="bg-primary mb-1 align-center" src="../../_images/encnet6.png" style="width: 400px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/encnet7.png"><img alt="encnet7.png" class="bg-primary mb-1 align-center" src="../../_images/encnet7.png" style="width: 400px;" /></a>
 </div>
 <div class="section" id="classification">
 <h3>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h3>
@@ -743,7 +761,7 @@
 </li>
 <li><p>기존 네트워크와 비교하여 큰 성능향상을 달성하였다.</p></li>
 </ul>
-<p><img alt="encnet8.png" src="../../_images/encnet8.png" /></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/encnet8.png"><img alt="encnet8.png" class="bg-primary mb-1 align-center" src="../../_images/encnet8.png" style="width: 400px;" /></a>
 </div>
 </div>
 <div class="section" id="id2">

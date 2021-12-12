@@ -45,7 +45,7 @@ Panoptic segmentation task이란:
 :::{figure-md} markdown-fig
 <img src="pic/max-deeplab/maxdeeplab1.png" alt="maxdeeplab1" class="bg-primary mb-1" width="600px">
 
-Overview of Previous Method
+Overview of Previous Method (Source: arXiv:2012.00759)
 :::
 
 복잡한 pipeline의 문제점:
@@ -130,11 +130,12 @@ Loss for negative masks Total Loss:
 
 $$\mathcal{L}_{\text{PQ}}^{\text{neg}}=\sum_{i=K+1}^{N}\left[-\log \hat{p}_{\hat{\sigma}(i)}(\oslash)\right]$$
 
-:::{figure-md} markdown-fig
-<img src="pic/max-deeplab/maxdeeplab9.png" alt="maxdeeplab9" class="bg-primary mb-1" width="600px">
-
-Mask Matching
-:::
+```{image} pic/max-deeplab/maxdeeplab9.png
+:alt: maxdeeplab9.png
+:class: bg-primary mb-1
+:width: 400px
+:align: center
+```
 
 Total Loss: 
 
@@ -145,7 +146,7 @@ $$\mathcal{L}_{\text{PQ}}=\alpha\mathcal{L}_{\text{PQ}}^{\text{pos}}+(1-\alpha)\
 :::{figure-md} markdown-fig
 <img src="pic/max-deeplab/maxdeeplab11.png" alt="maxdeeplab11" class="bg-primary mb-1" width="600px">
 
-Overview of MaX-DeepLab
+Overview of MaX-DeepLab (Source: arXiv:2012.00759)
 :::
 
 **components:** dual-path transformer, stacked decoder, output heads (for mask and classes prediction)
@@ -153,7 +154,7 @@ Overview of MaX-DeepLab
 :::{figure-md} markdown-fig
 <img src="pic/max-deeplab/maxdeeplab12.png" alt="maxdeeplab12" class="bg-primary mb-1" width="600px">
 
-An overview of the dual-path transformer architecture
+An overview of the dual-path transformer architecture (Source: arXiv:2012.00759)
 :::
 
 **Dual-path**: Augment a **2D pixel-based CNN (H x W x d_in)** with a **1D global memory (N x d_in)** of size N (i.e. total number of predictions)
@@ -213,17 +214,20 @@ Models:
 ```{image} pic/max-deeplab/maxdeeplab16.png
 :alt: maxdeeplab16.png
 :class: bg-primary mb-1
+:width: 500px
 :align: center
 ```
 
 ```{image} pic/max-deeplab/maxdeeplab17.png
 :alt: maxdeeplab17.png
 :class: bg-primary mb-1
+:width: 500px
 :align: center
 ```
     
 ```{image} pic/max-deeplab/maxdeeplab18.png
 :alt: maxdeeplab18.png
 :class: bg-primary mb-1
+:width: 500px
 :align: center
 ```

@@ -147,11 +147,6 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../ch1/01_01_01_fcn.html">
-       FCN - CVPR 2015
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="../ch1/01_01_02_DeepLabv3.html">
        DeepLab v3 - arXiv 2017
       </a>
@@ -566,8 +561,8 @@ segmentation 순차적으로 진행되었습니다. 예를들면 Mask R-CNN 은 
 <li><p>보통 25~30 FPS 이 넘으면 real-time 이라고 할수있는데 기존의 모델들은 그 기준에 한참 미치지 못합니다.</p></li>
 </ul>
 <div class="figure align-default" id="markdown-fig">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/figure1.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/figure1.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Figure 1. Speed-performance trade-off</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/figure1.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/figure1.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Speed-performance trade-off (source arXiv:1904.02689)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="contribution">
@@ -581,8 +576,8 @@ segmentation 순차적으로 진행되었습니다. 예를들면 Mask R-CNN 은 
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
 <p><strong>(1) Overview</strong></p>
 <div class="figure align-default" id="id1">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/figure2.png"><img alt="figure2" class="bg-primary mb-1" src="../../_images/figure2.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Figure 2. YOLACT architecture</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/figure2.png"><img alt="figure2" class="bg-primary mb-1" src="../../_images/figure2.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">YOLACT architecture (source arXiv:1904.02689)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>(2) Prototype Generation</strong></p>
 <ul class="simple">
@@ -593,8 +588,8 @@ segmentation 순차적으로 진행되었습니다. 예를들면 Mask R-CNN 은 
 across categories</p></li>
 </ul>
 <div class="figure align-default" id="id2">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/figure3.png"><img alt="figure3" class="bg-primary mb-1" src="../../_images/figure3.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Figure 5. Prototype behavior</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/figure3.png"><img alt="figure3" class="bg-primary mb-1" src="../../_images/figure3.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Prototype behavior (source arXiv:1904.02689)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>(3) Mask Coefficient &amp; Assembly</strong></p>
 <ul class="simple">
@@ -661,8 +656,8 @@ and mask loss, L_mask (=BCE(M, M_gt)) with weights 1, 1.5, 6.125</p></li>
 <li><p>Speed vs accuracy trade-off in YOLACT models</p></li>
 </ul>
 <img alt="table1.png" class="bg-primary mb-1 align-center" src="../../_images/table1.png" />
-<img alt="table3.png" class="bg-primary mb-1 align-center" src="../../_images/table3.png" />
 <img alt="table2.png" class="bg-primary mb-1 align-center" src="../../_images/table2.png" />
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/table3.png"><img alt="table3.png" class="bg-primary mb-1 align-center" src="../../_images/table3.png" style="width: 500px;" /></a>
 </div>
 <div class="section" id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>

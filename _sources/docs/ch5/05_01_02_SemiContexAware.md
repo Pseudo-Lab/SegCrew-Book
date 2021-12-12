@@ -23,7 +23,7 @@
 :::{figure-md} markdown-fig
 <img src="pic/semicontext/semicontext1.png" alt="context1" class="bg-primary mb-1" width="600px">
 
-grad cam으로 visualization을 한 결과 (1/8 의 label만 사용함)
+1/8 의 label만 사용하여 학습한 model을 GradCAM으로 visualization을 한 결과. (source: arXiv:2106.14133)
 :::
 
 - 기존의 segmentation은 receptive field의 한계로 인해서 context information에 대해서 학습을 하지 않음.
@@ -33,7 +33,7 @@ grad cam으로 visualization을 한 결과 (1/8 의 label만 사용함)
 :::{figure-md} markdown-fig
 <img src="pic/semicontext/semicontext2.png" alt="context2" class="bg-primary mb-1" width="600px">
 
-Crop1 and Crop2 are randomly cropped from the same image with an overlapping region.
+Crop1 and Crop2 are randomly cropped from the same image with an overlapping region. (source: arXiv:2106.14133)
 :::
 
 - 위의 그림과 같이 label이 있는 부분을 overlapping을 해서 patch데이터간의 consistency 를 주어지며 이른 context aware consistency라고 명시함
@@ -49,7 +49,7 @@ Crop1 and Crop2 are randomly cropped from the same image with an overlapping reg
 	:::{figure-md} markdown-fig
 	<img src="pic/semicontext/semicontext3.png" alt="context3" class="bg-primary mb-1" width="500px">
 
-	figure from ..
+	CCT architecture (source: arXiv:2003.09005)
 	:::
 
 
@@ -60,7 +60,7 @@ Crop1 and Crop2 are randomly cropped from the same image with an overlapping reg
 :::{figure-md} markdown-fig
 <img src="pic/semicontext/semicontext4.png" alt="context4" class="bg-primary mb-1" width="500px">
 
-Visual comparison between contextual augmentation (I and II) and low-level augmentation (I and III)
+Visual comparison between contextual augmentation (I and II) and low-level augmentation (I and III) (source: arXiv:2106.14133)
 :::
 
 - 노란색으로 되어진 overlapping region에서 weak augmentation (gaussian noise, color jitter) 했을때와 다른 위치의 patch를 구헀을때의 이미지임
@@ -71,7 +71,7 @@ Visual comparison between contextual augmentation (I and II) and low-level augme
 :::{figure-md} markdown-fig
 <img src="pic/semicontext/semicontext5.png" alt="context5" class="bg-primary mb-1" width="600px">
 
-Overview of framework
+Overview of framework (source: arXiv:2106.14133)
 :::
 
 - label,target image, unlabel image: $y_t ,x_t,x_u$
@@ -90,7 +90,7 @@ Overview of framework
     :::{figure-md} markdown-fig
     <img src="pic/semicontext/semicontext6.png" alt="context6" class="bg-primary mb-1" width="600px">
 
-    Comparison between vanilla CL and DCL
+    Comparison between vanilla CL and DCL (source: arXiv:2106.14133)
     :::
     
     $$l_{dc}^{b}(\phi_{o_1},\phi_{o_2})=-\frac{1}{N}\sum_{h,w}\mathcal{M}_{d}^{h,w}\cdot\log\frac{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})}{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})+\sum_{\phi_n \in \mathcal{F_u}}r(\phi_{o_1}^{h,w},\phi_{n})}$$
@@ -99,11 +99,11 @@ Overview of framework
     
     $$\mathcal{L}_{dc}^b=l_{dc}^b(\phi_{o_1},\phi_{o_2})+l_{dc}^b(\phi_{o_2},\phi_{o_1})$$
 
-    :::{figure-md} markdown-fig
-    <img src="pic/semicontext/semicontext8.png" alt="context8" width="300px">
-
-    Cosine similarity
-    :::
+```{image} pic/semicontext/semicontext8.png
+:alt: semicontext8.png
+:width: 300px
+:align: center
+```
 
 - 식에서 있듯이 overlapping이 된 영역끼지의 cosine  similarity를 loss를 줄여줌
 - 반면에 negative pair에 관해서는 분모로 두어서 더 similarity를 멀게 만듬

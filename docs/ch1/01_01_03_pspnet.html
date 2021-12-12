@@ -145,11 +145,6 @@
     </label>
     <ul class="current">
      <li class="toctree-l3">
-      <a class="reference internal" href="01_01_01_fcn.html">
-       FCN - CVPR 2015
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="01_01_02_DeepLabv3.html">
        DeepLab v3 - arXiv 2017
       </a>
@@ -493,6 +488,13 @@
   <a class="reference internal nav-link" href="#">
    PSPNet - CVPR 2017
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reference">
+     Reference
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#motivation">
@@ -538,8 +540,15 @@
 <li><p><strong>Review By:</strong> Seongsu Park (가짜연구소 논문미식회 2기)</p></li>
 <li><p><strong>Edited by:</strong> Taeyup Song</p></li>
 </ul>
-</div>
 <hr class="docutils" />
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Paper: <a class="reference external" href="https://arxiv.org/abs/1612.01105">https://arxiv.org/abs/1612.01105</a></p></li>
+<li><p>Code: <a class="reference external" href="https://github.com/hszhao/PSPNet">https://github.com/hszhao/PSPNet</a></p></li>
+</ul>
+</div>
+</div>
 <div class="section" id="motivation">
 <h1>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
@@ -552,7 +561,10 @@
 <li><p>scene context는 중요한 정보가 됨. FCN는  이가 결핍되어 있는데, global scene category clue를 이용해야 함</p></li>
 <li><p>이 논문에서는 spatial pyramid pooling을 채용해서 이 문제를 해결하고자 함.</p></li>
 </ul>
-<p><img alt="pspnet1.png" src="../../_images/pspnet1.png" /></p>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pspnet1.png"><img alt="pspnet1" class="bg-primary mb-1" src="../../_images/pspnet1.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Scene parsing issues we observe on ADE20K dataset. (source: arXiv:1612.01105)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 <div class="section" id="observations-with-fcn">
 <h1>Observations with FCN<a class="headerlink" href="#observations-with-fcn" title="Permalink to this headline">¶</a></h1>
@@ -599,10 +611,13 @@
 </ul>
 </li>
 </ul>
-<p><img alt="pspnet2.png" src="../../_images/pspnet2.png" /></p>
-<ul class="simple">
-<li><p>Network Architecture</p>
+<div class="figure align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pspnet2.png"><img alt="pspnet2" class="bg-primary mb-1" src="../../_images/pspnet2.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Overview of PSPNet (source: arXiv:1612.01105)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <ul>
+<li><p>Network Architecture</p>
+<ul class="simple">
 <li><p>dilated network strategy (atrous, DeepLab)를 사용한 pretrained ResNet 모델을 사용함</p>
 <ul>
 <li><p>final feature map의 크기는 input map 크기의 1/8</p></li>
@@ -619,19 +634,23 @@
 <li><p>dilated FCN보다 크게 연산량이 증가하지 않음</p></li>
 </ul>
 </li>
-<li><p>Auxiliary Loss(alpha=0.4)를 사용해 learning process를 도와줌</p></li>
+<li><p>Auxiliary Loss(alpha=0.4)를 사용해 learning process를 도와줌</p>
+<div class="figure align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pspnet3.png"><img alt="pspnet3" class="bg-primary mb-1" src="../../_images/pspnet3.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Illustration of auxilary loss in ResNet101. (source: arXiv:1612.01105)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</li>
 </ul>
-<p><img alt="pspnet3.png" src="../../_images/pspnet3.png" /></p>
 </div>
 <div class="section" id="experiment-results">
 <h1>Experiment Results<a class="headerlink" href="#experiment-results" title="Permalink to this headline">¶</a></h1>
-<p><img alt="pspnet4.png" src="../../_images/pspnet4.png" /></p>
-<p><img alt="pspnet5.png" src="../../_images/pspnet5.png" /></p>
+<img alt="pspnet4.png" class="bg-primary mb-1 align-center" src="../../_images/pspnet4.png" />
+<img alt="pspnet5.png" class="bg-primary mb-1 align-center" src="../../_images/pspnet5.png" />
 </div>
 <div class="section" id="code-detail-review">
 <h1>Code Detail Review<a class="headerlink" href="#code-detail-review" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://github.com/Lextal/pspnet-pytorch">https://github.com/Lextal/pspnet-pytorch</a></p>
-<p><img alt="pspnet6.png" src="../../_images/pspnet6.png" /></p>
+<img alt="pspnet6.png" class="align-center" src="../../_images/pspnet6.png" />
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PSPNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_classes</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">psp_size</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>
                  <span class="n">deep_features_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s1">&#39;resnet34&#39;</span><span class="p">,</span>

@@ -147,11 +147,6 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="01_01_01_fcn.html">
-       FCN - CVPR 2015
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="01_01_02_DeepLabv3.html">
        DeepLab v3 - arXiv 2017
       </a>
@@ -587,7 +582,10 @@
 → context와 spatial info.의 trade-off 보완</p></li>
 <li><p>High resolution layer로 context를 propagation하기 위해 expansive(upsampling) path를 다수의 feature channel로 구성.</p></li>
 </ul>
-<p><img alt="unet1.png" src="../../_images/unet1.png" /></p>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/unet1.png"><img alt="unet1" class="bg-primary mb-1" src="../../_images/unet1.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">U-net architecture (Source: arXiv:1505.04597)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>Network 구성
 : 3x3 conv.를 연속적으로 배치. down-sample시 max pooling으로 resolution을 반으로 줄이고, channel수를 2배로 늘림.
@@ -597,7 +595,10 @@
 </div>
 <div class="section" id="overlap-tile-strategy">
 <h3>(2) overlap-tile strategy<a class="headerlink" href="#overlap-tile-strategy" title="Permalink to this headline">¶</a></h3>
-<p><img alt="unet2.png" src="../../_images/unet2.png" /></p>
+<div class="figure align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/unet2.png"><img alt="unet2" class="bg-primary mb-1" src="../../_images/unet2.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Overlap-tile strategy (Source: arXiv:1505.04597)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>큰 영상에 대해 GPU memory 한계 없이 적용가능하기 위해 overlap 방식 사용</p></li>
 <li><p>network 구조상 pad를 적용하지 않아 input/output 크기 차이가 존재하는데, segmentation map이 구해지지 않는 외각 영역에 대해서는 mirroring을 이용한 extrapolation을 적용함.</p></li>
@@ -614,7 +615,10 @@
 </li>
 <li><p>Biomedial image 분야의 segmentation task는 동일한 label을 가지는 세포(cell)등의 군집을 잘 분리해야 한다. → 각 cell 사이의 경계를 잘 찾아야 함.</p></li>
 </ul>
-<p><img alt="unet3.png" src="../../_images/unet3.png" /></p>
+<div class="figure align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/unet3.png"><img alt="unet3" class="bg-primary mb-1" src="../../_images/unet3.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">HeLa cells on glass recordede with DIC microscopy (Source: arXiv:1505.04597)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 <ul>
 <li><p>학습 데이터에서 각 픽셀의 class 분포를 weight map으로 구한 후 학습에 반영.</p>
 <div class="math notranslate nohighlight">
@@ -626,7 +630,7 @@
 </div>
 <div class="section" id="experimental-result">
 <h2>Experimental Result<a class="headerlink" href="#experimental-result" title="Permalink to this headline">¶</a></h2>
-<p><img alt="unet4.png" src="../../_images/unet4.png" /></p>
+<img alt="unet4.png" class="bg-primary mb-1 align-center" src="../../_images/unet4.png" />
 </div>
 </div>
 

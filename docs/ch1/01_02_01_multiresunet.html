@@ -147,11 +147,6 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="01_01_01_fcn.html">
-       FCN - CVPR 2015
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="01_01_02_DeepLabv3.html">
        DeepLab v3 - arXiv 2017
       </a>
@@ -553,7 +548,10 @@
 </div>
 <div class="section" id="conventional-method-u-net">
 <h2>Conventional Method: U-Net<a class="headerlink" href="#conventional-method-u-net" title="Permalink to this headline">¶</a></h2>
-<p><img alt="multiunet1.png" src="../../_images/multiunet1.png" /></p>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/multiunet1.png"><img alt="multiunet1" class="bg-primary mb-1" src="../../_images/multiunet1.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">U-Net architecture (source: arXiv:1902.04049)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>semantic segmentation에 주로 사용되는 encoder-decoder structure에 skip-connection 적용</p></li>
 <li><p>Pooling layer에서 소실되는 spatial info.를 retrieve해줌</p></li>
@@ -564,6 +562,10 @@
 <div class="section" id="u-net">
 <h3>1. U-Net 구조 개선<a class="headerlink" href="#u-net" title="Permalink to this headline">¶</a></h3>
 <p><img alt="multiunet2.png" src="../../_images/multiunet2.png" /></p>
+<div class="figure align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/multiunet2.png"><img alt="multiunet2" class="bg-primary mb-1" src="../../_images/multiunet2.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Devolping the Proposed MultiRes block. (source: arXiv:1902.04049)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <p>medical imaging 분야에서 잘 쓰이던 U-Net을 최신 architecture를 적용해서 개선</p>
 <ol class="simple">
 <li><p>Multi-resolution analysis (figure a)
@@ -583,7 +585,10 @@
 <li><p>이 과정에서 발생할 수 있는 spatial information loss를 줄이기 위해 추가적인 non-linear transformation이 필요하며, residual connection이 포함된 conv layer(ResPath)를 추가하여 학습을 쉽게 할수도 있음. [33, 39]</p></li>
 <li><p>논문에서는 3x3 conv 사용</p></li>
 </ul>
-<p><img alt="multiunet3.png" src="../../_images/multiunet3.png" /></p>
+<div class="figure align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/multiunet3.png"><img alt="multiunet3" class="bg-primary mb-1" src="../../_images/multiunet3.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Proposed Res Path. (source: arXiv:1902.04049)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 <div class="section" id="proposed-architecture">
 <h3>3. Proposed Architecture<a class="headerlink" href="#proposed-architecture" title="Permalink to this headline">¶</a></h3>
@@ -593,7 +598,7 @@
 <p><span class="math notranslate nohighlight">\(U\)</span> is the # of filters in the corresponding layer of the U-Net
 <span class="math notranslate nohighlight">\(\alpha\)</span> is a scalar coefficient.</p>
 <p>논문에서는 <span class="math notranslate nohighlight">\(\alpha=1.67\)</span>적용</p>
-<p><img alt="multiunet4.png" src="../../_images/multiunet4.png" /></p>
+<img alt="multiunet4.png" class="bg-primary mb-1 align-center" src="../../_images/multiunet4.png" />
 </div>
 </div>
 </div>
