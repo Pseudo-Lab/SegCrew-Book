@@ -42,6 +42,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -483,10 +485,116 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reference">
-   Reference
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   [Draft] s4GAN - ICCV 202
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reference">
+     Reference
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#abstract">
+     Abstract
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-statement">
+     Problem Statement
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proposed-method">
+     Proposed Method
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#related-work">
+   Related Work
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weakly-supervised-and-semi-supervised-segmentation">
+     (1) Weakly-supervised and Semi-supervised Segmentation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#semi-supervised-classification">
+     (2) Semi-supervised Classification
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#network-fusion">
+     (3) Network Fusion
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Proposed Method
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#s4gan-for-semantic-segmentation">
+       (1) s4GAN for Semantic Segmentation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multi-label-semi-supervised-classification-multi-label-mean-teacher-mlmt">
+       (2) Multi-label Semi-supervised Classification: Multi-Label Mean Teacher(MLMT)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       (3) Network Fusion
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experiment">
+   Experiment
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting">
+     (1) Setting
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results">
+     (2) Results
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pascal-voc">
+     (3)
+     <strong>
+      PASCAL VOC
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ablation-studies-mlmt">
+     (4) Ablation Studies: MLMT 효과 분석
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ablation-studies-failure-cases">
+     (5) Ablation Studies: Failure cases
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ablation-studies-discriminator">
+     (6) Ablation Studies: Discriminator
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -505,7 +613,7 @@
 <ul class="simple">
 <li><p><strong>Title:</strong> Semi-Supervised Semantic Segmentation with High- and Low-level Consistency</p></li>
 <li><p><strong>Review By:</strong> 김소연</p></li>
-<li><p><strong>Edited by:</strong></p></li>
+<li><p><strong>Edited by:</strong> Taeyup Song</p></li>
 </ul>
 <hr class="docutils" />
 <div class="section" id="reference">
@@ -514,6 +622,344 @@
 <li><p>paper : <a class="reference external" href="https://arxiv.org/abs/1908.05724">https://arxiv.org/abs/1908.05724</a></p></li>
 <li><p>code : <a class="reference external" href="https://github.com/sud0301/semisup-semseg">https://github.com/sud0301/semisup-semseg</a></p></li>
 </ul>
+</div>
+<div class="section" id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>수량이 제한된 pixel-wise annotated samples (labeled dataset)과 추가적인 annotation-free images(unlabeled dataset)을 이용하여 학습.</p></li>
+<li><p>Self-training을 포함한 Semi-supervised learning 기반 classification network와 segmentation network가 연동되는 구조를 제안.</p></li>
+<li><p>아주 적은 수의 labeled samples를 이용한 학습 과정에서 발생할 수 있는 low/high-level artifacts를 줄이기 위한 Dual-branch approach</p></li>
+<li><p>PASCAL VOC 2012, PASCAL-Context, and Cityscapes에서 semi-supervised learning 기법 중 SOTA 달성</p></li>
+</ul>
+</div>
+<div class="section" id="problem-statement">
+<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
+<p>limited data로 학습된 CNN이 두 가지 failure mode를 가질 수 있음</p>
+<ul class="simple">
+<li><p>Low-level detail이 부정확함 (틀린 object shape, 부정확한 boundary, 말이 안되는 surfaces)</p></li>
+<li><p>Misinterpretation of high-level information (figure 1. (d), 이미지의 많은 영역을 틀린 class로 예측하는 경우)</p></li>
+</ul>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN1.png"><img alt="s4GAN1" class="bg-primary mb-1" src="../../_images/s4GAN1.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 70 </span><span class="caption-text">(a) PASCAL VOC dataset, (b) GT, (c) 5%만 가지고 supervised 방식으로 학습한 결과, (d) 95% unlabeled 데이터 가지고 제안된 GAN 기반의 branch로 shape estimation을 향상시킨 결과, (e) second branch가 false positive를 없앰으로써 high-level consistency를 가져온 결과, (f) 100% 전체로 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="proposed-method">
+<h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>High/low-level artifacts에 각각 대응하기 위한 Two network branch architecture 제안</p>
+<ol class="simple">
+<li><p>low-level artifacts에 대응하기 위한 improved GAN-based model</p>
+<ul>
+<li><p>Segmentation network를 generator로 사용</p></li>
+<li><p>Discriminator는 생성된 segmentation map과 GT를 classify</p></li>
+<li><p>기존의 GAN loss를 사용하지 않고, <strong>feature matching loss</strong>를 사용함</p></li>
+<li><p>discriminator score 기반의 self-training procedure 사용하여 최종 성능 향상</p>
+<ul>
+<li><p>leveraging high-quality generator predictions as fully labeled samples</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>high-level artifacts에 대응하기 위한 semi-supervised multi-label classification branch</p>
+<ul>
+<li><p>이미지 내 classes를 예측함으로써 segmenation network가 globally consistent decisions를 할 수 있도록 도움</p></li>
+<li><p>Extra image-level information from unlabeled images을 사용하기 위해 we leverage the success of ensemble-based semi-supervised</p></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>두 branch가 상호 보완적으로 low &amp; high-level error에 대응함을 확인 (Fig1 (e))</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="related-work">
+<h1>Related Work<a class="headerlink" href="#related-work" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="weakly-supervised-and-semi-supervised-segmentation">
+<h2>(1) Weakly-supervised and Semi-supervised Segmentation<a class="headerlink" href="#weakly-supervised-and-semi-supervised-segmentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Weakly-supervised segmentation : image-level class labels, bounding boxes, scribble 사용</p></li>
+<li><p>Semi-supervised segmentation : a few pixel-wise segmentation labels 추가로 사용</p></li>
+<li><p>True semi-supervised segmentation learning을 사용한 방법</p>
+<ul>
+<li><p>완전히 annotation-free images를 사용해서 성능 향상</p></li>
+<li><p><a class="reference external" href="https://openaccess.thecvf.com/content_ICCV_2017/papers/Souly__Semi_Supervised_ICCV_2017_paper.pdf">[Souly, ICCV 2017]</a> : Segmentation network에서 학습하는 features를 강화하기 위해 추가 이미지를 생성하는데에 GAN 적용. 추가로 additional class-conditional images를 생성함으로써 semi-supervised method를 확장함</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1802.07934">[Hung, BMVC 2018]</a> : GAN 기반 디자인으로 unlabeled samples로부터 학습가능하도록 함. 여기서는 Discriminator로 FCN-based 모델을 사용해서 <strong>픽셀 별로 dense probabilistic map</strong>을 만들어 낸다. (→s4GAN은 <strong>image-wise discriminator</strong>를 제안)</p></li>
+<li><p>두 방법 모두 s4GAN과 같이 GAN 기반 모델 사용했지만 GAN을 다르게 사용함</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1611.08408">[Luc, NIPS workshop 2014]</a> :</p>
+<ul>
+<li><p>CRF 후처리 대신에 GAN을 사용해서 segmentation map에서 low-level consistency를 강화시킴. (semi-supervised learning 방식이 아님)</p></li>
+<li><p>기존 GAN loss를 사용해서 predicted segmentation map이 GT map과 유사하도록 학습하고, 이것이 fully-supervised setting에서 성능을 향상시킬 수 있음을 보임</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="semi-supervised-classification">
+<h2>(2) Semi-supervised Classification<a class="headerlink" href="#semi-supervised-classification" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>segmentation과 달리 Classification 위한 semi-supervised 방법론들은 많음</p></li>
+<li><p>그러나 real-world conditions를 설명할 realistic evaluation이 부족하다.</p></li>
+<li><p>consistency-based semi-supervised classification</p>
+<ul>
+<li><p>high quality supervised baseline보다 성능 향상</p></li>
+<li><p>pretrained network using unlabeled data보다 향상</p></li>
+</ul>
+</li>
+<li><p><strong>제안된 s4GAN은 Mean-Teacher method 적용</strong></p></li>
+</ul>
+</div>
+<div class="section" id="network-fusion">
+<h2>(3) Network Fusion<a class="headerlink" href="#network-fusion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fuse spatial and class information by channel-wise selection 하는 방식 많이 제안됨.</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1709.01507">[Hu, TPAMI 2018]</a> : calibrating channel-wise feature maps함으로써 spatial and channel-wise information을 combine</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1506.04924">[Hong, NIPS 2015]</a>, <a class="reference external" href="https://arxiv.org/abs/1703.08448">[Wei, CVPR 2017]</a>, <a class="reference external" href="https://arxiv.org/abs/1805.04574">[Wei, CVPR 2018]</a> : semi- and weakly supervised semantic segmentation에서 classification 사용 유무를 실험함으로써 class information 영향을 실험함</p></li>
+<li><p><strong>s4GAN은 spatial과 class information을 decouple해서 late fusion 함으로써 false positive class channels를 제거함.</strong></p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Proposed Method<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN2.png"><img alt="s4GAN2" class="bg-primary mb-1" src="../../_images/s4GAN2.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 71 </span><span class="caption-text">s4GAN branch는 gan 기반의 모델로 low-level detail을 잘 잡아준다. MLMT branch는 semi-supervised multi-label classification을 수행해서 class-level information을 사용해서 false-positive prediction을 segmentation map에서 없애준다. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>Lower branch : predicts <code class="docutils literal notranslate"><span class="pre">pixel-wise</span> <span class="pre">class</span> <span class="pre">labels</span> <span class="pre">=</span> <span class="pre">s4GAN</span></code> (semi-supervised semantic segmentation)</p>
+<ul>
+<li><p>Standard segmentation network 사용</p></li>
+<li><p>제안된 방법은 기존의 supervised training과 adversarial training을 결합하느 구조를 적용하여, unlabeled data를 이용하여 prediction quality를 개선함.</p></li>
+<li><p>segmentation network가 generator로서 discriminator와 함께 학습되어 labeled data의 ground truth segmentation map과 generated된 segmentation map을 구별함</p></li>
+<li><p>추가적으로 <strong>discriminator의 output을 quality measure</strong>로 사용하고, <strong>best prediction을 identify</strong>하는 데에 사용하여 더 나아가 <strong>self-training</strong>을 한다.</p></li>
+</ul>
+</li>
+<li><p>Upper branch : performs <code class="docutils literal notranslate"><span class="pre">image-level</span> <span class="pre">classification</span> <span class="pre">=</span> <span class="pre">MLMT</span></code> (multi-label mean teacher)</p>
+<ul>
+<li><p>image-level class label을 예측해서 s4GAN의 output을 filter해줌</p></li>
+<li><p>Mean Teacher classifier를 적용하여 효과적으로 false positive predictions를 제거함.</p></li>
+</ul>
+</li>
+<li><p>두 branches가 상호 보완적으로 동작함.</p></li>
+</ul>
+<div class="section" id="s4gan-for-semantic-segmentation">
+<h3>(1) s4GAN for Semantic Segmentation<a class="headerlink" href="#s4gan-for-semantic-segmentation" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default" id="id3">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN3.png"><img alt="s4GAN3" class="bg-primary mb-1" src="../../_images/s4GAN3.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 72 </span><span class="caption-text">s4GAN branch (source: arXiv:1908.05724)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>segmentation network <span class="math notranslate nohighlight">\(S\)</span> : generator로 이미지 x를 받아서 <span class="math notranslate nohighlight">\(C\)</span>개의 segmentation maps를 만들어낸다. (<span class="math notranslate nohighlight">\(C\)</span>: 클래스 수)</p></li>
+<li><p>Discriminator <span class="math notranslate nohighlight">\(D\)</span>: concatenated input of original image and corresponding predicted segmentation을 받아서 real segmentation map의 distribution statistics와 비교</p></li>
+</ul>
+<p><strong>A: Training Segmentation Network <span class="math notranslate nohighlight">\(S\)</span></strong></p>
+<ul>
+<li><p>Segmentation network를 학습하기 위한 loss <span class="math notranslate nohighlight">\(L_s\)</span>는 다음과 같다.</p>
+<div class="math notranslate nohighlight">
+\[L_s = L_{ce} + \lambda_{fm}L_{fm}+\lambda_{st}L_{st}\]</div>
+</li>
+<li><p>Labeled data에 대해 Cross-entropy loss <span class="math notranslate nohighlight">\(L_{ce}\)</span> 을 적용한다.</p>
+<div class="math notranslate nohighlight">
+\[L_{ce} = - \sum_{k,w,c}{y^l(h,w,c)\log S(x^l)(h,w,c)}\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(y^l(h,w,c)\)</span>는 ground truth segmentation map을 <span class="math notranslate nohighlight">\(S(x^l)(h,w,c)\)</span>는 Segmentation network의 output이다.</p>
+</li>
+<li><p>Unlabeled data에 대해서는 the feature statistics of the 예측값의 feature statistics과 ground truth segmentation map간의 mean discrepancy를 최소화 하도록 설계된 Feature matching loss <span class="math notranslate nohighlight">\(L_{fm}\)</span>를 적용한다.</p>
+<div class="math notranslate nohighlight">
+\[L_{fm} = ||E_{(x^l,y^l)\sim D^l}[D_k(y^l\oplus x^l)] - E_{x^u\sim D^u}[D_k(S(x^u)\oplus x^u)]||\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(D_k\)</span>는 discriminator network의  <span class="math notranslate nohighlight">\(k^{th}\)</span> layer 이후의 intermediate representation이다.</p>
+<p>GT와 predicted segmentation masks 모두 해당하는 이미지랑 concat되며, generator가 GT와 같은 feature statistics를 가지는 segmentation map을 예측하도록 한다.</p>
+</li>
+<li><p>Self-training loss <span class="math notranslate nohighlight">\(L_{st}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}L_{st} = 
+    \begin{cases} -\sum_{h,w,c} y^* \log S(x^u), \space &amp; if \ \  D(S(x^u)) \ge \gamma \\ 0, &amp; \text{otherwise}
+    \end{cases}\end{split}\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(\gamma\)</span>는 confidence threshold, <span class="math notranslate nohighlight">\(y^*\)</span>은 prediction <span class="math notranslate nohighlight">\(S(x^u)\)</span>로부터 생성된 pseudo pixel-wise labels이다.</p>
+<ul class="simple">
+<li><p>GAN 학습에선 discriminator와 generator의 balance가 중요하다. (training 초기에는 discriminator가 너무 강력하게 작용함)</p></li>
+<li><p>Unlabeled 이미지에서 discriminator를 속일 수 있는 가장 좋은 generator outputs을 선택해서 supervised training에 사용함.</p></li>
+<li><p>Discriminator의 output (0(가짜) 1(진짜))를 예측된 segmentation 결과의 quality를 나타내는 confidence measure로 사용한다. (높은 quality라 하면 supervised training에 사용됨
+→ cross entropy loss 계산</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>B: Traning Discriminator <span class="math notranslate nohighlight">\(D\)</span></strong></p>
+<ul>
+<li><p>original GAN objective로 학습됨</p>
+<div class="math notranslate nohighlight">
+\[L_D = E_{(x^l,y^l)\sim D^l}[\log D(y^l \oplus x^l)] + E_{x^u \sim D^u}[\log(1-D(S(x^u) \oplus x^u)]\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(\oplus\)</span>은 concatenate 연산이다.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="multi-label-semi-supervised-classification-multi-label-mean-teacher-mlmt">
+<h3>(2) Multi-label Semi-supervised Classification: Multi-Label Mean Teacher(MLMT)<a class="headerlink" href="#multi-label-semi-supervised-classification-multi-label-mean-teacher-mlmt" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default" id="id4">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN4.png"><img alt="s4GAN4" class="bg-primary mb-1" src="../../_images/s4GAN4.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 73 </span><span class="caption-text">MLMT branch (source: arXiv:1908.05724)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<ul>
+<li><p>Ensemble-based semi-supervised <strong>classification</strong> method (Mean Teacher)를 semi-supervised <strong>multi-label</strong> image classification으로 확장함</p></li>
+<li><p>Student network <span class="math notranslate nohighlight">\(G\)</span>와 teacher network <span class="math notranslate nohighlight">\(H\)</span>로 구성됨.</p>
+<div class="math notranslate nohighlight">
+\[L_{MT} = -\sum_c z^l(c)log(G_\theta(x^l)(c)) + \lambda_{cons}||G_\theta(x^{(u,l)})-H_{\theta'}(x'^{(u,l)})||^2\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(x\)</span>와 <span class="math notranslate nohighlight">\(x'\)</span>는 각각 student와 teacher network를 위해 다르게 augment된 이미지이며, <span class="math notranslate nohighlight">\(z^l\)</span>는 multi-hot vector for GT class labels이다.</p>
+<ul class="simple">
+<li><p>입력 영상에 영상에 서로 다른 small perbutation이 적용된 영상을 각 network에 입력함.</p></li>
+<li><p>Teacher network의 weight <span class="math notranslate nohighlight">\(\theta'\)</span> 은 student network’s weight <span class="math notranslate nohighlight">\(\theta\)</span> 의 exponential moving average로 적의</p></li>
+<li><p>consistency loss를 사용해서 student model의 prediction과 teacher model의 prediction이 일치되도록 학습한다. (consistency loss : MSE between two predictions)</p></li>
+<li><p>Labeled samples <span class="math notranslate nohighlight">\(x^l\)</span>에 대해 categorical cross-entropy loss <span class="math notranslate nohighlight">\(L_{cce}\)</span>를 적용하고, 모든 가능한 samples <span class="math notranslate nohighlight">\((x^{u,l})\)</span>에 대해서 consistency loss <span class="math notranslate nohighlight">\(L_{cons}\)</span>를 사용해서 student network를 optimize한다.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>(3) Network Fusion<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>두 branches는 별개로 학습된다.</p></li>
+<li><p>Evaluation할 때는 output of the classification branch에서 input image에 없는 클래스에 해당하는 segmentation map 부분을 단순히 지운다.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}S(x)_c = \begin{cases} 0 \ &amp;if \ G(x_c) \le \tau \\ S(x)_c \ &amp;\text{otherwise} \end{cases}\end{split}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(S(x)_c\)</span> : segmentation map for class c</p></li>
+<li><p><span class="math notranslate nohighlight">\(G(x)_c\)</span> : soft output of MLMT-branch</p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau = 0.2\)</span> : threshold on soft output obtained by cross-validation</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="experiment">
+<h1>Experiment<a class="headerlink" href="#experiment" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setting">
+<h2>(1) Setting<a class="headerlink" href="#setting" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Datasets</p>
+<ul>
+<li><p>PASCAL VOC 2012 segmentation benchmark</p></li>
+<li><p>PASCAL-Context dataset</p></li>
+<li><p>Cityscapes dataset</p></li>
+</ul>
+</li>
+<li><p>Network configuration</p>
+<ul>
+<li><p>semi-supervised segmentation GAN</p>
+<ul>
+<li><p>DeepLabv2를 main segmentation network로 사용</p></li>
+<li><p>discriminator</p>
+<ul>
+<li><p>4개의 convolution layers로 구성된 standard binary classification network → global average pooling → fully connected layer</p></li>
+<li><p>global average pooling의 결과물을 feature matching loss 계산하는데 사용</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>semi-supervised multi-label classification network</p>
+<ul>
+<li><p>ResNet 101 pretrained on ImageNet as base</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Baselines</p>
+<ul>
+<li><p>compare to the DeepLabv2 network as the fully-supervised baseline approach, which was trained only on the labeled part of the dataset</p></li>
+<li><p>main semi-supervised baseline은 [15] : use a two-stage GAN training</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="results">
+<h2>(2) Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>PASCAL VOC 2012, PASCAL-Context, Cityscapes로 실험 결과 기존 SSL 기반 방법들에 성능이 향상됨을 확인할 수 있고, semi-supervised semantic segmentation에서도 new SOTA를 달성함.</p></li>
+</ul>
+<div class="figure align-default" id="id6">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN5.png"><img alt="s4GAN5" class="bg-primary mb-1" src="../../_images/s4GAN5.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 74 </span><span class="caption-text">Semi-supervised Semantic Segmentation: 제안하는 SSL을 사용해서 baselines보다 더 잘 예측함. 특히 5% 미만으로 labeled data를 사용했을 때 성능 향상이 큼 (a): pretraining 없이 PASCAL VOC 에 대한 성능, (b) COCO pre-training 하고 한 것 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>특히 2% labeled data에서 SOTA (Deeplabv2) 대비 11% 성능 향상을 가져옴</p></li>
+<li><p>추가적으로 extra image-level weak annotations이 있을 때 이를 쉽게 적용할 수 있을 것이라 기대할 수 있음.</p></li>
+</ul>
+</div>
+<div class="section" id="pascal-voc">
+<h2>(3) <strong>PASCAL VOC</strong><a class="headerlink" href="#pascal-voc" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>COCO pre-train 여부와 관계없이 제안된 Semi-supervised segmentation model이 모든 labeled data setting에서 가장 좋은 성능을 나타냄.</p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN6.png"><img alt="s4GAN6.png" class="bg-primary mb-1 align-center" src="../../_images/s4GAN6.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>Deeplabv3+ backbone으로 적용 시 Low-data supervised only 세팅에서 unstable함. 데이터가 충분한 경우 Deeplab v2 대비 성능이 개선됨.</p></li>
+<li><p>제안된 semi-supervised model에서는 Deeplabv3+을 사용한 경우가 더 좋은 성능 나타냄.</p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN7.png"><img alt="s4GAN7.png" class="bg-primary mb-1 align-center" src="../../_images/s4GAN7.png" style="width: 400px;" /></a>
+<div class="figure align-default" id="id7">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN8.png"><img alt="s4GAN8" class="bg-primary mb-1" src="../../_images/s4GAN8.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 75 </span><span class="caption-text">PASCAL VOC의 5% labeled data만으로 COCO pre-training 없이 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>PASCAL context 데이터셋으로 1/8 labeled data로 학습한 결과.1/8 label을 이용하여 supervision으로 학습한 baseline에 비해 많이 향상된 결과를 확인 가능함.</p></li>
+</ul>
+<div class="figure align-default" id="id8">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN9.png"><img alt="s4GAN9" class="bg-primary mb-1" src="../../_images/s4GAN9.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 76 </span><span class="caption-text">PASCAL context 데이터셋으로 1/8 labeled data로 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>COCO pretraining 없이 Cityscapes 데이터셋에서 1/8 labeled data로 학습한 결과 1/8 label을 이용하여 supervised learning으로 학습한 baseline 대비 향상된 결과를 볼 수 있다.</p></li>
+</ul>
+<div class="figure align-default" id="id9">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN10.png"><img alt="s4GAN10" class="bg-primary mb-1" src="../../_images/s4GAN10.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 77 </span><span class="caption-text">COCO pretraining 없이 Cityscapes 데이터셋으로 1/8 labeled data로 학습한 결과. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="ablation-studies-mlmt">
+<h2>(4) Ablation Studies: MLMT 효과 분석<a class="headerlink" href="#ablation-studies-mlmt" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>MLMT를 적용한 결과 baseline 대비 false-positive가 제거됨을 확인할 수 있음.(fig 7. (d))</p></li>
+<li><p>s4GAN을 적용한 결과 작은 shape을 더 잘 포착함을 확인할 수 있음 (fig 7. (e))</p></li>
+<li><p>s4GAN이랑 MLMT 합쳤을 때 low and high-level artifacts를 효과적으로 제거함을 확인 (fig 7. (g))</p></li>
+</ul>
+<div class="figure align-default" id="id10">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN11.png"><img alt="s4GAN11" class="bg-primary mb-1" src="../../_images/s4GAN11.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 78 </span><span class="caption-text">PASCAL VOC 5%만 사용하여 학습한 실험에 대한 ablation study. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="ablation-studies-failure-cases">
+<h2>(5) Ablation Studies: Failure cases<a class="headerlink" href="#ablation-studies-failure-cases" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>multiple objects가 있는 경우, foreground object가 명확하지 않은 경우??</p></li>
+</ul>
+<div class="figure align-default" id="id11">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN12.png"><img alt="s4GAN12" class="bg-primary mb-1" src="../../_images/s4GAN12.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 79 </span><span class="caption-text">Failure cases (source: arXiv:1908.05724)</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id12">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN13.png"><img alt="s4GAN13" class="bg-primary mb-1" src="../../_images/s4GAN13.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 80 </span><span class="caption-text">PASCAL-Context의 1/8만 사용한 Failures (source: arXiv:1908.05724)</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id13">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN14.png"><img alt="s4GAN14" class="bg-primary mb-1" src="../../_images/s4GAN14.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 81 </span><span class="caption-text">Cityscapes의 1/8만 사용한 Failures (source: arXiv:1908.05724)</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="ablation-studies-discriminator">
+<h2>(6) Ablation Studies: Discriminator<a class="headerlink" href="#ablation-studies-discriminator" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Self-training loss를 포함하여 학습한 경우 Discriminator가 overly strong해지는 걸 막아서 학습이 더 잘된다.</p></li>
+</ul>
+<div class="figure align-default" id="id14">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN15.png"><img alt="s4GAN15" class="bg-primary mb-1" src="../../_images/s4GAN15.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 82 </span><span class="caption-text">Discriminator output의 변화. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>5% labeled data를 이용한 setting에서 ImageNet pre-train을 사용하지 않은 경우 Mean Teacher기반 classification network가 특히 false positives를 더 잘 없애줌을 확인 가능</p></li>
+</ul>
+<div class="figure align-default" id="id15">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN16.png"><img alt="s4GAN16" class="bg-primary mb-1" src="../../_images/s4GAN16.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 83 </span><span class="caption-text">(a) 5%a만 이용하여 CNN-based classification한 결과와 MT-based semi-supervised classification 결과의 ROC curve 비교. (b)는 ImageNet pre-training 없이 동일하게 비교.  (source: arXiv:1908.05724)</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 </div>
 
