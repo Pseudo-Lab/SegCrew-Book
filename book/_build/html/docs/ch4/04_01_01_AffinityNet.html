@@ -609,12 +609,6 @@ VOC 12 test set 평가한 결과 weakly supervised learning 기반 방법 중 �
 </ul>
 </li>
 </ul>
-<p><strong>(2) Pseudo Label을 만드는 이유</strong></p>
-<ul class="simple">
-<li><p>Pseudo label을 만드는 과정은 매우 복잡함 → 연산량이 많으므로, pseudo label을 이용하여 network를 학습하는게 test time에서 효율적임</p></li>
-<li><p>Network 학습을 과정에서 pseudo label의 noise에 강인한 모델을 만들 수 있음</p></li>
-<li><p>보통 pseudo label을 바로 적용하는 것 보다 성능이 더 좋음</p></li>
-</ul>
 </div>
 <div class="section" id="proposed-method">
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
@@ -622,7 +616,7 @@ VOC 12 test set 평가한 결과 weakly supervised learning 기반 방법 중 �
 <h3>1. Key Idea<a class="headerlink" href="#key-idea" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff2.png"><img alt="aff2" class="bg-primary mb-1" src="../../_images/aff2.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Illustration of our approach. (source: arXiv:1803.10464)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Illustration of our approach. (source: arXiv:1803.10464)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>Semantic affinity를 구하는 AffinityNet을 제안</p></li>
@@ -652,11 +646,11 @@ computed by</p>
 </ul>
 <div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff3.png"><img alt="aff3" class="bg-primary mb-1" src="../../_images/aff3.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">Backbone network (source: arXiv:1803.10464)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Backbone network (source: arXiv:1803.10464)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff4.png"><img alt="aff4" class="bg-primary mb-1" src="../../_images/aff4.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Network for computing CAM (source: arXiv:1803.10464)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Network for computing CAM (source: arXiv:1803.10464)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="affinitynet">
@@ -667,7 +661,7 @@ computed by</p>
 </ul>
 <div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff5.png"><img alt="aff5" class="bg-primary mb-1" src="../../_images/aff5.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">AffinityNet architecture (modified from arXiv:1803.10464)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">AffinityNet architecture (modified from arXiv:1803.10464)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>feature <span class="math notranslate nohighlight">\(i\)</span>와 <span class="math notranslate nohighlight">\(j\)</span>에서의 semantic affinity <span class="math notranslate nohighlight">\(W_{ij}\)</span>는 두 위치의 affinity map <span class="math notranslate nohighlight">\(f^{\text{aff}}\)</span>의 pairwise <span class="math notranslate nohighlight">\(L_1\)</span>distance에 exponentiation 함수를 적용한 값을 사용</p>
@@ -691,7 +685,7 @@ computed by</p>
 </ul>
 <div class="figure align-default" id="id4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff6.png"><img alt="aff6" class="bg-primary mb-1" src="../../_images/aff6.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Conceptual illustration of generating semantic affinity labels. (source: arXiv:1803.10464)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">Conceptual illustration of generating semantic affinity labels. (source: arXiv:1803.10464)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>Set of coordinate pairs <span class="math notranslate nohighlight">\(\mathcal{P}\)</span>는 다음과 같이 정의 가능하다.</p>
@@ -725,7 +719,7 @@ computed by</p>
 </ul>
 <div class="figure align-default" id="id5">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff7.png"><img alt="aff7" class="bg-primary mb-1" src="../../_images/aff7.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">Calculate transition probability matrix (modified from arXiv:1803.10464)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">Calculate transition probability matrix (modified from arXiv:1803.10464)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <div class="math notranslate nohighlight">
 \[T=D^{-1}W^{\alpha\beta},\,\text{where}\,D_{ij}=\sum_{j}W_{ij}^\beta \]</div>
@@ -743,7 +737,7 @@ computed by</p>
 <h3>5. Train Segmentation network<a class="headerlink" href="#train-segmentation-network" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="id6">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aff8.png"><img alt="aff8" class="bg-primary mb-1" src="../../_images/aff8.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">Semantic segmentation network (source: arXiv:1803.10464)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">Semantic segmentation network (source: arXiv:1803.10464)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>위 과정을 거처 생성한 semantic label은 입력 영상보다 작으므로, bilinear interpolation 및 dense CRF 후처리를 적용한 후 supervised learning 기반의 semantic segmentation network를 학습하는데 사용한다.</p></li>

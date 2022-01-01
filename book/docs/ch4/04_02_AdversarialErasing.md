@@ -9,4 +9,5 @@
 - 본 chapter에서는 Adversarial Erasing를 이용한 weakly supervised segmentation 연구 결과를 리뷰한다.
 
     (1) AE-PSL - CVPR 2017
+    
     (2) SeeNet - NeurIPS 2018
