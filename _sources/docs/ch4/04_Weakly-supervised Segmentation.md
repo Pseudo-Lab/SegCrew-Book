@@ -45,4 +45,10 @@ Examples of Class Attention Map (source: Weakly Supervised Object Detection, ECC
     
     (4) Sailency or Attention Mechanism
     
-   본 chapter에서는 위 분류에 속한 다양한 weakly-supervised learning 기반 segmentation 연구결과를 리뷰한다.
+ - 본 chapter에서는 위 분류에 속한 다양한 weakly-supervised learning 기반 segmentation 연구결과를 리뷰한다.
+ 
+ :::{figure-md} markdown-fig
+<img src="pic/weakly3.png" alt="weakly3" class="bg-primary mb-1" width="800px">
+
+Evolution of weakly-supervised semantic segmantation
+:::

@@ -13,4 +13,5 @@
 - 본 chapter에서는 pixel affinity를 이용한 weakly supervised segmentation 연구 결과를 리뷰한다. 
 
     (1) AffinityNet - CVPR 2018
+    
     (2) IAL - IJCV 2020
