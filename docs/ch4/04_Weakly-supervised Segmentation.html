@@ -503,24 +503,29 @@
 (3) 충분한 Data를 수집하기 위한 시간이 많이 든다.</p>
 </li>
 <li><p>Weakly supervised learning 기반 방법에서는 영상 전체의 classification 결과 (class label), 또는 object detection 결과 (bounding box, class label)와 같은 full supervision 대비 저수준의 labeled data를 이용하여 semantic/instance segmentation task와 같은 고수준의 task를 수행하는 network를 학습한다. 이를 통해 data 수집에 필요한 비용과 시간을 절감할 수 있다.</p></li>
-<li><p>Pixel/instance level의 label이 확보되지 않는 weakly supervised setting에서는 Class attention map (CAM)을 주로 활용한다. (CAM 설명 추가)</p></li>
+<li><p>Pixel/instance level의 label이 확보되지 않는 weakly supervised setting에서는 Class attention map (CAM)을 주로 활용한다.</p></li>
 </ul>
 <div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/weakly2.png"><img alt="weakly2" class="bg-primary mb-1" src="../../_images/weakly2.png" style="width: 800px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">Class Attention Map (source: Learning Deep Features for Discriminative Localization, CVPR 2016)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<ul>
+<ul class="simple">
 <li><p>CAM은 Network가 image를 특정 class로 prediction하게 하는 feature 내의 위치 정보를 표현한다.</p></li>
 <li><p>마지막 conv. layer의 output feature map <span class="math notranslate nohighlight">\(f^{\text{CAM}}\)</span> 특정 class로 분류될 activation value를 구하기 위한 weight와 weighted sum을 수행하여 CAM을 도출한다.</p></li>
-<li><p>이러한 CAM 정보는 class label만이 주어진 환경에서 이미지 내에 객체가 어디에 속한지 알려주지만 다음과 같은 문제점이 있다.</p>
-<p>(1) CAM의 결과가 객체의 Discriminative한 영역에만 한정됨</p>
-<p>(2) CAM의 크기가 객체의 영역외에 나타나는 모습을 보임</p>
-</li>
+<li><p>이러한 CAM 정보는 class label만이 주어진 환경에서 이미지 내에 객체가 어디에 속한지 알려주지만 Classification을 위한 network에서 특정 object에서 나타나는 특정한 pattern에 대해 score가 학습이 되므로, 다양한 training sample에서 공통적으로 나타나는 scene들에 대해서 score가 낮게 학습이 된다.</p></li>
+<li><p>즉 배경과 잘 구분되는 object와 같이 discriminate한 부분에 집중하여 학습이 되므로, sparse하고 blurrly한 정보를 포함하고 있으며, score가 object의 외각영역에 집중되는 경향이 있다.</p></li>
+</ul>
+<div class="figure align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/weakly3.png"><img alt="weakly3" class="bg-primary mb-1" src="../../_images/weakly3.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Examples of Class Attention Map (source: Weakly Supervised Object Detection, ECCV Tutorial 2020)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<ul>
 <li><p>이를 해결하기 위해 다양한 기법의 weakly supervised learning 기법이 제안되었고, 이를 분류해보면 다음과 같다.</p>
 <p>(1) Seeded Region Growing</p>
 <p>(2) Adversarial Erasing</p>
 <p>(3) Learning Pixel Affinity</p>
 <p>(4) Sailency or Attention Mechanism</p>
+<p>본 chapter에서는 위 분류에 속한 다양한 weakly-supervised learning 기반 segmentation 연구결과를 리뷰한다.</p>
 </li>
 </ul>
 <div class="toctree-wrapper compound">

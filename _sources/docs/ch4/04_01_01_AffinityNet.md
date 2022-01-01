@@ -35,12 +35,6 @@
     - discriminate 한 part에 집중하여 학습이 됨.  (sparse하고 blurrly함. 외각영역에 집중되는 경향이 있음.)
     - instance-agnostic 함 ⇒ Pseudo Label로 바로 사용하기에는 한계가 있음 
 
-**(2) Pseudo Label을 만드는 이유**
-
-- Pseudo label을 만드는 과정은 매우 복잡함 → 연산량이 많으므로, pseudo label을 이용하여 network를 학습하는게 test time에서 효율적임
-- Network 학습을 과정에서 pseudo label의 noise에 강인한 모델을 만들 수 있음
-- 보통 pseudo label을 바로 적용하는 것 보다 성능이 더 좋음
-
 ## Proposed Method
 
 ### 1. Key Idea
