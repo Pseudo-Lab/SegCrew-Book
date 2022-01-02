@@ -644,7 +644,7 @@
 <p><strong>Adversarial Erasing Strategy</strong></p>
 <div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet2.png"><img alt="seenet2" class="bg-primary mb-1" src="../../_images/seenet2.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text">AE-PSL architecture (Source: arXiv:1703.08448)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">AE-PSL architecture (Source: arXiv:1703.08448)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>입력 이미지에서 CAM을 지속적으로 제거해서 Object 영역을 추출</p></li>
@@ -652,7 +652,7 @@
 </ul>
 <div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet3.png"><img alt="seenet3" class="bg-primary mb-1" src="../../_images/seenet3.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">ACoL architecture (Source: arXiv:1804.06962)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">ACoL architecture (Source: arXiv:1804.06962)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>Object Region Mining과 비슷한 전략이지만, Classifier Branch를 두개 두어서 A에서 얻은 특징맵을 B에 들어가기전에 제거해서 사용</p></li>
@@ -660,14 +660,14 @@
 </ul>
 <div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet4.png"><img alt="seenet4" class="bg-primary mb-1" src="../../_images/seenet4.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">GAIN architecture (Source: arXiv:1802.10171)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">GAIN architecture (Source: arXiv:1802.10171)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="proposed-method">
 <h2><strong>Proposed Method</strong><a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet6.png"><img alt="seenet6" class="bg-primary mb-1" src="../../_images/seenet6.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">(a) A typical adversarial erasing approach and (b-e) Attention maps (source: arXiv:2002.08098)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">(a) A typical adversarial erasing approach and (b-e) Attention maps (source: arXiv:2002.08098)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="observations">
 <h3><strong>1. Observations</strong><a class="headerlink" href="#observations" title="Permalink to this headline">¶</a></h3>
@@ -682,7 +682,7 @@
 <h3><strong>2. Self-Erasing</strong><a class="headerlink" href="#self-erasing" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="id4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet7.png"><img alt="seenet7" class="bg-primary mb-1" src="../../_images/seenet7.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">Overview of the proposed approach. (source: arXiv:2002.08098)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Overview of the proposed approach. (source: arXiv:2002.08098)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(S_A\)</span>에서 초기 Attention을 생성. 단, 이때 생성된 Attention을 Fig2의 c에 나온 그럼처럼 2개의 Threshold를 통해서 3가지의 영역으로 나눔</p>
@@ -695,7 +695,7 @@
 </ul>
 <div class="figure align-default" id="id5">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet8.png"><img alt="seenet8" class="bg-primary mb-1" src="../../_images/seenet8.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Illustrations explaining how to generate ternary masks. (source: arXiv:2002.08098)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">Illustrations explaining how to generate ternary masks. (source: arXiv:2002.08098)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>단, Observation에서 언급한 것처럼 attention 영역을 background 영역으로 넓혀지지 않게 해야하는데, 이를 위해서는 다음의 두가지 문제를 해결해야함</p>
@@ -719,7 +719,7 @@
 <h3><strong>3. Self-Erasing Network</strong><a class="headerlink" href="#self-erasing-network" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="id6">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet7.png"><img alt="seenet7" class="bg-primary mb-1" src="../../_images/seenet7.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">Overview of the proposed approach. (source: arXiv:2002.08098)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">Overview of the proposed approach. (source: arXiv:2002.08098)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(S_A\)</span>부터 <span class="math notranslate nohighlight">\(S_C\)</span>로 구성된 3가지의 브랜치로 구성된 형태</p></li>
