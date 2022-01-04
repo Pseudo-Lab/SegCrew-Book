@@ -606,7 +606,7 @@
 </ul>
 <div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_2.png"><img alt="deeplabv3_2.png" class="bg-primary mb-1" src="../../_images/deeplabv3_2.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Fully Convolutional Networks (source: arXiv:1411.4038)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Fully Convolutional Networks (source: arXiv:1411.4038)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>ConvNet은 layer가 깊어질 수록 pooling/stride에 의해 spatial dimension이 작아지기 때문에 output을 upsample 하는 과정에서 디테일이 손상될 수 있음</p></li>
@@ -617,7 +617,7 @@
 <h3>2. DeepLab<a class="headerlink" href="#deeplab" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_3.png"><img alt="deeplabv3_3.png" class="bg-primary mb-1" src="../../_images/deeplabv3_3.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">DeepLab v3 and DeepLab v3+ (source: arXiv:1802.02611)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">DeepLab v3 and DeepLab v3+ (source: arXiv:1802.02611)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>DeepLab v1 - atrous convolution 및 Conditional Random Field(CRF) 도입</p></li>
@@ -665,7 +665,7 @@
 \[y[i]=\sum_{k}^{K}x[i+r\cdot{k}]w[k]\]</div>
 <div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_5.gif"><img alt="deeplabv3_5.gif" class="bg-primary mb-1" src="../../_images/deeplabv3_5.gif" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Atrous Convolution</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Atrous Convolution</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Atrous Convolution</strong></p>
 <ul>
@@ -677,7 +677,7 @@
 </ul>
 <div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_6.png"><img alt="deeplabv3_6.png" class="bg-primary mb-1" src="../../_images/deeplabv3_6.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Cascaded modules without and with atrous convolution (source: arXiv:1706.05587)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Cascaded modules without and with atrous convolution (source: arXiv:1706.05587)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>layer 4부터 atrous rate를 2,4,8로 조절하여 output layer의 stride를 16으로 유지</p>
 </div>
@@ -691,7 +691,7 @@
 </ul>
 <div class="figure align-default" id="id4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_7.png"><img alt="deeplabv3_7.png" class="bg-primary mb-1" src="../../_images/deeplabv3_7.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Spatial Pyramid Pooling (source: arXiv:1706.05587)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Spatial Pyramid Pooling (source: arXiv:1706.05587)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>Atrous rate가 커질수록 유효한 weight의 수가 작아지는 경향을 보임.</p>
@@ -701,7 +701,7 @@
 </ul>
 <div class="figure align-default" id="id5">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_8.png"><img alt="deeplabv3_8.png" class="bg-primary mb-1" src="../../_images/deeplabv3_8.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Atrous rate and vaild weight</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Atrous rate and vaild weight</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <p>5x5 feature map 과 Atrous rate = 4 인 3x3 dilated kernel 의 예시. Valid weight의 개수가 중앙 영역에 대해서는 1x1으로 줄어듬.</p>
 <ul class="simple">
@@ -710,7 +710,7 @@
 </ul>
 <div class="figure align-default" id="id6">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_9.png"><img alt="deeplabv3_9.png" class="bg-primary mb-1" src="../../_images/deeplabv3_9.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Parallel modules with atrous convolution (ASPP), augmented with image-level features. (source: arXiv:1706.05587)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Parallel modules with atrous convolution (ASPP), augmented with image-level features. (source: arXiv:1706.05587)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <p>Global average Pooling + 1x1 Convolution module을 거친 후, Bilinear upsampling을 적용하여 입력 크기의 segmentation result 도출</p>
 <ul class="simple">
@@ -736,7 +736,7 @@ a) PASCAL VOC 2012</p></li>
 \[\left( 1-\frac{iter}{max_iter}\right)^{power}\]</div>
 <div class="figure align-default" id="id7">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_10.png"><img alt="deeplabv3_10.png" class="bg-primary mb-1" src="../../_images/deeplabv3_10.png" style="width: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Learning Rate</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Learning Rate</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>Crop Size</p>
