@@ -1,19 +1,20 @@
-# [Draft] Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569
+# Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569
 
 ---
 
-- **Title:** Revisiting CycleGAN for semi-supervised segmentation
+```{admonition} Information
+- **Title:** Revisiting CycleGAN for semi-supervised segmentation, arXiv:1908.11569
 
+- **Reference**
+    - paper : [https://arxiv.org/abs/1908.11569](https://arxiv.org/abs/1908.11569)
+    - code : [https://github.com/arnab39/Semi-supervised-segmentation-cycleGAN](https://github.com/arnab39/Semi-supervised-segmentation-cycleGAN)
+    
 - **Review By:** 김소연 
 
 - **Edited by:** Taeyup Song
 
----
-
-## Reference
-
-- paper : [https://arxiv.org/abs/1908.11569](https://arxiv.org/abs/1908.11569)
-- code : [https://github.com/arnab39/Semi-supervised-segmentation-cycleGAN](https://github.com/arnab39/Semi-supervised-segmentation-cycleGAN)
+- **Last updated on Jan. 5, 2022**
+```
 
 ## Background
 

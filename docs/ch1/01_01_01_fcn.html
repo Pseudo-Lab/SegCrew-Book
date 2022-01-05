@@ -53,6 +53,8 @@
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DeepLab v3 - arXiv 2017" href="01_01_02_DeepLabv3.html" />
+    <link rel="prev" title="A. Fully Convolutional Network" href="01_01_fullyconvNet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -89,7 +91,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../ch0/00%20Survey.html">
    Survey
@@ -122,26 +124,31 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="01_Semantic%20Segmentation.html">
    01. Semantic Segmentation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2 has-children">
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
     <a class="reference internal" href="01_01_fullyconvNet.html">
      A. Fully Convolutional Network
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
     <label for="toctree-checkbox-3">
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul>
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       FCN - CVPR 2015
+      </a>
+     </li>
      <li class="toctree-l3">
       <a class="reference internal" href="01_01_02_DeepLabv3.html">
        DeepLab v3 - arXiv 2017
@@ -361,12 +368,12 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch5/05_01_01_CCT.html">
-       [Draft] CCT - CVPR 2020
+       CCT - CVPR 2020
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch5/05_01_02_SemiContexAware.html">
-       [Draft] Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
+       Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
       </a>
      </li>
     </ul>
@@ -383,12 +390,12 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch5/05_02_01_Revisiting_CycleGAN.html">
-       [Draft] Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569
+       Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch5/05_02_02_s4GAN.html">
-       [Draft] s4GAN - ICCV 202
+       s4GAN - arXiv:1908.05724
       </a>
      </li>
     </ul>
@@ -483,18 +490,30 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
+  <a class="reference internal nav-link" href="#problem-statement">
+   Problem Statement
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#motivation-and-problem-statement">
-   Motivation and Problem statement
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#architecture">
+     1. Architecture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#improvement-of-segmentation">
+     2. Improvement of segmentation
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#proposed-solution">
-   Proposed Solution
+  <a class="reference internal nav-link" href="#experimental-result">
+   Experimental Result
   </a>
  </li>
 </ul>
@@ -511,67 +530,77 @@
   <div class="section" id="fcn-cvpr-2015">
 <h1>FCN - CVPR 2015<a class="headerlink" href="#fcn-cvpr-2015" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
+<div class="admonition-information admonition">
+<p class="admonition-title">Information</p>
 <ul class="simple">
-<li><p><strong>Title:</strong> Fully Convolutional Networks for Semantic Segmentation</p></li>
+<li><p><strong>Title:</strong> Fully Convolutional Networks for Semantic Segmentation, CVPR 2015</p></li>
+<li><p><strong>Reference</strong></p>
+<ul>
+<li><p>Paper: <a class="reference external" href="https://arxiv.org/abs/1411.4038">https://arxiv.org/abs/1411.4038</a></p></li>
+<li><p>Code:</p></li>
+</ul>
+</li>
 <li><p><strong>Review By:</strong> Yejin Kim (가짜연구소 논문미식회 2기)</p></li>
 <li><p><strong>Edited by:</strong> Taeyup Song</p></li>
-</ul>
-<hr class="docutils" />
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Fully Connected Layers → 1x1 Convolutional layers : input image 크기에 제약이 없다.</p></li>
-<li><p>input image에 비해 feature map은 coarse한 정보들을 담고 있다 → upsampling</p></li>
-<li><p>모든 layer가 convolution layer로 구성된다.</p></li>
-<li><p>마지막 layer의 prediction만 사용하지 않고 lower layers의 predictions와 fusion을 함으로써 Deep feature와 accurate segmentation가 가능해진다.</p></li>
+<li><p><strong>Last updated on Jan. 5, 2022</strong></p></li>
 </ul>
 </div>
-<div class="section" id="motivation-and-problem-statement">
-<h2>Motivation and Problem statement<a class="headerlink" href="#motivation-and-problem-statement" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p>Fully Connected Layers의 한계</p>
-<ul>
-<li><p>위치 정보의 소실</p>
-<p><img alt="fcn1.png" src="../../_images/fcn1.png" /></p>
-<p>출처: <a class="reference external" href="https://medium.com/&#64;msmapark2/fcn-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=%EC%9E%85%EB%A0%A5%20%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90%20%EB%8C%80%ED%95%B4%20%ED%94%BD%EC%85%80,%EC%97%90%20%EB%A7%9E%EC%B6%B0%20%EB%B3%80%ED%98%95%EC%8B%9C%ED%82%A8%20%EA%B2%83%EC%9D%B4%EB%8B%A4">https://medium.com/&#64;msmapark2/fcn-논문-리뷰-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=입력 이미지에 대해 픽셀,에 맞춰 변형시킨 것이다</a>.</p>
-</li>
-<li><p>입력 이미지 크기의 고정</p>
-<p><img alt="fcn2.png" src="../../_images/fcn2.png" /></p>
-<p>출처: <a class="reference external" href="https://medium.com/&#64;msmapark2/fcn-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=%EC%9E%85%EB%A0%A5%20%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%90%20%EB%8C%80%ED%95%B4%20%ED%94%BD%EC%85%80,%EC%97%90%20%EB%A7%9E%EC%B6%B0%20%EB%B3%80%ED%98%95%EC%8B%9C%ED%82%A8%20%EA%B2%83%EC%9D%B4%EB%8B%A4">https://medium.com/&#64;msmapark2/fcn-논문-리뷰-fully-convolutional-networks-for-semantic-segmentation-81f016d76204#:~:text=입력 이미지에 대해 픽셀,에 맞춰 변형시킨 것이다</a>.</p>
+<div class="section" id="problem-statement">
+<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Fully Connected Layers를 사용할 경우 input image의 크기는 항상 일정해야 하므로 항상 부분적으로 image를 잘라내야 한다.</p></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><p>VGG, ResNet과 같은 classification task를 위한 network는 입력영상에 대해 convolution layer와 pooling layer를 단계적으로 거치며, feature를 추출한 후 fully connected layer(FCL)를 이용 one-hot encoding을 통해 최종 classification 결과를 도출하는 과정을 거친다.</p></li>
+<li><p>이 과정에서 위치 정보가 소실되기 때문에 semantic segmentation에 적용 시 pixel level classification을 수행할 수 없으며, 입력 영상의 크기에 제약을 받는다.</p></li>
 </ul>
 </div>
-<div class="section" id="proposed-solution">
-<h2>Proposed Solution<a class="headerlink" href="#proposed-solution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="proposed-method">
+<h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="architecture">
+<h3>1. Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><strong>Architecture</strong></p></li>
+<li><p>Classification을 위한 Convolutional Neural Network(CNN)에서 마지막 FCL을 1x1 Convolutional layers로 변경하여 위치에 따른 class activation을 도출한다.</p></li>
+<li><p>모든 layer가 convolution layer로 구성되게 되며, input image 크기에 제약이 없어진다.</p></li>
 </ul>
-<p><img alt="fcn3.png" src="../../_images/fcn3.png" /></p>
-<p>Convolutioanl Neural Network에서는 마지막에 Fully Connected Layers가 있으며 이로인해 Location Information을 얻기가 어렵다.</p>
-<p><img alt="fcn4.png" src="../../_images/fcn4.png" /></p>
-<p>따라서 Fully Connected Layers가 1x1 Convolutional Layers로 대체되었다. 하지만 여전히 output의 크기가 input 크기와 일치하지 않는다.</p>
-<p><img alt="fcn5.png" src="../../_images/fcn5.png" /></p>
-<p>Semantic Segmentation의 목표는 pixelwise prediction이기 때문에 Upsampling을 통해 output prediction의 크기를 확대하여 input과 동일하게 만들어준다.</p>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/fcn8.png"><img alt="fcn8" class="bg-primary mb-1" src="../../_images/fcn8.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Classification Network의 output을 heatmap으로 변환할 수 있도록 FCL을 convolution layers로 변경 <br />
+(source: arXiv:1411.4038)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
-<li><p><strong>Improvement of segmentation</strong></p></li>
+<li><p>하지만 여전히 output heatmap의 크기(resolution)가 input 크기와 일치하지 않으므로, Upsampling을 통해 output prediction의 크기를 확대하여 input과 동일하게 만들어준다.</p></li>
 </ul>
-<p><img alt="fcn6.png" src="../../_images/fcn6.png" /></p>
-<p>Figure 1. Refining fully convolutional nets</p>
-<p>제일 왼쪽 사진이 위 architecture의 output prediction을 이용한 segmentation의 결과물이다.</p>
-<p>결과물이 coarse한 이유는 작아진 output을 upsampling을 통해 확대했기 때문이다.  더 자세한 spatial location information을 위해 layer 개수를 줄여버리면 deep feature를 얻기 힘들어지기 때문에 여기서 tradeoff 가 필요하다.</p>
-<p>더 정밀하고 상세한 segmentation을 얻으면서 layer 개수는 유지하기 위해 이 논문에서는 final layer와 lower layers의 output이 함께 사용됐다.</p>
-<p><img alt="fcn7.png" src="../../_images/fcn7.png" /></p>
+<div class="figure align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/fcn9.png"><img alt="fcn9" class="bg-primary mb-1" src="../../_images/fcn9.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Fully Convolutional Networks (source: arXiv:1411.4038)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="improvement-of-segmentation">
+<h3>2. Improvement of segmentation<a class="headerlink" href="#improvement-of-segmentation" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>FCN-32s: final layout의 output prediction을 stride32로 upsampling해줌</p></li>
+<li><p>Input image과 비교하여 feature map의 resolution이 작고, 이를 upsample 한 pixelwise prediction 결과 역시 coarse한 정보들을 담고 있다.</p></li>
+<li><p>하지만 spatial location information을 늘리기 위해 layer 개수를 줄이게 되면 고수준의 features를 얻을 수 없는 한계가 존재한다.</p></li>
+<li><p>Receptive field는 유지하면서(layer 수 유지) 더 정밀하고 상세한 segmentation을결과를 얻기 위해 마지막 layer의 feature 뿐 아니라 middle layers의 feature를 fusion을 함으로써 Deep feature와 accurate segmentation가 가능해진다.</p></li>
+</ul>
+<div class="figure align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/fcn7.png"><img alt="fcn7" class="bg-primary mb-1" src="../../_images/fcn7.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">High/low layer의 정보를 함께 사용하여 segmentation 결과 개선  (source: arXiv:1411.4038)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="experimental-result">
+<h2>Experimental Result<a class="headerlink" href="#experimental-result" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>다양한 형태로 High/low layer의 정보를 융하여 network를 구성한다.</p>
+<ul>
+<li><p>FCN-32s: final layout의 output prediction을 stride32로 upsampling</p></li>
 <li><p>FCN-16s: fianl layout의 output prediction을 stride2로 upsampling + pool4 layer의 output prediction → 결과물을 stride16로 upsampling</p></li>
 <li><p>FCN-8s: finaly layer와 pool4의 output prediction의 합 + pool3의 output prediction → 결과물을 stride8로 upsampling</p></li>
 </ul>
-<p>Lower layer의 output prediction을 이용하여 final prediction을 계산하므로써 점점 더 정밀한 segmentation이 가능함 (Figure 1 참조)</p>
+</li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/fcn10.png"><img alt="fcn10.png" class="bg-primary mb-1 align-center" src="../../_images/fcn10.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>PASCAL VOC2011 validation set을 이용하여 비교한 결과 Lower layer의 output prediction을 이용하여 final prediction을 계산하므로써 점점 더 정밀한 segmentation이 가능함을 확인할 수 있다.</p></li>
+</ul>
 </div>
 </div>
 
@@ -604,6 +633,24 @@
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="01_01_fullyconvNet.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">A. Fully Convolutional Network</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="01_01_02_DeepLabv3.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">DeepLab v3 - arXiv 2017</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         

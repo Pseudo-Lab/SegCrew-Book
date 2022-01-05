@@ -2,19 +2,20 @@
 
 ---
 
-- **Title:** Learning Pixel-level Semantic Affinity Image-level Labels for Weakly Supervised Semantic Segmentation
+```{admonition} Information
+- **Title:** Learning Pixel-level Semantic Affinity Image-level Labels for Weakly Supervised Semantic Segmentation, CVPR 2018
 
+- **Reference**
+    - Paper: [https://arxiv.org/abs/1803.10464](https://arxiv.org/abs/1803.10464), [CVPR18 open repo.](https://openaccess.thecvf.com/content_cvpr_2018/papers/Ahn_Learning_Pixel-Level_Semantic_CVPR_2018_paper.pdf)
+    - Code: [https://github.com/jiwoon-ahn/psa](https://github.com/jiwoon-ahn/psa)
+    - Review: [http://www.navisphere.net/6101/learning-pixel-level-semantic-affinity-with-image-level-supervision-for-weakly-supervised-semantic-segmentation/](http://www.navisphere.net/6101/learning-pixel-level-semantic-affinity-with-image-level-supervision-for-weakly-supervised-semantic-segmentation/)
+    
 - **Review By:** Taeyup Song 
 
-- **Edited by:** Taeyup Song 
+- **Edited by:** Taeyup Song
 
----
-
-## Reference
-
-- Paper: [https://arxiv.org/abs/1803.10464](https://arxiv.org/abs/1803.10464), [CVPR18 open repo.](https://openaccess.thecvf.com/content_cvpr_2018/papers/Ahn_Learning_Pixel-Level_Semantic_CVPR_2018_paper.pdf)
-- Code: [https://github.com/jiwoon-ahn/psa](https://github.com/jiwoon-ahn/psa)
-- review: [http://www.navisphere.net/6101/learning-pixel-level-semantic-affinity-with-image-level-supervision-for-weakly-supervised-semantic-segmentation/](http://www.navisphere.net/6101/learning-pixel-level-semantic-affinity-with-image-level-supervision-for-weakly-supervised-semantic-segmentation/)
+- **Last updated on Jan. 5, 2022**
+```
 
 ## Problem Statement
 

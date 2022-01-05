@@ -147,6 +147,11 @@
     </label>
     <ul>
      <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_01_fcn.html">
+       FCN - CVPR 2015
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../ch1/01_01_02_DeepLabv3.html">
        DeepLab v3 - arXiv 2017
       </a>
@@ -365,12 +370,12 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch5/05_01_01_CCT.html">
-       [Draft] CCT - CVPR 2020
+       CCT - CVPR 2020
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch5/05_01_02_SemiContexAware.html">
-       [Draft] Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
+       Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
       </a>
      </li>
     </ul>
@@ -387,12 +392,12 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch5/05_02_01_Revisiting_CycleGAN.html">
-       [Draft] Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569
+       Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch5/05_02_02_s4GAN.html">
-       [Draft] s4GAN - ICCV 202
+       s4GAN - arXiv:1908.05724
       </a>
      </li>
     </ul>
@@ -493,21 +498,21 @@
 <h1>04. Weakly-supervised Segmentation<a class="headerlink" href="#weakly-supervised-segmentation" title="Permalink to this headline">¶</a></h1>
 <div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/weakly1.png"><img alt="weakly1" class="bg-primary mb-1" src="../../_images/weakly1.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Weakly supervised learning. (source: Hakan, CVPR18 Tutorial)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Weakly supervised learning. (source: Hakan, CVPR18 Tutorial)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>Weakly-supervised learning은 full supervision이 아닌 완벽하지 않은 저수준(lower degree, noisy, limited, or imprecise sources)의 supervision 이용하여 학습방법이다.</p></li>
 <li><p>Segmentation task의 경우 supervised leaning 기반 학습 setting에서는 학습데이터로 주어진 모든 영상 정보에 대해 pixel level의 class label이 필요하며, 이러한 고수준의 labeled data가 필요한 task에서 data를 확보하는 과정에서 다음과 같은 문제가 발생할 수 있다.</p>
-<p>(1) 충분한 양의 labeled data를 확보하기 어렵다.
-(2) 특정 task의 경우 label data 생성에 전문가가 필요하고, 이는 많은 비용과 노력을 필요로 한다. (e.g.의료 영상)
-(3) 충분한 Data를 수집하기 위한 시간이 많이 든다.</p>
+<p>(1) 충분한 양의 labeled data를 확보하기 어렵다.</p>
+<p>(2) 특정 task의 경우 label data 생성에 전문가가 필요하고, 이는 많은 비용과 노력을 필요로 한다. (e.g.의료 영상)</p>
+<p>(3) 충분한 Data를 수집하기 위한 시간이 많이 든다.</p>
 </li>
 <li><p>Weakly supervised learning 기반 방법에서는 영상 전체의 classification 결과 (class label), 또는 object detection 결과 (bounding box, class label)와 같은 full supervision 대비 저수준의 labeled data를 이용하여 semantic/instance segmentation task와 같은 고수준의 task를 수행하는 network를 학습한다. 이를 통해 data 수집에 필요한 비용과 시간을 절감할 수 있다.</p></li>
 <li><p>Pixel/instance level의 label이 확보되지 않는 weakly supervised setting에서는 Class attention map (CAM)을 주로 활용한다.</p></li>
 </ul>
 <div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/weakly2.png"><img alt="weakly2" class="bg-primary mb-1" src="../../_images/weakly2.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">Class Attention Map (source: Learning Deep Features for Discriminative Localization, CVPR 2016)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Class Attention Map (source: Learning Deep Features for Discriminative Localization, CVPR 2016)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>CAM은 Network가 image를 특정 class로 prediction하게 하는 feature 내의 위치 정보를 표현한다.</p></li>
@@ -517,7 +522,7 @@
 </ul>
 <div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/weakly3.png"><img alt="weakly3" class="bg-primary mb-1" src="../../_images/weakly3.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Examples of Class Attention Map (source: Weakly Supervised Object Detection, ECCV Tutorial 2020)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">Examples of Class Attention Map (source: Weakly Supervised Object Detection, ECCV Tutorial 2020)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>이를 해결하기 위해 다양한 기법의 weakly supervised learning 기법이 제안되었고, 이를 분류해보면 다음과 같다.</p>
@@ -526,11 +531,13 @@
 <p>(3) Learning Pixel Affinity</p>
 <p>(4) Sailency or Attention Mechanism</p>
 </li>
+</ul>
+<ul class="simple">
 <li><p>본 chapter에서는 위 분류에 속한 다양한 weakly-supervised learning 기반 segmentation 연구결과를 리뷰한다.</p></li>
 </ul>
 <div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/weakly4.png"><img alt="weakly4" class="bg-primary mb-1" src="../../_images/weakly4.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Evolution of weakly-supervised semantic segmantation</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">Evolution of weakly-supervised semantic segmantation</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <div class="toctree-wrapper compound">
 </div>

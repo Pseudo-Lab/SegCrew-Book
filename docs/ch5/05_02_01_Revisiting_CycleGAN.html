@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>[Draft] Revisiting CycleGAN for semi-supervised segmentation - arXiv:1908.11569 &#8212; Segmentation Complete</title>
+    <title>Revisiting CycleGAN for semi-supervised segmentation - arXiv:1908.11569 &#8212; Segmentation Complete</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -55,7 +55,7 @@
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="[Draft] s4GAN - ICCV 202" href="05_02_02_s4GAN.html" />
+    <link rel="next" title="s4GAN - arXiv:1908.05724" href="05_02_02_s4GAN.html" />
     <link rel="prev" title="A. GAN" href="05_02_GAN.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -146,6 +146,11 @@
      </i>
     </label>
     <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../ch1/01_01_01_fcn.html">
+       FCN - CVPR 2015
+      </a>
+     </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../ch1/01_01_02_DeepLabv3.html">
        DeepLab v3 - arXiv 2017
@@ -365,12 +370,12 @@
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="05_01_01_CCT.html">
-       [Draft] CCT - CVPR 2020
+       CCT - CVPR 2020
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="05_01_02_SemiContexAware.html">
-       [Draft] Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
+       Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
       </a>
      </li>
     </ul>
@@ -387,12 +392,12 @@
     <ul class="current">
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       [Draft] Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569
+       Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="05_02_02_s4GAN.html">
-       [Draft] s4GAN - ICCV 202
+       s4GAN - arXiv:1908.05724
       </a>
      </li>
     </ul>
@@ -487,11 +492,6 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reference">
-   Reference
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#background">
    Background
   </a>
@@ -551,20 +551,22 @@
         
               <div>
                 
-  <div class="section" id="draft-revisiting-cyclegan-for-semi-supervised-segmentation-arxiv-1908-11569">
-<h1>[Draft] Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569<a class="headerlink" href="#draft-revisiting-cyclegan-for-semi-supervised-segmentation-arxiv-1908-11569" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="revisiting-cyclegan-for-semi-supervised-segmentation-arxiv-1908-11569">
+<h1>Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569<a class="headerlink" href="#revisiting-cyclegan-for-semi-supervised-segmentation-arxiv-1908-11569" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
+<div class="admonition-information admonition">
+<p class="admonition-title">Information</p>
 <ul class="simple">
-<li><p><strong>Title:</strong> Revisiting CycleGAN for semi-supervised segmentation</p></li>
-<li><p><strong>Review By:</strong> 김소연</p></li>
-<li><p><strong>Edited by:</strong> Taeyup Song</p></li>
-</ul>
-<hr class="docutils" />
-<div class="section" id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
+<li><p><strong>Title:</strong> Revisiting CycleGAN for semi-supervised segmentation, arXiv:1908.11569</p></li>
+<li><p><strong>Reference</strong></p>
+<ul>
 <li><p>paper : <a class="reference external" href="https://arxiv.org/abs/1908.11569">https://arxiv.org/abs/1908.11569</a></p></li>
 <li><p>code : <a class="reference external" href="https://github.com/arnab39/Semi-supervised-segmentation-cycleGAN">https://github.com/arnab39/Semi-supervised-segmentation-cycleGAN</a></p></li>
+</ul>
+</li>
+<li><p><strong>Review By:</strong> 김소연</p></li>
+<li><p><strong>Edited by:</strong> Taeyup Song</p></li>
+<li><p><strong>Last updated on Jan. 5, 2022</strong></p></li>
 </ul>
 </div>
 <div class="section" id="background">
@@ -609,7 +611,7 @@
 </ul>
 <div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/cycleGAN1.png"><img alt="cycleGAN1" class="bg-primary mb-1" src="../../_images/cycleGAN1.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 71 </span><span class="caption-text">Schematic explaining the working of proposed model (source: arXiv:1908.11569)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 74 </span><span class="caption-text">Schematic explaining the working of proposed model (source: arXiv:1908.11569)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="loss-functions">
@@ -624,7 +626,7 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
 <p><strong>(1) For labeled dataset <span class="math notranslate nohighlight">\(\mathcal{X}_{\mathcal{L}}\)</span></strong></p>
 <div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/cycleGAN2.png"><img alt="cycleGAN2" class="bg-primary mb-1" src="../../_images/cycleGAN2.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 72 </span><span class="caption-text">Segmentation loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 75 </span><span class="caption-text">Segmentation loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>labeled data에 대해서는 pixel level의 classification을 위해 Cross-entropy Loss를 적용</p>
@@ -640,7 +642,7 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
 <p><strong>(2) Adversarial loss for unlabeled dataset</strong></p>
 <div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/cycleGAN3.png"><img alt="cycleGAN3" class="bg-primary mb-1" src="../../_images/cycleGAN3.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 73 </span><span class="caption-text">Adversarial loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 76 </span><span class="caption-text">Adversarial loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>Generator G와 Discriminator D의 compete</p></li>
@@ -658,7 +660,7 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
 <p><strong>(3) Cycle consistency loss for unlabeld dataset</strong></p>
 <div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/cycleGAN4.png"><img alt="cycleGAN4" class="bg-primary mb-1" src="../../_images/cycleGAN4.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 74 </span><span class="caption-text">Cycle consistency loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 77 </span><span class="caption-text">Cycle consistency loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>Unlabeled data <span class="math notranslate nohighlight">\(\mathcal{X}_{\mathcal{U}}\)</span>를 generator <span class="math notranslate nohighlight">\(G_{IS}\)</span>로 label을 생성하고, 다시 generator <span class="math notranslate nohighlight">\(G_{SI}\)</span>를 이용하여 복원한 cycle의 output에 대해 L1 norm 적용 (최종 image를 sharper 하게 만들기 위함)</p></li>
@@ -755,7 +757,7 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
         <a class="right-next" href="05_02_02_s4GAN.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">[Draft] s4GAN - ICCV 202</p>
+                <p class="prevnext-title">s4GAN - arXiv:1908.05724</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
