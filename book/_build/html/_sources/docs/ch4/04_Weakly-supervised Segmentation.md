@@ -10,7 +10,9 @@ Weakly supervised learning. (source: Hakan, CVPR18 Tutorial)
 - Segmentation task의 경우 supervised leaning 기반 학습 setting에서는 학습데이터로 주어진 모든 영상 정보에 대해 pixel level의 class label이 필요하며, 이러한 고수준의 labeled data가 필요한 task에서 data를 확보하는 과정에서 다음과 같은 문제가 발생할 수 있다.
     
     (1) 충분한 양의 labeled data를 확보하기 어렵다.
+
     (2) 특정 task의 경우 label data 생성에 전문가가 필요하고, 이는 많은 비용과 노력을 필요로 한다. (e.g.의료 영상)
+
     (3) 충분한 Data를 수집하기 위한 시간이 많이 든다.
     
 - Weakly supervised learning 기반 방법에서는 영상 전체의 classification 결과 (class label), 또는 object detection 결과 (bounding box, class label)와 같은 full supervision 대비 저수준의 labeled data를 이용하여 semantic/instance segmentation task와 같은 고수준의 task를 수행하는 network를 학습한다. 이를 통해 data 수집에 필요한 비용과 시간을 절감할 수 있다.
@@ -45,6 +47,8 @@ Examples of Class Attention Map (source: Weakly Supervised Object Detection, ECC
     
     (4) Sailency or Attention Mechanism
     
++++ {"meta": "data"}
+
  - 본 chapter에서는 위 분류에 속한 다양한 weakly-supervised learning 기반 segmentation 연구결과를 리뷰한다.
  
  :::{figure-md} markdown-fig

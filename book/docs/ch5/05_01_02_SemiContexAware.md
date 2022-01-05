@@ -1,19 +1,20 @@
-# [Draft] Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
+# Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
 
 ---
 
-- **Title:** Semi-supervised Semantic Segmentation with Directional Context-aware Consistency
+```{admonition} Information
+- **Title:** Semi-supervised Semantic Segmentation with Directional Context-aware Consistency, CVPR 2021
 
+- **Reference**
+    - paper : [https://jiaya.me/papers/semiseg_cvpr21.pdf](https://jiaya.me/papers/semiseg_cvpr21.pdf) (CVPR 2021)
+    - code : [https://github.55860.com/dvlab-research/Context-Aware-Consistency](https://github.55860.com/dvlab-research/Context-Aware-Consistency)
+    
 - **Review By:** Chanmin Park
 
 - **Edited by:** Taeyup Song
 
----
-
-## Reference
-
-- paper : [https://jiaya.me/papers/semiseg_cvpr21.pdf](https://jiaya.me/papers/semiseg_cvpr21.pdf) (CVPR 2021)
-- code : [https://github.55860.com/dvlab-research/Context-Aware-Consistency](https://github.55860.com/dvlab-research/Context-Aware-Consistency)
+- **Last updated on Jan. 5, 2022**
+```
 
 ## Problem statement
 
