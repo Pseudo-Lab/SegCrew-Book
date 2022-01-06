@@ -1,5 +1,7 @@
 # 04. Weakly-supervised Segmentation
 
+## Introduction
+
 :::{figure-md} markdown-fig
 <img src="pic/weakly1.png" alt="weakly1" class="bg-primary mb-1" width="800px">
 
@@ -49,10 +51,16 @@ Examples of Class Attention Map (source: Weakly Supervised Object Detection, ECC
     
 +++ {"meta": "data"}
 
- - 본 chapter에서는 위 분류에 속한 다양한 weakly-supervised learning 기반 segmentation 연구결과를 리뷰한다.
- 
+## Trend
+
  :::{figure-md} markdown-fig
 <img src="pic/weakly4.png" alt="weakly4" class="bg-primary mb-1" width="800px">
 
 Evolution of weakly-supervised semantic segmantation
 :::
+
++++
+
+ - 본 chapter에서는 위 분류에 속한 다양한 weakly-supervised learning 기반 segmentation 연구결과를 리뷰한다.
+
+*Latest update: Jan 6, 2022*
