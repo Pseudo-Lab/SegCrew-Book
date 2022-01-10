@@ -79,7 +79,8 @@
 ## Writing Rules
 
 [jupyter-book syntax]
-https://jupyterbook.org/reference/cheatsheet.html#referencing-figures
+
+https://jupyterbook.org/reference/cheatsheet.html#myst-syntax-cheat-sheet
 
 1. 제목은 리뷰하고자 하는 논문의 nickname또는 논문 제목과 투고된 학회/학술지 명을 다음과 같은 양식으로 기재한다. 
 
