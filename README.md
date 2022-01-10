@@ -76,3 +76,47 @@
 
   - https://pseudo-lab.github.io/pytorch-guide/ 링크 접속
 
+## Writing Rules
+
+1. 제목은 리뷰하고자 하는 논문의 nickname또는 논문 제목과 투고된 학회/학술지 명을 다음과 같은 양식으로 기재한다. 
+
+```plaintext
+{"NickName or 제목"} - {"학회/학술지 명"}
+```
+
+2. 본문 최상단에 논문 정보를 기재한다. 
+- Jupyter-book의 "admonition" block에 다음과 같은 양식으로 기입한다. 
+
+```plaintext
+```{admonition} Information
+- **Title:** {논문 제목}, {학회/학술지명}
+
+- **Reference**
+    - Paper: {논문 링크}
+    - Code: {Official code}
+    - Review: {OpenReview 등 정식 리뷰 결과 링크}
+    
+- **Review By:** {리뷰 작성자 기입}
+
+- **Edited by:** {리뷰 편집자 기입}
+
+- **Last updated on {최종 update 날짜 e.g. Jan. 5, 2022}**
+```
+```
+3. 본문에 그림 추가 시 출처를 기입한다. 
+- 
+```plaintext
+:::{figure-md} {figure-tag}
+<img src="{주소}" alt="{tag명}" class="bg-primary mb-1" width="{크기, 800px이 기준}">
+
+{제목} \  (source: {출처 기입, 아카이브 링크 기준으로 기입하는 것을 기준으로 함. e.g. arXiv:1803.10464})
+:::
+```
+- 논문의 표를 추가하는 경우 다음 양식을 활용한다. 
+```plaintext
+ ```{image} pic/affinitynet/aff9.png
+:alt: aff9.png
+:class: bg-primary mb-1
+:align: center
+```
+```
