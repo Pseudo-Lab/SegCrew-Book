@@ -1,4 +1,4 @@
-# [가짜연구소 3기] Segmentation 완전정복 Crew
+# [가짜연구소] Segmentation 완전정복
 
 ---
 
@@ -6,38 +6,33 @@
 
 ---
 
-**Segmentation 완전정복 Crew** 는 
+**Segmentation 완전정복** Page는 
 
 1. Semantic/Instance/Panoptic Segmentation Task를,
 2. Supervised/Semi-supervised/Weakly-supervised learning에 상관없이,
 3. 완전히 분석하고 이해하는 것을 목표로 합니다.
 
-</br>
 
-## 크루 소개
+## Contributors
 
 ---
 
-본 자료는 가짜연구소 3기 **Segmentation 완전정복 Crew** 활동으로 제작되었습니다.
+**[Editor]**
 
-| Index |                     주제						   |                 크루원                  |
-| :---: | :----------------------------------------------: | :------------------------------------: |
-|  02   | Instance Seg.: One-stage Det.                    | [김건수](https://github.com/Pseudo-Lab) |
-|  02   | Instance Seg.: Two-stage Det.                    | [오휘건](https://github.com/Pseudo-Lab) |
-|  01   | Instance Seg.: Vision Transformer                | [이준형](https://github.com/Pseudo-Lab) |
-|  02   | Panoptic Seg.: Vision Transformer                | [변정현](https://github.com/Pseudo-Lab) |
-|  02   | Weakly-supervised Seg.: Adversarial Erasing      | [김현우](https://github.com/Pseudo-Lab) |
-|  02   | Weakly-supervised Seg.: Learning pixel affinity  | [송태엽](https://github.com/Pseudo-Lab) |
-|  02   | Semi-supervised Seg.: GAN                        | [김소연](https://github.com/Pseudo-Lab) |
-|  02   | Semi-supervised Seg.: Consistency Regularization | [박찬민](https://github.com/Pseudo-Lab) |
+김현우, 송태엽, 오휘건 (추가 모집 예정) 
 
-|       |       |                                                              |                                    |
+**[가짜연구소 3기 Segmentation 완전정복 Crew]**
 
-</br>
+김건수, 오휘건, 이준형, 변정현, 김현우, 송태엽, 김소연, 박찬
+
+**[가짜연구소 2기 논문미식회]**
+
+김예진, 박성수, 이준명
 
 ## 가짜연구소
 
 ---
+
 
 가짜연구소는 진짜 연구소는 아니지만 머신러닝 연구를 중심으로 모인 커뮤니티입니다.
 
