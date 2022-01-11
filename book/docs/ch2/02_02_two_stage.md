@@ -1,2 +1,2 @@
-# B. Two-stage based Method
+# B. Detector based Method
 
