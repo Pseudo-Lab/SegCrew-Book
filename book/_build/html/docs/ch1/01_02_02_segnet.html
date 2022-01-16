@@ -336,7 +336,7 @@
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../ch5/05_02_GAN.html">
-   A. GAN
+   B. GAN
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
@@ -456,33 +456,23 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#resource">
-   Resource
+  <a class="reference internal nav-link" href="#contribution">
+   Contribution
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   목표
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#architecture">
-   Architecture
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#encoder">
-     Encoder
+     1. Encoder
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#main-contribution-max-pooling">
-     Main contribution : Max-pooling 인덱스 저장
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#decoder">
-     Decoder
+    <a class="reference internal nav-link" href="#unpooling">
+     2. Unpooling 기법
     </a>
    </li>
   </ul>
@@ -493,13 +483,18 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decoder-performance">
+     1. Decoder에 따른 performance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#road-scene-segmentation-camvid-dataset">
-     Road Scene Segmentation(CamVid dataset)
+     2. Road Scene Segmentation(CamVid dataset)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#indoor-scene-segmentation-sun-rgb-d">
-     Indoor Scene segmentation(SUN RGB-D)
+     3. Indoor Scene segmentation(SUN RGB-D)
     </a>
    </li>
   </ul>
@@ -518,29 +513,31 @@
   <div class="section" id="segnet-tpami-2017">
 <h1>SegNet - TPAMI 2017<a class="headerlink" href="#segnet-tpami-2017" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
+<div class="admonition-information admonition">
+<p class="admonition-title">Information</p>
 <ul class="simple">
-<li><p><strong>Title:</strong> SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation</p></li>
-<li><p><strong>Review By:</strong> Junmyeong Lee (가짜연구소 논문미식회 2기)</p></li>
-<li><p><strong>Edited by:</strong> Taeyup Song</p></li>
-</ul>
-<hr class="docutils" />
-<div class="section" id="resource">
-<h2>Resource<a class="headerlink" href="#resource" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
+<li><p><strong>Title:</strong> SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation, TPAMI 2017</p></li>
+<li><p><strong>Reference</strong></p>
+<ul>
 <li><p>paper : <a class="reference external" href="https://arxiv.org/abs/1511.00561">https://arxiv.org/abs/1511.00561</a></p></li>
 <li><p>reference : <a class="reference external" href="https://kuklife.tistory.com/120">https://kuklife.tistory.com/120</a></p></li>
 <li><p>reference : <a class="reference external" href="https://cool24151.tistory.com/m/92?category=932873">https://cool24151.tistory.com/m/92?category=932873</a></p></li>
 </ul>
-</div>
-<div class="section" id="id1">
-<h2>목표<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Image segmenetation task를 위한 Deep-learning based architecture 제시</p></li>
-<li><p>적은 parameter로 효율적으로 동작하도록 하고, 좋은 성능을 달성하고자 함.</p></li>
+</li>
+<li><p><strong>Review By:</strong> Junmyeong Lee (가짜연구소 논문미식회 2기)</p></li>
+<li><p><strong>Edited by:</strong> Taeyup Song</p></li>
+<li><p><strong>Last updated on Jan. 16, 2022</strong></p></li>
 </ul>
 </div>
-<div class="section" id="architecture">
-<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="contribution">
+<h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Unpooling 기법을 적용한 Encoder-decoder 구조의 Image segmenetation architecture를 제안</p></li>
+<li><p>Skip-connection을 통해 feature를 decoder에 전달하는 것이 아닌, pooling index를 전달함으로써 적은 parameter로 효율적으로 동작함.</p></li>
+</ul>
+</div>
+<div class="section" id="proposed-method">
+<h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Encoder-Decoder 구조 채택</p></li>
 </ul>
@@ -549,7 +546,7 @@
 <p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">SegNet architecture (source: arXiv:1511.00561)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="encoder">
-<h3>Encoder<a class="headerlink" href="#encoder" title="Permalink to this headline">¶</a></h3>
+<h3>1. Encoder<a class="headerlink" href="#encoder" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>VGG-16 구조</p>
 <ul>
@@ -563,9 +560,11 @@
 </li>
 </ul>
 </div>
-<div class="section" id="main-contribution-max-pooling">
-<h3>Main contribution : Max-pooling 인덱스 저장<a class="headerlink" href="#main-contribution-max-pooling" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="unpooling">
+<h3>2. Unpooling 기법<a class="headerlink" href="#unpooling" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
+<li><p>Encoding된 feature map을 활용, Upsampling해서 최종 segmentation map을 생성한다.</p></li>
+<li><p>Encoder에서 전달된 max-feature index + CNN을 사용하여 원래 해상도의 dense feature map으로 복원한다.</p></li>
 <li><p>Boundary detail은 Segmentation의 품질을 위해 꼭 필요한 정보이다. 하지만, Encoding과정에서 max-pooling이 적용되며 이러한 detail들이 손실되기 때문에, 여러 아키텍처들은 문제를 해결하고자 방법을 강구하였다.</p></li>
 <li><p>SegNet은 이 문제를 해결하기 위해, Max-pooling과정에서 가장 큰 값을 가지는 위치의 인덱스를 저장하고, decoder에서 이를 활용할 수 있도록 한다.</p></li>
 <li><p>Max-pooling</p>
@@ -582,9 +581,9 @@
 </ul>
 </li>
 </ul>
-<div class="figure align-default" id="id2">
+<div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/segnet2.png"><img alt="segnet2" class="bg-primary mb-1" src="../../_images/segnet2.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">SegNet의 방법론과 기존 Encoder feature map 활용법의 비교. (source: arXiv:1511.00561)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">SegNet의 방법론과 기존 Encoder feature map 활용법의 비교. (source: arXiv:1511.00561)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>Summary</p>
@@ -596,11 +595,12 @@
 </li>
 </ul>
 </div>
-<div class="section" id="decoder">
-<h3>Decoder<a class="headerlink" href="#decoder" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="performance">
+<h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="decoder-performance">
+<h3>1. Decoder에 따른 performance<a class="headerlink" href="#decoder-performance" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Encoding된 feature map을 활용, Upsampling해서 최종 segmentation map을 생성한다.</p></li>
-<li><p>Encoder에서 전달된 max-feature index + CNN을 사용하여 원래 해상도의 dense feature map으로 복원한다.</p></li>
 <li><p>저자들은 논문에서 제시한 contribution을 검증하기 위해 여러 종류의 Decoder에 대하여 실험하였다.</p></li>
 </ul>
 <img alt="segnet3.png" class="bg-primary mb-1 align-center" src="../../_images/segnet3.png" />
@@ -614,74 +614,42 @@
 </li>
 </ul>
 </div>
-</div>
-<div class="section" id="performance">
-<h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="road-scene-segmentation-camvid-dataset">
-<h3>Road Scene Segmentation(CamVid dataset)<a class="headerlink" href="#road-scene-segmentation-camvid-dataset" title="Permalink to this headline">¶</a></h3>
+<h3>2. Road Scene Segmentation(CamVid dataset)<a class="headerlink" href="#road-scene-segmentation-camvid-dataset" title="Permalink to this headline">¶</a></h3>
 <img alt="segnet4.png" class="bg-primary mb-1 align-center" src="../../_images/segnet4.png" />
-<ol>
-<li><p><strong>Quantitative result</strong></p>
-<ul>
-<li><p>다른 Network들과 비교하였을 때, SegNet이 전체적으로 우수한 성능을 보인다.</p></li>
-<li><p>SegNet, Deconvnet이 좋은 성능을 보여준다.</p>
-<ul class="simple">
-<li><p>Deconvnet은 경계에 대한 설명력이 좋은 경향성을 보인다.</p></li>
-<li><p>하지만, SegNet이 연산량 측면에서 효율적이다.</p></li>
-</ul>
-<p><img alt="segnet5.png" src="../../_images/segnet5.png" /></p>
-</li>
-</ul>
-</li>
-<li><p><strong>Quatlitative result</strong></p>
-<ul class="simple">
-<li><p>SegNet</p>
-<ul>
-<li><p>작은 물체도 잘 구분한다.</p></li>
-<li><p>가장 부드러운 결과를 내놓았다.</p></li>
-</ul>
-</li>
-<li><p>DeepLab 계열</p>
-<ul>
-<li><p>가장 효율적인 모델이다.</p></li>
-<li><p>CRF post-processing을 적용할 경우, 좋은 결과를 출력하지만, 작은 물체에 대한 정보가 사라진다.</p></li>
-</ul>
-</li>
-<li><p>FCN</p>
-<ul>
-<li><p>Upsampling 방법을 bilinear → deconvolution으로 변경할 경우, 조금의 성능 향상이 있다.</p></li>
-<li><p>SegNet에 비해 좋지 않은 성능을 보인다.</p></li>
-</ul>
-</li>
-<li><p>Deconvnet</p>
-<ul>
-<li><p>가장 큰 모델이다.(효율이 좋지 않다)</p></li>
-<li><p>작은 class에 대한 정보를 보존하지 못한다.</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
+<p><strong>(1) Quantitative result</strong>
+- 다른 Network들과 비교하였을 때, SegNet이 전체적으로 우수한 성능을 보인다.
+- SegNet, Deconvnet이 좋은 성능을 보여준다.
+- Deconvnet은 경계에 대한 설명력이 좋은 경향성을 보인다.
+- 하지만, SegNet이 연산량 측면에서 효율적이다.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    ![segnet5.png](pic/segnet/segnet5.png)
+</pre></div>
+</div>
+<p><strong>(2) Quatlitative result</strong>
+- SegNet
+- 작은 물체도 잘 구분한다.
+- 가장 부드러운 결과를 내놓았다.
+- DeepLab 계열
+- 가장 효율적인 모델이다.
+- CRF post-processing을 적용할 경우, 좋은 결과를 출력하지만, 작은 물체에 대한 정보가 사라진다.
+- FCN
+- Upsampling 방법을 bilinear → deconvolution으로 변경할 경우, 조금의 성능 향상이 있다.
+- SegNet에 비해 좋지 않은 성능을 보인다.
+- Deconvnet
+- 가장 큰 모델이다.(효율이 좋지 않다)
+- 작은 class에 대한 정보를 보존하지 못한다.</p>
 <img alt="segnet6.png" class="bg-primary mb-1 align-center" src="../../_images/segnet6.png" />
 </div>
 <div class="section" id="indoor-scene-segmentation-sun-rgb-d">
-<h3>Indoor Scene segmentation(SUN RGB-D)<a class="headerlink" href="#indoor-scene-segmentation-sun-rgb-d" title="Permalink to this headline">¶</a></h3>
+<h3>3. Indoor Scene segmentation(SUN RGB-D)<a class="headerlink" href="#indoor-scene-segmentation-sun-rgb-d" title="Permalink to this headline">¶</a></h3>
 <img alt="segnet7.png" class="bg-primary mb-1 align-center" src="../../_images/segnet7.png" />
-<ol class="simple">
-<li><p><strong>Quantitative result</strong></p>
-<ul class="simple">
-<li><p>SegNet이 다른 모델들과 비교하여 좋은 성능을 내지 못했다.</p></li>
-<li><p>model들이 전체적으로 좋은 성능을 내지 못했다.</p></li>
-<li><p>많이 등장한 클래스에 대해서는 좋은 예측 결과를 보였다.</p></li>
-</ul>
-</li>
-<li><p><strong>Qualitative result</strong></p>
-<ul class="simple">
-<li><p>전체적으로 좋은 예측 결과를 보여주지 못했다.</p></li>
-<li><p>침대와 같이, 많이 등장한 class에 대해서는 SegNet이 좋은 결과를 보여준다.</p></li>
-</ul>
-</li>
-</ol>
+<p><strong>(1) Quantitative result</strong>
+- SegNet이 다른 모델들과 비교하여 좋은 성능을 내지 못했다.
+- model들이 전체적으로 좋은 성능을 내지 못했다.
+- 많이 등장한 클래스에 대해서는 좋은 예측 결과를 보였다.
+<strong>(2) Qualitative result</strong>
+- 전체적으로 좋은 예측 결과를 보여주지 못했다.
+- 침대와 같이, 많이 등장한 class에 대해서는 SegNet이 좋은 결과를 보여준다.</p>
 <img alt="segnet8.png" class="bg-primary mb-1 align-center" src="../../_images/segnet8.png" />
 </div>
 </div>

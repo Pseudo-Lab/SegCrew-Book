@@ -2,13 +2,20 @@
 
 ---
 
-- **Title:** MultiResUNet : Rethinking the U-Net Architecture for Multimodal Biomedical Image Segmentation
+```{admonition} Information
+- **Title:** MultiResUNet : Rethinking the U-Net Architecture for Multimodal Biomedical Image Segmentation, arxiv 2019
 
-- **Review By:** Taeyup Song (가짜연구소 논문미식회 2기)
+- **Reference**
+    - paper : [https://arxiv.org/abs/1902.04049](https://arxiv.org/abs/1902.04049)
+    - reference : [https://medium.com/@sh.tsang/review-multiresunet-rethinking-u-net-biomedical-image-segmentation-4f0f21a4ed84](https://medium.com/@sh.tsang/review-multiresunet-rethinking-u-net-biomedical-image-segmentation-4f0f21a4ed84)
+    - code : [https://github.com/nibtehaz/MultiResUNet](https://github.com/nibtehaz/MultiResUNet)
+
+- **Review By:** Taeyup Song
 
 - **Edited by:** Taeyup Song
 
----
+- **Last updated on Jan. 16, 2022**
+```
 
 ## Resource
 
