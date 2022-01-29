@@ -56,7 +56,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="s4GAN - arXiv:1908.05724" href="05_02_02_s4GAN.html" />
-    <link rel="prev" title="A. GAN" href="05_02_GAN.html" />
+    <link rel="prev" title="B. GAN" href="05_02_GAN.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -244,6 +244,11 @@
      [Draft] MaX-DeepLab - CVPR 21
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_02_02_DETR.html">
+     [Draft] DETR - ECCV 2020
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -338,7 +343,7 @@
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="05_02_GAN.html">
-   A. GAN
+   B. GAN
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
@@ -577,7 +582,7 @@
 </ul>
 <div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/cycleGAN1.png"><img alt="cycleGAN1" class="bg-primary mb-1" src="../../_images/cycleGAN1.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 77 </span><span class="caption-text">Schematic explaining the working of proposed model (source: arXiv:1908.11569)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 84 </span><span class="caption-text">Schematic explaining the working of proposed model (source: arXiv:1908.11569)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="loss-functions">
@@ -592,7 +597,7 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
 <p><strong>(1) For labeled dataset <span class="math notranslate nohighlight">\(\mathcal{X}_{\mathcal{L}}\)</span></strong></p>
 <div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/cycleGAN2.png"><img alt="cycleGAN2" class="bg-primary mb-1" src="../../_images/cycleGAN2.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 78 </span><span class="caption-text">Segmentation loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 85 </span><span class="caption-text">Segmentation loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>labeled data에 대해서는 pixel level의 classification을 위해 Cross-entropy Loss를 적용</p>
@@ -608,7 +613,7 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
 <p><strong>(2) Adversarial loss for unlabeled dataset</strong></p>
 <div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/cycleGAN3.png"><img alt="cycleGAN3" class="bg-primary mb-1" src="../../_images/cycleGAN3.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 79 </span><span class="caption-text">Adversarial loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 86 </span><span class="caption-text">Adversarial loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>Generator G와 Discriminator D의 compete</p></li>
@@ -626,7 +631,7 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
 <p><strong>(3) Cycle consistency loss for unlabeld dataset</strong></p>
 <div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/cycleGAN4.png"><img alt="cycleGAN4" class="bg-primary mb-1" src="../../_images/cycleGAN4.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 80 </span><span class="caption-text">Cycle consistency loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 87 </span><span class="caption-text">Cycle consistency loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>Unlabeled data <span class="math notranslate nohighlight">\(\mathcal{X}_{\mathcal{U}}\)</span>를 generator <span class="math notranslate nohighlight">\(G_{IS}\)</span>로 label을 생성하고, 다시 generator <span class="math notranslate nohighlight">\(G_{SI}\)</span>를 이용하여 복원한 cycle의 output에 대해 L1 norm 적용 (최종 image를 sharper 하게 만들기 위함)</p></li>
@@ -715,7 +720,7 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">A. GAN</p>
+                <p class="prevnext-title">B. GAN</p>
             </div>
         </a>
     </div>
