@@ -2,17 +2,18 @@
 
 ---
 
-- **Title:** Rethinking Atrous Convolution for Semantic Image Segmentation
+```{admonition} Information
+- **Title:** Rethinking Atrous Convolution for Semantic Image Segmentation, arXiv:1411.4038, 2017
 
+- **Reference**
+    - Paper: [https://arxiv.org/abs/1706.05587](https://arxiv.org/abs/1706.05587)
+    
 - **Review By:** Geonsoo Kim, jooeun kim, 김동현­, Seongsu Park, 김한중, Yejin Kim, Junmyeong Lee (가짜연구소 논문미식회 2기)
 
 - **Edited by:** Taeyup Song
 
----
-
-## Reference
-
-- Paper: [https://arxiv.org/abs/1706.05587](https://arxiv.org/abs/1706.05587)
+- **Last updated on Jan. 30, 2022**
+```
 
 ## Related Works
 

@@ -2,17 +2,18 @@
 
 ---
 
-- **Title:** Learning Deconvolution Network for Semantic Segmentation
+```{admonition} Information
+- **Title:** Learning Deconvolution Network for Semantic Segmentation, ICCV 2015
 
+- **Reference**
+    - Paper:  [https://arxiv.org/abs/1505.04366](https://arxiv.org/abs/1505.04366)
+    
 - **Review By:** Yejin Kim, Seongsu Park (가짜연구소 논문미식회 2기)
 
 - **Edited by:** Taeyup Song
 
----
-
-## Resource
-
-- paper : [https://arxiv.org/abs/1505.04366](https://arxiv.org/abs/1505.04366)
+- **Last updated on Jan. 30, 2022**
+```
 
 # Motivation
 
