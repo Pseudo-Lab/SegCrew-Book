@@ -32,7 +32,8 @@ parts:
   - file: docs/ch3/03_Panoptic Segmentation
   - file: docs/ch3/03_01_FCN
     sections:
-    - file: docs/ch3/03_01_01_PanopticFCN
+    - file: docs/ch3/03_01_01_PanopticFPN
+    - file: docs/ch3/03_01_02_PanopticFCN
   - file: docs/ch3/03_02_transformer
     sections:
     - file: docs/ch3/03_02_01_Max-DeepLab

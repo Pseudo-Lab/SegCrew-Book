@@ -3,7 +3,7 @@
 ---
 
 ```{admonition} Information
-- **Title:** End-to-End Object Detection with Transformers, ECCV 2020
+- **Title:** End-to-End Object Detection with Transformers, CVPR 2021
 
 - **Reference**
     - Paper: [https://arxiv.org/abs/2012.00720](https://arxiv.org/abs/2012.00720)

@@ -1,2 +1,2 @@
-# B. Detector based Method
+# A. Detector based Method
 
