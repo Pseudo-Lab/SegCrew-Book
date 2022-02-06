@@ -42,6 +42,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -260,13 +262,13 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_02_01_Max-DeepLab.html">
-     [Draft] MaX-DeepLab - CVPR 21
+    <a class="reference internal" href="03_02_02_DETR.html">
+     [Draft] DETR - ECCV 2020
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_02_02_DETR.html">
-     [Draft] DETR - ECCV 2020
+    <a class="reference internal" href="03_02_01_Max-DeepLab.html">
+     [Draft] MaX-DeepLab - CVPR 21
     </a>
    </li>
   </ul>
@@ -477,6 +479,64 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution">
+   Contribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-architecture">
+     1. Model Architecture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inference-and-training">
+     2. Inference and Training
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis">
+     3. Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experimental-result">
+   Experimental Result
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#traning-details">
+     1.
+     <strong>
+      Traning details
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discuss">
+     2.
+     <strong>
+      Discuss
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -500,8 +560,119 @@
 </li>
 <li><p><strong>Review By:</strong> Taeyup Song</p></li>
 <li><p><strong>Edited by:</strong> Taeyup Song</p></li>
-<li><p><strong>Last updated on Jan. 30, 2022</strong></p></li>
+<li><p><strong>Last updated on Fab. 6, 2022</strong></p></li>
 </ul>
+</div>
+<div class="section" id="contribution">
+<h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Instance Segmentation을 위한 Mask R-CNN의 확장 버전으로 Feature Pyramid Networks (FPN)를 공용으로 활용하는 추가의 semantic segmentation brach를 이용 panoptic segmentation 이 가능함을 보임.</p></li>
+<li><p>“Things” class에 대한 Instance level의 mask의 성능은 유지하면서, “stuff” class에 대한 dense prediction도 통일된 network 구조로 수행함.</p></li>
+</ul>
+</div>
+<div class="section" id="proposed-method">
+<h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="model-architecture">
+<h3>1. Model Architecture<a class="headerlink" href="#model-architecture" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Panoptic segmenatation을 수행하기 위해 다음과 같은 사항이 고려되어야 함.</p>
+<p>a. High-resolution: 미세한 구조(fine structure)를 포착하기 위해 적절하게 고해상도이어야 함.</p>
+<p>b. Rich: 정확한 class labels 추정을 위해 충분히 풍부한 semantics가 encode 되어야 함.</p>
+<p>c. Multi-scale feature: 다양한 크기의 stuff region을 예측하기 위해 multi-scale information을 capture 해야 함.</p>
+</li>
+<li><p>FPN은 이미 3가지 조건을 만족하고 있음.</p></li>
+</ul>
+<div class="figure align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn1.png"><img alt="pfpn1" class="bg-primary mb-1" src="../../_images/pfpn1.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Panoptic FPN architecture (source: arXiv:1901.02446)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
+<p>(1) Feature Pyramid Network (FPN)</p>
+<ul class="simple">
+<li><p>FPN은 다양한 resolution의 feature를 추출하기 위해 보편적으로 사용되는 network이며, ResNet과 같은 feature extractor에 top-down pathway를 추가하여 높은 해상도의 feature map의 semantic level을 높일 수 있도록 설계되어 있음.</p></li>
+<li><p>보통 1/32에서 1/4 resolution을 가지는 feature를 추출하도록 구성됨.</p></li>
+</ul>
+<p>(2) Instance segmentation branch</p>
+<ul class="simple">
+<li><p>FPN을 구성할 때, region-based object detector를 붙이기 쉽도록 모든 pyramid level에 동일한 channel 수(일반적으로 256 channel)가 되도록 구성함.</p></li>
+<li><p>Faster R-CNN의 경우 RoI pooling을 각 level의 feature에 적용하여 candidate에 대한 feature를 추출한 후 classfication과 bounding box refine을 수행함.</p></li>
+</ul>
+<p>(3) Semantic segmentation branch</p>
+<div class="figure align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn2.png"><img alt="pfpn2" class="bg-primary mb-1" src="../../_images/pfpn2.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 46 </span><span class="caption-text">Semantic segmentation branch (source: arXiv:1901.02446)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>FPN의 각 level별 feature를 1/4 scale에 맞춰 upsample함. 각 upsample 과정에서 3x3 convolution과 group norm, ReLU를 적용한 후 2x bilinear upsampling을 수행. (각 feature의 scale에 따라 최종적으로 1/4 scale이 되도록 반복적으로 적용함)</p></li>
+<li><p>최종적으로 upsampling된 features들을 element wise sum한 후 1x1 convolution, 4x bilinear upsampling한 후 softmax 를 적용하여 원본 크기의 pixel별 class labels을 추정함.</p></li>
+<li><p>stuff class에는 ‘other’ class를 추가하여 things에 해당하는 pixel을 assign함.</p></li>
+</ul>
+</div>
+<div class="section" id="inference-and-training">
+<h3>2. Inference and Training<a class="headerlink" href="#inference-and-training" title="Permalink to this headline">¶</a></h3>
+<p>(1) Panoptic Inference</p>
+<ul class="simple">
+<li><p>output의 각 pixel은 하나의 class label과(void 포함) instance id (stuff classes에서는 무시)를 가짐.</p></li>
+<li><p>Panopic FPN의 결과물은 instance /semantic brach의 결과가 중복될 수 있기 때문에 NMS와 유사한 후처리를 적용함.
+a. 서로 다른 instance를 가지는 경우 confidence score를 기준으로 결정
+b. instacen, semantic segmentation결과가 겹치는 경우 instance 값을 우선으로 함.
+c. stuff region의 label 중 ‘other’ class는 area threshold를 적용하여 삭제.</p></li>
+</ul>
+<p>(2) Joint training</p>
+<ul>
+<li><p>Instance segmentation branch는 <span class="math notranslate nohighlight">\(L_C\)</span>(classification), <span class="math notranslate nohighlight">\(L_B\)</span>(bounding-box loss), <span class="math notranslate nohighlight">\(L_m\)</span>(mask loss)를 의 총합으로 계산함. <span class="math notranslate nohighlight">\(L_C\)</span>, <span class="math notranslate nohighlight">\(L_B\)</span>는 sampled RoIs 수로 normalizae하고, <span class="math notranslate nohighlight">\(L_m\)</span>은 foreground RoIs수로 normalizae함.</p></li>
+<li><p>Semantic segmentation loss <span class="math notranslate nohighlight">\(L_s\)</span>는 per-pixel cross entropy loss로 계산함.</p></li>
+<li><p>두 branch의 loss는 서로 다른 scale과 normallize 정책을 적용함.</p>
+<div class="math notranslate nohighlight">
+\[
+    L=\lambda_i(L_C+L_b+L_m)+\lambda_sL_s
+    \]</div>
+</li>
+</ul>
+</div>
+<div class="section" id="analysis">
+<h3>3. Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default" id="pfpn-backbone">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn3.png"><img alt="pfpn3" class="bg-primary mb-1" src="../../_images/pfpn3.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 47 </span><span class="caption-text">Backbone architechture (source: arXiv:1901.02446)</span><a class="headerlink" href="#pfpn-backbone" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>Semantic segmenation에는 dilated conv.와(<a class="reference internal" href="#pfpn-backbone"><span class="std std-numref">Fig. 47</span></a>(b)), encoder-decoder(<a class="reference internal" href="#pfpn-backbone"><span class="std std-numref">Fig. 47</span></a>(c))가 backbone으로 주로 사용됨.</p></li>
+</ul>
+<div class="figure align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn4.png"><img alt="pfpn4" class="bg-primary mb-1" src="../../_images/pfpn4.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">Backbone architecture efficiency (source: arXiv:1901.02446)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>Panoptic FPN의 경우 Mask-RCNN 구조를 활용하는 것이 목표였지만, dilated-8 network 대비 가볍고  encoder-decoder 구조 대비 2배 가벼운 구조를 가짐을 확인할 수 있음.</p></li>
+<li><p>특히 Dilation-16 network와 유사한 크기의 network로 4배 큰 output resolution을 얻을 수 있음.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="experimental-result">
+<h2>Experimental Result<a class="headerlink" href="#experimental-result" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="traning-details">
+<h3>1. <strong>Traning details</strong><a class="headerlink" href="#traning-details" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>COCO 2017 dataset
+→ Instance segmentation: 80 thing classes, train/val/test/ = 118k/5k/20k
+→ Semantic segmentation: 92 stuff classes, train/val/test/ = 40k/5k/5k
+→ Panoptic segmentation: 80 things / 53 stuff classes</p></li>
+<li><p>Mask R-CNN 1x training setting with scale jitter을 적용함.</p></li>
+</ul>
+</div>
+<div class="section" id="discuss">
+<h3>2. <strong>Discuss</strong><a class="headerlink" href="#discuss" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Semantic segmentation을 단독으로 평가했을 때, COCO-stuff 2017 challenge에서  가장 높은 성능을 나타냄. cityscape DB에서는 SOTA인 DeepLab V3+와 유사한 성능과 efficiency를 보임을 알 수 있음.</p></li>
+</ul>
+<img alt="pfpn5.png" class="align-center" src="../../_images/pfpn5.png" />
+<ul class="simple">
+<li><p>Panoptic segmentation을 기존 방법들과 비교했을 때, overall, stuff, thing 모두 높은 성능을 나타냄.</p></li>
+</ul>
+<img alt="pfpn6.png" class="align-center" src="../../_images/pfpn6.png" />
+<img alt="pfpn7.png" class="align-center" src="../../_images/pfpn7.png" />
+<img alt="pfpn8.png" class="align-center" src="../../_images/pfpn8.png" />
+</div>
 </div>
 </div>
 

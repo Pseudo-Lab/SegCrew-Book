@@ -36,8 +36,8 @@ parts:
     - file: docs/ch3/03_01_02_PanopticFCN
   - file: docs/ch3/03_02_transformer
     sections:
-    - file: docs/ch3/03_02_01_Max-DeepLab
     - file: docs/ch3/03_02_02_DETR
+    - file: docs/ch3/03_02_01_Max-DeepLab
 - caption: Weakly-supervised Segmentation
   chapters:
   - file: docs/ch4/04_Weakly-supervised Segmentation
