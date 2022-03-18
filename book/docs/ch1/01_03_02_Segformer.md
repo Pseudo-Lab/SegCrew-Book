@@ -3,7 +3,7 @@
 ---
 
 ```{admonition} Information
-- **Title:** SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers, arxiv 2021
+- **Title:** SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers, NeurIPS 2021
 
 - **Reference**
     - Paper : [https://arxiv.org/abs/2105.15203](https://arxiv.org/abs/2105.15203)
