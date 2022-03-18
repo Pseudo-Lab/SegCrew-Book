@@ -1,4 +1,4 @@
-# Segformer - arxiv 2021
+# Segformer - NeurIPS 2021
 
 ---
 
