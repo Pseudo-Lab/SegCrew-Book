@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SeeNet - NeurIPS 2018 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,28 +31,26 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -60,10 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Overview" href="../ch5/05%20Semi-supervised%20Segmentation.html" />
     <link rel="prev" title="[Draft] AE-PSL - CVPR 2017" href="04_02_01_AE-PSL.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -79,10 +74,6 @@ const thebe_selector_output = ".output, .cell_output"
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -102,7 +93,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semantic Segmentation
  </span>
@@ -178,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Instance Segmentation
  </span>
@@ -224,10 +215,15 @@ const thebe_selector_output = ".output, .cell_output"
      [Draft] BCNet - CVPR 2021
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_01_02_SOLO.html">
+     SOLO - ECCV 20
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
@@ -283,7 +279,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
@@ -339,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -395,7 +391,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Appendix
  </span>
@@ -452,7 +448,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -486,7 +482,7 @@ const thebe_selector_output = ".output, .cell_output"
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+        <div class="d-none d-md-block col-md-2 bd-toc show">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -577,104 +573,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>SeeNet - NeurIPS 2018</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#problem-statement">
-   Problem Statement
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contribution">
-   Contribution
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#background">
-   BackGround
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#proposed-method">
-   <strong>
-    Proposed Method
-   </strong>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#observations">
-     1. Observations
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#self-erasing">
-     2. Self-Erasing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#self-erasing-network">
-     3. Self-Erasing Network
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#experimental-results">
-   Experimental Results
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#implementation-details">
-     1. Implementation Details
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-role-of-self-erasing">
-     2. The Role of Self-Erasing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comparison-with-the-state-of-the-arts">
-     3. Comparison with the State-of-the-Arts
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#discussion">
-     4. Discussion
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusion">
-   Conclusion
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#note">
-   Note
-  </a>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
+        
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="seenet-neurips-2018">
+  <div class="section" id="seenet-neurips-2018">
 <h1>SeeNet - NeurIPS 2018<a class="headerlink" href="#seenet-neurips-2018" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
@@ -715,7 +617,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>Adversarial Erasing Strategy</strong></p>
 <div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet3.png"><img alt="seenet3" class="bg-primary mb-1" src="../../_images/seenet3.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 74 </span><span class="caption-text">ACoL architecture (Source: arXiv:1804.06962)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 78 </span><span class="caption-text">ACoL architecture (Source: arXiv:1804.06962)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>Object Region Mining과 비슷한 전략이지만, Classifier Branch를 두개 두어서 A에서 얻은 특징맵을 B에 들어가기전에 제거해서 사용</p></li>
@@ -723,7 +625,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet4.png"><img alt="seenet4" class="bg-primary mb-1" src="../../_images/seenet4.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 75 </span><span class="caption-text">GAIN architecture (Source: arXiv:1802.10171)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 79 </span><span class="caption-text">GAIN architecture (Source: arXiv:1802.10171)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="proposed-method">
@@ -732,7 +634,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>1. Observations<a class="headerlink" href="#observations" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="typical-arch">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet6.png"><img alt="seenet6" class="bg-primary mb-1" src="../../_images/seenet6.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 76 </span><span class="caption-text">(a) A typical adversarial erasing approach and (b-e) Attention maps (source: arXiv:2002.08098)</span><a class="headerlink" href="#typical-arch" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 80 </span><span class="caption-text">(a) A typical adversarial erasing approach and (b-e) Attention maps (source: arXiv:2002.08098)</span><a class="headerlink" href="#typical-arch" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>AE Step이 진행됨에 따라서 Object 영역 이외까지 Attention이 확장되는 문제가 발생</p></li>
@@ -745,10 +647,10 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>2. Self-Erasing<a class="headerlink" href="#self-erasing" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="seenet-fig2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet8.png"><img alt="seenet8" class="bg-primary mb-1" src="../../_images/seenet8.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 77 </span><span class="caption-text">Illustrations explaining how to generate ternary masks. (source: arXiv:2002.08098)</span><a class="headerlink" href="#seenet-fig2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 81 </span><span class="caption-text">Illustrations explaining how to generate ternary masks. (source: arXiv:2002.08098)</span><a class="headerlink" href="#seenet-fig2" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(S_A\)</span>에서 초기 Attention을 생성. 단, 이때 생성된 Attention을 <a class="reference internal" href="#seenet-fig2"><span class="std std-numref">Fig. 77</span></a>의 (c)와 같이 2개의 threshold를 적용하여  3가지의 영역으로 나눔</p>
+<li><p><span class="math notranslate nohighlight">\(S_A\)</span>에서 초기 Attention을 생성. 단, 이때 생성된 Attention을 <a class="reference internal" href="#seenet-fig2"><span class="std std-numref">Fig. 81</span></a>의 (c)와 같이 2개의 threshold를 적용하여  3가지의 영역으로 나눔</p>
 <ul>
 <li><p>attention zone : 노란색 영역으로 객체를 인식할 때 중요한 영역 (큰 attention을 가지는 영역)</p></li>
 <li><p>background zone : 배경에 대한 prior (작은 attention을 가지는 영역)</p></li>
@@ -759,7 +661,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul>
 <li><p>Problem 1: 이미지 레이블만을 이용하여 배경 영역을 확인</p>
 <ul>
-<li><p><a class="reference internal" href="#seenet-fig3"><span class="std std-numref">Fig. 78</span></a>과 같이 attention으로 얻은 초기 영역을 2개의 threshold를 통해서 나눠서 얻음. <span class="math notranslate nohighlight">\(\delta_h\)</span>보다 큰 영역은 <span class="math notranslate nohighlight">\(M_A\)</span>로 <span class="math notranslate nohighlight">\(\delta_l\)</span>보다 작은 영역은 배경으로 구분.
+<li><p><a class="reference internal" href="#seenet-fig3"><span class="std std-numref">Fig. 82</span></a>과 같이 attention으로 얻은 초기 영역을 2개의 threshold를 통해서 나눠서 얻음. <span class="math notranslate nohighlight">\(\delta_h\)</span>보다 큰 영역은 <span class="math notranslate nohighlight">\(M_A\)</span>로 <span class="math notranslate nohighlight">\(\delta_l\)</span>보다 작은 영역은 배경으로 구분.
 이를 통해서 Ternary Mask T를 <span class="math notranslate nohighlight">\(**\delta_h\)</span>보다 크면 <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(\delta_l\)</span> 보다 작으면 <span class="math notranslate nohighlight">\(-1\)</span>, 그렇지 않으면 <span class="math notranslate nohighlight">\(1\)</span>**으로 해서 생성함.</p></li>
 </ul>
 </li>
@@ -776,7 +678,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>3. Self-Erasing Network<a class="headerlink" href="#self-erasing-network" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="seenet-fig3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet7.png"><img alt="seenet7" class="bg-primary mb-1" src="../../_images/seenet7.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 78 </span><span class="caption-text">Overview of the proposed approach. (source: arXiv:2002.08098)</span><a class="headerlink" href="#seenet-fig3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 82 </span><span class="caption-text">Overview of the proposed approach. (source: arXiv:2002.08098)</span><a class="headerlink" href="#seenet-fig3" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(S_A\)</span>부터 <span class="math notranslate nohighlight">\(S_C\)</span>로 구성된 3가지의 브랜치로 구성된 형태</p></li>
@@ -988,7 +890,7 @@ const thebe_selector_output = ".output, .cell_output"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs\ch4"
+            path: "./docs/ch4"
         },
         predefinedOutput: true
     }
@@ -997,42 +899,54 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
+        
             
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="04_02_01_AE-PSL.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">[Draft] AE-PSL - CVPR 2017</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../ch5/05%20Semi-supervised%20Segmentation.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Overview</p>
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="04_02_01_AE-PSL.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">[Draft] AE-PSL - CVPR 2017</p>
+            </div>
+        </a>
     </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+     <div id="next">
+        <a class="right-next" href="../ch5/05%20Semi-supervised%20Segmentation.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Overview</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
 </div>
-            
+        
         </div>
     </div>
-    <footer class="footer">
-  <p>
-    
-      By PseudoLab<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By PseudoLab<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>

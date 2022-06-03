@@ -1,18 +1,18 @@
-from google.colab import drive # import drive from google colab
-
-ROOT = "/content/drive"     # default location for the drive
-print(ROOT)                 # print content of ROOT (Optional)
-
-drive.mount(ROOT)           # we mount the google drive at /content/drive
-
-# import join used to join ROOT path and MY_GOOGLE_DRIVE_PATH
-from os.path import join  
-
-# path to your project on Google Drive
-MY_GOOGLE_DRIVE_PATH = '/content/drive/My Drive/Colab Notebooks'
-
-print("MY_GOOGLE_DRIVE_PATH: ", MY_GOOGLE_DRIVE_PATH)
-# In case we haven't created the folder already; we will create a folder in the project path  
+from google.colab import drive # import drive from google colab
+
+ROOT = "/content/drive"     # default location for the drive
+print(ROOT)                 # print content of ROOT (Optional)
+
+drive.mount(ROOT)           # we mount the google drive at /content/drive
+
+# import join used to join ROOT path and MY_GOOGLE_DRIVE_PATH
+from os.path import join  
+
+# path to your project on Google Drive
+MY_GOOGLE_DRIVE_PATH = '/content/drive/My Drive/Colab Notebooks'
+
+print("MY_GOOGLE_DRIVE_PATH: ", MY_GOOGLE_DRIVE_PATH)
+# In case we haven't created the folder already; we will create a folder in the project path  
 %cd "{MY_GOOGLE_DRIVE_PATH}"
 
 !git clone DeepLabV3p-Pytorch-Tutorial_KOR
@@ -21,158 +21,158 @@ print("MY_GOOGLE_DRIVE_PATH: ", MY_GOOGLE_DRIVE_PATH)
 
 !pip install torch torchvision numpy pillow scikit-learn tqdm matplotlib opencv-python
 
-from tqdm import tqdm
-import os
-import random
-import numpy as np
-
-from torch.utils import data
-import torch
-import torch.nn as nn
-
-import torch.nn.functional as F
-from collections import OrderedDict
-
-from torchvision.transforms.functional import normalize
-from sklearn.metrics import confusion_matrix
+from tqdm import tqdm
+import os
+import random
+import numpy as np
+
+from torch.utils import data
+import torch
+import torch.nn as nn
+
+import torch.nn.functional as F
+from collections import OrderedDict
+
+from torchvision.transforms.functional import normalize
+from sklearn.metrics import confusion_matrix
 
 
-from network.backbone import resnet
-from network import utils
-from collections import OrderedDict
-
-def ResNetbasedDeepLabV3(num_classes, output_stride, pretrained_backbone):
-    if output_stride==8:
-        replace_stride_with_dilation=[False, True, True]
-        aspp_dilate = [12, 24, 36]
-    else:
-        replace_stride_with_dilation=[False, False, True]
-        aspp_dilate = [6, 12, 18]
-        
-    backbone = resnet.resnet50(
-        pretrained=pretrained_backbone,
-        replace_stride_with_dilation=replace_stride_with_dilation)
-    
-    inplanes = 2048
-    low_level_planes = 256
-
-    return_layers = {'layer4': 'out'}
-    classifier = DeepLabHead(inplanes , num_classes, aspp_dilate)
-    backbone = utils.IntermediateLayerGetter(backbone, return_layers=return_layers)
-
-
-    # TODO: interpolation parameter 추가
-    model = DeepLabV3(backbone, classifier, 'bilinear')
+from network.backbone import resnet
+from network import utils
+from collections import OrderedDict
+
+def ResNetbasedDeepLabV3(num_classes, output_stride, pretrained_backbone):
+    if output_stride==8:
+        replace_stride_with_dilation=[False, True, True]
+        aspp_dilate = [12, 24, 36]
+    else:
+        replace_stride_with_dilation=[False, False, True]
+        aspp_dilate = [6, 12, 18]
+        
+    backbone = resnet.resnet50(
+        pretrained=pretrained_backbone,
+        replace_stride_with_dilation=replace_stride_with_dilation)
+    
+    inplanes = 2048
+    low_level_planes = 256
+
+    return_layers = {'layer4': 'out'}
+    classifier = DeepLabHead(inplanes , num_classes, aspp_dilate)
+    backbone = utils.IntermediateLayerGetter(backbone, return_layers=return_layers)
+
+
+    # TODO: interpolation parameter 추가
+    model = DeepLabV3(backbone, classifier, 'bilinear')
     return model
 
-class DeepLabV3(nn.Module):
-
-    # TODO: interpolation parameter 추가
-    #def __init__(self, backbone, classifier):
-    def __init__(self, backbone, classifier, upMethod = ''):
-        super(DeepLabV3, self).__init__()
-        self.backbone = backbone
-        self.classifier = classifier
-        self.upsampleMethod = upMethod
-        
-    def forward(self, x):
-        input_shape = x.shape[-2:]
-        input_ch = x.shape[1] # 256
-        features = self.backbone(x)
-        x = self.classifier(features)
-
-        if self.upsampleMethod == 'CARAFE':
-            # upScale =input_shape[1] / x.shape[-1]
-            # print(input_ch)
-
-            carafe =CARAFE(c=21, scale=2)
-            if torch.cuda.is_available():
-                carafe.cuda()
-            x = carafe(x) 
-            
-            x = F.interpolate(x, size=input_shape, mode='bilinear', align_corners=False)
-
-        else :
-            x = F.interpolate(x, size=input_shape, mode='bilinear', align_corners=False)
-        
-        return x
-
-class DeepLabHead(nn.Module):
-    def __init__(self, in_channels, num_classes, aspp_dilate=[12, 24, 36]):
-        super(DeepLabHead, self).__init__()
-
-        self.classifier = nn.Sequential(
-            ASPP(in_channels, aspp_dilate),
-            nn.Conv2d(256, 256, 3, padding=1, bias=False),
-            nn.BatchNorm2d(256),
-            nn.ReLU(inplace=True),
-            nn.Conv2d(256, num_classes, 1)
-        )
-        self._init_weight()
-
-    def forward(self, feature):
-        return self.classifier( feature['out'] )
-
-    def _init_weight(self):
-        for m in self.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.kaiming_normal_(m.weight)
-            elif isinstance(m, (nn.BatchNorm2d, nn.GroupNorm)):
-                nn.init.constant_(m.weight, 1)
-                nn.init.constant_(m.bias, 0)
+class DeepLabV3(nn.Module):
+
+    # TODO: interpolation parameter 추가
+    #def __init__(self, backbone, classifier):
+    def __init__(self, backbone, classifier, upMethod = ''):
+        super(DeepLabV3, self).__init__()
+        self.backbone = backbone
+        self.classifier = classifier
+        self.upsampleMethod = upMethod
+        
+    def forward(self, x):
+        input_shape = x.shape[-2:]
+        input_ch = x.shape[1] # 256
+        features = self.backbone(x)
+        x = self.classifier(features)
+
+        if self.upsampleMethod == 'CARAFE':
+            # upScale =input_shape[1] / x.shape[-1]
+            # print(input_ch)
+
+            carafe =CARAFE(c=21, scale=2)
+            if torch.cuda.is_available():
+                carafe.cuda()
+            x = carafe(x) 
+            
+            x = F.interpolate(x, size=input_shape, mode='bilinear', align_corners=False)
+
+        else :
+            x = F.interpolate(x, size=input_shape, mode='bilinear', align_corners=False)
+        
+        return x
+
+class DeepLabHead(nn.Module):
+    def __init__(self, in_channels, num_classes, aspp_dilate=[12, 24, 36]):
+        super(DeepLabHead, self).__init__()
+
+        self.classifier = nn.Sequential(
+            ASPP(in_channels, aspp_dilate),
+            nn.Conv2d(256, 256, 3, padding=1, bias=False),
+            nn.BatchNorm2d(256),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(256, num_classes, 1)
+        )
+        self._init_weight()
+
+    def forward(self, feature):
+        return self.classifier( feature['out'] )
+
+    def _init_weight(self):
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                nn.init.kaiming_normal_(m.weight)
+            elif isinstance(m, (nn.BatchNorm2d, nn.GroupNorm)):
+                nn.init.constant_(m.weight, 1)
+                nn.init.constant_(m.bias, 0)
 
 
-class ASPPConv(nn.Sequential):
-    def __init__(self, in_channels, out_channels, dilation):
-        modules = [
-            nn.Conv2d(in_channels, out_channels, 3, padding=dilation, dilation=dilation, bias=False),
-            nn.BatchNorm2d(out_channels),
-            nn.ReLU(inplace=True)
-        ]
+class ASPPConv(nn.Sequential):
+    def __init__(self, in_channels, out_channels, dilation):
+        modules = [
+            nn.Conv2d(in_channels, out_channels, 3, padding=dilation, dilation=dilation, bias=False),
+            nn.BatchNorm2d(out_channels),
+            nn.ReLU(inplace=True)
+        ]
         super(ASPPConv, self).__init__(*modules)
 
-class ASPPPooling(nn.Sequential):
-    def __init__(self, in_channels, out_channels):
-        super(ASPPPooling, self).__init__(
-            nn.AdaptiveAvgPool2d(1),
-            nn.Conv2d(in_channels, out_channels, 1, bias=False),
-            nn.BatchNorm2d(out_channels),
-            nn.ReLU(inplace=True))
-
-    def forward(self, x):
-        size = x.shape[-2:]
-        x = super(ASPPPooling, self).forward(x)
+class ASPPPooling(nn.Sequential):
+    def __init__(self, in_channels, out_channels):
+        super(ASPPPooling, self).__init__(
+            nn.AdaptiveAvgPool2d(1),
+            nn.Conv2d(in_channels, out_channels, 1, bias=False),
+            nn.BatchNorm2d(out_channels),
+            nn.ReLU(inplace=True))
+
+    def forward(self, x):
+        size = x.shape[-2:]
+        x = super(ASPPPooling, self).forward(x)
         return F.interpolate(x, size=size, mode='bilinear', align_corners=False)
 
-class ASPP(nn.Module):
-    def __init__(self, in_channels, atrous_rates):
-        super(ASPP, self).__init__()
-        out_channels = 256
-        modules = []
-        modules.append(nn.Sequential(
-            nn.Conv2d(in_channels, out_channels, 1, bias=False),
-            nn.BatchNorm2d(out_channels),
-            nn.ReLU(inplace=True)))
-
-        rate1, rate2, rate3 = tuple(atrous_rates)
-        modules.append(ASPPConv(in_channels, out_channels, rate1))
-        modules.append(ASPPConv(in_channels, out_channels, rate2))
-        modules.append(ASPPConv(in_channels, out_channels, rate3))
-        modules.append(ASPPPooling(in_channels, out_channels))
-
-        self.convs = nn.ModuleList(modules)
-
-        self.project = nn.Sequential(
-            nn.Conv2d(5 * out_channels, out_channels, 1, bias=False),
-            nn.BatchNorm2d(out_channels),
-            nn.ReLU(inplace=True),
-            nn.Dropout(0.1),)
-
-    def forward(self, x):
-        res = []
-        for conv in self.convs:
-            res.append(conv(x))
-        res = torch.cat(res, dim=1)
+class ASPP(nn.Module):
+    def __init__(self, in_channels, atrous_rates):
+        super(ASPP, self).__init__()
+        out_channels = 256
+        modules = []
+        modules.append(nn.Sequential(
+            nn.Conv2d(in_channels, out_channels, 1, bias=False),
+            nn.BatchNorm2d(out_channels),
+            nn.ReLU(inplace=True)))
+
+        rate1, rate2, rate3 = tuple(atrous_rates)
+        modules.append(ASPPConv(in_channels, out_channels, rate1))
+        modules.append(ASPPConv(in_channels, out_channels, rate2))
+        modules.append(ASPPConv(in_channels, out_channels, rate3))
+        modules.append(ASPPPooling(in_channels, out_channels))
+
+        self.convs = nn.ModuleList(modules)
+
+        self.project = nn.Sequential(
+            nn.Conv2d(5 * out_channels, out_channels, 1, bias=False),
+            nn.BatchNorm2d(out_channels),
+            nn.ReLU(inplace=True),
+            nn.Dropout(0.1),)
+
+    def forward(self, x):
+        res = []
+        for conv in self.convs:
+            res.append(conv(x))
+        res = torch.cat(res, dim=1)
         return self.project(res)
 
 class ConvBNReLU(nn.Module):
@@ -240,87 +240,87 @@ class CARAFE(nn.Module):
         X = torch.einsum('bkhw,bckhw->bchw', [W, X])    # b * c * h_ * w_
         return X
 
-!wget -P datasets/data/ "http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar"
-!tar -xvf datasets/data/VOCtrainval_11-May-2012.tar -C ./datasets/data
-
-# SegmentationClassAug.zip를 다운. (https://www.dropbox.com/s/oeu149j8qtbs1x0/SegmentationClassAug.zip?dl=0)
-!wget -P datasets/data/ "https://www.dropbox.com/s/oeu149j8qtbs1x0/SegmentationClassAug.zip?dl=1"
+!wget -P datasets/data/ "http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar"
+!tar -xvf datasets/data/VOCtrainval_11-May-2012.tar -C ./datasets/data
+
+# SegmentationClassAug.zip를 다운. (https://www.dropbox.com/s/oeu149j8qtbs1x0/SegmentationClassAug.zip?dl=0)
+!wget -P datasets/data/ "https://www.dropbox.com/s/oeu149j8qtbs1x0/SegmentationClassAug.zip?dl=1"
 !unzip datasets/data/SegmentationClassAug.zip -d datasets/data/VOCdevkit/VOC2012/
 
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-
-from datasets import VOCSegmentation, Cityscapes
-from utils import ext_transforms as et
-
-def get_dataset(opts):
-    """ Dataset And Augmentation
-    """
-    if opts.dataset == 'voc':
-        train_transform = et.ExtCompose([
-            #et.ExtResize(size=opts.crop_size),
-            et.ExtRandomScale((0.5, 2.0)),
-            et.ExtRandomCrop(size=(opts.crop_size, opts.crop_size), pad_if_needed=True),
-            et.ExtRandomHorizontalFlip(),
-            et.ExtToTensor(),
-            et.ExtNormalize(mean=[0.485, 0.456, 0.406],
-                            std=[0.229, 0.224, 0.225]),
-        ])
-        if opts.crop_val:
-            val_transform = et.ExtCompose([
-                et.ExtResize(opts.crop_size),
-                et.ExtCenterCrop(opts.crop_size),
-                et.ExtToTensor(),
-                et.ExtNormalize(mean=[0.485, 0.456, 0.406],
-                                std=[0.229, 0.224, 0.225]),
-            ])
-        else:
-            val_transform = et.ExtCompose([
-                et.ExtToTensor(),
-                et.ExtNormalize(mean=[0.485, 0.456, 0.406],
-                                std=[0.229, 0.224, 0.225]),
-            ])
-        train_dst = VOCSegmentation(root=opts.data_root, year=opts.year,
-                                    image_set='train', transform=train_transform)
-        val_dst = VOCSegmentation(root=opts.data_root, year=opts.year,
-                                  image_set='val', transform=val_transform)
-    
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+from datasets import VOCSegmentation, Cityscapes
+from utils import ext_transforms as et
+
+def get_dataset(opts):
+    """ Dataset And Augmentation
+    """
+    if opts.dataset == 'voc':
+        train_transform = et.ExtCompose([
+            #et.ExtResize(size=opts.crop_size),
+            et.ExtRandomScale((0.5, 2.0)),
+            et.ExtRandomCrop(size=(opts.crop_size, opts.crop_size), pad_if_needed=True),
+            et.ExtRandomHorizontalFlip(),
+            et.ExtToTensor(),
+            et.ExtNormalize(mean=[0.485, 0.456, 0.406],
+                            std=[0.229, 0.224, 0.225]),
+        ])
+        if opts.crop_val:
+            val_transform = et.ExtCompose([
+                et.ExtResize(opts.crop_size),
+                et.ExtCenterCrop(opts.crop_size),
+                et.ExtToTensor(),
+                et.ExtNormalize(mean=[0.485, 0.456, 0.406],
+                                std=[0.229, 0.224, 0.225]),
+            ])
+        else:
+            val_transform = et.ExtCompose([
+                et.ExtToTensor(),
+                et.ExtNormalize(mean=[0.485, 0.456, 0.406],
+                                std=[0.229, 0.224, 0.225]),
+            ])
+        train_dst = VOCSegmentation(root=opts.data_root, year=opts.year,
+                                    image_set='train', transform=train_transform)
+        val_dst = VOCSegmentation(root=opts.data_root, year=opts.year,
+                                  image_set='val', transform=val_transform)
+    
     return train_dst, val_dst
 
-from torch.optim.lr_scheduler import _LRScheduler, StepLR
-
-class PolyLR(_LRScheduler):
-    def __init__(self, optimizer, max_iters, power=0.9, last_epoch=-1, min_lr=1e-6):
-        self.power = power
-        self.max_iters = max_iters  # avoid zero lr
-        self.min_lr = min_lr
-        super(PolyLR, self).__init__(optimizer, last_epoch)
-    
-    def get_lr(self):
-        return [ max( base_lr * ( 1 - self.last_epoch/self.max_iters )**self.power, self.min_lr)
+from torch.optim.lr_scheduler import _LRScheduler, StepLR
+
+class PolyLR(_LRScheduler):
+    def __init__(self, optimizer, max_iters, power=0.9, last_epoch=-1, min_lr=1e-6):
+        self.power = power
+        self.max_iters = max_iters  # avoid zero lr
+        self.min_lr = min_lr
+        super(PolyLR, self).__init__(optimizer, last_epoch)
+    
+    def get_lr(self):
+        return [ max( base_lr * ( 1 - self.last_epoch/self.max_iters )**self.power, self.min_lr)
                 for base_lr in self.base_lrs]
 
-import torch.nn as nn
-import torch.nn.functional as F
-import torch 
-
-class FocalLoss(nn.Module):
-    def __init__(self, alpha=1, gamma=0, size_average=True, ignore_index=255):
-        super(FocalLoss, self).__init__()
-        self.alpha = alpha
-        self.gamma = gamma
-        self.ignore_index = ignore_index
-        self.size_average = size_average
-
-    def forward(self, inputs, targets):
-        ce_loss = F.cross_entropy(
-            inputs, targets, reduction='none', ignore_index=self.ignore_index)
-        pt = torch.exp(-ce_loss)
-        focal_loss = self.alpha * (1-pt)**self.gamma * ce_loss
-        if self.size_average:
-            return focal_loss.mean()
-        else:
+import torch.nn as nn
+import torch.nn.functional as F
+import torch 
+
+class FocalLoss(nn.Module):
+    def __init__(self, alpha=1, gamma=0, size_average=True, ignore_index=255):
+        super(FocalLoss, self).__init__()
+        self.alpha = alpha
+        self.gamma = gamma
+        self.ignore_index = ignore_index
+        self.size_average = size_average
+
+    def forward(self, inputs, targets):
+        ce_loss = F.cross_entropy(
+            inputs, targets, reduction='none', ignore_index=self.ignore_index)
+        pt = torch.exp(-ce_loss)
+        focal_loss = self.alpha * (1-pt)**self.gamma * ce_loss
+        if self.size_average:
+            return focal_loss.mean()
+        else:
             return focal_loss.sum()
 
 import torch.nn as nn
@@ -355,280 +355,280 @@ class Denormalize(object):
             return (tensor - self._mean.reshape(-1,1,1)) / self._std.reshape(-1,1,1)
         return normalize(tensor, self._mean, self._std)
 
-from tqdm import tqdm
-import torch.nn as nn
-import torch.nn.functional as F
-from PIL import Image
-
-import cv2
-import matplotlib
-import matplotlib.pyplot as plt
-
-
-def validate(opts, model, loader, device, metrics):
-    """Do validation and return specified samples"""
-    metrics.reset()
-    ret_samples = []
-    if opts.save_val_results:
-        if not os.path.exists('results'):
-            os.mkdir('results')
-        denorm = Denormalize(mean=[0.485, 0.456, 0.406], 
-                              std=[0.229, 0.224, 0.225])
-        img_id = 0
-
-    with torch.no_grad():
-        for i, (images, labels) in tqdm(enumerate(loader)):
-            
-            images = images.to(device, dtype=torch.float32)
-            labels = labels.to(device, dtype=torch.long)
-
-            outputs = model(images)
-            preds = outputs.detach().max(dim=1)[1].cpu().numpy()
-            targets = labels.cpu().numpy()
-
-            metrics.update(targets, preds)
-
-            if opts.save_val_results:
-                for i in range(len(images)):
-                    image = images[i].detach().cpu().numpy()
-                    target = targets[i]
-                    pred = preds[i]
-
-                    image = (denorm(image) * 255).transpose(1, 2, 0).astype(np.uint8)
-                    target = loader.dataset.decode_target(target).astype(np.uint8)
-                    pred = loader.dataset.decode_target(pred).astype(np.uint8)
-
-                    Image.fromarray(image).save('results/%d_image.png' % img_id)
-                    Image.fromarray(target).save('results/%d_target.png' % img_id)
-                    Image.fromarray(pred).save('results/%d_pred.png' % img_id)
-
-                    fig = plt.figure()
-                    plt.ion()
-                    plt.imshow(image)
-                    plt.axis('off')
-                    plt.imshow(pred, alpha=0.7)
-                    ax = plt.gca()
-                    ax.xaxis.set_major_locator(matplotlib.ticker.NullLocator())
-                    ax.yaxis.set_major_locator(matplotlib.ticker.NullLocator())
-                    plt.savefig('results/%d_overlay.png' % img_id, bbox_inches='tight', pad_inches=0)
-                    plt.close()
-
-                    #fig2 = plt.figure()
-                    if opts.test_only:
-                      imgBGR = cv2.imread('results/%d_image.png' % img_id)
-
-                      # cv2.imread는 BGR로 불러오므로 plt를 이용하려면 RGB로 바꿔줘야 함
-                      imgTargetBGR = cv2.imread('results/%d_target.png' % img_id)
-                      imgPredBGR = cv2.imread('results/%d_pred.png' % img_id)
-                      imgOverBGR = cv2.imread('results/%d_overlay.png' % img_id)
-                      
-                      fig2 = plt.figure()
-                      plt.ion()
-                      ax = fig2.add_subplot(1,4,1)
-                      plt.axis('off')
-                      imgplot = plt.imshow(imgBGR)
-                      ax.set_title('input')
-                      ax = fig2.add_subplot(1,4,2)
-                      plt.axis('off')
-                      imgplot = plt.imshow(imgTargetBGR)
-                      ax.set_title('GT')
-                      ax = fig2.add_subplot(1,4,3)
-                      plt.axis('off')
-                      imgplot = plt.imshow(imgPredBGR)
-                      ax.set_title('Seg.Mask')
-                      ax = fig2.add_subplot(1,4,4)
-                      plt.axis('off')
-                      imgplot = plt.imshow(imgOverBGR)
-                      ax.set_title('input with mask')                        
-                      plt.show()
-                      plt.close()
-
-                    img_id += 1
-
-        score = metrics.get_results()
+from tqdm import tqdm
+import torch.nn as nn
+import torch.nn.functional as F
+from PIL import Image
+
+import cv2
+import matplotlib
+import matplotlib.pyplot as plt
+
+
+def validate(opts, model, loader, device, metrics):
+    """Do validation and return specified samples"""
+    metrics.reset()
+    ret_samples = []
+    if opts.save_val_results:
+        if not os.path.exists('results'):
+            os.mkdir('results')
+        denorm = Denormalize(mean=[0.485, 0.456, 0.406], 
+                              std=[0.229, 0.224, 0.225])
+        img_id = 0
+
+    with torch.no_grad():
+        for i, (images, labels) in tqdm(enumerate(loader)):
+            
+            images = images.to(device, dtype=torch.float32)
+            labels = labels.to(device, dtype=torch.long)
+
+            outputs = model(images)
+            preds = outputs.detach().max(dim=1)[1].cpu().numpy()
+            targets = labels.cpu().numpy()
+
+            metrics.update(targets, preds)
+
+            if opts.save_val_results:
+                for i in range(len(images)):
+                    image = images[i].detach().cpu().numpy()
+                    target = targets[i]
+                    pred = preds[i]
+
+                    image = (denorm(image) * 255).transpose(1, 2, 0).astype(np.uint8)
+                    target = loader.dataset.decode_target(target).astype(np.uint8)
+                    pred = loader.dataset.decode_target(pred).astype(np.uint8)
+
+                    Image.fromarray(image).save('results/%d_image.png' % img_id)
+                    Image.fromarray(target).save('results/%d_target.png' % img_id)
+                    Image.fromarray(pred).save('results/%d_pred.png' % img_id)
+
+                    fig = plt.figure()
+                    plt.ion()
+                    plt.imshow(image)
+                    plt.axis('off')
+                    plt.imshow(pred, alpha=0.7)
+                    ax = plt.gca()
+                    ax.xaxis.set_major_locator(matplotlib.ticker.NullLocator())
+                    ax.yaxis.set_major_locator(matplotlib.ticker.NullLocator())
+                    plt.savefig('results/%d_overlay.png' % img_id, bbox_inches='tight', pad_inches=0)
+                    plt.close()
+
+                    #fig2 = plt.figure()
+                    if opts.test_only:
+                      imgBGR = cv2.imread('results/%d_image.png' % img_id)
+
+                      # cv2.imread는 BGR로 불러오므로 plt를 이용하려면 RGB로 바꿔줘야 함
+                      imgTargetBGR = cv2.imread('results/%d_target.png' % img_id)
+                      imgPredBGR = cv2.imread('results/%d_pred.png' % img_id)
+                      imgOverBGR = cv2.imread('results/%d_overlay.png' % img_id)
+                      
+                      fig2 = plt.figure()
+                      plt.ion()
+                      ax = fig2.add_subplot(1,4,1)
+                      plt.axis('off')
+                      imgplot = plt.imshow(imgBGR)
+                      ax.set_title('input')
+                      ax = fig2.add_subplot(1,4,2)
+                      plt.axis('off')
+                      imgplot = plt.imshow(imgTargetBGR)
+                      ax.set_title('GT')
+                      ax = fig2.add_subplot(1,4,3)
+                      plt.axis('off')
+                      imgplot = plt.imshow(imgPredBGR)
+                      ax.set_title('Seg.Mask')
+                      ax = fig2.add_subplot(1,4,4)
+                      plt.axis('off')
+                      imgplot = plt.imshow(imgOverBGR)
+                      ax.set_title('input with mask')                        
+                      plt.show()
+                      plt.close()
+
+                    img_id += 1
+
+        score = metrics.get_results()
     return score, ret_samples
 
-class Config():
-    # TODO : ADD compound scaling factor
-    def __init__(self):
-        super(Config, self).__init__()
-
-        self.data_root='./datasets/data'
-        self.dataset ='voc'
-        self.download =False
-        self.year ='2012' # VOC
-
-        self.num_classes = 21
-        self.model ='deeplabv3_resnet50_CARAFE'
-        self.output_stride =16
-
-        self.pretrained_backbone = True
-
-        # train option
-        self.test_only =False
-        self.save_val_results =True
-        self.total_itrs =30e3
-        self.lr =0.01
-        self.lr_policy ='poly' # 'step'
-        self.step_size =10000
-        self.crop_val =False
-        self.batch_size =16
-        self.val_batch_size =4
-        self.crop_size =513
-        self.ckpt ='checkpoints/latest_deeplabv3_resnet50_CARAFE_voc_os16.pth'
-        self.continue_training =False
-
-        self.loss_type = 'cross_entropy' #'cross_entropy', 'focal_loss'
-        self.gpu_id ='0'
-        self.weight_decay =1e-4
-        self.random_seed =1
-        self.print_interval =10
+class Config():
+    # TODO : ADD compound scaling factor
+    def __init__(self):
+        super(Config, self).__init__()
+
+        self.data_root='./datasets/data'
+        self.dataset ='voc'
+        self.download =False
+        self.year ='2012' # VOC
+
+        self.num_classes = 21
+        self.model ='deeplabv3_resnet50_CARAFE'
+        self.output_stride =16
+
+        self.pretrained_backbone = True
+
+        # train option
+        self.test_only =False
+        self.save_val_results =True
+        self.total_itrs =30e3
+        self.lr =0.01
+        self.lr_policy ='poly' # 'step'
+        self.step_size =10000
+        self.crop_val =False
+        self.batch_size =16
+        self.val_batch_size =4
+        self.crop_size =513
+        self.ckpt ='checkpoints/latest_deeplabv3_resnet50_CARAFE_voc_os16.pth'
+        self.continue_training =False
+
+        self.loss_type = 'cross_entropy' #'cross_entropy', 'focal_loss'
+        self.gpu_id ='0'
+        self.weight_decay =1e-4
+        self.random_seed =1
+        self.print_interval =10
         self.val_interval =100
 
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from torch.utils import data
-
-from metrics import StreamSegMetrics
-
-import os
-import numpy as np
-import random
-
-# Load option
-opts =Config()
-
-os.environ['CUDA_VISIBLE_DEVICES'] = opts.gpu_id
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-print("Device: %s" % device)
-
-# Setup random seed
-torch.manual_seed(opts.random_seed)
-np.random.seed(opts.random_seed)
-random.seed(opts.random_seed)
-
-
-# Set dataloader
-if opts.dataset.lower() == 'voc':
-    opts.num_classes = 21
-#elif opts.dataset.lower() == 'cityscapes':
-#    opts.num_classes = 19
-
-if opts.dataset=='voc' and not opts.crop_val:
-    opts.val_batch_size = 1
-
-train_dst, val_dst = get_dataset(opts)
-train_loader = data.DataLoader(
-    train_dst, batch_size=opts.batch_size, shuffle=True, num_workers=2)
-val_loader = data.DataLoader(
-    val_dst, batch_size=opts.val_batch_size, shuffle=True, num_workers=2)
-print("Dataset: %s, Train set: %d, Val set: %d" %
-      (opts.dataset, len(train_dst), len(val_dst)))
-
-# Set up model
-model  = ResNetbasedDeepLabV3(num_classes=opts.num_classes, output_stride=opts.output_stride, pretrained_backbone=opts.pretrained_backbone)
-set_bn_momentum(model.backbone, momentum=0.01)
-
-# Set up optimizer
-optimizer = torch.optim.SGD(params=[
-    {'params': model.backbone.parameters(), 'lr': 0.1*opts.lr},
-    {'params': model.classifier.parameters(), 'lr': opts.lr},
-], lr=opts.lr, momentum=0.9, weight_decay=opts.weight_decay)
-
-if opts.lr_policy=='poly':
-    scheduler = PolyLR(optimizer, opts.total_itrs, power=0.9)
-elif opts.lr_policy=='step':
-    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=opts.step_size, gamma=0.1)
-
-# Set up criterion
-if opts.loss_type == 'focal_loss':
-    criterion = FocalLoss(ignore_index=255, size_average=True)
-elif opts.loss_type == 'cross_entropy':
-    criterion = nn.CrossEntropyLoss(ignore_index=255, reduction='mean')
-
-# Set up metrics
-metrics = StreamSegMetrics(opts.num_classes)
-
-checkPointPath = 'checkpoints'
-if not os.path.exists(checkPointPath):
-    os.mkdir(checkPointPath)
-# Restore
-best_score = 0.0
-cur_itrs = 0
-cur_epochs = 0
-
-if opts.ckpt is not None and os.path.isfile(opts.ckpt):
-    # https://github.com/VainF/DeepLabV3Plus-Pytorch/issues/8#issuecomment-605601402, @PytaichukBohdan
-    checkpoint = torch.load(opts.ckpt, map_location=torch.device('cuda'))
-    model.load_state_dict(checkpoint["model_state"])
-    model = nn.DataParallel(model)
-    model.to(device)
-    if opts.continue_training:
-        optimizer.load_state_dict(checkpoint["optimizer_state"])
-        scheduler.load_state_dict(checkpoint["scheduler_state"])
-        cur_itrs = checkpoint["cur_itrs"]
-        best_score = checkpoint['best_score']
-        print("Training state restored from %s" % opts.ckpt)
-    print("Model restored from %s" % opts.ckpt)
-    del checkpoint  # free memory
-else:
-    print("[!] Retrain")
-    model = nn.DataParallel(model)
-    model.to(device)
-
-denorm = Denormalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # denormalization for ori images
-
-if opts.test_only:
-    model.eval()
-    val_score, ret_samples = validate(opts=opts, model=model, loader=val_loader, device=device, metrics=metrics)
-    print(metrics.to_str(val_score))
-
-else:
-  interval_loss = 0
-  while True: #cur_itrs < opts.total_itrs:
-      # =====  Train  =====
-      model.train()
-      cur_epochs += 1
-      for (images, labels) in train_loader:
-          cur_itrs += 1
-
-          images = images.to(device, dtype=torch.float32)
-          labels = labels.to(device, dtype=torch.long)
-
-          optimizer.zero_grad()
-          outputs = model(images)
-          loss = criterion(outputs, labels)
-          loss.backward()
-          optimizer.step()
-
-          np_loss = loss.detach().cpu().numpy()
-          interval_loss += np_loss
-
-          if (cur_itrs) % 10 == 0:
-              interval_loss = interval_loss/10
-              print("Epoch %d, Itrs %d/%d, Loss=%f" %
-                    (cur_epochs, cur_itrs, opts.total_itrs, interval_loss))
-              interval_loss = 0.0
-
-          if (cur_itrs) % opts.val_interval == 0:
-              save_ckpt('checkpoints/latest_%s_%s_os%d.pth' %
-                        (opts.model, opts.dataset, opts.output_stride))
-              
-              print("validation...")
-              
-              model.eval()
-              val_score, ret_samples = validate(
-                  opts=opts, model=model, loader=val_loader, device=device, metrics=metrics)
-              print(metrics.to_str(val_score))
-              if val_score['Mean IoU'] > best_score:  # save best model
-                  best_score = val_score['Mean IoU']
-                  save_ckpt('checkpoints/best_%s_%s_os%d.pth' %
-                            (opts.model, opts.dataset,opts.output_stride))
-
-              model.train()
-          scheduler.step()  
-
-          #if cur_itrs >=  opts.total_itrs:
-              #return
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from torch.utils import data
+
+from metrics import StreamSegMetrics
+
+import os
+import numpy as np
+import random
+
+# Load option
+opts =Config()
+
+os.environ['CUDA_VISIBLE_DEVICES'] = opts.gpu_id
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print("Device: %s" % device)
+
+# Setup random seed
+torch.manual_seed(opts.random_seed)
+np.random.seed(opts.random_seed)
+random.seed(opts.random_seed)
+
+
+# Set dataloader
+if opts.dataset.lower() == 'voc':
+    opts.num_classes = 21
+#elif opts.dataset.lower() == 'cityscapes':
+#    opts.num_classes = 19
+
+if opts.dataset=='voc' and not opts.crop_val:
+    opts.val_batch_size = 1
+
+train_dst, val_dst = get_dataset(opts)
+train_loader = data.DataLoader(
+    train_dst, batch_size=opts.batch_size, shuffle=True, num_workers=2)
+val_loader = data.DataLoader(
+    val_dst, batch_size=opts.val_batch_size, shuffle=True, num_workers=2)
+print("Dataset: %s, Train set: %d, Val set: %d" %
+      (opts.dataset, len(train_dst), len(val_dst)))
+
+# Set up model
+model  = ResNetbasedDeepLabV3(num_classes=opts.num_classes, output_stride=opts.output_stride, pretrained_backbone=opts.pretrained_backbone)
+set_bn_momentum(model.backbone, momentum=0.01)
+
+# Set up optimizer
+optimizer = torch.optim.SGD(params=[
+    {'params': model.backbone.parameters(), 'lr': 0.1*opts.lr},
+    {'params': model.classifier.parameters(), 'lr': opts.lr},
+], lr=opts.lr, momentum=0.9, weight_decay=opts.weight_decay)
+
+if opts.lr_policy=='poly':
+    scheduler = PolyLR(optimizer, opts.total_itrs, power=0.9)
+elif opts.lr_policy=='step':
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=opts.step_size, gamma=0.1)
+
+# Set up criterion
+if opts.loss_type == 'focal_loss':
+    criterion = FocalLoss(ignore_index=255, size_average=True)
+elif opts.loss_type == 'cross_entropy':
+    criterion = nn.CrossEntropyLoss(ignore_index=255, reduction='mean')
+
+# Set up metrics
+metrics = StreamSegMetrics(opts.num_classes)
+
+checkPointPath = 'checkpoints'
+if not os.path.exists(checkPointPath):
+    os.mkdir(checkPointPath)
+# Restore
+best_score = 0.0
+cur_itrs = 0
+cur_epochs = 0
+
+if opts.ckpt is not None and os.path.isfile(opts.ckpt):
+    # https://github.com/VainF/DeepLabV3Plus-Pytorch/issues/8#issuecomment-605601402, @PytaichukBohdan
+    checkpoint = torch.load(opts.ckpt, map_location=torch.device('cuda'))
+    model.load_state_dict(checkpoint["model_state"])
+    model = nn.DataParallel(model)
+    model.to(device)
+    if opts.continue_training:
+        optimizer.load_state_dict(checkpoint["optimizer_state"])
+        scheduler.load_state_dict(checkpoint["scheduler_state"])
+        cur_itrs = checkpoint["cur_itrs"]
+        best_score = checkpoint['best_score']
+        print("Training state restored from %s" % opts.ckpt)
+    print("Model restored from %s" % opts.ckpt)
+    del checkpoint  # free memory
+else:
+    print("[!] Retrain")
+    model = nn.DataParallel(model)
+    model.to(device)
+
+denorm = Denormalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # denormalization for ori images
+
+if opts.test_only:
+    model.eval()
+    val_score, ret_samples = validate(opts=opts, model=model, loader=val_loader, device=device, metrics=metrics)
+    print(metrics.to_str(val_score))
+
+else:
+  interval_loss = 0
+  while True: #cur_itrs < opts.total_itrs:
+      # =====  Train  =====
+      model.train()
+      cur_epochs += 1
+      for (images, labels) in train_loader:
+          cur_itrs += 1
+
+          images = images.to(device, dtype=torch.float32)
+          labels = labels.to(device, dtype=torch.long)
+
+          optimizer.zero_grad()
+          outputs = model(images)
+          loss = criterion(outputs, labels)
+          loss.backward()
+          optimizer.step()
+
+          np_loss = loss.detach().cpu().numpy()
+          interval_loss += np_loss
+
+          if (cur_itrs) % 10 == 0:
+              interval_loss = interval_loss/10
+              print("Epoch %d, Itrs %d/%d, Loss=%f" %
+                    (cur_epochs, cur_itrs, opts.total_itrs, interval_loss))
+              interval_loss = 0.0
+
+          if (cur_itrs) % opts.val_interval == 0:
+              save_ckpt('checkpoints/latest_%s_%s_os%d.pth' %
+                        (opts.model, opts.dataset, opts.output_stride))
+              
+              print("validation...")
+              
+              model.eval()
+              val_score, ret_samples = validate(
+                  opts=opts, model=model, loader=val_loader, device=device, metrics=metrics)
+              print(metrics.to_str(val_score))
+              if val_score['Mean IoU'] > best_score:  # save best model
+                  best_score = val_score['Mean IoU']
+                  save_ckpt('checkpoints/best_%s_%s_os%d.pth' %
+                            (opts.model, opts.dataset,opts.output_stride))
+
+              model.train()
+          scheduler.step()  
+
+          #if cur_itrs >=  opts.total_itrs:
+              #return
 
