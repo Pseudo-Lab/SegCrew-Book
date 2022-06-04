@@ -1,0 +1,1079 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial: DenseCRF for segmentation task &#8212; Segmentation Complete</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="s4GAN - arXiv:1908.05724" href="../ch5/05_02_02_s4GAN.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Segmentation Complete</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   [가짜연구소] Segmentation 완전정복
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Semantic Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch1/01_Semantic%20Segmentation.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_01_fullyconvNet.html">
+   A. Fully Convolutional Network
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_01_fcn.html">
+     FCN - CVPR 2015
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_02_DeepLabv3.html">
+     DeepLab v3 - arXiv 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_03_pspnet.html">
+     PSPNet - CVPR 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_04_encnet.html">
+     EncNet - CVPR 2018
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_02_encodedecode.html">
+   B. Convolutional encoder-decoder
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_01_unet.html">
+     U-Net - arxiv 2015
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_03_DeconvNet.html">
+     DeconvNet - ICCV 2015
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_02_segnet.html">
+     SegNet - TPAMI 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_01_multiresunet.html">
+     MultiResUNet - arxiv 2019
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_03_transformer.html">
+   C. Transformer Based
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_03_01_SETR.html">
+     SETR - CVPR 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Instance Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch2/02_02_two_stage.html">
+   A. Detector based Method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_01_01_YOLACT.html">
+     YOLACT - ICCV 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_01_02_SOLO.html">
+     SOLO - ECCV 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_01_MaskRCNN.html">
+     [Draft] Mask R-CNN - ICCV 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_03_Deep-MAC.html">
+     [Draft] Deep-MAC - ICCV 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_02_HTC.html">
+     [Draft] HTC - CVPR 2019
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_04_BCNet.html">
+     [Draft] BCNet - CVPR 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Panoptic Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch3/03_01_FCN.html">
+   A. Detector based method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_01_01_PanopticFPN.html">
+     [Draft] PanopticFPN - CVPR 2019
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_01_02_PanopticFCN.html">
+     [Draft] PanopticFCN - CVPR 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch3/03_02_transformer.html">
+   B. Transformer based Method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_02_02_DETR.html">
+     [Draft] DETR - ECCV 2020
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_02_01_Max-DeepLab.html">
+     [Draft] MaX-DeepLab - CVPR 21
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Weakly-supervised Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch4/04_01_LearningPixelAffinity.html">
+   A. Learning Pixel Affinity
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch4/04_01_01_AffinityNet.html">
+     AffinityNet - CVPR 2018
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch4/04_01_02_IAL.html">
+     IAL - IJCV 2020
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch4/04_02_AdversarialErasing.html">
+   B. Adversarial Erasing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch4/04_02_01_AE-PSL.html">
+     [Draft] AE-PSL - CVPR 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch4/04_02_02_SeeNet.html">
+     SeeNet - NeurIPS 2018
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Semi-supervised Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch5/05%20Semi-supervised%20Segmentation.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch5/05_01_Consistency_reg.html">
+   A. Consistency Regularization
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_01_01_CCT.html">
+     CCT - CVPR 2020
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_01_02_SemiContexAware.html">
+     Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch5/05_02_GAN.html">
+   B. GAN
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_02_01_Revisiting_CycleGAN.html">
+     Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_02_02_s4GAN.html">
+     s4GAN - arXiv:1908.05724
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Tutorial: DenseCRF for segmentation task
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/docs/Appendix/DenseCRF.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Pseudo-Lab/SegCrew-Book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/Appendix/DenseCRF.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Pseudo-Lab/SegCrew-Book/master?urlpath=tree/book/docs/Appendix/DenseCRF.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-statement">
+   1. Problem Statement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-random-field">
+   2. Conditional Random Field
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crf-for-image-segmentation">
+   3. CRF for Image Segmentation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unary-potential-theta-i">
+     (1)
+     <strong>
+      Unary potential
+      <span class="math notranslate nohighlight">
+       \(\theta_i\)
+      </span>
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pairwise-potential-theta-i-j">
+     (2)
+     <strong>
+      Pairwise potential
+      <span class="math notranslate nohighlight">
+       \(\theta_{i,j}\)
+      </span>
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fully-connected-crf-for-semantic-segmentation">
+   4.
+   <strong>
+    Fully Connected CRF for semantic segmentation
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mean-field-approximation">
+     (1) Mean Field Approximation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#efficient-message-passing">
+     (2) Efficient Message Passing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tutorial-densecrf-for-segmentation-task">
+<h1>Tutorial: DenseCRF for segmentation task<a class="headerlink" href="#tutorial-densecrf-for-segmentation-task" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Paper: <a class="reference external" href="https://arxiv.org/abs/1210.5644">https://arxiv.org/abs/1210.5644</a></p></li>
+<li><p>Pydensecrf: <a class="reference external" href="https://github.com/lucasb-eyer/pydensecrf.git">https://github.com/lucasb-eyer/pydensecrf.git</a></p></li>
+<li><p>FCN Model: <a class="reference external" href="https://pytorch.org/hub/pytorch_vision_fcn_resnet101/">https://pytorch.org/hub/pytorch_vision_fcn_resnet101/</a></p></li>
+</ul>
+</div>
+<div class="section" id="problem-statement">
+<h2>1. Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Segmentation task는 object 중점의 robust 하고 global한 feature 추출을 목적으로하는 classification / detection task와 다르게 pixel level의 prediction을 수행하야 하므로, detail한 feature 추출이 필요하다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;pytorch/vision:v0.10.0&#39;</span><span class="p">,</span> <span class="s1">&#39;fcn_resnet50&#39;</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># or</span>
+<span class="c1"># model = torch.hub.load(&#39;pytorch/vision:v0.10.0&#39;, &#39;fcn_resnet101&#39;, pretrained=True)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download an example image from the pytorch website</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="n">url</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;https://github.com/pytorch/hub/raw/master/images/deeplab1.png&quot;</span><span class="p">,</span> <span class="s2">&quot;deeplab1.png&quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span> <span class="n">urllib</span><span class="o">.</span><span class="n">URLopener</span><span class="p">()</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># sample execution (requires torchvision)</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">transforms</span>
+<span class="n">input_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">input_image</span> <span class="o">=</span> <span class="n">input_image</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">)</span>
+<span class="n">preprocess</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mf">0.485</span><span class="p">,</span> <span class="mf">0.456</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">],</span> <span class="n">std</span><span class="o">=</span><span class="p">[</span><span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.224</span><span class="p">,</span> <span class="mf">0.225</span><span class="p">]),</span>
+<span class="p">])</span>
+
+<span class="n">input_tensor</span> <span class="o">=</span> <span class="n">preprocess</span><span class="p">(</span><span class="n">input_image</span><span class="p">)</span>
+<span class="n">input_batch</span> <span class="o">=</span> <span class="n">input_tensor</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># create a mini-batch as expected by the model</span>
+
+<span class="c1"># move the input and model to GPU for speed if available</span>
+<span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+    <span class="n">input_batch</span> <span class="o">=</span> <span class="n">input_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_batch</span><span class="p">)[</span><span class="s1">&#39;out&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">VOC_CLASSES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;background&quot;</span><span class="p">,</span> <span class="s2">&quot;aeroplane&quot;</span><span class="p">,</span> <span class="s2">&quot;bicycle&quot;</span><span class="p">,</span> <span class="s2">&quot;bird&quot;</span><span class="p">,</span> <span class="s2">&quot;boat&quot;</span><span class="p">,</span> <span class="s2">&quot;bottle&quot;</span><span class="p">,</span> <span class="s2">&quot;bus&quot;</span><span class="p">,</span> <span class="s2">&quot;car&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;chair&quot;</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">,</span> <span class="s2">&quot;diningtable&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;horse&quot;</span><span class="p">,</span> <span class="s2">&quot;motorbike&quot;</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;potted plant&quot;</span><span class="p">,</span> <span class="s2">&quot;sheep&quot;</span><span class="p">,</span> <span class="s2">&quot;sofa&quot;</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;tv/monitor&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">VOC_COLORMAP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">],</span> <span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">],</span> <span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">],</span> <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">],</span> <span class="p">[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">],</span> <span class="p">[</span><span class="mi">192</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">128</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="p">])</span>
+
+<span class="n">VOC_NUM_CLASSES</span> <span class="o">=</span> <span class="mi">21</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">draw_voc_segmentation_result</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">pred</span><span class="p">):</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+
+    <span class="c1">#img = img.transpose(1, 2, 0)</span>
+
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+    <span class="n">label_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">bins</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">pred_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">pred</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">n_class</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">VOC_NUM_CLASSES</span><span class="p">):</span>
+      <span class="n">pred_mask</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">pred</span><span class="o">&gt;</span><span class="n">n_class</span><span class="p">)]</span> <span class="o">=</span> <span class="n">VOC_COLORMAP</span><span class="p">[</span><span class="n">n_class</span><span class="p">,:]</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Input Image&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Predict&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">pred_mask</span><span class="p">)</span>
+
+    <span class="n">plt_handlers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">plt_titles</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">label_value</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">idx</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+          <span class="n">fc</span> <span class="o">=</span> <span class="n">VOC_COLORMAP</span><span class="p">[</span><span class="n">idx</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span><span class="o">/</span><span class="mi">255</span>
+          <span class="n">p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">fc</span><span class="p">)</span>
+        
+          <span class="n">plt_handlers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+          <span class="n">plt_titles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{value}</span><span class="s1">: </span><span class="si">{name}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">VOC_CLASSES</span><span class="p">[</span><span class="n">idx</span><span class="p">]))</span>
+        
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">plt_handlers</span><span class="p">,</span> <span class="n">plt_titles</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">input_np</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">(</span><span class="n">input_image</span><span class="p">))</span>
+
+<span class="n">draw_voc_segmentation_result</span><span class="p">(</span><span class="n">input_np</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([1026, 1282])
+</pre></div>
+</div>
+<img alt="../../_images/DenseCRF_8_1.png" src="../../_images/DenseCRF_8_1.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>FCN, DeepLab과 같이 feature map을 upsample이 포함된 network의 경우 정교한 segmentation 결과를 얻는 것은 한계가 있다. 이를 보완하기 위해 probabilistic graphical models을 이용한 post-processing을 적용할 수 있다.</p></li>
+<li><p>본 article에서는 segmentation task에서 널리 활용되는 Conditional Random Field를 이용한 post-processing 과정을 다룬다.</p></li>
+</ul>
+</div>
+<div class="section" id="conditional-random-field">
+<h2>2. Conditional Random Field<a class="headerlink" href="#conditional-random-field" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>CRF는 Markov random field의 일종으로 sequential labeling 문제에서 Recurrent Neural Network (RNN) 등의 deep learning 계열 알고리즘이 이용되기 이전에 널리 사용되었다.</p></li>
+<li><p>Sequence data <span class="math notranslate nohighlight">\(x\)</span> 에 가장 적합한 sequence response <span class="math notranslate nohighlight">\(y\)</span>를 찾는 softmax regression(classifier) 의 일종으로, 입력 <span class="math notranslate nohighlight">\(x\)</span>가 주어졌을 때, label <span class="math notranslate nohighlight">\(y\)</span>에 속할 확률(posterior probability)을 최대로 만드는 최적의 output  <span class="math notranslate nohighlight">\(y^*\)</span>를 찾는 최적화 문제라 할 수 있다.</p>
+<div class="math notranslate nohighlight">
+\[
+    y^*=\arg\max_{y}P\left(y\middle| x\right)
+    \]</div>
+</li>
+<li><p>Label의 probability를 Gibbs distribution으로 표현하면,</p>
+<div class="math notranslate nohighlight">
+\[
+    P(\mathbf{y}|\mathbf{x})=\frac{1}{Z(\mathbf{x})}\exp \left(-\sum_{c \in \mathcal{C}_{\mathcal{G}}} \phi(\mathbf{y}_c|\mathbf{x})\ \right)
+    \]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(\mathcal{G}\)</span>는 label의 graph, cliques의 집합 <span class="math notranslate nohighlight">\(\mathcal{C}_{\mathcal{G}}\)</span>의 각 clique <span class="math notranslate nohighlight">\(c\)</span>는 potential <span class="math notranslate nohighlight">\(\phi_c\)</span>를 가진다.</p>
+<p>Label <span class="math notranslate nohighlight">\(\mathbf{x}\in\mathcal{L}^N\)</span>에 대한 Gibbs energy는 다음과 같이 나타낼 수 있다.</p>
+<div class="math notranslate nohighlight">
+\[
+    E(\mathbf{y}|\mathbf{x})=\sum_{c \in \mathcal{C}_{\mathcal{G}}}\phi_c(\mathbf{y}_c|\mathbf{x})
+    \]</div>
+<p>이를 이용하면 label에 대한 random field를 구하기 위한 확률 <span class="math notranslate nohighlight">\(P(\mathbf{y|\mathbf{x}})\)</span> 최대화 문제를 Energy 최소화 문제로 표현할 수 있다.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="crf-for-image-segmentation">
+<h2>3. CRF for Image Segmentation<a class="headerlink" href="#crf-for-image-segmentation" title="Permalink to this headline">¶</a></h2>
+<p><img alt="Source: A. Arnab, et al., “Conditional Random Fields Meet Deep Neural Networks for Semantic" src="../../_images/img.png" /></p>
+<p>Source: A. Arnab, et al., “Conditional Random Fields Meet Deep Neural Networks for Semantic</p>
+<ul>
+<li><p>Segmentation task의 경우 주어진 image의 각 pixel (observation)과 이에 대응되는 label <span class="math notranslate nohighlight">\(y\)</span>를 다음과 같이 modeling 할 수 있다.</p>
+<ul class="simple">
+<li><p>입력 영상(observation): 변수 <span class="math notranslate nohighlight">\(\{I_1,...,I_N\}\)</span>으로 구성된 random field <span class="math notranslate nohighlight">\(I\)</span></p></li>
+<li><p>Segmentation map (pixel level label): domain으로 label <span class="math notranslate nohighlight">\(\mathcal{L}=\{l_1, l_2, ..., l_k\}\)</span>을 가지는 변수 <span class="math notranslate nohighlight">\(\{X_1,...,X_N\}\)</span>으로 구성된 random field <span class="math notranslate nohighlight">\(X\)</span></p></li>
+</ul>
+</li>
+<li><p>보편적으로 semantic segmentation의 경우 다음 가정이 유효하므로,</p>
+<p>(1) 어떤 pixel이 어떤 label로 판별 되면, 주변에 있는 픽셀 또한 같은 label을 가질 가능이 높음.</p>
+<p>(2) 두 pixel이 유사한 값을 가진다면 같은 label을 가질 가능성이 높음</p>
+</li>
+<li><p>CRF의 Potential function을 다음과 같이 Unary potential과 pairwise potential로 표현한다.
+(논문과 동일하게 <span class="math notranslate nohighlight">\(\phi(\mathbf{x}|\mathbf{I})\)</span>를 <span class="math notranslate nohighlight">\(\psi(\mathbf{x})\)</span>로 간단히 표현)</p>
+<div class="math notranslate nohighlight">
+\[
+    E(\mathbf{x})=\sum_{i}\psi_u(x_i)+\sum_{i}\sum_{j\in \partial i}\psi_p(x_i,x_j)
+    \]</div>
+<p><img alt="Untitled" src="../../_images/Untitled.png" /></p>
+</li>
+</ul>
+<div class="section" id="unary-potential-theta-i">
+<h3>(1) <strong>Unary potential <span class="math notranslate nohighlight">\(\theta_i\)</span></strong><a class="headerlink" href="#unary-potential-theta-i" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>픽셀 <span class="math notranslate nohighlight">\(i\)</span>에 label이 할당될 확률이며, CNN에 의해 계산된다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\psi_i(x_i)=-\log P(x_i)
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install git+https://github.com/lucasb-eyer/pydensecrf.git
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting git+https://github.com/lucasb-eyer/pydensecrf.git
+  Cloning https://github.com/lucasb-eyer/pydensecrf.git to /tmp/pip-req-build-svl2ve0c
+  Running command git clone -q https://github.com/lucasb-eyer/pydensecrf.git /tmp/pip-req-build-svl2ve0c
+  Installing build dependencies ... ?25l?25hdone
+  Getting requirements to build wheel ... ?25l?25hdone
+    Preparing wheel metadata ... ?25l?25hdone
+Building wheels for collected packages: pydensecrf
+  Building wheel for pydensecrf (PEP 517) ... ?25l?25hdone
+  Created wheel for pydensecrf: filename=pydensecrf-1.0rc2-cp37-cp37m-linux_x86_64.whl size=2778815 sha256=3124454c5055ac68d99787ac4f5ddf7d8ae66ad294a7c16d67f8bc4e0857b980
+  Stored in directory: /tmp/pip-ephem-wheel-cache-b04csu4b/wheels/c1/7e/80/99adc0b2f215180486e24dd9c700028343ba5f566514a0ef05
+Successfully built pydensecrf
+Installing collected packages: pydensecrf
+Successfully installed pydensecrf-1.0rc2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pydensecrf.densecrf</span> <span class="k">as</span> <span class="nn">dcrf</span>
+<span class="kn">from</span> <span class="nn">pydensecrf.utils</span> <span class="kn">import</span> <span class="n">compute_unary</span><span class="p">,</span> <span class="n">create_pairwise_bilateral</span><span class="p">,</span> \
+    <span class="n">create_pairwise_gaussian</span><span class="p">,</span> <span class="n">softmax_to_unary</span><span class="p">,</span> <span class="n">unary_from_softmax</span>
+
+<span class="kn">import</span> <span class="nn">skimage.io</span> <span class="k">as</span> <span class="nn">io</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">input_image</span><span class="p">)</span>
+
+<span class="n">dcrf_model</span> <span class="o">=</span> <span class="n">dcrf</span><span class="o">.</span><span class="n">DenseCRF</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">VOC_NUM_CLASSES</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+    <span class="n">output_logit</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+
+<span class="n">softmax</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">output_logit</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="n">unary</span> <span class="o">=</span> <span class="n">unary_from_softmax</span><span class="p">(</span><span class="n">softmax</span><span class="p">)</span>
+<span class="n">unary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">unary</span><span class="p">)</span>
+<span class="n">dcrf_model</span><span class="o">.</span><span class="n">setUnaryEnergy</span><span class="p">(</span><span class="n">unary</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pairwise-potential-theta-i-j">
+<h3>(2) <strong>Pairwise potential <span class="math notranslate nohighlight">\(\theta_{i,j}\)</span></strong><a class="headerlink" href="#pairwise-potential-theta-i-j" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    \psi_{p}(x_i,x_j)&amp;=\mu(x_i,x_j) \cdot \sum_{m=1}^{K}w^{(m)}k^{(m)}(\mathbf{f}_i, \mathbf{f}_j) \\
+    &amp;where \ k^{(m)}(\mathbf{f}_i, \mathbf{f}_j)=\exp\left(-\frac{1}{m}(\mathbf{f}_i, \mathbf{f}_j)^{T}\Lambda^{(m)} (\mathbf{f}_i, \mathbf{f}_j)\right)
+\end{aligned} 
+\end{split}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(k^{(m)}\)</span>은 Gaussian kernel로 <span class="math notranslate nohighlight">\(\mathbf{f}_i, \mathbf{f}_j\)</span>는 pixel <span class="math notranslate nohighlight">\(i\)</span>와 <span class="math notranslate nohighlight">\(j\)</span>에서의 feature vector이며, <span class="math notranslate nohighlight">\(\mu()\)</span>는 <span class="math notranslate nohighlight">\(x_i\neq x_j\)</span>
+인 경우 1 , 그 외의 경우 0값을 가지는 label compatibility 함수이다.</p></li>
+<li><p>영상 속의 object가 일반적으로 연속적인 pixel들로 표현되므로, pixel <span class="math notranslate nohighlight">\(i\)</span>와 <span class="math notranslate nohighlight">\(j\)</span>가 공간적으로 가까이 있거나, 비슷한 모습을 보이는 경우 높아지도록 appearance kernel과 smoothness kernel로 구성된 kernel을 적용한다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}
+    k^{(m)}(\mathbf{f}_i, \mathbf{f}_i)=\left[w_1 \exp\left( -\frac{||p_i-p_j||^2}{2\sigma_{\alpha}^2} -\frac{||I_i-I_j||^2}{2\sigma_{\beta}^2}\right) +w_2 \exp\left( -\frac{||p_i-p_j||^2}{2\sigma_{\gamma}^2} \right)\right]
+\end{aligned}
+\]</div>
+<ul class="simple">
+<li><p>첫 번째 커널(appearance kernel)의 경우 position <span class="math notranslate nohighlight">\(p_i\)</span>와 <span class="math notranslate nohighlight">\(p_j\)</span>에서의 color vector <span class="math notranslate nohighlight">\(I_i\)</span>와 <span class="math notranslate nohighlight">\(I_j\)</span>에 대해 정의되며 공간적으로 유사한 위치에 있고 유사한 intensity를 가지면 큰 값을 가지게 된다.</p></li>
+<li><p>두 번째 커널(smoothness kernel)의 경우 pixel positions <span class="math notranslate nohighlight">\(p\)</span>에 대해 정의되며, 고립된 작은 영역을 제거하는 효과를 가진다.</p></li>
+<li><p>하이퍼 파라미터인  <span class="math notranslate nohighlight">\(\sigma_{\alpha}\)</span>, <span class="math notranslate nohighlight">\(\sigma_{\beta}\)</span>, <span class="math notranslate nohighlight">\(\sigma_{\gamma}\)</span>가 가우시안 커널의 스케일을 조절할 수 있다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">input_image</span><span class="p">)</span>
+
+<span class="n">feats</span> <span class="o">=</span> <span class="n">create_pairwise_gaussian</span><span class="p">(</span><span class="n">sdims</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">shape</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="n">dcrf_model</span><span class="o">.</span><span class="n">addPairwiseEnergy</span><span class="p">(</span><span class="n">feats</span><span class="p">,</span> <span class="n">compat</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                    <span class="n">kernel</span><span class="o">=</span><span class="n">dcrf</span><span class="o">.</span><span class="n">DIAG_KERNEL</span><span class="p">,</span>
+                    <span class="n">normalization</span><span class="o">=</span><span class="n">dcrf</span><span class="o">.</span><span class="n">NORMALIZE_SYMMETRIC</span><span class="p">)</span>
+
+<span class="n">feats</span> <span class="o">=</span> <span class="n">create_pairwise_bilateral</span><span class="p">(</span><span class="n">sdims</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">schan</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+                                   <span class="n">img</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">chdim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">dcrf_model</span><span class="o">.</span><span class="n">addPairwiseEnergy</span><span class="p">(</span><span class="n">feats</span><span class="p">,</span> <span class="n">compat</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                     <span class="n">kernel</span><span class="o">=</span><span class="n">dcrf</span><span class="o">.</span><span class="n">DIAG_KERNEL</span><span class="p">,</span>
+                     <span class="n">normalization</span><span class="o">=</span><span class="n">dcrf</span><span class="o">.</span><span class="n">NORMALIZE_SYMMETRIC</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="fully-connected-crf-for-semantic-segmentation">
+<h2>4. <strong>Fully Connected CRF for semantic segmentation</strong><a class="headerlink" href="#fully-connected-crf-for-semantic-segmentation" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>인접한 화소의 pairwise potential을 이용한 CRF model은 모든 detail 표현하는데 한계가 존재하기 때문에 모든 pixel에 대해 정의한 pairwise potential를 적용하여 성능을 개선한다.</p></li>
+<li><p>하지만 모든 node(pixel)과 연결되어 있는 pairwise potential을 적용한 CRF model의 propability<span class="math notranslate nohighlight">\(P(\mathbf{X}|\mathbf{I})\)</span>를 추정하기 위해  Markov chain Monte Carlo (MCMC) inference를 적용하는 경우 연산량 문제가 발생한다.</p>
+<p><img alt="Untitled" src="../../_images/Untitled1.png" /></p>
+<p>source: <a class="reference external" href="http://swoh.web.engr.illinois.edu/courses/IE598/handout/fall2016_slide15.pdf">http://swoh.web.engr.illinois.edu/courses/IE598/handout/fall2016_slide15.pdf</a></p>
+</li>
+<li><p>이를 해결하기 위해 Variational Inference의 아이디어를 활용한 Mean Field Approximation을 적용한다. (<a class="reference external" href="https://jaejunyoo.blogspot.com/2017/04/auto-encoding-variational-bayes-vae-2.html">https://jaejunyoo.blogspot.com/2017/04/auto-encoding-variational-bayes-vae-2.html</a>)</p></li>
+</ul>
+<div class="section" id="mean-field-approximation">
+<h3>(1) Mean Field Approximation<a class="headerlink" href="#mean-field-approximation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>계산이 복잡한 Posterior distribution <span class="math notranslate nohighlight">\(P(\mathbf{x})\)</span>를 independent한 component로 구성된 marginals distribution <span class="math notranslate nohighlight">\(Q(\mathbf{x})=\prod_iQ_i(X_i)\)</span>으로 근사화한다.</p></li>
+<li><p>이때 구하고자 하는 posterior와 유사하도록 최소의 KL-divergence <span class="math notranslate nohighlight">\(\mathbf{D}_{\text{KL}}(Q||P)\)</span>를 같는 distribution <span class="math notranslate nohighlight">\(Q\)</span>를 찾는다.</p></li>
+<li><p>Fully Connected CRFs model에서 KL-divergence를 최소화 하기 위해 다음과 같은 iterative update equation을 적용한다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+Q_i(x_i=l)=\frac{1}{Z_i}\exp\left\{-\psi_u(x_i)-\sum_{l' \in L} \mu(l.l')\sum_{m=1}^{K} w^{m} \sum_{i \neq i}k^{(m)}(f_i,f_j)Q_j(l') \right\}
+\]</div>
+<ul>
+<li><p>각 과정의 연산을 Massage passing, compatibility transform 그리고 local update step으로 구분할 수 있다.</p>
+<p><img alt="Untitled" src="../../_images/Untitled2.png" /></p>
+</li>
+<li><p>여기서 Message passing 과정의 복잡도는 <span class="math notranslate nohighlight">\(O(N^2)\)</span>으로 나타나므로 이를 근사화하여 연산량을 추가로 감소시킨다.</p></li>
+</ul>
+</div>
+<div class="section" id="efficient-message-passing">
+<h3>(2) Efficient Message Passing<a class="headerlink" href="#efficient-message-passing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>다음과 같이 표현되는 massage pass step을</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+Q_i(x_i=l)=\frac{1}{Z_i}\exp\left\{-\psi_u(x_i)-\sum_{l' \in L} \mu(l.l')\sum_{m=1}^{K} w^{m} \widetilde{Q}_i^{(m)}(l) \right\}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\widetilde{Q}_i^{(m)}(l)=\sum_{j \neq i} k^{m}(f_i,f_j)Q_j(l')
+\]</div>
+<ul>
+<li><p>feature space에서의 Gaussian kernel <span class="math notranslate nohighlight">\(G^{(m)}_{\Lambda}\)</span>와의 convolution 연산으로 표현할 수 있다.</p>
+<div class="math notranslate nohighlight">
+\[
+    \widetilde{Q}_i^{(m)}(l)=\sum_{j \neq i} k^{m}(f_i,f_j)Q_j(l')=\left[G^{(m)}_{\Lambda}\otimes Q(l)\right](\mathbf{f_i})-Q_i(l)
+    \]</div>
+<p>Gaussian Kernel과의 convolution 연산은 low-pass filter와 같은 smooth 효과를 나타낸다.</p>
+</li>
+<li><p>Sampling 이론에 따르면 간격이 filter의 표준편차에 비례하는 sample 집합을 이용하여 신호를 복원(reconstruct)할 수 있으므로,  downsampling된 <span class="math notranslate nohighlight">\(Q(l)\)</span>을 이용 convolution을 수행한 후 다시 upsampling을 통해 신호를 복원할 수 있다.</p>
+<p><a class="reference external" href="https://cs.brown.edu/courses/cs129/2012/lectures/bf_course_Brown_Oct2012.pdf">https://cs.brown.edu/courses/cs129/2012/lectures/bf_course_Brown_Oct2012.pdf</a></p>
+</li>
+<li><p>이 근사화를 통해 massage passing 과정의 복잡도를 <span class="math notranslate nohighlight">\(O(N)\)</span>으로 개선할 수 있다.
+<img alt="Untitled" src="../../_images/Untitled4.png" /></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Q = d.inference(5)</span>
+<span class="n">Q</span><span class="p">,</span> <span class="n">tmp1</span><span class="p">,</span> <span class="n">tmp2</span> <span class="o">=</span> <span class="n">dcrf_model</span><span class="o">.</span><span class="n">startInference</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;KL-divergence at </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">dcrf_model</span><span class="o">.</span><span class="n">klDivergence</span><span class="p">(</span><span class="n">Q</span><span class="p">)))</span>
+    <span class="n">dcrf_model</span><span class="o">.</span><span class="n">stepInference</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">tmp1</span><span class="p">,</span> <span class="n">tmp2</span><span class="p">)</span>
+
+    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">output_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="n">output_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">output_tensor</span><span class="p">,</span> <span class="n">num_classes</span> <span class="o">=</span><span class="n">VOC_NUM_CLASSES</span><span class="p">)</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">draw_voc_segmentation_result</span><span class="p">(</span><span class="n">input_np</span><span class="p">,</span> <span class="n">output_tensor</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KL-divergence at 0: -15814076.9236994
+torch.Size([1026, 1282])
+KL-divergence at 1: -16284520.772303186
+torch.Size([1026, 1282])
+KL-divergence at 2: -16329508.62152704
+torch.Size([1026, 1282])
+KL-divergence at 3: -16353090.822831595
+torch.Size([1026, 1282])
+KL-divergence at 4: -16359014.318705484
+torch.Size([1026, 1282])
+</pre></div>
+</div>
+<img alt="../../_images/DenseCRF_20_1.png" src="../../_images/DenseCRF_20_1.png" />
+<img alt="../../_images/DenseCRF_20_2.png" src="../../_images/DenseCRF_20_2.png" />
+<img alt="../../_images/DenseCRF_20_3.png" src="../../_images/DenseCRF_20_3.png" />
+<img alt="../../_images/DenseCRF_20_4.png" src="../../_images/DenseCRF_20_4.png" />
+<img alt="../../_images/DenseCRF_20_5.png" src="../../_images/DenseCRF_20_5.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/Appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../ch5/05_02_02_s4GAN.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">s4GAN - arXiv:1908.05724</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By PseudoLab<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

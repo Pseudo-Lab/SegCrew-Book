@@ -66,4 +66,4 @@ parts:
     - file: docs/ch5/05_02_02_s4GAN
 - caption: Appendix
   chapters:
-  - file: docs/Appendix/Appendix
+  - file: docs/Appendix/DenseCRF
