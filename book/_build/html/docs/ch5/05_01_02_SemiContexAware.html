@@ -595,7 +595,7 @@
 </ul>
 <div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext1.png"><img alt="context1" class="bg-primary mb-1" src="../../_images/semicontext1.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 91 </span><span class="caption-text">1/8 의 label만 사용하여 학습한 model을 GradCAM으로 visualization을 한 결과. (source: arXiv:2106.14133)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 92 </span><span class="caption-text">1/8 의 label만 사용하여 학습한 model을 GradCAM으로 visualization을 한 결과. (source: arXiv:2106.14133)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>기존의 segmentation은 receptive field의 한계로 인해서 context information에 대해서 학습을 하지 않음.</p></li>
@@ -605,7 +605,7 @@
 <h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext2.png"><img alt="context2" class="bg-primary mb-1" src="../../_images/semicontext2.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 92 </span><span class="caption-text">Crop1 and Crop2 are randomly cropped from the same image with an overlapping region. (source: arXiv:2106.14133)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 93 </span><span class="caption-text">Crop1 and Crop2 are randomly cropped from the same image with an overlapping region. (source: arXiv:2106.14133)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>위의 그림과 같이 label이 있는 부분을 overlapping을 해서 patch데이터간의 consistency 를 주어지며 이른 context aware consistency라고 명시함</p></li>
@@ -623,7 +623,7 @@
 </ul>
 <div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext3.png"><img alt="context3" class="bg-primary mb-1" src="../../_images/semicontext3.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 93 </span><span class="caption-text">CCT architecture (source: arXiv:2003.09005)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 94 </span><span class="caption-text">CCT architecture (source: arXiv:2003.09005)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </li>
 </ul>
@@ -634,7 +634,7 @@
 <h3>1. motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext4.png"><img alt="context4" class="bg-primary mb-1" src="../../_images/semicontext4.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 94 </span><span class="caption-text">Visual comparison between contextual augmentation (I and II) and low-level augmentation (I and III) (source: arXiv:2106.14133)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 95 </span><span class="caption-text">Visual comparison between contextual augmentation (I and II) and low-level augmentation (I and III) (source: arXiv:2106.14133)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>노란색으로 되어진 overlapping region에서 weak augmentation (gaussian noise, color jitter) 했을때와 다른 위치의 patch를 구헀을때의 이미지임</p></li>
@@ -645,7 +645,7 @@
 <h3>2 Network<a class="headerlink" href="#network" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="id4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext5.png"><img alt="context5" class="bg-primary mb-1" src="../../_images/semicontext5.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 95 </span><span class="caption-text">Overview of framework (source: arXiv:2106.14133)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 96 </span><span class="caption-text">Overview of framework (source: arXiv:2106.14133)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>label,target image, unlabel image: <span class="math notranslate nohighlight">\(y_t ,x_t,x_u\)</span></p></li>
@@ -666,7 +666,7 @@
 <li><p>기존의 contrastive loss의 경우 MSE를 적용하여주었지만 저자는 cosine simliarity를 통해서 문제를 접근함.</p>
 <div class="figure align-default" id="id5">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext6.png"><img alt="context6" class="bg-primary mb-1" src="../../_images/semicontext6.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 96 </span><span class="caption-text">Comparison between vanilla CL and DCL (source: arXiv:2106.14133)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 97 </span><span class="caption-text">Comparison between vanilla CL and DCL (source: arXiv:2106.14133)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <div class="math notranslate nohighlight">
 \[l_{dc}^{b}(\phi_{o_1},\phi_{o_2})=-\frac{1}{N}\sum_{h,w}\mathcal{M}_{d}^{h,w}\cdot\log\frac{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})}{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})+\sum_{\phi_n \in \mathcal{F_u}}r(\phi_{o_1}^{h,w},\phi_{n})}\]</div>

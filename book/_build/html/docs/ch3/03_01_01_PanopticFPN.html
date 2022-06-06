@@ -606,7 +606,7 @@
 </ul>
 <div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn1.png"><img alt="pfpn1" class="bg-primary mb-1" src="../../_images/pfpn1.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">Panoptic FPN architecture (source: arXiv:1901.02446)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Panoptic FPN architecture (source: arXiv:1901.02446)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 <p>(1) Feature Pyramid Network (FPN)</p>
 <ul class="simple">
@@ -621,7 +621,7 @@
 <p>(3) Semantic segmentation branch</p>
 <div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn2.png"><img alt="pfpn2" class="bg-primary mb-1" src="../../_images/pfpn2.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Semantic segmentation branch (source: arXiv:1901.02446)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">Semantic segmentation branch (source: arXiv:1901.02446)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>FPN의 각 level별 feature를 1/4 scale에 맞춰 upsample함. 각 upsample 과정에서 3x3 convolution과 group norm, ReLU를 적용한 후 2x bilinear upsampling을 수행. (각 feature의 scale에 따라 최종적으로 1/4 scale이 되도록 반복적으로 적용함)</p></li>
@@ -655,14 +655,14 @@ c. stuff region의 label 중 ‘other’ class는 area threshold를 적용하여
 <h3>3. Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="pfpn-backbone">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn3.png"><img alt="pfpn3" class="bg-primary mb-1" src="../../_images/pfpn3.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">Backbone architechture (source: arXiv:1901.02446)</span><a class="headerlink" href="#pfpn-backbone" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Backbone architechture (source: arXiv:1901.02446)</span><a class="headerlink" href="#pfpn-backbone" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
-<li><p>Semantic segmenation에는 dilated conv.와(<a class="reference internal" href="#pfpn-backbone"><span class="std std-numref">Fig. 56</span></a>(b)), encoder-decoder(<a class="reference internal" href="#pfpn-backbone"><span class="std std-numref">Fig. 56</span></a>(c))가 backbone으로 주로 사용됨.</p></li>
+<li><p>Semantic segmenation에는 dilated conv.와(<a class="reference internal" href="#pfpn-backbone"><span class="std std-numref">Fig. 57</span></a>(b)), encoder-decoder(<a class="reference internal" href="#pfpn-backbone"><span class="std std-numref">Fig. 57</span></a>(c))가 backbone으로 주로 사용됨.</p></li>
 </ul>
 <div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn4.png"><img alt="pfpn4" class="bg-primary mb-1" src="../../_images/pfpn4.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 57 </span><span class="caption-text">Backbone architecture efficiency (source: arXiv:1901.02446)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 58 </span><span class="caption-text">Backbone architecture efficiency (source: arXiv:1901.02446)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>Panoptic FPN의 경우 Mask-RCNN 구조를 활용하는 것이 목표였지만, dilated-8 network 대비 가볍고  encoder-decoder 구조 대비 2배 가벼운 구조를 가짐을 확인할 수 있음.</p></li>
