@@ -48,6 +48,6 @@ Evolution of Panoptic Segmentation
 
 +++
 
-- 본 chapter에서는 panoptic segmentation 논문을 i) object detection 기반 방법과 ii) Transformer 기반 방법으로 구분하여 리뷰하고 각 지금까지의 발전 현황과 개선방안에 대해 고찰한다.
+- 본 chapter에서는 panoptic segmentation 논문을 i) box based methods와 ii) box-free methods로 구분하여 리뷰하고 각 지금까지의 발전 현황과 개선방안에 대해 고찰한다.
 
 *Latest update: Jun 7, 2022*

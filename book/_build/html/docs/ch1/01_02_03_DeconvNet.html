@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DeconvNet - ICCV 2015 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -23,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,19 +31,19 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -57,10 +56,7 @@
     <link rel="next" title="SegNet - TPAMI 2017" href="01_02_02_segnet.html" />
     <link rel="prev" title="U-Net - arxiv 2015" href="01_02_01_unet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -76,10 +72,6 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -99,7 +91,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semantic Segmentation
  </span>
@@ -176,7 +168,7 @@
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="01_03_transformer.html">
-   C. Transformer Based
+   C. Transformer based method
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -192,7 +184,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Instance Segmentation
  </span>
@@ -246,7 +238,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
@@ -258,8 +250,8 @@
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../ch3/03_01_FCN.html">
-   A. Detector based method
+  <a class="reference internal" href="../ch3/03_01_Box.html">
+   A. Box based method
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -269,7 +261,12 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch3/03_01_01_PanopticFPN.html">
-     [Draft] PanopticFPN - CVPR 2019
+     PanopticFPN - CVPR 2019
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_02_02_DETR.html">
+     DETR - ECCV 2020
     </a>
    </li>
    <li class="toctree-l2">
@@ -280,8 +277,8 @@
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../ch3/03_02_transformer.html">
-   B. Transformer based Method
+  <a class="reference internal" href="../ch3/03_02_Box_Free.html">
+   B. Box-free Method
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -290,11 +287,6 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch3/03_02_02_DETR.html">
-     [Draft] DETR - ECCV 2020
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../ch3/03_02_01_Max-DeepLab.html">
      [Draft] MaX-DeepLab - CVPR 21
     </a>
@@ -302,7 +294,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
@@ -358,7 +350,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -414,7 +406,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Appendix
  </span>
@@ -553,7 +545,7 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="deconvnet-iccv-2015">
+  <div class="section" id="deconvnet-iccv-2015">
 <h1>DeconvNet - ICCV 2015<a class="headerlink" href="#deconvnet-iccv-2015" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
@@ -570,8 +562,8 @@
 <li><p><strong>Last updated on Jan. 30, 2022</strong></p></li>
 </ul>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="motivation">
+</div>
+<div class="section" id="motivation">
 <h1>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h1>
 <ul>
 <li><p>Segmentation 모델인 FCN의 문제점을 지적하면서 논문의 introduction을 구성함</p></li>
@@ -579,12 +571,10 @@
 <ul>
 <li><p>큰 물체들은 나뉘어지거나, 작은 물체들은 무시됨</p></li>
 <li><p>Skip architecture 구조에도 근본적 해결 방식이 될 수 없음</p>
-<figure class="align-default" id="markdown-fig">
+<div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deconv1.png"><img alt="deconv1" class="bg-primary mb-1" src="../../_images/deconv1.png" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Limitations of semantic segmentation algorithm based on FCN  (source: arXiv:1505.04366)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Limitations of semantic segmentation algorithm based on FCN  (source: arXiv:1505.04366)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
 </li>
 </ul>
 </li>
@@ -594,18 +584,16 @@
 </ul>
 </li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="method">
+</div>
+<div class="section" id="method">
 <h1>Method<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>이 논문에서는 deconvolutional network를 활용해 전체적인 네트워크를 제안함</p></li>
 </ul>
-<figure class="align-default" id="id1">
+<div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deconv2.png"><img alt="deconv2" class="bg-primary mb-1" src="../../_images/deconv2.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Overall architecture of the DeconvNet (source: arXiv:1505.04366)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">Overall architecture of the DeconvNet (source: arXiv:1505.04366)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>Deconvolutional network에서는 크게 Unpooling, Deconvolution을 주로 소개함</p></li>
 <li><p>Unpooling: 하나의 픽셀을 각 축으로 factor만큼 늘림</p>
@@ -624,21 +612,17 @@
 </ul>
 </li>
 </ul>
-<figure class="align-default" id="id2">
+<div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deconv3.png"><img alt="deconv3" class="bg-primary mb-1" src="../../_images/deconv3.png" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Overall architecture of the DeconvNet (source: arXiv:1505.04366)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Overall architecture of the DeconvNet (source: arXiv:1505.04366)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>이를 종합했을 때, Unpooling 연산자에서 0으로 채워진 부분은, deconvolution operator를 통해 정상적으로 복구함을 알 수 있음</p></li>
 </ul>
-<figure class="align-default" id="id3">
+<div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deconv4.png"><img alt="deconv4" class="bg-primary mb-1" src="../../_images/deconv4.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Visualization of activations in DeconvNet (source: arXiv:1505.04366)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Visualization of activations in DeconvNet (source: arXiv:1505.04366)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>Unpooling을 통해 resolution이 높아짐. Deconvolution을 통해 중요한 activations는 증폭되고 noisy activations는 억제되면서 배경과 object가 더 뚜렷하게 구분됨.</p></li>
 <li><p><strong>Instancewise segmentation</strong>: input image 전체가 아닌 일부분을 input으로 사용</p>
@@ -654,8 +638,8 @@
 </ul>
 </li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="training">
+</div>
+<div class="section" id="training">
 <h1>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><strong>Batch Normalization</strong>: reducing internal-covariate-shift</p></li>
@@ -667,8 +651,8 @@
 </ul>
 </li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="inference">
+</div>
+<div class="section" id="inference">
 <h1>Inference<a class="headerlink" href="#inference" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>input image를 잘라내 candidate proposals를 생성 → 각 proposal을 학습된 네트워크에 적용해 semantic segmentation map을 계산 → 모든 proposals의 output을 aggregate</p></li>
@@ -692,8 +676,8 @@
 </ul>
 </li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="experiments-and-conclusion">
+</div>
+<div class="section" id="experiments-and-conclusion">
 <h1>Experiments and Conclusion<a class="headerlink" href="#experiments-and-conclusion" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p>candidate proposal 생성을 위해 edge-box 이용</p></li>
@@ -713,7 +697,7 @@
 <li><p>Deconvolution network, FCN, CRF, instancewise prediction의 장점을 이용해 더 정밀하고 자세한obejct segmentation mask를 생성.</p></li>
 </ul>
 <img alt="deconv7.png" class="bg-primary mb-1 align-center" src="../../_images/deconv7.png" />
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -767,7 +751,7 @@
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -783,7 +767,8 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>

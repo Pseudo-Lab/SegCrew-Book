@@ -34,13 +34,13 @@ parts:
 - caption: Panoptic Segmentation
   chapters:
   - file: docs/ch3/03_Panoptic Segmentation
-  - file: docs/ch3/03_01_FCN
+  - file: docs/ch3/03_01_Box
     sections:
     - file: docs/ch3/03_01_01_PanopticFPN
-    - file: docs/ch3/03_01_02_PanopticFCN
-  - file: docs/ch3/03_02_transformer
-    sections:
     - file: docs/ch3/03_02_02_DETR
+    - file: docs/ch3/03_01_02_PanopticFCN
+  - file: docs/ch3/03_02_Box_Free
+    sections:
     - file: docs/ch3/03_02_01_Max-DeepLab
 - caption: Weakly-supervised Segmentation
   chapters:

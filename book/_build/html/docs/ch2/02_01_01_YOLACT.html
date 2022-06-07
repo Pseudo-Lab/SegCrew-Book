@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YOLACT - ICCV 19 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -23,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,21 +31,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -59,10 +58,7 @@
     <link rel="next" title="SOLO - ECCV 20" href="02_01_02_SOLO.html" />
     <link rel="prev" title="A. Detector based Method" href="02_02_two_stage.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -78,10 +74,6 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -101,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semantic Segmentation
  </span>
@@ -178,7 +170,7 @@
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../ch1/01_03_transformer.html">
-   C. Transformer Based
+   C. Transformer based method
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -194,7 +186,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Instance Segmentation
  </span>
@@ -248,7 +240,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
@@ -260,8 +252,8 @@
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../ch3/03_01_FCN.html">
-   A. Detector based method
+  <a class="reference internal" href="../ch3/03_01_Box.html">
+   A. Box based method
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -271,7 +263,12 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch3/03_01_01_PanopticFPN.html">
-     [Draft] PanopticFPN - CVPR 2019
+     PanopticFPN - CVPR 2019
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_02_02_DETR.html">
+     DETR - ECCV 2020
     </a>
    </li>
    <li class="toctree-l2">
@@ -282,8 +279,8 @@
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../ch3/03_02_transformer.html">
-   B. Transformer based Method
+  <a class="reference internal" href="../ch3/03_02_Box_Free.html">
+   B. Box-free Method
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -292,11 +289,6 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch3/03_02_02_DETR.html">
-     [Draft] DETR - ECCV 2020
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../ch3/03_02_01_Max-DeepLab.html">
      [Draft] MaX-DeepLab - CVPR 21
     </a>
@@ -304,7 +296,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
@@ -360,7 +352,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -416,7 +408,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Appendix
  </span>
@@ -555,7 +547,7 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="yolact-iccv-19">
+  <div class="section" id="yolact-iccv-19">
 <h1>YOLACT - ICCV 19<a class="headerlink" href="#yolact-iccv-19" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
@@ -573,7 +565,7 @@
 <li><p><strong>Last updated on Mar. 18, 2022</strong></p></li>
 </ul>
 </div>
-<section id="problem-statement">
+<div class="section" id="problem-statement">
 <h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>State-of-the-art instance segmentation 네트워크들은 accuracy performance 를 집중해서 연구되었고, 이를 위해 localization 과
@@ -584,29 +576,25 @@ segmentation 순차적으로 진행되었습니다. 예를들면 Mask R-CNN 은 
 10 FPS 보다 느린 speed performance 를 보여줍니다.</p></li>
 <li><p>보통 25~30 FPS 이 넘으면 real-time 이라고 할수있는데 기존의 모델들은 그 기준에 한참 미치지 못합니다.</p></li>
 </ul>
-<figure class="align-default" id="markdown-fig">
+<div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/figure1.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/figure1.png" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Speed-performance trade-off (source arXiv:1904.02689)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="contribution">
+<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text">Speed-performance trade-off (source arXiv:1904.02689)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="contribution">
 <h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>YOLACT is the first real-time (above 30 FPS) approach with around 30 mask mAP on COCO test-dev</p></li>
 <li><p>A novel Fast NMS approach (12 ms faster than traditional NMS)</p></li>
 </ul>
-</section>
-<section id="proposed-method">
+</div>
+<div class="section" id="proposed-method">
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
 <p><strong>(1) Overview</strong></p>
-<figure class="align-default" id="id1">
+<div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/figure2.png"><img alt="figure2" class="bg-primary mb-1" src="../../_images/figure2.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 39 </span><span class="caption-text">YOLACT architecture (source arXiv:1904.02689)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 39 </span><span class="caption-text">YOLACT architecture (source arXiv:1904.02689)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <p><strong>(2) Prototype Generation</strong></p>
 <ul class="simple">
 <li><p>Prototype generation branch (protonet) predicts a set of k prototype masks for the entire image (no explicit localization step)</p></li>
@@ -615,12 +603,10 @@ segmentation 순차적으로 진행되었습니다. 예를들면 Mask R-CNN 은 
 <li><p>Learns a distributed representation whose instance is segmented with a combination of prototypes that are shared
 across categories</p></li>
 </ul>
-<figure class="align-default" id="id2">
+<div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/figure3.png"><img alt="figure3" class="bg-primary mb-1" src="../../_images/figure3.png" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Prototype behavior (source arXiv:1904.02689)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">Prototype behavior (source arXiv:1904.02689)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 <p><strong>(3) Mask Coefficient &amp; Assembly</strong></p>
 <ul class="simple">
 <li><p>Typical branches</p>
@@ -664,8 +650,8 @@ and mask loss, L_mask (=BCE(M, M_gt)) with weights 1, 1.5, 6.125</p></li>
 </li>
 <li><p>Reference: <a class="reference external" href="https://ganghee-lee.tistory.com/46">https://https://ganghee-lee.tistory.com/46</a></p></li>
 </ul>
-</section>
-<section id="experiments">
+</div>
+<div class="section" id="experiments">
 <h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this headline">¶</a></h2>
 <p><strong>(1) Datasets</strong></p>
 <ul class="simple">
@@ -688,8 +674,8 @@ and mask loss, L_mask (=BCE(M, M_gt)) with weights 1, 1.5, 6.125</p></li>
 <img alt="table1.png" class="bg-primary mb-1 align-center" src="../../_images/table1.png" />
 <img alt="table2.png" class="bg-primary mb-1 align-center" src="../../_images/table2.png" />
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/table3.png"><img alt="table3.png" class="bg-primary mb-1 align-center" src="../../_images/table3.png" style="width: 500px;" /></a>
-</section>
-<section id="discussion">
+</div>
+<div class="section" id="discussion">
 <h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Despite being much faster, YOLACT fall behind SOTA instance segmentation methods in overall performance</p></li>
@@ -716,8 +702,8 @@ can creep into the instance mask</p></li>
 </ul>
 <img alt="figure6r1c1.png" class="bg-primary mb-1 align-center" src="../../_images/figure6r1c1.png" />
 <img alt="figure6r2c4.png" class="bg-primary mb-1 align-center" src="../../_images/figure6r2c4.png" />
-</section>
-<section id="summary">
+</div>
+<div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Goal: faster (real-time) instance segmentation with competitive accuracy performance</p></li>
@@ -733,8 +719,8 @@ can creep into the instance mask</p></li>
 </ul>
 </li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -788,7 +774,7 @@ can creep into the instance mask</p></li>
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -804,7 +790,8 @@ can creep into the instance mask</p></li>
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>

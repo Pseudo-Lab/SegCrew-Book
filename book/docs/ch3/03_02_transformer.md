@@ -1,2 +1,0 @@
-# B. Transformer based Method
-

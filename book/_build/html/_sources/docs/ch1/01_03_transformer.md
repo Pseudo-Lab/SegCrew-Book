@@ -1,2 +1,2 @@
-# C. Transformer Based
+# C. Transformer based method
 
