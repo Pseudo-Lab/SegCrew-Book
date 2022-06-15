@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Revisiting CycleGAN for semi-supervised segmentation - arXiv:1908.11569 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -23,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,21 +31,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -59,10 +58,7 @@
     <link rel="next" title="s4GAN - arXiv:1908.05724" href="05_02_02_s4GAN.html" />
     <link rel="prev" title="B. GAN" href="05_02_GAN.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -78,10 +74,6 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -101,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semantic Segmentation
  </span>
@@ -194,7 +186,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Instance Segmentation
  </span>
@@ -248,7 +240,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
@@ -298,13 +290,13 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch3/03_02_01_Max-DeepLab.html">
-     [Draft] MaX-DeepLab - CVPR 21
+     MaX-DeepLab - CVPR 21
     </a>
    </li>
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
@@ -360,7 +352,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -416,7 +408,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Appendix
  </span>
@@ -574,7 +566,7 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="revisiting-cyclegan-for-semi-supervised-segmentation-arxiv-1908-11569">
+  <div class="section" id="revisiting-cyclegan-for-semi-supervised-segmentation-arxiv-1908-11569">
 <h1>Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569<a class="headerlink" href="#revisiting-cyclegan-for-semi-supervised-segmentation-arxiv-1908-11569" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
@@ -592,7 +584,7 @@
 <li><p><strong>Last updated on Jan. 5, 2022</strong></p></li>
 </ul>
 </div>
-<section id="background">
+<div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Semi-supervised Learning</p>
@@ -616,30 +608,28 @@
 </ul>
 </li>
 </ul>
-</section>
-<section id="contribution">
+</div>
+<div class="section" id="contribution">
 <h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>CycleGAN의 unpair domain adaptation ability를 이용하여 “unlabeled real image”에서 GT mask와 다시 image로 mapping하는 방법을 학습.</p></li>
 <li><p>Unlabeld dataset에 대해 적용 가능한 unsupervised regularization loss 제안</p></li>
 <li><p>기존 GAN 적용 semi-supervised semantic segmentation과 달리 CycleGAN을 이용하여 unlabed image와 GT mask간의 cycle consistent mapping을 수행.</p></li>
 </ol>
-</section>
-<section id="proposed-method">
+</div>
+<div class="section" id="proposed-method">
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
-<section id="cyclegan-for-semi-supervised-segmentation">
+<div class="section" id="cyclegan-for-semi-supervised-segmentation">
 <h3>1. CycleGAN for semi-supervised segmentation<a class="headerlink" href="#cyclegan-for-semi-supervised-segmentation" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>두 개의 conditional <strong>generator</strong>와 <strong>discriminator</strong>로 구성됨.</p></li>
 </ul>
-<figure class="align-default" id="markdown-fig">
+<div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/cycleGAN1.png"><img alt="cycleGAN1" class="bg-primary mb-1" src="../../_images/cycleGAN1.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 98 </span><span class="caption-text">Schematic explaining the working of proposed model (source: arXiv:1908.11569)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="loss-functions">
+<p class="caption"><span class="caption-number">Fig. 99 </span><span class="caption-text">Schematic explaining the working of proposed model (source: arXiv:1908.11569)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="loss-functions">
 <h3>2. Loss functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -649,12 +639,10 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
 <div class="math notranslate nohighlight">
 \[\arg\max_{G_{IS}, G_{SI}}\arg\max_{D_{S}, D_{I}}L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})\]</div>
 <p><strong>(1) For labeled dataset <span class="math notranslate nohighlight">\(\mathcal{X}_{\mathcal{L}}\)</span></strong></p>
-<figure class="align-default" id="id1">
+<div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/cycleGAN2.png"><img alt="cycleGAN2" class="bg-primary mb-1" src="../../_images/cycleGAN2.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 99 </span><span class="caption-text">Segmentation loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 100 </span><span class="caption-text">Segmentation loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <ul>
 <li><p>labeled data에 대해서는 pixel level의 classification을 위해 Cross-entropy Loss를 적용</p>
 <div class="math notranslate nohighlight">
@@ -667,12 +655,10 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
 </li>
 </ul>
 <p><strong>(2) Adversarial loss for unlabeled dataset</strong></p>
-<figure class="align-default" id="id2">
+<div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/cycleGAN3.png"><img alt="cycleGAN3" class="bg-primary mb-1" src="../../_images/cycleGAN3.png" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 100 </span><span class="caption-text">Adversarial loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 101 </span><span class="caption-text">Adversarial loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 <ul>
 <li><p>Generator G와 Discriminator D의 compete</p></li>
 <li><p>unlabeld image와 GT로 부터 생성된 image를 구분하기 위한 discriminator <span class="math notranslate nohighlight">\(D_I\)</span>을 위한 adversarial loss는 학습의 용의성을 위해 square loss 적용</p>
@@ -687,12 +673,10 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
 </li>
 </ul>
 <p><strong>(3) Cycle consistency loss for unlabeld dataset</strong></p>
-<figure class="align-default" id="id3">
+<div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/cycleGAN4.png"><img alt="cycleGAN4" class="bg-primary mb-1" src="../../_images/cycleGAN4.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 101 </span><span class="caption-text">Cycle consistency loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 102 </span><span class="caption-text">Cycle consistency loss (source: arXiv:1908.11569)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>Unlabeled data <span class="math notranslate nohighlight">\(\mathcal{X}_{\mathcal{U}}\)</span>를 generator <span class="math notranslate nohighlight">\(G_{IS}\)</span>로 label을 생성하고, 다시 generator <span class="math notranslate nohighlight">\(G_{SI}\)</span>를 이용하여 복원한 cycle의 output에 대해 L1 norm 적용 (최종 image를 sharper 하게 만들기 위함)</p></li>
 </ul>
@@ -703,14 +687,14 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
 </ul>
 <div class="math notranslate nohighlight">
 \[L_{\text{cycle}}^S(G_{IS},G_{SI})=\mathbb{E}_{y'\backsim\mathcal{Y}_{\mathcal{L}}}\left[ \mathcal{H}( G_{IS}(G_{SI}(y)))\right]\]</div>
-</section>
-<section id="implementation-details">
+</div>
+<div class="section" id="implementation-details">
 <h3>3. Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h3>
-</section>
-</section>
-<section id="experimental-result">
+</div>
+</div>
+<div class="section" id="experimental-result">
 <h2>Experimental Result<a class="headerlink" href="#experimental-result" title="Permalink to this headline">¶</a></h2>
-<section id="setting">
+<div class="section" id="setting">
 <h3>1. Setting<a class="headerlink" href="#setting" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Dataset</p>
@@ -724,8 +708,8 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
 <li><p>Labeled을 10, 20, 30, 50%를 사용하여 partial baseline 생성</p></li>
 <li><p>이전 SOTA와 비교: Adversarial learning for semi-supervised semantic segmentation</p></li>
 </ul>
-</section>
-<section id="result-discuss">
+</div>
+<div class="section" id="result-discuss">
 <h3>2. Result &amp; discuss<a class="headerlink" href="#result-discuss" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>20%의 label을 이용한 결과에서 기존 SOTA 방법의 경우 Partial baseline 대비 성능이 저하되지만, 제안된 방법의 경우 더 높은 성능을 나타냄</p></li>
@@ -742,9 +726,9 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
 <li><p>Discriminator loss의 경우 image discriminator가 더 성능에 큰 영향을 미침. 즉 생성된 이미지인지, real unlabeled 이미지인지 구분하는 판단이 더 중요함.</p></li>
 </ul>
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/cycleGAN9.png"><img alt="cycleGAN9.png" class="bg-primary mb-1 align-center" src="../../_images/cycleGAN9.png" style="width: 400px;" /></a>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -798,7 +782,7 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -814,7 +798,8 @@ L_{\text{total}}(G_{IS},G_{SI},D_{S},D_{I})&amp;=L_{\text{gen}}^S(G_{IS})+\lambd
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>

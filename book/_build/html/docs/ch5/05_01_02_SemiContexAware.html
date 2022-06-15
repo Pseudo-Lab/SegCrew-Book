@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -23,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,21 +31,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -59,10 +58,7 @@
     <link rel="next" title="B. GAN" href="05_02_GAN.html" />
     <link rel="prev" title="CCT - CVPR 2020" href="05_01_01_CCT.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -78,10 +74,6 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -101,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semantic Segmentation
  </span>
@@ -194,7 +186,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Instance Segmentation
  </span>
@@ -248,7 +240,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
@@ -298,13 +290,13 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch3/03_02_01_Max-DeepLab.html">
-     [Draft] MaX-DeepLab - CVPR 21
+     MaX-DeepLab - CVPR 21
     </a>
    </li>
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
@@ -360,7 +352,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -416,7 +408,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Appendix
  </span>
@@ -577,7 +569,7 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="semi-supervised-semantic-segmentation-with-directional-context-aware-consistency-cvpr-2021">
+  <div class="section" id="semi-supervised-semantic-segmentation-with-directional-context-aware-consistency-cvpr-2021">
 <h1>Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021<a class="headerlink" href="#semi-supervised-semantic-segmentation-with-directional-context-aware-consistency-cvpr-2021" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
@@ -595,37 +587,33 @@
 <li><p><strong>Last updated on Jan. 5, 2022</strong></p></li>
 </ul>
 </div>
-<section id="problem-statement">
+<div class="section" id="problem-statement">
 <h2>Problem statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>full label을 생성하기에 time-consuming이 많이 듬</p></li>
 <li><p>기존의 supervised learning은 적은 data로 인해서 overfitting이 많이 일어남 (Fig. 1 참조)</p></li>
 </ul>
-<figure class="align-default" id="markdown-fig">
+<div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext1.png"><img alt="context1" class="bg-primary mb-1" src="../../_images/semicontext1.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 92 </span><span class="caption-text">1/8 의 label만 사용하여 학습한 model을 GradCAM으로 visualization을 한 결과. (source: arXiv:2106.14133)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 93 </span><span class="caption-text">1/8 의 label만 사용하여 학습한 model을 GradCAM으로 visualization을 한 결과. (source: arXiv:2106.14133)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>기존의 segmentation은 receptive field의 한계로 인해서 context information에 대해서 학습을 하지 않음.</p></li>
 </ul>
-</section>
-<section id="contribution">
+</div>
+<div class="section" id="contribution">
 <h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
-<figure class="align-default" id="id1">
+<div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext2.png"><img alt="context2" class="bg-primary mb-1" src="../../_images/semicontext2.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 93 </span><span class="caption-text">Crop1 and Crop2 are randomly cropped from the same image with an overlapping region. (source: arXiv:2106.14133)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 94 </span><span class="caption-text">Crop1 and Crop2 are randomly cropped from the same image with an overlapping region. (source: arXiv:2106.14133)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>위의 그림과 같이 label이 있는 부분을 overlapping을 해서 patch데이터간의 consistency 를 주어지며 이른 context aware consistency라고 명시함</p></li>
 <li><p>contextual alignment를 주기 위해서 directional contrastive loss를 제시함 이는 pixel wise로 cosine similarity 주게 되는 방법을 의미함.</p></li>
 <li><p>데이터의 sampling 하는 새로운 방법을 제시함으로 negative sample와 ambiguous한 postive sample을 filtering함</p></li>
 </ul>
-</section>
-<section id="related-work">
+</div>
+<div class="section" id="related-work">
 <h2>Related work<a class="headerlink" href="#related-work" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>Semi-Supervised Semantic Segmentation with Cross-Consistency Training, CVPR 2020</p>
@@ -633,61 +621,53 @@
 <li><p>semi supervised 의 대표적인 방법중에 하나로 permutation 다양하게 부여하여 invaraince를 높임</p></li>
 <li><p>weakly label이 필요없는 장점이 있음.</p></li>
 </ul>
-<figure class="align-default" id="id2">
+<div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext3.png"><img alt="context3" class="bg-primary mb-1" src="../../_images/semicontext3.png" style="width: 500px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 94 </span><span class="caption-text">CCT architecture (source: arXiv:2003.09005)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 95 </span><span class="caption-text">CCT architecture (source: arXiv:2003.09005)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 </li>
 </ul>
-</section>
-<section id="proposed-method">
+</div>
+<div class="section" id="proposed-method">
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
-<section id="motivation">
+<div class="section" id="motivation">
 <h3>1. motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h3>
-<figure class="align-default" id="id3">
+<div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext4.png"><img alt="context4" class="bg-primary mb-1" src="../../_images/semicontext4.png" style="width: 500px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 95 </span><span class="caption-text">Visual comparison between contextual augmentation (I and II) and low-level augmentation (I and III) (source: arXiv:2106.14133)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 96 </span><span class="caption-text">Visual comparison between contextual augmentation (I and II) and low-level augmentation (I and III) (source: arXiv:2106.14133)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>노란색으로 되어진 overlapping region에서 weak augmentation (gaussian noise, color jitter) 했을때와 다른 위치의 patch를 구헀을때의 이미지임</p></li>
 <li><p>두번째 행에서 보는 바와 feature에서 T-SNE를 적용하면 weak augmentation에서는 feature space가 전혀 바뀌지 않음.</p></li>
 </ul>
-</section>
-<section id="network">
+</div>
+<div class="section" id="network">
 <h3>2 Network<a class="headerlink" href="#network" title="Permalink to this headline">¶</a></h3>
-<figure class="align-default" id="id4">
+<div class="figure align-default" id="id4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext5.png"><img alt="context5" class="bg-primary mb-1" src="../../_images/semicontext5.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 96 </span><span class="caption-text">Overview of framework (source: arXiv:2106.14133)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 97 </span><span class="caption-text">Overview of framework (source: arXiv:2106.14133)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>label,target image, unlabel image: <span class="math notranslate nohighlight">\(y_t ,x_t,x_u\)</span></p></li>
 <li><p>overlapping image(w/label),non overlapping image(wo/label) : <span class="math notranslate nohighlight">\(x_{u1},x_o,x_{u2}\)</span></p></li>
 <li><p>project feature : <span class="math notranslate nohighlight">\(\varPhi\)</span></p></li>
 </ul>
-</section>
-<section id="context-aware-consistency">
+</div>
+<div class="section" id="context-aware-consistency">
 <h3>2.1 Context-aware Consistency<a class="headerlink" href="#context-aware-consistency" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>low level feature projection을 시킨후 upsacaling을 한결과를 label의 영역간의 pixel wise constrative loss를 적용시켜줌</p></li>
 <li><p>저자는 low level에서 feature를 projection을 시키면 좀더 context에 대해서 학습할수있다고 ablation result를 통해서 보여줌</p></li>
 </ul>
-</section>
-<section id="directional-contrastive-loss-dc-loss">
+</div>
+<div class="section" id="directional-contrastive-loss-dc-loss">
 <h3>2.2 Directional Contrastive loss(DC loss)<a class="headerlink" href="#directional-contrastive-loss-dc-loss" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>기존의 contrastive loss의 경우 MSE를 적용하여주었지만 저자는 cosine simliarity를 통해서 문제를 접근함.</p>
-<figure class="align-default" id="id5">
+<div class="figure align-default" id="id5">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/semicontext6.png"><img alt="context6" class="bg-primary mb-1" src="../../_images/semicontext6.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 97 </span><span class="caption-text">Comparison between vanilla CL and DCL (source: arXiv:2106.14133)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 98 </span><span class="caption-text">Comparison between vanilla CL and DCL (source: arXiv:2106.14133)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
 <div class="math notranslate nohighlight">
 \[l_{dc}^{b}(\phi_{o_1},\phi_{o_2})=-\frac{1}{N}\sum_{h,w}\mathcal{M}_{d}^{h,w}\cdot\log\frac{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})}{r(\phi_{o_1}^{h,w},\phi_{o_2}^{h,w})+\sum_{\phi_n \in \mathcal{F_u}}r(\phi_{o_1}^{h,w},\phi_{n})}\]</div>
 <div class="math notranslate nohighlight">
@@ -702,8 +682,8 @@
 <li><p>반면에 negative pair에 관해서는 분모로 두어서 더 similarity를 멀게 만듬</p></li>
 <li><p><span class="math notranslate nohighlight">\(M_d^{h,w}\)</span> 같은 경우 pixel단위로 target되어지는 pixel이 source pixel보다 크면 loss를 계산함.</p></li>
 </ul>
-</section>
-<section id="sampling-strategies">
+</div>
+<div class="section" id="sampling-strategies">
 <h3>2.3 sampling Strategies<a class="headerlink" href="#sampling-strategies" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>negative pair의 양을 조절해야되기때문에 pseudo label에서 negative의 prediction을 값을 통해서 filtering을 함</p>
@@ -721,17 +701,17 @@
 <ul class="simple">
 <li><p>이러한 방법들을 바탕으로 CAM을 통해서 weak-superivsed도 문제를 접근할수 있음</p></li>
 </ul>
-</section>
-<section id="experimnets">
+</div>
+<div class="section" id="experimnets">
 <h3>Experimnets<a class="headerlink" href="#experimnets" title="Permalink to this headline">¶</a></h3>
 <img alt="context12.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext12.png" />
 <img alt="context13.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext13.png" />
 <img alt="context14.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext14.png" />
 <img alt="context15.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext15.png" />
 <img alt="context16.png" class="bg-primary mb-1 align-center" src="../../_images/semicontext16.png" />
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -785,7 +765,7 @@
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -801,7 +781,8 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>

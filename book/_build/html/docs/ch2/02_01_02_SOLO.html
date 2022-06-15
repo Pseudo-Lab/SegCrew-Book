@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SOLO - ECCV 20 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -23,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,21 +31,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -59,10 +58,7 @@
     <link rel="next" title="[Draft] Mask R-CNN - ICCV 2017" href="02_02_01_MaskRCNN.html" />
     <link rel="prev" title="YOLACT - ICCV 19" href="02_01_01_YOLACT.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -78,10 +74,6 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -101,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semantic Segmentation
  </span>
@@ -194,7 +186,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Instance Segmentation
  </span>
@@ -248,7 +240,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
@@ -298,13 +290,13 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch3/03_02_01_Max-DeepLab.html">
-     [Draft] MaX-DeepLab - CVPR 21
+     MaX-DeepLab - CVPR 21
     </a>
    </li>
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
@@ -360,7 +352,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -416,7 +408,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Appendix
  </span>
@@ -590,7 +582,7 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="solo-eccv-20">
+  <div class="section" id="solo-eccv-20">
 <h1>SOLO - ECCV 20<a class="headerlink" href="#solo-eccv-20" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
@@ -607,7 +599,7 @@
 <li><p><strong>Last updated on Jun. 4, 2022</strong></p></li>
 </ul>
 </div>
-<section id="problem-statement">
+<div class="section" id="problem-statement">
 <h2>Problem statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Instance segmentation의 pixel level로 image내의 모든 object를 segmentation 하는 것이 목적이다.</p></li>
@@ -619,23 +611,19 @@
 </ul>
 </li>
 </ul>
-<figure class="align-default" id="markdown-fig">
+<div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="https://blog.kakaocdn.net/dn/c8y9So/btryEtVYFCm/sBkHBI5JATKf8e2KMzc9q0/img.png"><img alt="figure1" class="bg-primary mb-1" src="https://blog.kakaocdn.net/dn/c8y9So/btryEtVYFCm/sBkHBI5JATKf8e2KMzc9q0/img.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Comparison of the pipelines of Mask R-CNN and the proposed SOLO (source: arXiv:1912.04488)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-<figure class="align-default" id="id1">
+<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Comparison of the pipelines of Mask R-CNN and the proposed SOLO (source: arXiv:1912.04488)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="https://blog.kakaocdn.net/dn/bHSHi0/btryBq7l1VA/bKriUevoEQrAhVzDauelkK/img.png"><img alt="figure2" class="bg-primary mb-1" src="https://blog.kakaocdn.net/dn/bHSHi0/btryBq7l1VA/bKriUevoEQrAhVzDauelkK/img.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 42 </span><span class="caption-text">Sequential Group Networks (SGN) (source: SGN: Sequential Grouping Networks for Instance Segmentation, ICCV 2017)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">Sequential Group Networks (SGN) (source: SGN: Sequential Grouping Networks for Instance Segmentation, ICCV 2017)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>하지만 위의 방식들은 여러 step 구성되어 있으며, indirect 한 방법으로 detection의 성능에 의존성이 있거나, embedding learning 또는 group processing에 의존하는 문제가 있다.</p></li>
 </ul>
-</section>
-<section id="contribution">
+</div>
+<div class="section" id="contribution">
 <h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>별도의 bounding box 및 pixel간의 pairwise relation 정보 없이 full instance mask annotation을 supervision으로 바로(directly) instance mask를 구하는 framework을 제안함.</p></li>
@@ -648,19 +636,17 @@
 </ol>
 </li>
 </ul>
-</section>
-<section id="proposed-method">
+</div>
+<div class="section" id="proposed-method">
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>FPN(Feature Pyramid Network) backbone으로 feature를 추출한 후 각 grid의 probability를 도출하는 Category branch와 각 instance의 mask를 추정하는 Mask branch로 구성됨.</p></li>
 </ul>
-<figure class="align-default" id="id2">
+<div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="https://blog.kakaocdn.net/dn/dd4mWO/btryDJ5z74b/N5WyUgqkhqHYLSoXhmgXQK/img.png"><img alt="figure3" class="bg-primary mb-1" src="https://blog.kakaocdn.net/dn/dd4mWO/btryDJ5z74b/N5WyUgqkhqHYLSoXhmgXQK/img.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 43 </span><span class="caption-text">SOLO framework (source: arXiv:1912.04488)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-<section id="semantic-category">
+<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">SOLO framework (source: arXiv:1912.04488)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="semantic-category">
 <h3>1. <strong>Semantic Category</strong><a class="headerlink" href="#semantic-category" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>COCO validation subset에 존재하는  36,780개 object 중 98.3% object pair의 center distance가 30 pixel 이상이고, 나머지 1.7%의 40.5%의 size ratio가 1.5배 이상임을 확인</p>
@@ -671,8 +657,8 @@
 </li>
 <li><p>Input image를 <span class="math notranslate nohighlight">\(S\times S\)</span> grid로 분할하고 각 grid별로 class probability를 구함. Category branch는  <span class="math notranslate nohighlight">\(S\times S \times C\)</span> 의 output space를 가지도록 구성함.</p></li>
 </ul>
-</section>
-<section id="instance-mask">
+</div>
+<div class="section" id="instance-mask">
 <h3>2. <strong>Instance mask</strong><a class="headerlink" href="#instance-mask" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Semantic category의 positive grid cell의 instance mask를 추정.</p></li>
@@ -687,14 +673,12 @@
 <li><p>이를 극복하기 위해 CoordConv을 적용하여 coordinate aware한 instance mask를 추정함.  (appendix 1.)</p></li>
 <li><p>Interpolation, adaptive-pooling, region grid-interpolation를 적용하여 <span class="math notranslate nohighlight">\(S \times S \times C\)</span> resolution의 output을 얻고 대해 loss를 적용함.</p></li>
 </ul>
-<figure class="align-default" id="id3">
+<div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="https://blog.kakaocdn.net/dn/1gSn8/btryF8DC39W/drE3Ety8bSJusZ9LdCabQk/img.png"><img alt="figure4" class="bg-primary mb-1" src="https://blog.kakaocdn.net/dn/1gSn8/btryF8DC39W/drE3Ety8bSJusZ9LdCabQk/img.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 44 </span><span class="caption-text">SOLO Head architecture (source: arXiv:1912.04488)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="solo-learning">
+<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">SOLO Head architecture (source: arXiv:1912.04488)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="solo-learning">
 <h3>3. SOLO learning<a class="headerlink" href="#solo-learning" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Label Assignment</p>
@@ -739,8 +723,8 @@
 </ul>
 </li>
 </ul>
-</section>
-<section id="inference">
+</div>
+<div class="section" id="inference">
 <h3>4. Inference<a class="headerlink" href="#inference" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>입력 영상에 대해 FPN을 이용하여 category score <span class="math notranslate nohighlight">\(\mathbf{p}_{i,j}\)</span>와 각 grid에 대응되는 mask <span class="math notranslate nohighlight">\(\mathbf{m}_k\)</span>를 얻음</p></li>
@@ -754,11 +738,11 @@
 <p>classification score와 곱하여 최종 confidence score를 계산함.</p>
 </li>
 </ul>
-</section>
-</section>
-<section id="experiments">
+</div>
+</div>
+<div class="section" id="experiments">
 <h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this headline">¶</a></h2>
-<section id="implementation-details">
+<div class="section" id="implementation-details">
 <h3>1. Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Optimization: Stochastic gradient descent (SDG), synchronized SGD over 8 GPUs</p></li>
@@ -772,8 +756,8 @@
 <li><p>ImageNet Pre-trained weight 적용</p></li>
 <li><p>짧은 image side의 크기가 640~800 pixel 사이로 random하게 sampling하는 scale jitter를 적용함.</p></li>
 </ul>
-</section>
-<section id="main-result">
+</div>
+<div class="section" id="main-result">
 <h3>2.  Main Result<a class="headerlink" href="#main-result" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Test Dataset: MS COCO instance segmentation benchmark, 5k val2017 split.</p></li>
@@ -785,8 +769,8 @@
 <li><p>각 grid에 해당하는 soft mask prediction를 보면 각 instance의 mask를 나타냄을 확인할 수 있음. SOLO framework이 instance segmentation 문제를 position aware classification task로 처리한다는 것을 알 수 있음</p></li>
 </ul>
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/solo3.png"><img alt="solo3.png" class="bg-primary mb-1 align-center" src="../../_images/solo3.png" style="width: 600px;" /></a>
-</section>
-<section id="ablation-experiments">
+</div>
+<div class="section" id="ablation-experiments">
 <h3>3. Ablation Experiments<a class="headerlink" href="#ablation-experiments" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Grid 수에 따른 성능을 비교한 결과 single output feature map에 대해 mask AP가 큰 차이가 나지 않음을 알 수 있음. → SOLO framework이 grid 크기에 큰 영향을 미치지 않음을 알 수 있음.</p></li>
@@ -803,9 +787,9 @@
 <li><p>Dice Loss가 loss hyper-parameter를 직접 조절하지 않고도 가장 높은 성능을 보였다.  Dice Loss는 foreground/background pixel간의 올바른 균형을 잡을 수 있다. BCE와 FL도 hyper-parameter를 잘 조절하고 learning시 트릭을 사용하면 성능이 개선될 수 있지만. Dice loss가 학습이 더 안정적이고, 경험적인 방법을 사용하지 않고도 좋은 결과를 얻을 가성이 높다</p></li>
 </ul>
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/solo6.png"><img alt="solo6.png" class="bg-primary mb-1 align-center" src="../../_images/solo6.png" style="width: 600px;" /></a>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -859,7 +843,7 @@
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -875,7 +859,8 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>

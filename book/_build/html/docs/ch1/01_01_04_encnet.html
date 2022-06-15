@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EncNet - CVPR 2018 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -23,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,21 +31,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -59,10 +58,7 @@
     <link rel="next" title="B. Convolutional encoder-decoder" href="01_02_encodedecode.html" />
     <link rel="prev" title="PSPNet - CVPR 2017" href="01_01_03_pspnet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -78,10 +74,6 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -101,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semantic Segmentation
  </span>
@@ -194,7 +186,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Instance Segmentation
  </span>
@@ -248,7 +240,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
@@ -298,13 +290,13 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch3/03_02_01_Max-DeepLab.html">
-     [Draft] MaX-DeepLab - CVPR 21
+     MaX-DeepLab - CVPR 21
     </a>
    </li>
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
@@ -360,7 +352,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -416,7 +408,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Appendix
  </span>
@@ -584,7 +576,7 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="encnet-cvpr-2018">
+  <div class="section" id="encnet-cvpr-2018">
 <h1>EncNet - CVPR 2018<a class="headerlink" href="#encnet-cvpr-2018" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
@@ -602,7 +594,7 @@
 <li><p><strong>Last updated on Jan. 30, 2022</strong></p></li>
 </ul>
 </div>
-<section id="summary">
+<div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>channel attention을 통해 scene에 존재하는 label외의 label에 대한 prediction을 suppress해줌.</p></li>
@@ -611,8 +603,8 @@
 → 부수적으로 input image의 classification도 수행</p></li>
 <li><p>Soft attention: attention를 통한 feature channel의 select가 아닌 weight의 역할을 함.</p></li>
 </ul>
-</section>
-<section id="motivation">
+</div>
+<div class="section" id="motivation">
 <h2>1. Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Vanila CNN → Dilated CNN 활용으로 패러다임 전환이 되면서 문제가 생김.</p>
@@ -638,16 +630,14 @@
 </ul>
 </li>
 </ul>
-</section>
-<section id="contribution">
+</div>
+<div class="section" id="contribution">
 <h2>2. Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
-<figure class="align-default" id="markdown-fig">
+<div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/encnet1.png"><img alt="encnet1" class="bg-primary mb-1" src="../../_images/encnet1.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Overview of the EncNet (source: arXiv:1803.08904)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-<section id="context-encoding-module-se-loss">
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">Overview of the EncNet (source: arXiv:1803.08904)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="context-encoding-module-se-loss">
 <h3>Context Encoding Module &amp; SE-loss<a class="headerlink" href="#context-encoding-module-se-loss" title="Permalink to this headline">¶</a></h3>
 <p>(i) Context Encoding Module</p>
 <ul class="simple">
@@ -721,8 +711,8 @@
 </ul>
 </li>
 </ul>
-</section>
-<section id="context-encoding-network-encnet">
+</div>
+<div class="section" id="context-encoding-network-encnet">
 <h3>Context Encoding Network(EncNet)<a class="headerlink" href="#context-encoding-network-encnet" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>앞서 제시한 module들을 기반으로 제시한 Segmentation architecture</p></li>
@@ -734,11 +724,11 @@
 </li>
 <li><p>기존 pixelwise crossentropy loss와 가중합을 통해 total loss를 구한다</p></li>
 </ul>
-</section>
-</section>
-<section id="id1">
+</div>
+</div>
+<div class="section" id="id1">
 <h2>3. 실험 결과<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<section id="segmentation">
+<div class="section" id="segmentation">
 <h3>Segmentation<a class="headerlink" href="#segmentation" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>PASCAL context, PASCAL VOC 2012, ADE20K 사용</p></li>
@@ -748,16 +738,16 @@
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/encnet2.png"><img alt="encnet2.png" class="bg-primary mb-1 align-center" src="../../_images/encnet2.png" style="width: 400px;" /></a>
 <p><img alt="encnet3.png" src="../../_images/encnet3.png" /></p>
 <img alt="encnet3.png" class="bg-primary mb-1 align-center" src="../../_images/encnet3.png" />
-</section>
-<section id="ablation-study">
+</div>
+<div class="section" id="ablation-study">
 <h3>Ablation study<a class="headerlink" href="#ablation-study" title="Permalink to this headline">¶</a></h3>
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/encnet4.png"><img alt="encnet4.png" class="bg-primary mb-1 align-center" src="../../_images/encnet4.png" style="width: 400px;" /></a>
 <ul class="simple">
 <li><p>SE-loss를 통해 성능 향상을 이룰 수 있다는 것을 검증하였다.</p></li>
 <li><p>또한, K를 증가시킬수록 mIOU가 높아지기 때문에, 성능 향상이 이루어진다는 것을 알 수 있다.</p></li>
 </ul>
-</section>
-<section id="other-datasets">
+</div>
+<div class="section" id="other-datasets">
 <h3>Other datasets<a class="headerlink" href="#other-datasets" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>PASCAL VOC 2012</p></li>
@@ -775,8 +765,8 @@
 </ul>
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/encnet6.png"><img alt="encnet6.png" class="bg-primary mb-1 align-center" src="../../_images/encnet6.png" style="width: 400px;" /></a>
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/encnet7.png"><img alt="encnet7.png" class="bg-primary mb-1 align-center" src="../../_images/encnet7.png" style="width: 400px;" /></a>
-</section>
-<section id="classification">
+</div>
+<div class="section" id="classification">
 <h3>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Context Encoding Module을 classification에 적용해 보았다.</p></li>
@@ -789,9 +779,9 @@
 <li><p>기존 네트워크와 비교하여 큰 성능향상을 달성하였다.</p></li>
 </ul>
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/encnet8.png"><img alt="encnet8.png" class="bg-primary mb-1 align-center" src="../../_images/encnet8.png" style="width: 400px;" /></a>
-</section>
-</section>
-<section id="id2">
+</div>
+</div>
+<div class="section" id="id2">
 <h2>4. 정리<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>Global Context를 잘 포착하기 위해 저자들은 여러 방법들을 생각해냈다.</p>
@@ -805,8 +795,8 @@
 <li><p>앞서 제시한 두 가지 모듈 또한 성능 향상에 확실히 기여함을 밝힐 수 있었다.</p></li>
 <li><p>Classification에도 적용해본 결과, Context Encoding module이 효과적으로 scene의 context를 잘 포착하여 classification 정확도 또한 올라가는 것을 관찰했다.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -860,7 +850,7 @@
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -876,7 +866,8 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>
