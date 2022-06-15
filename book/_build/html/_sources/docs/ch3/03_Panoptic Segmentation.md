@@ -31,10 +31,10 @@ GT and predicted panoptic segmentations of an image (source: arXiv:1801.00868)
 - PQ는 match되는 segment에 대한 평균 IoU에 match되지 않는 segment에 대한 페널티 $\left(\frac{1}{2}|FP| +\frac{1}{2} |FN |\right)$ 가 추가된 형태로 구성되어 있다.  PQ를 TP 항을 추가하여 분리하면 SQ(segmentation Quaility) 항과 RQ(recognition quality) 항의 곱으로 표현 가능하다. RQ는 널리 사용되는 F1 score로 해석할 수 있다. 
 
 $$
-\text{PQ}=\frac{\sum_{(p,q) \in \text{TP}}\text{IoU}(p,q)}{|\text{TP}|}\times\frac{\text{TP}}{{|\text{TP}|+\frac{1}{2}|\text{FP}|+\frac{1}{2}|\text{FN}|}}
+\text{PQ}=\underbrace{\frac{\sum_{(p,q) \in \text{TP}}\text{IoU}(p,q)}{|\text{TP}|}}_{\text{SQ}}\times \underbrace{\frac{\text{TP}}{{|\text{TP}|+\frac{1}{2}|\text{FP}|+\frac{1}{2}|\text{FN}|}}}_{\text{RQ}}
 $$
 
-- PQ 계산시 void labels (unknown pixels 또는 out of class pixel)은 계산과정에서 제외한다. 
+- PQ 계산시 void labels (unknown pixels 또는 out of class pixel)은 계산과정에서 제외한다.
 
 ## Trend
 

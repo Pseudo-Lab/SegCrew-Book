@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>s4GAN - arXiv:1908.05724 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,21 +32,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -58,7 +59,10 @@
     <link rel="next" title="Tutorial: DenseCRF for segmentation task" href="../Appendix/DenseCRF.html" />
     <link rel="prev" title="Revisiting CycleGAN for semi-supervised segmentation - arXiv:1908.11569" href="05_02_01_Revisiting_CycleGAN.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -74,6 +78,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -93,7 +101,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Semantic Segmentation
  </span>
@@ -186,7 +194,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Instance Segmentation
  </span>
@@ -240,7 +248,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
@@ -296,7 +304,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
@@ -352,7 +360,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -408,7 +416,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
@@ -623,7 +631,7 @@
         
               <div>
                 
-  <div class="section" id="s4gan-arxiv-1908-05724">
+  <section class="tex2jax_ignore mathjax_ignore" id="s4gan-arxiv-1908-05724">
 <h1>s4GAN - arXiv:1908.05724<a class="headerlink" href="#s4gan-arxiv-1908-05724" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
@@ -641,7 +649,7 @@
 <li><p><strong>Last updated on Jan. 5, 2022</strong></p></li>
 </ul>
 </div>
-<div class="section" id="abstract">
+<section id="abstract">
 <h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>수량이 제한된 pixel-wise annotated samples (labeled dataset)과 추가적인 annotation-free images(unlabeled dataset)을 이용하여 학습.</p></li>
@@ -649,20 +657,22 @@
 <li><p>아주 적은 수의 labeled samples를 이용한 학습 과정에서 발생할 수 있는 low/high-level artifacts를 줄이기 위한 Dual-branch approach</p></li>
 <li><p>PASCAL VOC 2012, PASCAL-Context, and Cityscapes에서 semi-supervised learning 기법 중 SOTA 달성</p></li>
 </ul>
-</div>
-<div class="section" id="problem-statement">
+</section>
+<section id="problem-statement">
 <h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
 <p>limited data로 학습된 CNN이 두 가지 failure mode를 가질 수 있음</p>
 <ul class="simple">
 <li><p>Low-level detail이 부정확함 (틀린 object shape, 부정확한 boundary, 말이 안되는 surfaces)</p></li>
 <li><p>Misinterpretation of high-level information (figure 1. (d), 이미지의 많은 영역을 틀린 class로 예측하는 경우)</p></li>
 </ul>
-<div class="figure align-default" id="markdown-fig">
+<figure class="align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN1.png"><img alt="s4GAN1" class="bg-primary mb-1" src="../../_images/s4GAN1.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 103 </span><span class="caption-text">(a) PASCAL VOC dataset, (b) GT, (c) 5%만 가지고 supervised 방식으로 학습한 결과, (d) 95% unlabeled 데이터 가지고 제안된 GAN 기반의 branch로 shape estimation을 향상시킨 결과, (e) second branch가 false positive를 없앰으로써 high-level consistency를 가져온 결과, (f) 100% 전체로 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="proposed-method">
+<figcaption>
+<p><span class="caption-number">Fig. 102 </span><span class="caption-text">(a) PASCAL VOC dataset, (b) GT, (c) 5%만 가지고 supervised 방식으로 학습한 결과, (d) 95% unlabeled 데이터 가지고 제안된 GAN 기반의 branch로 shape estimation을 향상시킨 결과, (e) second branch가 false positive를 없앰으로써 high-level consistency를 가져온 결과, (f) 100% 전체로 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="proposed-method">
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>High/low-level artifacts에 각각 대응하기 위한 Two network branch architecture 제안</p>
@@ -689,11 +699,11 @@
 </li>
 <li><p>두 branch가 상호 보완적으로 low &amp; high-level error에 대응함을 확인 (Fig1 (e))</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="related-work">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="related-work">
 <h1>Related Work<a class="headerlink" href="#related-work" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="weakly-supervised-and-semi-supervised-segmentation">
+<section id="weakly-supervised-and-semi-supervised-segmentation">
 <h2>(1) Weakly-supervised and Semi-supervised Segmentation<a class="headerlink" href="#weakly-supervised-and-semi-supervised-segmentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Weakly-supervised segmentation : image-level class labels, bounding boxes, scribble 사용</p></li>
@@ -713,8 +723,8 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="semi-supervised-classification">
+</section>
+<section id="semi-supervised-classification">
 <h2>(2) Semi-supervised Classification<a class="headerlink" href="#semi-supervised-classification" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>segmentation과 달리 Classification 위한 semi-supervised 방법론들은 많음</p></li>
@@ -727,8 +737,8 @@
 </li>
 <li><p><strong>제안된 s4GAN은 Mean-Teacher method 적용</strong></p></li>
 </ul>
-</div>
-<div class="section" id="network-fusion">
+</section>
+<section id="network-fusion">
 <h2>(3) Network Fusion<a class="headerlink" href="#network-fusion" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Fuse spatial and class information by channel-wise selection 하는 방식 많이 제안됨.</p></li>
@@ -736,13 +746,15 @@
 <li><p><a class="reference external" href="https://arxiv.org/abs/1506.04924">[Hong, NIPS 2015]</a>, <a class="reference external" href="https://arxiv.org/abs/1703.08448">[Wei, CVPR 2017]</a>, <a class="reference external" href="https://arxiv.org/abs/1805.04574">[Wei, CVPR 2018]</a> : semi- and weakly supervised semantic segmentation에서 classification 사용 유무를 실험함으로써 class information 영향을 실험함</p></li>
 <li><p><strong>s4GAN은 spatial과 class information을 decouple해서 late fusion 함으로써 false positive class channels를 제거함.</strong></p></li>
 </ul>
-</div>
-<div class="section" id="id1">
+</section>
+<section id="id1">
 <h2>Proposed Method<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-default" id="id2">
+<figure class="align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN2.png"><img alt="s4GAN2" class="bg-primary mb-1" src="../../_images/s4GAN2.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 104 </span><span class="caption-text">s4GAN branch는 gan 기반의 모델로 low-level detail을 잘 잡아준다. MLMT branch는 semi-supervised multi-label classification을 수행해서 class-level information을 사용해서 false-positive prediction을 segmentation map에서 없애준다. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 103 </span><span class="caption-text">s4GAN branch는 gan 기반의 모델로 low-level detail을 잘 잡아준다. MLMT branch는 semi-supervised multi-label classification을 수행해서 class-level information을 사용해서 false-positive prediction을 segmentation map에서 없애준다. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>Lower branch : predicts <code class="docutils literal notranslate"><span class="pre">pixel-wise</span> <span class="pre">class</span> <span class="pre">labels</span> <span class="pre">=</span> <span class="pre">s4GAN</span></code> (semi-supervised semantic segmentation)</p>
 <ul>
@@ -760,12 +772,14 @@
 </li>
 <li><p>두 branches가 상호 보완적으로 동작함.</p></li>
 </ul>
-<div class="section" id="s4gan-for-semantic-segmentation">
+<section id="s4gan-for-semantic-segmentation">
 <h3>(1) s4GAN for Semantic Segmentation<a class="headerlink" href="#s4gan-for-semantic-segmentation" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="id3">
+<figure class="align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN3.png"><img alt="s4GAN3" class="bg-primary mb-1" src="../../_images/s4GAN3.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 105 </span><span class="caption-text">s4GAN branch (source: arXiv:1908.05724)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 104 </span><span class="caption-text">s4GAN branch (source: arXiv:1908.05724)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>segmentation network <span class="math notranslate nohighlight">\(S\)</span> : generator로 이미지 x를 받아서 <span class="math notranslate nohighlight">\(C\)</span>개의 segmentation maps를 만들어낸다. (<span class="math notranslate nohighlight">\(C\)</span>: 클래스 수)</p></li>
 <li><p>Discriminator <span class="math notranslate nohighlight">\(D\)</span>: concatenated input of original image and corresponding predicted segmentation을 받아서 real segmentation map의 distribution statistics와 비교</p></li>
@@ -809,13 +823,15 @@
 <p>여기서 <span class="math notranslate nohighlight">\(\oplus\)</span>은 concatenate 연산이다.</p>
 </li>
 </ul>
-</div>
-<div class="section" id="multi-label-semi-supervised-classification-multi-label-mean-teacher-mlmt">
+</section>
+<section id="multi-label-semi-supervised-classification-multi-label-mean-teacher-mlmt">
 <h3>(2) Multi-label Semi-supervised Classification: Multi-Label Mean Teacher(MLMT)<a class="headerlink" href="#multi-label-semi-supervised-classification-multi-label-mean-teacher-mlmt" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="id4">
+<figure class="align-default" id="id4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN4.png"><img alt="s4GAN4" class="bg-primary mb-1" src="../../_images/s4GAN4.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 106 </span><span class="caption-text">MLMT branch (source: arXiv:1908.05724)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 105 </span><span class="caption-text">MLMT branch (source: arXiv:1908.05724)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul>
 <li><p>Ensemble-based semi-supervised <strong>classification</strong> method (Mean Teacher)를 semi-supervised <strong>multi-label</strong> image classification으로 확장함</p></li>
 <li><p>Student network <span class="math notranslate nohighlight">\(G\)</span>와 teacher network <span class="math notranslate nohighlight">\(H\)</span>로 구성됨.</p>
@@ -830,8 +846,8 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="id5">
+</section>
+<section id="id5">
 <h3>(3) Network Fusion<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>두 branches는 별개로 학습된다.</p></li>
@@ -845,12 +861,12 @@
 </ul>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="section" id="experiment">
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="experiment">
 <h1>Experiment<a class="headerlink" href="#experiment" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="setting">
+<section id="setting">
 <h2>(1) Setting<a class="headerlink" href="#setting" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Datasets</p>
@@ -887,22 +903,24 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="results">
+</section>
+<section id="results">
 <h2>(2) Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>PASCAL VOC 2012, PASCAL-Context, Cityscapes로 실험 결과 기존 SSL 기반 방법들에 성능이 향상됨을 확인할 수 있고, semi-supervised semantic segmentation에서도 new SOTA를 달성함.</p></li>
 </ul>
-<div class="figure align-default" id="id6">
+<figure class="align-default" id="id6">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN5.png"><img alt="s4GAN5" class="bg-primary mb-1" src="../../_images/s4GAN5.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 107 </span><span class="caption-text">Semi-supervised Semantic Segmentation: 제안하는 SSL을 사용해서 baselines보다 더 잘 예측함. 특히 5% 미만으로 labeled data를 사용했을 때 성능 향상이 큼 (a): pretraining 없이 PASCAL VOC 에 대한 성능, (b) COCO pre-training 하고 한 것 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 106 </span><span class="caption-text">Semi-supervised Semantic Segmentation: 제안하는 SSL을 사용해서 baselines보다 더 잘 예측함. 특히 5% 미만으로 labeled data를 사용했을 때 성능 향상이 큼 (a): pretraining 없이 PASCAL VOC 에 대한 성능, (b) COCO pre-training 하고 한 것 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>특히 2% labeled data에서 SOTA (Deeplabv2) 대비 11% 성능 향상을 가져옴</p></li>
 <li><p>추가적으로 extra image-level weak annotations이 있을 때 이를 쉽게 적용할 수 있을 것이라 기대할 수 있음.</p></li>
 </ul>
-</div>
-<div class="section" id="pascal-voc">
+</section>
+<section id="pascal-voc">
 <h2>(3) <strong>PASCAL VOC</strong><a class="headerlink" href="#pascal-voc" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>COCO pre-train 여부와 관계없이 제안된 Semi-supervised segmentation model이 모든 labeled data setting에서 가장 좋은 성능을 나타냄.</p></li>
@@ -913,73 +931,91 @@
 <li><p>제안된 semi-supervised model에서는 Deeplabv3+을 사용한 경우가 더 좋은 성능 나타냄.</p></li>
 </ul>
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN7.png"><img alt="s4GAN7.png" class="bg-primary mb-1 align-center" src="../../_images/s4GAN7.png" style="width: 400px;" /></a>
-<div class="figure align-default" id="id7">
+<figure class="align-default" id="id7">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN8.png"><img alt="s4GAN8" class="bg-primary mb-1" src="../../_images/s4GAN8.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 108 </span><span class="caption-text">PASCAL VOC의 5% labeled data만으로 COCO pre-training 없이 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 107 </span><span class="caption-text">PASCAL VOC의 5% labeled data만으로 COCO pre-training 없이 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>PASCAL context 데이터셋으로 1/8 labeled data로 학습한 결과.1/8 label을 이용하여 supervision으로 학습한 baseline에 비해 많이 향상된 결과를 확인 가능함.</p></li>
 </ul>
-<div class="figure align-default" id="id8">
+<figure class="align-default" id="id8">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN9.png"><img alt="s4GAN9" class="bg-primary mb-1" src="../../_images/s4GAN9.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 109 </span><span class="caption-text">PASCAL context 데이터셋으로 1/8 labeled data로 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 108 </span><span class="caption-text">PASCAL context 데이터셋으로 1/8 labeled data로 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>COCO pretraining 없이 Cityscapes 데이터셋에서 1/8 labeled data로 학습한 결과 1/8 label을 이용하여 supervised learning으로 학습한 baseline 대비 향상된 결과를 볼 수 있다.</p></li>
 </ul>
-<div class="figure align-default" id="id9">
+<figure class="align-default" id="id9">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN10.png"><img alt="s4GAN10" class="bg-primary mb-1" src="../../_images/s4GAN10.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 110 </span><span class="caption-text">COCO pretraining 없이 Cityscapes 데이터셋으로 1/8 labeled data로 학습한 결과. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="ablation-studies-mlmt">
+<figcaption>
+<p><span class="caption-number">Fig. 109 </span><span class="caption-text">COCO pretraining 없이 Cityscapes 데이터셋으로 1/8 labeled data로 학습한 결과. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ablation-studies-mlmt">
 <h2>(4) Ablation Studies: MLMT 효과 분석<a class="headerlink" href="#ablation-studies-mlmt" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>MLMT를 적용한 결과 baseline 대비 false-positive가 제거됨을 확인할 수 있음.(fig 7. (d))</p></li>
 <li><p>s4GAN을 적용한 결과 작은 shape을 더 잘 포착함을 확인할 수 있음 (fig 7. (e))</p></li>
 <li><p>s4GAN이랑 MLMT 합쳤을 때 low and high-level artifacts를 효과적으로 제거함을 확인 (fig 7. (g))</p></li>
 </ul>
-<div class="figure align-default" id="id10">
+<figure class="align-default" id="id10">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN11.png"><img alt="s4GAN11" class="bg-primary mb-1" src="../../_images/s4GAN11.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 111 </span><span class="caption-text">PASCAL VOC 5%만 사용하여 학습한 실험에 대한 ablation study. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="ablation-studies-failure-cases">
+<figcaption>
+<p><span class="caption-number">Fig. 110 </span><span class="caption-text">PASCAL VOC 5%만 사용하여 학습한 실험에 대한 ablation study. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ablation-studies-failure-cases">
 <h2>(5) Ablation Studies: Failure cases<a class="headerlink" href="#ablation-studies-failure-cases" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>multiple objects가 있는 경우, foreground object가 명확하지 않은 경우??</p></li>
 </ul>
-<div class="figure align-default" id="id11">
+<figure class="align-default" id="id11">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN12.png"><img alt="s4GAN12" class="bg-primary mb-1" src="../../_images/s4GAN12.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 112 </span><span class="caption-text">Failure cases (source: arXiv:1908.05724)</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id12">
+<figcaption>
+<p><span class="caption-number">Fig. 111 </span><span class="caption-text">Failure cases (source: arXiv:1908.05724)</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id12">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN13.png"><img alt="s4GAN13" class="bg-primary mb-1" src="../../_images/s4GAN13.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 113 </span><span class="caption-text">PASCAL-Context의 1/8만 사용한 Failures (source: arXiv:1908.05724)</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id13">
+<figcaption>
+<p><span class="caption-number">Fig. 112 </span><span class="caption-text">PASCAL-Context의 1/8만 사용한 Failures (source: arXiv:1908.05724)</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id13">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN14.png"><img alt="s4GAN14" class="bg-primary mb-1" src="../../_images/s4GAN14.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 114 </span><span class="caption-text">Cityscapes의 1/8만 사용한 Failures (source: arXiv:1908.05724)</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="ablation-studies-discriminator">
+<figcaption>
+<p><span class="caption-number">Fig. 113 </span><span class="caption-text">Cityscapes의 1/8만 사용한 Failures (source: arXiv:1908.05724)</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ablation-studies-discriminator">
 <h2>(6) Ablation Studies: Discriminator<a class="headerlink" href="#ablation-studies-discriminator" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Self-training loss를 포함하여 학습한 경우 Discriminator가 overly strong해지는 걸 막아서 학습이 더 잘된다.</p></li>
 </ul>
-<div class="figure align-default" id="id14">
+<figure class="align-default" id="id14">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN15.png"><img alt="s4GAN15" class="bg-primary mb-1" src="../../_images/s4GAN15.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 115 </span><span class="caption-text">Discriminator output의 변화. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 114 </span><span class="caption-text">Discriminator output의 변화. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>5% labeled data를 이용한 setting에서 ImageNet pre-train을 사용하지 않은 경우 Mean Teacher기반 classification network가 특히 false positives를 더 잘 없애줌을 확인 가능</p></li>
 </ul>
-<div class="figure align-default" id="id15">
+<figure class="align-default" id="id15">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN16.png"><img alt="s4GAN16" class="bg-primary mb-1" src="../../_images/s4GAN16.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 116 </span><span class="caption-text">(a) 5%a만 이용하여 CNN-based classification한 결과와 MT-based semi-supervised classification 결과의 ROC curve 비교. (b)는 ImageNet pre-training 없이 동일하게 비교.  (source: arXiv:1908.05724)</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 115 </span><span class="caption-text">(a) 5%a만 이용하여 CNN-based classification한 결과와 MT-based semi-supervised classification 결과의 ROC curve 비교. (b)는 ImageNet pre-training 없이 동일하게 비교.  (source: arXiv:1908.05724)</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1033,7 +1069,7 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -1049,8 +1085,7 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
