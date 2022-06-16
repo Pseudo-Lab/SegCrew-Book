@@ -1,4 +1,4 @@
-# [Draft] PanopticFPN - CVPR 2019
+# PanopticFPN - CVPR 2019
 
 ---
 
