@@ -3,7 +3,7 @@
 ## Introduction
 
 :::{figure-md} pano-fig
-<img src="pic/panoSeg3.png" alt="pfpn2" class="bg-primary mb-1" width="600px">
+<img src="pic/panoSeg3.PNG" alt="pfpn2" class="bg-primary mb-1" width="600px">
 
 Segmentation Tasks (source: [arXiv:2006.12567](https://arxiv.org/abs/2006.12567))
 :::

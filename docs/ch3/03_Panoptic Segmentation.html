@@ -55,8 +55,6 @@
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="A. Box based method" href="03_01_Box.html" />
-    <link rel="prev" title="[Draft] BCNet - CVPR 2021" href="../ch2/02_02_04_BCNet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -245,9 +243,9 @@
   Panoptic Segmentation
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="03_Panoptic%20Segmentation2.html">
    Overview
   </a>
  </li>
@@ -537,8 +535,8 @@
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="pano-fig">
-<a class="bg-primary mb-1 reference internal image-reference" href="docs/ch3/pic/panoSeg3.png"><img alt="pfpn2" class="bg-primary mb-1" src="docs/ch3/pic/panoSeg3.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">Segmentation Tasks (source: <a class="reference external" href="https://arxiv.org/abs/2006.12567">arXiv:2006.12567</a>)</span><a class="headerlink" href="#pano-fig" title="Permalink to this image">¶</a></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/panoSeg3.PNG"><img alt="pfpn2" class="bg-primary mb-1" src="../../_images/panoSeg3.PNG" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Segmentation Tasks (source: <a class="reference external" href="https://arxiv.org/abs/2006.12567">arXiv:2006.12567</a>)</span><a class="headerlink" href="#pano-fig" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>Panoptic Segmentation은 pixel level의 classification을 수행하는 semantic segmentation과 객체 단위 기반 classfication을 수행하는 instance segmentation을 통합한 task로 각 pixel을 배경에 해당하는 stuff와 객체(instance)에 해당하는 things class로 분류하는 task이다.</p></li>
@@ -556,11 +554,11 @@
 \]</div>
 <ul class="simple">
 <li><p>PQ를 계산하기 위해 먼저 Segment matching을 수행한 후 matching된 segment에 대해 PQ를 계산한다. 이때 GT와 predicted segment와의 match 여부는 IoU가 0.5 이상이고 가장 큰 IoU를 가지는 segment를 유일한 matched segment로 판정한다.</p></li>
-<li><p>Metched segment를 계산한 후 TP(true positivie), FP(false positive)와 FN(false negative)를 구한다. 이는 <a class="reference internal" href="#gt-fig"><span class="std std-numref">Fig. 54</span></a>와 같이 나타낼 수 있다</p></li>
+<li><p>Metched segment를 계산한 후 TP(true positivie), FP(false positive)와 FN(false negative)를 구한다. 이는 <code class="xref std std-numref docutils literal notranslate"><span class="pre">gt-fig</span></code>와 같이 나타낼 수 있다</p></li>
 </ul>
 <div class="figure align-default" id="gt-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/panoSeg2.png"><img alt="pfpn2" class="bg-primary mb-1" src="../../_images/panoSeg2.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">GT and predicted panoptic segmentations of an image (source: arXiv:1801.00868)</span><a class="headerlink" href="#gt-fig" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">GT and predicted panoptic segmentations of an image (source: arXiv:1801.00868)</span><a class="headerlink" href="#gt-fig" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>PQ는 match되는 segment에 대한 평균 IoU에 match되지 않는 segment에 대한 페널티 <span class="math notranslate nohighlight">\(\left(\frac{1}{2}|FP| +\frac{1}{2} |FN |\right)\)</span> 가 추가된 형태로 구성되어 있다.  PQ를 TP 항을 추가하여 분리하면 SQ(segmentation Quaility) 항과 RQ(recognition quality) 항의 곱으로 표현 가능하다. RQ는 널리 사용되는 F1 score로 해석할 수 있다.</p></li>
@@ -577,10 +575,10 @@
 <h2>Trend<a class="headerlink" href="#trend" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="performance-pano">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/panoSeg1.png"><img alt="panoSeg1" class="bg-primary mb-1" src="../../_images/panoSeg1.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Evolution of Panoptic Segmentation</span><a class="headerlink" href="#performance-pano" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Evolution of Panoptic Segmentation</span><a class="headerlink" href="#performance-pano" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
-<li><p><a class="reference internal" href="#performance-pano"><span class="std std-numref">Fig. 55</span></a>는 COCO Test-Dev set으로 평가한 panoptic segmentation 성능이다.</p></li>
+<li><p><code class="xref std std-numref docutils literal notranslate"><span class="pre">Fig.</span> <span class="pre">%s</span></code>는 COCO Test-Dev set으로 평가한 panoptic segmentation 성능이다.</p></li>
 </ul>
 <ul class="simple">
 <li><p>본 chapter에서는 panoptic segmentation 논문을 i) box based methods와 ii) box-free methods로 구분하여 리뷰하고 각 지금까지의 발전 현황과 개선방안에 대해 고찰한다.</p></li>
@@ -618,24 +616,6 @@
 
 <div class='prev-next-bottom'>
     
-    <div id="prev">
-        <a class="left-prev" href="../ch2/02_02_04_BCNet.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">[Draft] BCNet - CVPR 2021</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="03_01_Box.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">A. Box based method</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         

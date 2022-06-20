@@ -247,7 +247,7 @@
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="03_Panoptic%20Segmentation.html">
+  <a class="reference internal" href="03_Panoptic%20Segmentation2.html">
    Overview
   </a>
  </li>
@@ -607,10 +607,10 @@
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="prev-method">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab1.png"><img alt="maxdeeplab1" class="bg-primary mb-1" src="../../_images/maxdeeplab1.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 67 </span><span class="caption-text">Overview of Previous Method (Source: arXiv:2012.00759)</span><a class="headerlink" href="#prev-method" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 66 </span><span class="caption-text">Overview of Previous Method (Source: arXiv:2012.00759)</span><a class="headerlink" href="#prev-method" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
-<li><p>기존의 panoptic segmentation method는 <a class="reference internal" href="#prev-method"><span class="std std-numref">Fig. 67</span></a>의 붉은색으로 표현된 내용과 같이 surrogate sub-task들에 의존하여 panoptic segmentation mask 결과를 구함.</p></li>
+<li><p>기존의 panoptic segmentation method는 <a class="reference internal" href="#prev-method"><span class="std std-numref">Fig. 66</span></a>의 붉은색으로 표현된 내용과 같이 surrogate sub-task들에 의존하여 panoptic segmentation mask 결과를 구함.</p></li>
 <li><p>즉 기존의 panoptic segmentation은 한번에 결과값을 구하는 것이 아니라 여러 task들로 구성되어 있는 다소 복잡한 pipeline 으로 구성되어 있다. (e.g. anchors, box assignment rules, non-maximum suppression, thing-stuff merging)</p></li>
 <li><p>복잡한 pipeline으로 구성되어 각각의 surrogate task에서 “undesired artifact”가 발생할 수 있고 pipeline을 거치면서 더 큰 artifact / noise로 번질 수 있기 때문에 최근에는 pipeline을 간소화 하는 방향으로 여러 연구들이 소개되고 있다.</p>
 <p><strong>(1) Box Based Method in Panoptic Segmentation</strong></p>
@@ -667,11 +667,11 @@
 <h3>2. Model Architecture<a class="headerlink" href="#model-architecture" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab11.png"><img alt="maxdeeplab1" class="bg-primary mb-1" src="../../_images/maxdeeplab11.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 68 </span><span class="caption-text">An overview of the dual-path transformer architecture (Source: Source: arXiv:2012.00759)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 67 </span><span class="caption-text">An overview of the dual-path transformer architecture (Source: Source: arXiv:2012.00759)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab12.png"><img alt="maxdeeplab1" class="bg-primary mb-1" src="../../_images/maxdeeplab12.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 69 </span><span class="caption-text">Overview of MaX-DeepLab (Source: <a class="reference external" href="https://ai.googleblog.com/2021/04/max-deeplab-dual-path-transformers-for.html">https://ai.googleblog.com/2021/04/max-deeplab-dual-path-transformers-for.html</a>)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 68 </span><span class="caption-text">Overview of MaX-DeepLab (Source: <a class="reference external" href="https://ai.googleblog.com/2021/04/max-deeplab-dual-path-transformers-for.html">https://ai.googleblog.com/2021/04/max-deeplab-dual-path-transformers-for.html</a>)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>MaX-DeepLab은 dual-path transformer, stacked decoder, output heads (for mask and classes prediction)으로 구성된다.</p></li>
