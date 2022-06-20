@@ -1,0 +1,13 @@
+import altair as alt
+alt.Chart(data=data).mark_point().encode(
+    x="sepal_width",
+    y="sepal_length",
+    color="species",
+    size='sepal_length'
+)
+
+{
+    "tags": [
+        "hide-input",
+    ]
+}

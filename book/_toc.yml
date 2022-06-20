@@ -33,7 +33,7 @@ parts:
     - file: docs/ch2/02_02_04_BCNet
 - caption: Panoptic Segmentation
   chapters:
-  - file: docs/ch3/03_Panoptic Segmentation
+  - file: docs/ch3/03_Panoptic Segmentation2
   - file: docs/ch3/03_01_Box
     sections:
     - file: docs/ch3/03_01_01_PanopticFPN
