@@ -55,6 +55,8 @@
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="A. Learning Pixel Affinity" href="04_01_LearningPixelAffinity.html" />
+    <link rel="prev" title="MaX-DeepLab - CVPR 21" href="../ch3/03_02_01_Max-DeepLab.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -299,9 +301,9 @@
   Weakly-supervised Segmentation
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="04_Weakly-supervised%20Segmentation2.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Overview
   </a>
  </li>
@@ -458,9 +460,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/ch4/04_Weakly-supervised Segmentation.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/ch4/04_Weakly-supervised Segmentation2.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -478,7 +480,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch4/04_Weakly-supervised Segmentation.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch4/04_Weakly-supervised Segmentation2.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -493,6 +495,23 @@
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Pseudo-Lab/SegCrew-Book/master?urlpath=tree/book/docs/ch4/04_Weakly-supervised Segmentation2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
 
         </div>
 
@@ -531,7 +550,7 @@
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/weakly1.png"><img alt="weakly1" class="bg-primary mb-1" src="../../_images/weakly1.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-text">Weakly supervised learning. (source: Hakan, CVPR18 Tutorial)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 69 </span><span class="caption-text">Weakly supervised learning. (source: Hakan, CVPR18 Tutorial)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>Weakly-supervised learning은 full supervision이 아닌 완벽하지 않은 저수준(lower degree, noisy, limited, or imprecise sources)의 supervision 이용하여 학습방법이다.</p></li>
@@ -545,7 +564,7 @@
 </ul>
 <div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/weakly2.png"><img alt="weakly2" class="bg-primary mb-1" src="../../_images/weakly2.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-text">Class Attention Map (source: Learning Deep Features for Discriminative Localization, CVPR 2016)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 70 </span><span class="caption-text">Class Attention Map (source: Learning Deep Features for Discriminative Localization, CVPR 2016)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>CAM은 Network가 image를 특정 class로 prediction하게 하는 feature 내의 위치 정보를 표현한다.</p></li>
@@ -555,7 +574,7 @@
 </ul>
 <div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/weakly3.png"><img alt="weakly3" class="bg-primary mb-1" src="../../_images/weakly3.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-text">Examples of Class Attention Map (source: Weakly Supervised Object Detection, ECCV Tutorial 2020)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 71 </span><span class="caption-text">Examples of Class Attention Map (source: Weakly Supervised Object Detection, ECCV Tutorial 2020)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <ul>
 <li><p>이를 해결하기 위해 다양한 기법의 weakly supervised learning 기법이 제안되었고, 이를 분류해보면 다음과 같다.</p>
@@ -570,12 +589,70 @@
 <h2>Trend<a class="headerlink" href="#trend" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/weakly4.png"><img alt="weakly4" class="bg-primary mb-1" src="../../_images/weakly4.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-text">Evolution of weakly-supervised semantic segmantation</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 72 </span><span class="caption-text">Evolution of weakly-supervised semantic segmantation</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-c6c38a3f28d447e2b0aca7f13334d913"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-c6c38a3f28d447e2b0aca7f13334d913") {
+      outputDiv = document.getElementById("altair-viz-c6c38a3f28d447e2b0aca7f13334d913");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "#fde725", "strokeWidth": 1.5}, "encoding": {"text": {"field": "nickname", "type": "nominal"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": {"grid": true}, "field": "miou", "scale": {"domain": [50, 95]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"mark": {"type": "circle", "color": "#000000", "strokeWidth": 3}, "encoding": {"tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 95]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"mark": {"type": "text", "align": "center", "baseline": "middle", "dy": -10}, "encoding": {"color": {"value": "#000000"}, "text": {"field": "miou", "type": "quantitative"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 95]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"mark": {"type": "text", "align": "center", "baseline": "middle", "dy": 20}, "encoding": {"color": {"value": "#000000"}, "text": {"field": "nickname", "type": "nominal"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 95]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-16f3683905ff1c25b0369c8bd9b636bb"}, "mark": {"type": "line", "color": "#cb4154", "strokeWidth": 1.5}, "encoding": {"text": {"field": "nickname", "type": "nominal"}, "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": {"grid": true}, "field": "miou", "scale": {"domain": [50, 95]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-16f3683905ff1c25b0369c8bd9b636bb"}, "mark": {"type": "circle", "color": "#cb4154", "strokeWidth": 3}, "encoding": {"tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 95]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-16f3683905ff1c25b0369c8bd9b636bb"}, "mark": {"type": "text", "align": "center", "baseline": "middle", "dy": -20}, "encoding": {"color": {"value": "#cb4154"}, "text": {"field": "miou", "type": "quantitative"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 95]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-16f3683905ff1c25b0369c8bd9b636bb"}, "mark": {"type": "text", "align": "center", "baseline": "middle", "dy": -30}, "encoding": {"color": {"value": "#cb4154"}, "text": {"field": "nickname", "type": "nominal"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 95]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-7b8ffe69b7081cb6ee03e5e15d9b66e4"}, "mark": {"type": "line", "color": "#3b518b", "strokeWidth": 1.5}, "encoding": {"text": {"field": "nickname", "type": "nominal"}, "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": {"grid": true}, "field": "miou", "scale": {"domain": [50, 95]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-7b8ffe69b7081cb6ee03e5e15d9b66e4"}, "mark": {"type": "circle", "color": "#3b518b", "strokeWidth": 3}, "encoding": {"tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 95]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-7b8ffe69b7081cb6ee03e5e15d9b66e4"}, "mark": {"type": "text", "align": "center", "baseline": "middle", "dy": 20}, "encoding": {"color": {"value": "#3b518b"}, "text": {"field": "miou", "type": "quantitative"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 95]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-7b8ffe69b7081cb6ee03e5e15d9b66e4"}, "mark": {"type": "text", "align": "center", "baseline": "middle", "dy": 30}, "encoding": {"color": {"value": "#3b518b"}, "text": {"field": "nickname", "type": "nominal"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 95]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}], "data": {"name": "data-f82c96c9529050ba4c59c93eae4b8ced"}, "resolve": {"scale": {"y": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-f82c96c9529050ba4c59c93eae4b8ced": [{"idx": 1, "year": "2015", "nickname": "FCN", "miou": 67.2, "backbone": "unknown"}, {"idx": 2, "year": "2017", "nickname": "PSPNet", "miou": 85.4, "backbone": "unknown"}, {"idx": 3, "year": "2017.", "nickname": "DeepLab_v3", "miou": 86.9, "backbone": "unknown"}, {"idx": 4, "year": "2018", "nickname": "DeepLab_v3+", "miou": 89.0, "backbone": "unknown"}], "data-16f3683905ff1c25b0369c8bd9b636bb": [{"idx": 3, "year": "2017", "nickname": "RAKW", "miou": 62.2, "backbone": "unknown"}, {"idx": 4, "year": "2018", "nickname": "AffinityNet", "miou": 63.7, "backbone": "unknown"}, {"idx": 5, "year": "2019.", "nickname": "IRNet", "miou": 64.8, "backbone": "unknown"}, {"idx": 6, "year": "2020", "nickname": "CIAN", "miou": 65.3, "backbone": "unknown"}], "data-7b8ffe69b7081cb6ee03e5e15d9b66e4": [{"idx": 3, "year": "2017", "nickname": "AE-PSL", "miou": 55.7, "backbone": "unknown"}, {"idx": 4, "year": "2018", "nickname": "SeeNet", "miou": 62.8, "backbone": "unknown"}, {"idx": 6, "year": "2020", "nickname": "EADER", "miou": 63.8, "backbone": "unknown"}]}}, {"mode": "vega-lite"});
+</script></div></div>
 </div>
 <ul class="simple">
 <li><p>본 chapter에서는 위 분류에 속한 다양한 weakly-supervised learning 기반 segmentation 연구결과를 리뷰한다.</p></li>
 </ul>
-<p><em>Latest update: Jan 6, 2022</em></p>
+<p><em>Latest update: Jun 21, 2022</em></p>
 </div>
 </div>
 
@@ -608,6 +685,24 @@
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="../ch3/03_02_01_Max-DeepLab.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">MaX-DeepLab - CVPR 21</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="04_01_LearningPixelAffinity.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">A. Learning Pixel Affinity</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         

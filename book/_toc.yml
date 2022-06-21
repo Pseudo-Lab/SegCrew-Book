@@ -44,7 +44,7 @@ parts:
     - file: docs/ch3/03_02_01_Max-DeepLab
 - caption: Weakly-supervised Segmentation
   chapters:
-  - file: docs/ch4/04_Weakly-supervised Segmentation
+  - file: docs/ch4/04_Weakly-supervised Segmentation2
   - file: docs/ch4/04_01_LearningPixelAffinity
     sections:
     - file: docs/ch4/04_01_01_AffinityNet
