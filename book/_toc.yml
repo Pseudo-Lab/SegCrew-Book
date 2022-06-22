@@ -22,7 +22,7 @@ parts:
     - file: docs/ch1/01_03_01_SETR
 - caption: Instance Segmentation
   chapters:
-  - file: docs/ch2/02 Instance Segmentation
+  - file: docs/ch2/02 Instance Segmentation2
   - file: docs/ch2/02_02_two_stage
     sections:
     - file: docs/ch2/02_01_01_YOLACT

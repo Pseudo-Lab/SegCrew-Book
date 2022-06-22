@@ -57,7 +57,7 @@
 # ## Trend
 # 
 
-# In[49]:
+# In[81]:
 
 
 #@title
@@ -68,30 +68,38 @@
 import altair as alt
 import pandas as pd
 
-y_scale = [50, 100]
+y_scale = [50, 90]
 x_scale = [0, 7]
 
 viridis = ['#440154', '#472c7a', '#3b518b', '#2c718e', '#21908d', '#27ad81', '#5cc863', '#aadc32', '#fde725']
-#보, 남, 파
 
-data = pd.DataFrame({'idx': [1, 2, 3, 4],
-                     'year': ["2015", "2017", "2017.", "2018"],
+
+data = pd.DataFrame({'type': 4*["Full Supervision"],
+                     'idx': [1, 2, 3, 4],
+                     'year': ["2015", "2017", "2017", "2018"],
                      'nickname': ['FCN', 'PSPNet', 'DeepLab_v3', 'DeepLab_v3+'],
                      'miou' :[67.2, 85.4, 86.9, 89.0],
-                     'backbone' :["unknown","unknown","unknown","unknown"]})
+                     'backbone' :["unknown","unknown","unknown","unknown"]
+                     }
+                     )
 
-weakly_data = pd.DataFrame({'idx': [3, 4, 5, 6],
+weakly_data = pd.DataFrame({'type': 4*["WS-learning pixel affinity"],
+                     'idx': [3, 4, 5, 6],
                      'year': ["2017", "2018", "2019.", "2020"],
                      'nickname': ['RAKW', 'AffinityNet', 'IRNet', 'CIAN'],
                      'miou' :[62.2, 63.7, 64.8, 65.3],
-                     'backbone' :["unknown","unknown","unknown","unknown"]})
+                     'backbone' :["unknown","unknown","unknown","unknown"]
+                     }
+                     )
 
-weakly2_data = pd.DataFrame({'idx': [3, 4, 6],
+weakly2_data = pd.DataFrame({'type': 3*["WS-adversarial erasing"],
+                     'idx': [3, 4, 6],
                      'year': ["2017", "2018", "2020"],
                      'nickname': ['AE-PSL', 'SeeNet', 'EADER'],
                      'miou' :[55.7, 62.8, 63.8],
-                     'backbone' :["unknown","unknown","unknown"]})
-
+                     'backbone' :["unknown","unknown","unknown"]
+                     }
+                     )
 
 def GetGraphElement(data, x_scale, y_scale, perf_measure, line_color = "#000000", point_color = "#000000", text_color = "#000000", text_y_pos = -10, textperf_y_pos=-20):
     base = alt.Chart(data).encode(
@@ -104,6 +112,8 @@ def GetGraphElement(data, x_scale, y_scale, perf_measure, line_color = "#000000"
     line = base.mark_line(strokeWidth= 1.5, color = line_color).encode(
         y=alt.Y('miou', scale=alt.Scale(domain=y_scale),axis=alt.Axis(grid=True)),
         #text = alt.Text('nickname')
+        color=alt.Color('type'),
+        #opacity='type'
     )
 
     points = base.mark_circle(strokeWidth= 3, color = point_color).encode(
@@ -136,24 +146,17 @@ def description_test(pos_x, pos_y, text, color):
     )
     
 
-
-
 base, line, points, point_nick, point_perf = GetGraphElement(data, x_scale, y_scale, 'miou', 
                                                             line_color = "#fde725", point_color = "#000000", text_color = "#000000", 
                                                             text_y_pos = -10, textperf_y_pos=20)
 base2, line2, points2, point_nick2, point_perf2 = GetGraphElement(weakly_data, x_scale, y_scale, 'miou', 
-                                                                    line_color = "#cb4154", point_color = "#cb4154", text_color = "#cb4154", 
+                                                                    line_color = "#cb4154", point_color = "#000000", text_color = "#000000", 
                                                                     text_y_pos = -20, textperf_y_pos=-30)
 base3, line3, points3, point_nick3, point_perf3 = GetGraphElement(weakly2_data, x_scale, y_scale, 'miou', 
-                                                                    line_color = "#3b518b", point_color = "#3b518b", text_color = "#3b518b", 
+                                                                    line_color = "#3b518b", point_color = "#000000", text_color = "#000000", 
                                                                     text_y_pos = 20, textperf_y_pos=30)
 
-description1 = description_test(5,5,'Full Supervision','#fde725')
-description2 = description_test(5,20,'weakly supervised setting \n (learning pixel affinity)','#cb4154')
-description3 = description_test(5,35,'weakly supervised setting \n (adversarial erasing)','#3b518b')
-
 (
-    description1+description2+description3+
     line+points+point_nick+point_perf+
     line2+points2+point_nick2+point_perf2+ 
     line3+points3+point_nick3+point_perf3

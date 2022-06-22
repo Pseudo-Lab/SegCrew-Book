@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PanopticFPN - CVPR 2019 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -23,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,21 +31,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -59,10 +58,7 @@
     <link rel="next" title="DETR - ECCV 2020" href="03_02_02_DETR.html" />
     <link rel="prev" title="A. Box based method" href="03_01_Box.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -78,10 +74,6 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -101,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semantic Segmentation
  </span>
@@ -194,14 +186,14 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Instance Segmentation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
+  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation2.html">
    Overview
   </a>
  </li>
@@ -248,7 +240,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
@@ -304,7 +296,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
@@ -360,7 +352,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -416,7 +408,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Appendix
  </span>
@@ -575,7 +567,7 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="panopticfpn-cvpr-2019">
+  <div class="section" id="panopticfpn-cvpr-2019">
 <h1>PanopticFPN - CVPR 2019<a class="headerlink" href="#panopticfpn-cvpr-2019" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
@@ -593,16 +585,16 @@
 <li><p><strong>Last updated on Fab. 6, 2022</strong></p></li>
 </ul>
 </div>
-<section id="contribution">
+<div class="section" id="contribution">
 <h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Instance Segmentation을 위한 Mask R-CNN의 확장 버전으로 Feature Pyramid Networks (FPN)를 공용으로 활용하는 추가의 semantic segmentation brach를 이용 panoptic segmentation 이 가능함을 보임.</p></li>
 <li><p>“Things” class에 대한 Instance level의 mask의 성능은 유지하면서, “stuff” class에 대한 dense prediction도 통일된 network 구조로 수행함.</p></li>
 </ul>
-</section>
-<section id="proposed-method">
+</div>
+<div class="section" id="proposed-method">
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
-<section id="model-architecture">
+<div class="section" id="model-architecture">
 <h3>1. Model Architecture<a class="headerlink" href="#model-architecture" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Panoptic segmenatation을 수행하기 위해 다음과 같은 사항이 고려되어야 함.</p>
@@ -612,12 +604,10 @@
 </li>
 <li><p>FPN은 이미 3가지 조건을 만족하고 있음.</p></li>
 </ul>
-<figure class="align-default" id="markdown-fig">
+<div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn1.png"><img alt="pfpn1" class="bg-primary mb-1" src="../../_images/pfpn1.png" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 54 </span><span class="caption-text">Panoptic FPN architecture (source: arXiv:1901.02446)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">Panoptic FPN architecture (source: arXiv:1901.02446)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
 <p>(1) Feature Pyramid Network (FPN)</p>
 <ul class="simple">
 <li><p>FPN은 다양한 resolution의 feature를 추출하기 위해 보편적으로 사용되는 network이며, ResNet과 같은 feature extractor에 top-down pathway를 추가하여 높은 해상도의 feature map의 semantic level을 높일 수 있도록 설계되어 있음.</p></li>
@@ -629,19 +619,17 @@
 <li><p>Faster R-CNN의 경우 RoI pooling을 각 level의 feature에 적용하여 candidate에 대한 feature를 추출한 후 classfication과 bounding box refine을 수행함.</p></li>
 </ul>
 <p>(3) Semantic segmentation branch</p>
-<figure class="align-default" id="id1">
+<div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn2.png"><img alt="pfpn2" class="bg-primary mb-1" src="../../_images/pfpn2.png" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 55 </span><span class="caption-text">Semantic segmentation branch (source: arXiv:1901.02446)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 54 </span><span class="caption-text">Semantic segmentation branch (source: arXiv:1901.02446)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>FPN의 각 level별 feature를 1/4 scale에 맞춰 upsample함. 각 upsample 과정에서 3x3 convolution과 group norm, ReLU를 적용한 후 2x bilinear upsampling을 수행. (각 feature의 scale에 따라 최종적으로 1/4 scale이 되도록 반복적으로 적용함)</p></li>
 <li><p>최종적으로 upsampling된 features들을 element wise sum한 후 1x1 convolution, 4x bilinear upsampling한 후 softmax 를 적용하여 원본 크기의 pixel별 class labels을 추정함.</p></li>
 <li><p>stuff class에는 ‘other’ class를 추가하여 things에 해당하는 pixel을 assign함.</p></li>
 </ul>
-</section>
-<section id="inference-and-training">
+</div>
+<div class="section" id="inference-and-training">
 <h3>2. Inference and Training<a class="headerlink" href="#inference-and-training" title="Permalink to this headline">¶</a></h3>
 <p>(1) Panoptic Inference</p>
 <ul class="simple">
@@ -662,33 +650,29 @@ c. stuff region의 label 중 ‘other’ class는 area threshold를 적용하여
     \]</div>
 </li>
 </ul>
-</section>
-<section id="analysis">
+</div>
+<div class="section" id="analysis">
 <h3>3. Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h3>
-<figure class="align-default" id="pfpn-backbone">
+<div class="figure align-default" id="pfpn-backbone">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn3.png"><img alt="pfpn3" class="bg-primary mb-1" src="../../_images/pfpn3.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 56 </span><span class="caption-text">Backbone architechture (source: arXiv:1901.02446)</span><a class="headerlink" href="#pfpn-backbone" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 55 </span><span class="caption-text">Backbone architechture (source: arXiv:1901.02446)</span><a class="headerlink" href="#pfpn-backbone" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
-<li><p>Semantic segmenation에는 dilated conv.와(<a class="reference internal" href="#pfpn-backbone"><span class="std std-numref">Fig. 56</span></a>(b)), encoder-decoder(<a class="reference internal" href="#pfpn-backbone"><span class="std std-numref">Fig. 56</span></a>(c))가 backbone으로 주로 사용됨.</p></li>
+<li><p>Semantic segmenation에는 dilated conv.와(<a class="reference internal" href="#pfpn-backbone"><span class="std std-numref">Fig. 55</span></a>(b)), encoder-decoder(<a class="reference internal" href="#pfpn-backbone"><span class="std std-numref">Fig. 55</span></a>(c))가 backbone으로 주로 사용됨.</p></li>
 </ul>
-<figure class="align-default" id="id2">
+<div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn4.png"><img alt="pfpn4" class="bg-primary mb-1" src="../../_images/pfpn4.png" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 57 </span><span class="caption-text">Backbone architecture efficiency (source: arXiv:1901.02446)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">Backbone architecture efficiency (source: arXiv:1901.02446)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>Panoptic FPN의 경우 Mask-RCNN 구조를 활용하는 것이 목표였지만, dilated-8 network 대비 가볍고  encoder-decoder 구조 대비 2배 가벼운 구조를 가짐을 확인할 수 있음.</p></li>
 <li><p>특히 Dilation-16 network와 유사한 크기의 network로 4배 큰 output resolution을 얻을 수 있음.</p></li>
 </ul>
-</section>
-</section>
-<section id="experimental-result">
+</div>
+</div>
+<div class="section" id="experimental-result">
 <h2>Experimental Result<a class="headerlink" href="#experimental-result" title="Permalink to this headline">¶</a></h2>
-<section id="traning-details">
+<div class="section" id="traning-details">
 <h3>1. <strong>Traning details</strong><a class="headerlink" href="#traning-details" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>COCO 2017 dataset
@@ -697,8 +681,8 @@ c. stuff region의 label 중 ‘other’ class는 area threshold를 적용하여
 → Panoptic segmentation: 80 things / 53 stuff classes</p></li>
 <li><p>Mask R-CNN 1x training setting with scale jitter을 적용함.</p></li>
 </ul>
-</section>
-<section id="discuss">
+</div>
+<div class="section" id="discuss">
 <h3>2. <strong>Discuss</strong><a class="headerlink" href="#discuss" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Semantic segmentation을 단독으로 평가했을 때, COCO-stuff 2017 challenge에서  가장 높은 성능을 나타냄. cityscape DB에서는 SOTA인 DeepLab V3+와 유사한 성능과 efficiency를 보임을 알 수 있음.</p></li>
@@ -710,9 +694,9 @@ c. stuff region의 label 중 ‘other’ class는 area threshold를 적용하여
 <img alt="pfpn6.png" class="align-center" src="../../_images/pfpn6.png" />
 <img alt="pfpn7.png" class="align-center" src="../../_images/pfpn7.png" />
 <img alt="pfpn8.png" class="align-center" src="../../_images/pfpn8.png" />
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -766,7 +750,7 @@ c. stuff region의 label 중 ‘other’ class는 area threshold를 적용하여
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -782,7 +766,8 @@ c. stuff region의 label 중 ‘other’ class는 area threshold를 적용하여
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>

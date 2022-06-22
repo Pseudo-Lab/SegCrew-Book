@@ -3,6 +3,9 @@
 
 # # Overview
 # 
+
+# # Overview
+# 
 # ## Introduction
 # 
 # - Semantic segmentation이란 영상을 의미적/인지적 단위로 구분하여 분할하는 기술을 의미한다. 이는 각 pixel이 어떤 semantic을 가지는지 분류하는 pixel level classification 문제로 해석할 수 있으며, 모든 pixel에 대한 prediction을 수행하기 때문에 dense prediction으로 불리우기도 한다. 
@@ -35,6 +38,7 @@
 #     (1) 넓은 receptive field를 유지하면서 고해상도 feature를 추출하기 위한 architecture 설계 
 #   
 #     (2) 원본과 동일한 segmentation 결과를 얻기 위한 upsample 방법의 선택
+# 
 
 # ## Performance Measure
 # 
@@ -53,9 +57,8 @@
 # - Image segmentation task의 경우 각 class 별로 IoU를 계산 후 평균을 취한 mIoU(mean IoU)를 평가 지표로 활용한다. 
 
 # ## Trend
-# 
 
-# In[3]:
+# In[1]:
 
 
 #@title
@@ -69,27 +72,26 @@ import pandas as pd
 y_scale = [60, 90]
 x_scale = [0, 8]
 
-viridis = ['#440154', '#472c7a', '#3b518b', '#2c718e', '#21908d', '#27ad81', '#5cc863', '#aadc32', '#fde725']
-#보, 남, 파
-
-data = pd.DataFrame({'idx': [1, 2, 3, 4, 5, 6, 7],
+data = pd.DataFrame({'type': 7*["Semantic Segmentation"],
+                     'idx': [1, 2, 3, 4, 5, 6, 7],
                      'year': ["2015", "2015", "2016.", "2017", "2017", "2018", "2018"],
                      'nickname': ['FCN', 'DeconvNet', 'DeepLab_v2', 'PSPNet','DeepLab_v3','EncNet','DeepLab_v3+'],
                      'miou' :[67.2, 72.5, 79.7, 85.4, 85.7, 85.9, 87.8],
                      'backbone' :["unknown","unknown","unknown","unknown","unknown", "unknown", "unknown"]})
-
 
 def GetGraphElement(data, x_scale, y_scale, perf_measure, line_color = "#000000", point_color = "#000000", text_color = "#000000", text_y_pos = -10, textperf_y_pos=-20):
     base = alt.Chart(data).encode(
     x = alt.X("idx", scale=alt.Scale(domain=x_scale),axis=None),
     ).properties (
     width = 800,
-    title = ["Trend on mIoU (PASCAL VOC 2012 testset)"]
+    title = ["Trend on AP (COCO Test-dev)"]
     )
 
     line = base.mark_line(strokeWidth= 1.5, color = line_color).encode(
         y=alt.Y('miou', scale=alt.Scale(domain=y_scale),axis=alt.Axis(grid=True)),
         #text = alt.Text('nickname')
+        color=alt.Color('type'),
+        #opacity='type'
     )
 
     points = base.mark_circle(strokeWidth= 3, color = point_color).encode(
@@ -121,9 +123,11 @@ def description_test(pos_x, pos_y, text, color):
         color= alt.value(color)
     )
     
+
 base, line, points, point_nick, point_perf = GetGraphElement(data, x_scale, y_scale, 'miou', 
-                                                            line_color = "#3b518b", point_color = "#3b518b", text_color = "#3b518b", 
+                                                            line_color = "#fde725", point_color = "#000000", text_color = "#000000", 
                                                             text_y_pos = -10, textperf_y_pos=20)
+
 (
     line+points+point_nick+point_perf
 ).resolve_scale(y = 'independent')
