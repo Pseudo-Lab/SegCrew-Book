@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DeepLab v3 - arXiv 2017 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -23,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -32,21 +31,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -59,10 +58,7 @@
     <link rel="next" title="PSPNet - CVPR 2017" href="01_01_03_pspnet.html" />
     <link rel="prev" title="FCN - CVPR 2015" href="01_01_01_fcn.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
+    <meta name="docsearch:language" content="en" />
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -78,10 +74,6 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -101,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semantic Segmentation
  </span>
@@ -194,14 +186,14 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Instance Segmentation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
+  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation2.html">
    Overview
   </a>
  </li>
@@ -248,7 +240,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
@@ -304,7 +296,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
@@ -360,7 +352,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -416,7 +408,7 @@
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Appendix
  </span>
@@ -599,7 +591,7 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="deeplab-v3-arxiv-2017">
+  <div class="section" id="deeplab-v3-arxiv-2017">
 <h1>DeepLab v3 - arXiv 2017<a class="headerlink" href="#deeplab-v3-arxiv-2017" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
@@ -616,9 +608,9 @@
 <li><p><strong>Last updated on Jan. 30, 2022</strong></p></li>
 </ul>
 </div>
-<section id="related-works">
+<div class="section" id="related-works">
 <h2>Related Works<a class="headerlink" href="#related-works" title="Permalink to this headline">¶</a></h2>
-<section id="fcn-for-semantic-segmentation">
+<div class="section" id="fcn-for-semantic-segmentation">
 <h3>1. FCN for Semantic Segmentation<a class="headerlink" href="#fcn-for-semantic-segmentation" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Image Classification에 적용된 CNN 모델을 변형하여 semantic segmentation 수행</p>
@@ -629,57 +621,53 @@
 <p>→ output model output을 upsample하여 원본과 동일한 크기의 segmentation 결과를 도출</p>
 </li>
 </ul>
-<figure class="align-default" id="markdown-fig">
+<div class="figure align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_2.png"><img alt="deeplabv3_2.png" class="bg-primary mb-1" src="../../_images/deeplabv3_2.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Fully Convolutional Networks (source: arXiv:1411.4038)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Fully Convolutional Networks (source: arXiv:1411.4038)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>ConvNet은 layer가 깊어질 수록 pooling/stride에 의해 spatial dimension이 작아지기 때문에 output을 upsample 하는 과정에서 디테일이 손상될 수 있음</p></li>
 <li><p>이를 보완하기 위해 ConvNet의 layer의 output에서 segmentation을 수행하고 결과를 sum하는 과정을 거침. (FCN-32s, FCN-16s, …)</p></li>
 </ul>
-</section>
-<section id="deeplab">
+</div>
+<div class="section" id="deeplab">
 <h3>2. DeepLab<a class="headerlink" href="#deeplab" title="Permalink to this headline">¶</a></h3>
-<figure class="align-default" id="id1">
+<div class="figure align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_3.png"><img alt="deeplabv3_3.png" class="bg-primary mb-1" src="../../_images/deeplabv3_3.png" style="width: 500px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">DeepLab v3 and DeepLab v3+ (source: arXiv:1802.02611)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">DeepLab v3 and DeepLab v3+ (source: arXiv:1802.02611)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <ul class="simple">
 <li><p>DeepLab v1 - atrous convolution 및 Conditional Random Field(CRF) 도입</p></li>
 <li><p>DeepLab v2 - A<em>trous spatial pyramid pooling</em> (ASPP) 이용하여 다양한 크기의 객체에 대응</p></li>
 <li><p>DeepLab v3 - encoder에 ResNet 구조 도입. ASPP를 보완하고, batch norm. 사용하여 학습이 잘 되도록 함.  CRF 없이 동등 이상 성능 확보</p></li>
 <li><p>DeepLab v3+: Depth-wise seperable Conv.도입하여 런타임 속도 개선. (ASSPP) U-Net 구조를 단순화한 Decoder 구조 사용하여 성능 개선</p></li>
 </ul>
-</section>
-<section id="conditional-random-field">
+</div>
+<div class="section" id="conditional-random-field">
 <h3>3. Conditional Random Field<a class="headerlink" href="#conditional-random-field" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://www.notion.so/Conditional-Random-Field-8f5f9c9a446a4fb38a225125352ee338">Conditional Random Field</a></p>
-</section>
-</section>
+</div>
+</div>
 <hr class="docutils" />
-<section id="problem-statement">
+<div class="section" id="problem-statement">
 <h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>DNN을 이용한 Semantic Segmentation은 pooling 또는 stride를 이용하기 때문에 encoder의 level이 깊어질수록 spatial한 info를 잃어버리고, layer 수를 늘리는데 한계가 존재함.</p></li>
 <li><p>multi-scale에 대응하기 어렵고, 기존 방법 (DeepLab)에서는 후처리에 Dense-CRF를 적용하여 속도가 느림</p></li>
 <li><p>DeepLab v2에서 제안된 ASPP module의 경우 multi-scale context를 잘 추출했지만 Atorus rate가 커질수록 유효한 weight의 수가 작아지는 경향을 보임. ⇒  Atorus rate가 커지면 3x3 kernel이 1x1처럼 동작함.</p></li>
 </ol>
-</section>
-<section id="contribution">
+</div>
+<div class="section" id="contribution">
 <h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>DeepLab v2에 적용된 ASPP module의 degenerate 문제 개선 (last feature map에 Global Average Pooling 추가)</p></li>
 <li><p>Batch normalization 도입하여 성능 개선.</p></li>
 </ol>
-</section>
+</div>
 <hr class="docutils" />
-<section id="proposed-method">
+<div class="section" id="proposed-method">
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
-<section id="cascade-atrous-convolution-for-dense-feature-extraction">
+<div class="section" id="cascade-atrous-convolution-for-dense-feature-extraction">
 <h3>1. <strong>Cascade Atrous Convolution for Dense Feature Extraction</strong><a class="headerlink" href="#cascade-atrous-convolution-for-dense-feature-extraction" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>A<strong>trous Convolution (=Dilated Convolution)</strong></p>
@@ -692,12 +680,10 @@
 </ul>
 <div class="math notranslate nohighlight">
 \[y[i]=\sum_{k}^{K}x[i+r\cdot{k}]w[k]\]</div>
-<figure class="align-default" id="id2">
+<div class="figure align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_5.gif"><img alt="deeplabv3_5.gif" class="bg-primary mb-1" src="../../_images/deeplabv3_5.gif" style="width: 300px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Atrous Convolution</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Atrous Convolution</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 <p><strong>Atrous Convolution</strong></p>
 <ul>
 <li><p>A<strong>trous convolution은 pooling 연산 없이 넓은</strong> field of view를 커버할 수 있음.
@@ -706,15 +692,13 @@
 <p>:  Atrous Convolution의 rate를 변형하여 padding 및 stride를 최소화</p>
 </li>
 </ul>
-<figure class="align-default" id="id3">
+<div class="figure align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_6.png"><img alt="deeplabv3_6.png" class="bg-primary mb-1" src="../../_images/deeplabv3_6.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Cascaded modules without and with atrous convolution (source: arXiv:1706.05587)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Cascaded modules without and with atrous convolution (source: arXiv:1706.05587)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 <p>layer 4부터 atrous rate를 2,4,8로 조절하여 output layer의 stride를 16으로 유지</p>
-</section>
-<section id="atrous-spatial-pyramid-pooling-aspp">
+</div>
+<div class="section" id="atrous-spatial-pyramid-pooling-aspp">
 <h3>2. Atrous Spatial Pyramid Pooling (ASPP)<a class="headerlink" href="#atrous-spatial-pyramid-pooling-aspp" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://www.notion.so/Atrous-Spatial-Pyramid-Pooling-cdb0e7b83228427592f97d717645f58e">Atrous Spatial Pyramid Pooling</a></p>
 <ul>
@@ -722,45 +706,39 @@
 <p>→ ConvLayer의 output을 다양한 Atrous rate를 가지는 kernel을 병렬로 연산하여 multi-scale 특징을 추출하고자 함.</p>
 </li>
 </ul>
-<figure class="align-default" id="id4">
+<div class="figure align-default" id="id4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_7.png"><img alt="deeplabv3_7.png" class="bg-primary mb-1" src="../../_images/deeplabv3_7.png" style="width: 300px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Spatial Pyramid Pooling (source: arXiv:1706.05587)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Spatial Pyramid Pooling (source: arXiv:1706.05587)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
 <ul>
 <li><p>Atrous rate가 커질수록 유효한 weight의 수가 작아지는 경향을 보임.</p>
 <p>⇒  Atrous rate가 커지면 3x3 kernel이 1x1처럼 동작함.</p>
 <p>⇒ large scale context는 output에 반영 안됨. (receptive field를 크게 만들고 싶은데 안됨..)</p>
 </li>
 </ul>
-<figure class="align-default" id="id5">
+<div class="figure align-default" id="id5">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_8.png"><img alt="deeplabv3_8.png" class="bg-primary mb-1" src="../../_images/deeplabv3_8.png" style="width: 500px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Atrous rate and vaild weight</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Atrous rate and vaild weight</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
 <p>5x5 feature map 과 Atrous rate = 4 인 3x3 dilated kernel 의 예시. Valid weight의 개수가 중앙 영역에 대해서는 1x1으로 줄어듬.</p>
 <ul class="simple">
 <li><p>이런 degenerate 문제 해결을 위해 이미지의 last feature map에 대해서 “Global average pooling”을 적용.</p></li>
 <li><p>성능 개선을 위해 각 module에 batch normalization 적용</p></li>
 </ul>
-<figure class="align-default" id="id6">
+<div class="figure align-default" id="id6">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_9.png"><img alt="deeplabv3_9.png" class="bg-primary mb-1" src="../../_images/deeplabv3_9.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Parallel modules with atrous convolution (ASPP), augmented with image-level features. (source: arXiv:1706.05587)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Parallel modules with atrous convolution (ASPP), augmented with image-level features. (source: arXiv:1706.05587)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
 <p>Global average Pooling + 1x1 Convolution module을 거친 후, Bilinear upsampling을 적용하여 입력 크기의 segmentation result 도출</p>
 <ul class="simple">
 <li><p>Global average Pooling + 1x1 Convolution module을 거친 후, Bilinear upsampling을 이용하여 image-level feature map을 다시 원하는 해상도로 복원하는 과정을 거친다.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 <hr class="docutils" />
-<section id="experimental-evaluation">
+<div class="section" id="experimental-evaluation">
 <h2>Experimental Evaluation<a class="headerlink" href="#experimental-evaluation" title="Permalink to this headline">¶</a></h2>
-<section id="training-protocol">
+<div class="section" id="training-protocol">
 <h3>1. Training Protocol<a class="headerlink" href="#training-protocol" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://www.notion.so/DeepLab-v3-Training-Protocol-60f24984cb7341c98345ca96cbb71e19">DeepLab v3 Training Protocol</a></p>
 <ul>
@@ -773,12 +751,10 @@ a) PASCAL VOC 2012</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\left( 1-\frac{iter}{max_iter}\right)^{power}\]</div>
-<figure class="align-default" id="id7">
+<div class="figure align-default" id="id7">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_10.png"><img alt="deeplabv3_10.png" class="bg-primary mb-1" src="../../_images/deeplabv3_10.png" style="width: 300px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Learning Rate</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Learning Rate</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
 <ul>
 <li><p>Crop Size</p>
 <p>: 학습 과정에서 train set을 crop하여 사용할 때, Atrous conv.를 효과적으로 사용하기 위해 큰 size로 crop하여 training해 줄 필요가 있음
@@ -800,8 +776,8 @@ a) PASCAL VOC 2012</p></li>
 <p>: Randomly left-right flipping</p>
 </li>
 </ul>
-</section>
-<section id="experimental-result">
+</div>
+<div class="section" id="experimental-result">
 <h3>2. Experimental Result<a class="headerlink" href="#experimental-result" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>PASCAL VOC 2012 semantic segmentation benchmart 이용 성능 평가 (train 1,464장, val 1,449장, test 1,456장)</p></li>
@@ -810,8 +786,8 @@ a) PASCAL VOC 2012</p></li>
 </li>
 </ul>
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/deeplabv3_11.png"><img alt="deeplabv3_11.png" class="bg-primary mb-1 align-center" src="../../_images/deeplabv3_11.png" style="width: 600px;" /></a>
-</section>
-<section id="deeplab-v2">
+</div>
+<div class="section" id="deeplab-v2">
 <h3>3. 추가 실험 : DeepLab v2와의 비교<a class="headerlink" href="#deeplab-v2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>DenseCRF post-processing, MS-COCO pre-training scheme을 적용하지 않았음에도 불구하고, DeepLab v2 대비 성능 개선 확인 (DeepLab v2 : 77.69%)</p></li>
@@ -823,9 +799,9 @@ a) PASCAL VOC 2012</p></li>
 </li>
 </ul>
 <img alt="deeplabv3_12.png" class="bg-primary mb-1 align-center" src="../../_images/deeplabv3_12.png" />
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -879,7 +855,7 @@ a) PASCAL VOC 2012</p></li>
         
         </div>
     </div>
-    <footer class="footer">
+    <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
@@ -895,7 +871,8 @@ a) PASCAL VOC 2012</p></li>
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
+  
   </body>
 </html>
