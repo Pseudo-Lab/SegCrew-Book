@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Tutorial: DenseCRF for segmentation task &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,21 +32,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -57,7 +58,10 @@
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="prev" title="s4GAN - arXiv:1908.05724" href="../ch5/05_02_02_s4GAN.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -73,6 +77,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -92,14 +100,14 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Semantic Segmentation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch1/01_Semantic%20Segmentation.html">
+  <a class="reference internal" href="../ch1/01_Semantic%20Segmentation2.html">
    Overview
   </a>
  </li>
@@ -185,7 +193,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Instance Segmentation
  </span>
@@ -239,14 +247,14 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation.html">
+  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation2.html">
    Overview
   </a>
  </li>
@@ -295,14 +303,14 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation.html">
+  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation2.html">
    Overview
   </a>
  </li>
@@ -351,7 +359,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -407,7 +415,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
@@ -597,17 +605,17 @@
         
               <div>
                 
-  <div class="section" id="tutorial-densecrf-for-segmentation-task">
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-densecrf-for-segmentation-task">
 <h1>Tutorial: DenseCRF for segmentation task<a class="headerlink" href="#tutorial-densecrf-for-segmentation-task" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="reference">
+<section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Paper: <a class="reference external" href="https://arxiv.org/abs/1210.5644">https://arxiv.org/abs/1210.5644</a></p></li>
 <li><p>Pydensecrf: <a class="reference external" href="https://github.com/lucasb-eyer/pydensecrf.git">https://github.com/lucasb-eyer/pydensecrf.git</a></p></li>
 <li><p>FCN Model: <a class="reference external" href="https://pytorch.org/hub/pytorch_vision_fcn_resnet101/">https://pytorch.org/hub/pytorch_vision_fcn_resnet101/</a></p></li>
 </ul>
-</div>
-<div class="section" id="problem-statement">
+</section>
+<section id="problem-statement">
 <h2>1. Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Segmentation task는 object 중점의 robust 하고 global한 feature 추출을 목적으로하는 classification / detection task와 다르게 pixel level의 prediction을 수행하야 하므로, detail한 feature 추출이 필요하다.</p></li>
@@ -730,7 +738,7 @@
           <span class="n">plt_handlers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
           <span class="n">plt_titles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{value}</span><span class="s1">: </span><span class="si">{name}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">VOC_CLASSES</span><span class="p">[</span><span class="n">idx</span><span class="p">]))</span>
         
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">plt_handlers</span><span class="p">,</span> <span class="n">plt_titles</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">)</span>  
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">plt_handlers</span><span class="p">,</span> <span class="n">plt_titles</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>  
 </pre></div>
 </div>
 </div>
@@ -754,8 +762,8 @@
 <li><p>FCN, DeepLab과 같이 feature map을 upsample이 포함된 network의 경우 정교한 segmentation 결과를 얻는 것은 한계가 있다. 이를 보완하기 위해 probabilistic graphical models을 이용한 post-processing을 적용할 수 있다.</p></li>
 <li><p>본 article에서는 segmentation task에서 널리 활용되는 Conditional Random Field를 이용한 post-processing 과정을 다룬다.</p></li>
 </ul>
-</div>
-<div class="section" id="conditional-random-field">
+</section>
+<section id="conditional-random-field">
 <h2>2. Conditional Random Field<a class="headerlink" href="#conditional-random-field" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>CRF는 Markov random field의 일종으로 sequential labeling 문제에서 Recurrent Neural Network (RNN) 등의 deep learning 계열 알고리즘이 이용되기 이전에 널리 사용되었다.</p></li>
@@ -779,8 +787,8 @@
 <p>이를 이용하면 label에 대한 random field를 구하기 위한 확률 <span class="math notranslate nohighlight">\(P(\mathbf{y|\mathbf{x}})\)</span> 최대화 문제를 Energy 최소화 문제로 표현할 수 있다.</p>
 </li>
 </ul>
-</div>
-<div class="section" id="crf-for-image-segmentation">
+</section>
+<section id="crf-for-image-segmentation">
 <h2>3. CRF for Image Segmentation<a class="headerlink" href="#crf-for-image-segmentation" title="Permalink to this headline">¶</a></h2>
 <p><img alt="Source: A. Arnab, et al., “Conditional Random Fields Meet Deep Neural Networks for Semantic" src="../../_images/img.png" /></p>
 <p>Source: A. Arnab, et al., “Conditional Random Fields Meet Deep Neural Networks for Semantic</p>
@@ -804,7 +812,7 @@
 <p><img alt="Untitled" src="../../_images/Untitled.png" /></p>
 </li>
 </ul>
-<div class="section" id="unary-potential-theta-i">
+<section id="unary-potential-theta-i">
 <h3>(1) <strong>Unary potential <span class="math notranslate nohighlight">\(\theta_i\)</span></strong><a class="headerlink" href="#unary-potential-theta-i" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>픽셀 <span class="math notranslate nohighlight">\(i\)</span>에 label이 할당될 확률이며, CNN에 의해 계산된다.</p></li>
@@ -871,8 +879,8 @@ Successfully installed pydensecrf-1.0rc2
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="pairwise-potential-theta-i-j">
+</section>
+<section id="pairwise-potential-theta-i-j">
 <h3>(2) <strong>Pairwise potential <span class="math notranslate nohighlight">\(\theta_{i,j}\)</span></strong><a class="headerlink" href="#pairwise-potential-theta-i-j" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -917,9 +925,9 @@ Successfully installed pydensecrf-1.0rc2
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="fully-connected-crf-for-semantic-segmentation">
+</section>
+</section>
+<section id="fully-connected-crf-for-semantic-segmentation">
 <h2>4. <strong>Fully Connected CRF for semantic segmentation</strong><a class="headerlink" href="#fully-connected-crf-for-semantic-segmentation" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>인접한 화소의 pairwise potential을 이용한 CRF model은 모든 detail 표현하는데 한계가 존재하기 때문에 모든 pixel에 대해 정의한 pairwise potential를 적용하여 성능을 개선한다.</p></li>
@@ -929,7 +937,7 @@ Successfully installed pydensecrf-1.0rc2
 </li>
 <li><p>이를 해결하기 위해 Variational Inference의 아이디어를 활용한 Mean Field Approximation을 적용한다. (<a class="reference external" href="https://jaejunyoo.blogspot.com/2017/04/auto-encoding-variational-bayes-vae-2.html">https://jaejunyoo.blogspot.com/2017/04/auto-encoding-variational-bayes-vae-2.html</a>)</p></li>
 </ul>
-<div class="section" id="mean-field-approximation">
+<section id="mean-field-approximation">
 <h3>(1) Mean Field Approximation<a class="headerlink" href="#mean-field-approximation" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>계산이 복잡한 Posterior distribution <span class="math notranslate nohighlight">\(P(\mathbf{x})\)</span>를 independent한 component로 구성된 marginals distribution <span class="math notranslate nohighlight">\(Q(\mathbf{x})=\prod_iQ_i(X_i)\)</span>으로 근사화한다.</p></li>
@@ -946,8 +954,8 @@ Q_i(x_i=l)=\frac{1}{Z_i}\exp\left\{-\psi_u(x_i)-\sum_{l' \in L} \mu(l.l')\sum_{m
 </li>
 <li><p>여기서 Message passing 과정의 복잡도는 <span class="math notranslate nohighlight">\(O(N^2)\)</span>으로 나타나므로 이를 근사화하여 연산량을 추가로 감소시킨다.</p></li>
 </ul>
-</div>
-<div class="section" id="efficient-message-passing">
+</section>
+<section id="efficient-message-passing">
 <h3>(2) Efficient Message Passing<a class="headerlink" href="#efficient-message-passing" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>다음과 같이 표현되는 massage pass step을</p></li>
@@ -1009,9 +1017,9 @@ torch.Size([1026, 1282])
 <img alt="../../_images/DenseCRF_20_5.png" src="../../_images/DenseCRF_20_5.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1056,7 +1064,7 @@ torch.Size([1026, 1282])
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -1072,8 +1080,7 @@ torch.Size([1026, 1282])
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

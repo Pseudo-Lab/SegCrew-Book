@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>DETR - ECCV 2020 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,21 +32,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -58,7 +59,10 @@
     <link rel="next" title="[Draft] PanopticFCN - CVPR 2021" href="03_01_02_PanopticFCN.html" />
     <link rel="prev" title="PanopticFPN - CVPR 2019" href="03_01_01_PanopticFPN.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -74,6 +78,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -93,14 +101,14 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Semantic Segmentation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch1/01_Semantic%20Segmentation.html">
+  <a class="reference internal" href="../ch1/01_Semantic%20Segmentation2.html">
    Overview
   </a>
  </li>
@@ -186,7 +194,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Instance Segmentation
  </span>
@@ -240,7 +248,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
@@ -296,14 +304,14 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation.html">
+  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation2.html">
    Overview
   </a>
  </li>
@@ -352,7 +360,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -408,7 +416,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
@@ -576,7 +584,7 @@
         
               <div>
                 
-  <div class="section" id="detr-eccv-2020">
+  <section class="tex2jax_ignore mathjax_ignore" id="detr-eccv-2020">
 <h1>DETR - ECCV 2020<a class="headerlink" href="#detr-eccv-2020" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
@@ -594,15 +602,15 @@
 <li><p><strong>Last updated on Jan. 30, 2022</strong></p></li>
 </ul>
 </div>
-<div class="section" id="problem-statement">
+<section id="problem-statement">
 <h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Object detection task는 bounding box와 label을 예측하는 것인데, 최근의 연구 결과들은 anchor를 기반으로 bbox regression/classification을 수행하는 휴리스틱한 방법을 주로 사용한다.</p></li>
 <li><p>결국 Target object의 bounding box의 aspect ratio와 같은 prior knowledge에 의존하고, 중복 검출을 제거하기 위해 NMS에 많은 의존을 하게 되어 occlusion이 발생한 object를 검출하기 어렵다. 에 되는 문제가 있음.</p></li>
 <li><p>RNN을 적용한 detector들은 auto-regressive(자기추론) sequence model을 이용하기 때문에 loss function은 변하지않는 순열의 prediction한다. 다만 최신 기준으로 평가된 적이 없으며, 병렬처리가 어려운 단점이 있다.</p></li>
 </ul>
-</div>
-<div class="section" id="contribution">
+</section>
+<section id="contribution">
 <h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>Transformer를 이용한 end-to-end detection framework를 제안함.</p></li>
@@ -612,57 +620,69 @@
 <p>→ ViT, Deformable DETR, Swin transformer</p>
 </li>
 </ul>
-<div class="figure align-default" id="markdown-fig">
+<figure class="align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr1.png"><img alt="detr1" class="bg-primary mb-1" src="../../_images/detr1.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 59 </span><span class="caption-text">DETR directly predicts (in parallel) the final set of detections by combining a common CNN with a transformer architecture (source: arXiv:2005.12872)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="proposed-method">
+<figcaption>
+<p><span class="caption-number">Fig. 58 </span><span class="caption-text">DETR directly predicts (in parallel) the final set of detections by combining a common CNN with a transformer architecture (source: arXiv:2005.12872)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="proposed-method">
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="overall-architecture">
+<section id="overall-architecture">
 <h3>1. Overall Architecture<a class="headerlink" href="#overall-architecture" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr2.png"><img alt="detr2" class="bg-primary mb-1" src="../../_images/detr2.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 60 </span><span class="caption-text">DETR uses a conventional CNN backbone to learn a 2D representation of an input image. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 59 </span><span class="caption-text">DETR uses a conventional CNN backbone to learn a 2D representation of an input image. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>CNN backbone (ResNet)을 이용하여 feature를 추출한 후, transformer의 encoder-decoder를 통해 얻은 attention을 FFN(feed forward network)를 통해 고정된 수의 detection box와 label을 얻음</p></li>
 <li><p>FFN은 perceptron으로 이루어진 neural network이며 ReLU activation을 적용한 3 layer network로 구성된다.</p></li>
 </ul>
-</div>
-<div class="section" id="transformer">
+</section>
+<section id="transformer">
 <h3>2. Transformer<a class="headerlink" href="#transformer" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>CNN을 이용하여 추출한 feature map에서 bounding box와 이에 따른 class 정보를 예측하기 위해 Transformer architecture를 이용한다. Transformer는 적은 inductive bias를 가지는 구조로 global context를 이해하는데 좋은 성능을 발휘한다고 알려져 있다.</p></li>
 <li><p>Transformer의 encoder에서는 입력된 feature에 대한 self-attention을 이용하여 objects의 instance level의 정보를 추출한다.</p></li>
 <li><p>Transformer의 decoder는 N개의 objects에 대한 queries를 input으로 받으며, 각 object의 localiztion information을 예측한다. 이 과정에서 parallel decoding을 이용하여 연산을 가속할 수 있다.</p></li>
 </ul>
-<div class="figure align-default" id="id2">
+<figure class="align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr3.png"><img alt="detr3" class="bg-primary mb-1" src="../../_images/detr3.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 61 </span><span class="caption-text">Architecture of DETR’s Transformer. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 60 </span><span class="caption-text">Architecture of DETR’s Transformer. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
-<li><p>Encoder의 output은 각 개별 object instance 정보를 포함하고 있다. 그림 <a class="reference internal" href="#detr-encoder"><span class="std std-numref">Fig. 62</span></a>와 같이 붉은 점에 해당하는 self-attention을 보면 각 위치가 포함되는 개별객체에 attention되어 있음을 확인할 수 있다.</p></li>
+<li><p>Encoder의 output은 각 개별 object instance 정보를 포함하고 있다. 그림 <a class="reference internal" href="#detr-encoder"><span class="std std-numref">Fig. 61</span></a>와 같이 붉은 점에 해당하는 self-attention을 보면 각 위치가 포함되는 개별객체에 attention되어 있음을 확인할 수 있다.</p></li>
 </ul>
-<div class="figure align-default" id="detr-encoder">
+<figure class="align-default" id="detr-encoder">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr4.png"><img alt="detr4" class="bg-primary mb-1" src="../../_images/detr4.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 62 </span><span class="caption-text">Encoder self-attention for a set of reference points. The encoder is able to seperate indifidual instancese. (source: arXiv:2005.12872)</span><a class="headerlink" href="#detr-encoder" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 61 </span><span class="caption-text">Encoder self-attention for a set of reference points. The encoder is able to seperate indifidual instancese. (source: arXiv:2005.12872)</span><a class="headerlink" href="#detr-encoder" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
-<li><p><a class="reference internal" href="#detr-decoder"><span class="std std-numref">Fig. 63</span></a>와 같이 DETR는 중첩된 object도 잘 구분할 수 있다.</p></li>
+<li><p><a class="reference internal" href="#detr-decoder"><span class="std std-numref">Fig. 62</span></a>와 같이 DETR는 중첩된 object도 잘 구분할 수 있다.</p></li>
 <li><p>각 instance의 외각점 (다리, 귀, 코 등)에서 높은 attention을 가진다.</p></li>
 </ul>
-<div class="figure align-default" id="detr-decoder">
+<figure class="align-default" id="detr-decoder">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr5.png"><img alt="detr5" class="bg-primary mb-1" src="../../_images/detr5.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 63 </span><span class="caption-text">Visualizing decoder attention for every predicted object (image from COCO val set). Predictions are made with DTRE-DC5 model. Attention scores are coded with differentn colors for different objects. Decoder typically  attends to object extremities, such as legs and heads. Best viweed in color (source: arXiv:2005.12872)</span><a class="headerlink" href="#detr-decoder" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="bipartite-matching">
+<figcaption>
+<p><span class="caption-number">Fig. 62 </span><span class="caption-text">Visualizing decoder attention for every predicted object (image from COCO val set). Predictions are made with DTRE-DC5 model. Attention scores are coded with differentn colors for different objects. Decoder typically  attends to object extremities, such as legs and heads. Best viweed in color (source: arXiv:2005.12872)</span><a class="headerlink" href="#detr-decoder" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="bipartite-matching">
 <h3>3. Bipartite Matching<a class="headerlink" href="#bipartite-matching" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="id3">
+<figure class="align-default" id="id3">
 <a class="reference internal image-reference" href="../../_images/detr6.png"><img alt="detr6" src="../../_images/detr6.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 64 </span><span class="caption-text">Examples of bipartite matching (source: arXiv:2005.12872)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 63 </span><span class="caption-text">Examples of bipartite matching (source: arXiv:2005.12872)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>Matching cost <span class="math notranslate nohighlight">\(\mathcal{L}_{\text{match}}\)</span>을 최소화하는 최적의 permutation of <span class="math notranslate nohighlight">\(N\)</span> element <span class="math notranslate nohighlight">\(\sigma\in \mathfrak{S}_N\)</span>을 찾아 1:1 matching을 수행한다. 이 과정은 Hungarian algorithm을 이용하여 효율적으로 계산할 수 있다.</p></li>
 </ul>
@@ -679,8 +699,8 @@
 <p>여기서 <span class="math notranslate nohighlight">\(\sigma\)</span>는 permutation of N elements이며, <span class="math notranslate nohighlight">\(\hat{p}_{\sigma(i)}(c_i)\)</span>는 class <span class="math notranslate nohighlight">\(c_i\)</span>에 속할 확률이다.</p>
 </li>
 </ul>
-</div>
-<div class="section" id="loss-function">
+</section>
+<section id="loss-function">
 <h3>4. Loss Function<a class="headerlink" href="#loss-function" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>DETR 학습을 위해 다음과 같이 Hungarian loss를 계산한다.</p>
@@ -699,13 +719,15 @@
 \[
 \mathcal{L}_{\text{box}}(b_i,\hat{b}_{\sigma(i)})=\lambda_{\text{iou}}\mathcal{L}_{\text{iou}}(b_i,\hat{b}_{\sigma(i)})+\lambda_{L1}||b_i-\hat{b}_{\sigma(i)}||_1
 \]</div>
-</div>
-<div class="section" id="panoptic-segmentation">
+</section>
+<section id="panoptic-segmentation">
 <h3>5. Panoptic Segmentation<a class="headerlink" href="#panoptic-segmentation" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="id4">
+<figure class="align-default" id="id4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr7.png"><img alt="detr7" class="bg-primary mb-1" src="../../_images/detr7.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 65 </span><span class="caption-text">Illustration of the panoptic head. A binary mask is generated in parallel for each detected object, then the masks are merged using pixel-wise argmax. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 64 </span><span class="caption-text">Illustration of the panoptic head. A binary mask is generated in parallel for each detected object, then the masks are merged using pixel-wise argmax. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>DETR의 Transformer decoder output에 mask head를 추가하여 Panoptic Segmentation을 수행 가능하다.</p></li>
 <li><p>Detection task와 같이 DETR를 이용하여 stuff, things class를 각각 학습하고, 각 prediction boxes에 대해 binary mask를 prediction한다.</p></li>
@@ -714,11 +736,11 @@
 <li><p>최종적으로 구한 Mask logits에 대해 pixel-wise argmax를 적용하여 최종 panotic segmentation 결과를 도출한다.</p></li>
 <li><p>Mask head는 DETR와 함께 학습되거나, 분리되어 학습할 수 있다. 실험 결과 유사한 성능을 나타낸다고 한다. 각 mask는 독립적을 DICE/F-1 loss와 Focal loss를 적용하여 학습한다.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="experimental-result">
+</section>
+</section>
+<section id="experimental-result">
 <h2>Experimental Result<a class="headerlink" href="#experimental-result" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="object-detection">
+<section id="object-detection">
 <h3>1. Object Detection<a class="headerlink" href="#object-detection" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p><strong>Traning details
@@ -738,8 +760,8 @@
 <li><p>DETR DC5-R101의 <span class="math notranslate nohighlight">\(\text{AP}_{\text{S}}\)</span>와 같이 작은 object에 대해 성능이 저하됨을 확인할 수 있음</p></li>
 </ul>
 <img alt="detr8.png" class="bg-primary mb-1 align-center" src="../../_images/detr8.png" />
-</div>
-<div class="section" id="id5">
+</section>
+<section id="id5">
 <h3>2. Panoptic Segmentation<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p><strong>Traning details
@@ -757,9 +779,9 @@
 </ul>
 <img alt="detr9.png" class="bg-primary mb-1 align-center" src="../../_images/detr9.png" />
 <img alt="detr10.png" class="bg-primary mb-1 align-center" src="../../_images/detr10.png" />
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -813,7 +835,7 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -829,8 +851,7 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

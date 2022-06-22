@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Overview &#8212; Segmentation Complete</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="A. Learning Pixel Affinity" href="04_01_LearningPixelAffinity.html" />
+    <link rel="prev" title="MaX-DeepLab - CVPR 21" href="../ch3/03_02_01_Max-DeepLab.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Segmentation Complete</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   [가짜연구소] Segmentation 완전정복
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Semantic Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch1/01_Semantic%20Segmentation2.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_01_fullyconvNet.html">
+   A. Fully Convolutional Network
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_01_fcn.html">
+     FCN - CVPR 2015
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_02_DeepLabv3.html">
+     DeepLab v3 - arXiv 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_03_pspnet.html">
+     PSPNet - CVPR 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_04_encnet.html">
+     EncNet - CVPR 2018
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_02_encodedecode.html">
+   B. Convolutional encoder-decoder
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_01_unet.html">
+     U-Net - arxiv 2015
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_03_DeconvNet.html">
+     DeconvNet - ICCV 2015
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_02_segnet.html">
+     SegNet - TPAMI 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_01_multiresunet.html">
+     MultiResUNet - arxiv 2019
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_03_transformer.html">
+   C. Transformer based method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_03_01_SETR.html">
+     SETR - CVPR 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Instance Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch2/02_02_two_stage.html">
+   A. Detector based Method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_01_01_YOLACT.html">
+     YOLACT - ICCV 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_01_02_SOLO.html">
+     SOLO - ECCV 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_01_MaskRCNN.html">
+     [Draft] Mask R-CNN - ICCV 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_03_Deep-MAC.html">
+     [Draft] Deep-MAC - ICCV 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_02_HTC.html">
+     [Draft] HTC - CVPR 2019
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_04_BCNet.html">
+     [Draft] BCNet - CVPR 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Panoptic Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation2.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch3/03_01_Box.html">
+   A. Box based method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_01_01_PanopticFPN.html">
+     PanopticFPN - CVPR 2019
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_02_02_DETR.html">
+     DETR - ECCV 2020
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_01_02_PanopticFCN.html">
+     [Draft] PanopticFCN - CVPR 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch3/03_02_Box_Free.html">
+   B. Box-free Method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_02_01_Max-DeepLab.html">
+     MaX-DeepLab - CVPR 21
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Weakly-supervised Segmentation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="04_01_LearningPixelAffinity.html">
+   A. Learning Pixel Affinity
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_01_01_AffinityNet.html">
+     AffinityNet - CVPR 2018
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_01_02_IAL.html">
+     IAL - IJCV 2020
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="04_02_AdversarialErasing.html">
+   B. Adversarial Erasing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_02_01_AE-PSL.html">
+     [Draft] AE-PSL - CVPR 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_02_02_SeeNet.html">
+     SeeNet - NeurIPS 2018
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Semi-supervised Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch5/05%20Semi-supervised%20Segmentation.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch5/05_01_Consistency_reg.html">
+   A. Consistency Regularization
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_01_01_CCT.html">
+     CCT - CVPR 2020
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_01_02_SemiContexAware.html">
+     Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch5/05_02_GAN.html">
+   B. GAN
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_02_01_Revisiting_CycleGAN.html">
+     Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_02_02_s4GAN.html">
+     s4GAN - arXiv:1908.05724
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/DenseCRF.html">
+   Tutorial: DenseCRF for segmentation task
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/docs/ch4/04_Weakly-supervised Segmentation2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Pseudo-Lab/SegCrew-Book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch4/04_Weakly-supervised Segmentation2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Pseudo-Lab/SegCrew-Book/master?urlpath=tree/book/docs/ch4/04_Weakly-supervised Segmentation2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trend">
+   Trend
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<figure class="align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/weakly1.png"><img alt="weakly1" class="bg-primary mb-1" src="../../_images/weakly1.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 68 </span><span class="caption-text">Weakly supervised learning. (source: Hakan, CVPR18 Tutorial)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<ul>
+<li><p>Weakly-supervised learning은 full supervision이 아닌 완벽하지 않은 저수준(lower degree, noisy, limited, or imprecise sources)의 supervision 이용하여 학습방법이다.</p></li>
+<li><p>Segmentation task의 경우 supervised leaning 기반 학습 setting에서는 학습데이터로 주어진 모든 영상 정보에 대해 pixel level의 class label이 필요하며, 이러한 고수준의 labeled data가 필요한 task에서 data를 확보하는 과정에서 다음과 같은 문제가 발생할 수 있다.</p>
+<p>(1) 충분한 양의 labeled data를 확보하기 어렵다.</p>
+<p>(2) 특정 task의 경우 label data 생성에 전문가가 필요하고, 이는 많은 비용과 노력을 필요로 한다. (e.g.의료 영상)</p>
+<p>(3) 충분한 Data를 수집하기 위한 시간이 많이 든다.</p>
+</li>
+<li><p>Weakly supervised learning 기반 방법에서는 영상 전체의 classification 결과 (class label), 또는 object detection 결과 (bounding box, class label)와 같은 full supervision 대비 저수준의 labeled data를 이용하여 semantic/instance segmentation task와 같은 고수준의 task를 수행하는 network를 학습한다. 이를 통해 data 수집에 필요한 비용과 시간을 절감할 수 있다.</p></li>
+<li><p>Pixel/instance level의 label이 확보되지 않는 weakly supervised setting에서는 Class attention map (CAM)을 주로 활용한다.</p></li>
+</ul>
+<figure class="align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/weakly2.png"><img alt="weakly2" class="bg-primary mb-1" src="../../_images/weakly2.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 69 </span><span class="caption-text">Class Attention Map (source: Learning Deep Features for Discriminative Localization, CVPR 2016)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>CAM은 Network가 image를 특정 class로 prediction하게 하는 feature 내의 위치 정보를 표현한다.</p></li>
+<li><p>마지막 conv. layer의 output feature map <span class="math notranslate nohighlight">\(f^{\text{CAM}}\)</span> 특정 class로 분류될 activation value를 구하기 위한 weight와 weighted sum을 수행하여 CAM을 도출한다.</p></li>
+<li><p>이러한 CAM 정보는 class label만이 주어진 환경에서 이미지 내에 객체가 어디에 속한지 알려주지만 Classification을 위한 network에서 특정 object에서 나타나는 특정한 pattern에 대해 score가 학습이 되므로, 다양한 training sample에서 공통적으로 나타나는 scene들에 대해서 score가 낮게 학습이 된다.</p></li>
+<li><p>즉 배경과 잘 구분되는 object와 같이 discriminate한 부분에 집중하여 학습이 되므로, sparse하고 blurrly한 정보를 포함하고 있으며, score가 object의 외각영역에 집중되는 경향이 있다.</p></li>
+</ul>
+<figure class="align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/weakly3.png"><img alt="weakly3" class="bg-primary mb-1" src="../../_images/weakly3.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 70 </span><span class="caption-text">Examples of Class Attention Map (source: Weakly Supervised Object Detection, ECCV Tutorial 2020)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<ul>
+<li><p>이를 해결하기 위해 다양한 기법의 weakly supervised learning 기법이 제안되었고, 이를 분류해보면 다음과 같다.</p>
+<p>(1) Seeded Region Growing</p>
+<p>(2) Adversarial Erasing</p>
+<p>(3) Learning Pixel Affinity</p>
+<p>(4) Sailency or Attention Mechanism</p>
+</li>
+</ul>
+</section>
+<section id="trend">
+<h2>Trend<a class="headerlink" href="#trend" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-df6ae8bde5594637a3afe3449babade5"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-df6ae8bde5594637a3afe3449babade5") {
+      outputDiv = document.getElementById("altair-viz-df6ae8bde5594637a3afe3449babade5");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "top"}, "encoding": {"color": {"value": "#fde725"}, "text": {"value": ["Full Supervision"]}, "x": {"value": 5}, "y": {"value": 5}}}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "top"}, "encoding": {"color": {"value": "#cb4154"}, "text": {"value": ["weakly supervised setting \n (learning pixel affinity)"]}, "x": {"value": 5}, "y": {"value": 20}}}, {"data": {"name": "empty"}, "mark": {"type": "text", "align": "left", "baseline": "top"}, "encoding": {"color": {"value": "#3b518b"}, "text": {"value": ["weakly supervised setting \n (adversarial erasing)"]}, "x": {"value": 5}, "y": {"value": 35}}}, {"data": {"name": "data-f82c96c9529050ba4c59c93eae4b8ced"}, "mark": {"type": "line", "color": "#fde725", "strokeWidth": 1.5}, "encoding": {"x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": {"grid": true}, "field": "miou", "scale": {"domain": [50, 100]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-f82c96c9529050ba4c59c93eae4b8ced"}, "mark": {"type": "circle", "color": "#000000", "strokeWidth": 3}, "encoding": {"tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 100]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-f82c96c9529050ba4c59c93eae4b8ced"}, "mark": {"type": "text", "align": "center", "baseline": "middle", "dy": -10}, "encoding": {"color": {"value": "#000000"}, "text": {"field": "miou", "type": "quantitative"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 100]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-f82c96c9529050ba4c59c93eae4b8ced"}, "mark": {"type": "text", "align": "center", "baseline": "middle", "dy": 20}, "encoding": {"color": {"value": "#000000"}, "text": {"field": "nickname", "type": "nominal"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 100]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-16f3683905ff1c25b0369c8bd9b636bb"}, "mark": {"type": "line", "color": "#cb4154", "strokeWidth": 1.5}, "encoding": {"x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": {"grid": true}, "field": "miou", "scale": {"domain": [50, 100]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-16f3683905ff1c25b0369c8bd9b636bb"}, "mark": {"type": "circle", "color": "#cb4154", "strokeWidth": 3}, "encoding": {"tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 100]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-16f3683905ff1c25b0369c8bd9b636bb"}, "mark": {"type": "text", "align": "center", "baseline": "middle", "dy": -20}, "encoding": {"color": {"value": "#cb4154"}, "text": {"field": "miou", "type": "quantitative"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 100]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-16f3683905ff1c25b0369c8bd9b636bb"}, "mark": {"type": "text", "align": "center", "baseline": "middle", "dy": -30}, "encoding": {"color": {"value": "#cb4154"}, "text": {"field": "nickname", "type": "nominal"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 100]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-7b8ffe69b7081cb6ee03e5e15d9b66e4"}, "mark": {"type": "line", "color": "#3b518b", "strokeWidth": 1.5}, "encoding": {"x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": {"grid": true}, "field": "miou", "scale": {"domain": [50, 100]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-7b8ffe69b7081cb6ee03e5e15d9b66e4"}, "mark": {"type": "circle", "color": "#3b518b", "strokeWidth": 3}, "encoding": {"tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 100]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-7b8ffe69b7081cb6ee03e5e15d9b66e4"}, "mark": {"type": "text", "align": "center", "baseline": "middle", "dy": 20}, "encoding": {"color": {"value": "#3b518b"}, "text": {"field": "miou", "type": "quantitative"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 100]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}, {"data": {"name": "data-7b8ffe69b7081cb6ee03e5e15d9b66e4"}, "mark": {"type": "text", "align": "center", "baseline": "middle", "dy": 30}, "encoding": {"color": {"value": "#3b518b"}, "text": {"field": "nickname", "type": "nominal"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [50, 100]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2021 testset)"], "width": 800}], "resolve": {"scale": {"y": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"empty": [{}], "data-f82c96c9529050ba4c59c93eae4b8ced": [{"idx": 1, "year": "2015", "nickname": "FCN", "miou": 67.2, "backbone": "unknown"}, {"idx": 2, "year": "2017", "nickname": "PSPNet", "miou": 85.4, "backbone": "unknown"}, {"idx": 3, "year": "2017.", "nickname": "DeepLab_v3", "miou": 86.9, "backbone": "unknown"}, {"idx": 4, "year": "2018", "nickname": "DeepLab_v3+", "miou": 89.0, "backbone": "unknown"}], "data-16f3683905ff1c25b0369c8bd9b636bb": [{"idx": 3, "year": "2017", "nickname": "RAKW", "miou": 62.2, "backbone": "unknown"}, {"idx": 4, "year": "2018", "nickname": "AffinityNet", "miou": 63.7, "backbone": "unknown"}, {"idx": 5, "year": "2019.", "nickname": "IRNet", "miou": 64.8, "backbone": "unknown"}, {"idx": 6, "year": "2020", "nickname": "CIAN", "miou": 65.3, "backbone": "unknown"}], "data-7b8ffe69b7081cb6ee03e5e15d9b66e4": [{"idx": 3, "year": "2017", "nickname": "AE-PSL", "miou": 55.7, "backbone": "unknown"}, {"idx": 4, "year": "2018", "nickname": "SeeNet", "miou": 62.8, "backbone": "unknown"}, {"idx": 6, "year": "2020", "nickname": "EADER", "miou": 63.8, "backbone": "unknown"}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<ul class="simple">
+<li><p>본 chapter에서는 위 분류에 속한 다양한 weakly-supervised learning 기반 segmentation 연구결과를 리뷰한다.</p></li>
+</ul>
+<p><em>Latest update: Jun 21, 2022</em></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/ch4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../ch3/03_02_01_Max-DeepLab.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">MaX-DeepLab - CVPR 21</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="04_01_LearningPixelAffinity.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">A. Learning Pixel Affinity</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By PseudoLab<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

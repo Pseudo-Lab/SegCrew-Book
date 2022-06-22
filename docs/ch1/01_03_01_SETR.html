@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>SETR - CVPR 2021 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,21 +32,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -58,7 +59,10 @@
     <link rel="next" title="Overview" href="../ch2/02%20Instance%20Segmentation.html" />
     <link rel="prev" title="C. Transformer based method" href="01_03_transformer.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -74,6 +78,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -93,14 +101,14 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Semantic Segmentation
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="01_Semantic%20Segmentation.html">
+  <a class="reference internal" href="01_Semantic%20Segmentation2.html">
    Overview
   </a>
  </li>
@@ -186,7 +194,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Instance Segmentation
  </span>
@@ -240,14 +248,14 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation.html">
+  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation2.html">
    Overview
   </a>
  </li>
@@ -296,14 +304,14 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation.html">
+  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation2.html">
    Overview
   </a>
  </li>
@@ -352,7 +360,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -408,7 +416,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
@@ -571,7 +579,7 @@
         
               <div>
                 
-  <div class="section" id="setr-cvpr-2021">
+  <section class="tex2jax_ignore mathjax_ignore" id="setr-cvpr-2021">
 <h1>SETR - CVPR 2021<a class="headerlink" href="#setr-cvpr-2021" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
@@ -588,7 +596,7 @@
 <li><p><strong>Last updated on Jun. 4, 2022</strong></p></li>
 </ul>
 </div>
-<div class="section" id="introduction">
+<section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>CNN 기반 Semantic Segmentation</p>
@@ -605,10 +613,12 @@
 </ul>
 </li>
 </ul>
-<div class="figure align-default" id="markdown-fig">
+<figure class="align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/setr1.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/setr1.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">FCN architecture (source: arXiv:1411.4038)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">FCN architecture (source: arXiv:1411.4038)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>SETR(“SE”mantic + “TR”ansformer)</p>
 <ul>
@@ -619,8 +629,8 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="contributions">
+</section>
+<section id="contributions">
 <h2>Contributions<a class="headerlink" href="#contributions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Transformer Encoder를 적용한 새로운 semantic segmentation 구조를 제안
@@ -628,8 +638,8 @@
 <li><p>다양한 복잡도를 가진 Decoder를 적용하여 Self Attention의 특징 추출 효과에 대한 광범위한 해석 수행함.</p></li>
 <li><p>SOTA 성능 달성 (ADE20K:  50.28% mIoU  Pascal Context:  55.83% mIoU)</p></li>
 </ul>
-</div>
-<div class="section" id="proposed-method">
+</section>
+<section id="proposed-method">
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>SETR(”SE”gmentation + “TR”ansformers)</p>
@@ -638,19 +648,21 @@
 </ul>
 </li>
 </ul>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/architecture.png"><img alt="figure2" class="bg-primary mb-1" src="../../_images/architecture.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">Schematic illustration of SETR (source: arXiv:2012.15840)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-<div class="section" id="sequentialization-and-position-embedding">
+<figcaption>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Schematic illustration of SETR (source: arXiv:2012.15840)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="sequentialization-and-position-embedding">
 <h3>1. Sequentialization and Position Embedding<a class="headerlink" href="#sequentialization-and-position-embedding" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Transformer 모델을 사용하기 위해 <span class="math notranslate nohighlight">\(H \times W \times 3\)</span> resolution의 이미지를 <span class="math notranslate nohighlight">\(C\)</span> hidden channel size를 가지는 <span class="math notranslate nohighlight">\(L\)</span>개의 sequential vector 형태로 re-representation 함.</p></li>
 <li><p>본 논문에서는 ViT와 동일하게 입력 영상을 <span class="math notranslate nohighlight">\(16 \times 16\)</span> 개의 patch로 분할한다. 각각의 patch를  flatten 한 후 linear projection하여 <span class="math notranslate nohighlight">\(C\)</span>차원으로 축소하여 결과 적으로 1차원 patch embedding의 sequence로  변환한다. (L X C, L = H/16 X W/16)</p></li>
 <li><p>순서 정보를 주기 위해 각 patch에 해당하는 position embedding을 추가한다.</p></li>
 </ul>
-</div>
-<div class="section" id="transformer-encoder">
+</section>
+<section id="transformer-encoder">
 <h3>2. Transformer Encoder<a class="headerlink" href="#transformer-encoder" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>기존 Transformer와 다른점은 다음과 같다.
@@ -664,24 +676,30 @@
 </ul>
 </li>
 </ul>
-<div class="figure align-default" id="id2">
+<figure class="align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/attention.png"><img alt="figure3" class="bg-primary mb-1" src="../../_images/attention.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">Attention map of picked points (red) (source: arXiv:2012.15840)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id3">
+<figcaption>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Attention map of picked points (red) (source: arXiv:2012.15840)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/result1.png"><img alt="figure4" class="bg-primary mb-1" src="../../_images/result1.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">Visualization of output features (source: arXiv:2012.15840)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Visualization of output features (source: arXiv:2012.15840)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>Auxiliary Loss : Transformer layer 중 해당 Index에 해당 되는 output을 <span class="math notranslate nohighlight">\([H \times W \times \text{num. of class}]\)</span>로 변환 후 auxiliary loss를 계산 (channel : 2D convolution. Resolution : Bilinear Interpolation)</p></li>
 </ul>
-</div>
-<div class="section" id="decoder">
+</section>
+<section id="decoder">
 <h3>3. Decoder<a class="headerlink" href="#decoder" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="id4">
+<figure class="align-default" id="id4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/SETR_MLA.png"><img alt="figure5" class="bg-primary mb-1" src="../../_images/SETR_MLA.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">SETR-MLA (source: arXiv:2012.15840)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">SETR-MLA (source: arXiv:2012.15840)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul>
 <li><p>Pixel Level Segmentation을 위해 Transformer Encoder의 Output H/16 X W/16 X C Feature Map을 <span class="math notranslate nohighlight">\([H \times W \times \text{num. of class}]\)</span> 형태의 Segmentation Map 형태로 Re-representation 하는 역할</p></li>
 <li><p>우선 transformer output <span class="math notranslate nohighlight">\(Z\)</span> (dim.: <span class="math notranslate nohighlight">\(\frac{HW}{256} \times C\)</span>)를 <span class="math notranslate nohighlight">\(\frac{H}{16} \times \frac{W}{16} \times C\)</span>로 reshape 후 다음과 같은 3가지 decoder를 적용하여 최종 segment map을 도출한다.</p>
@@ -701,11 +719,11 @@
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="experiment-result">
+</section>
+</section>
+<section id="experiment-result">
 <h2>Experiment Result<a class="headerlink" href="#experiment-result" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="implementation-details">
+<section id="implementation-details">
 <h3>1. Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>mmsegmentation 기반으로 구현</p></li>
@@ -723,8 +741,8 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="setting">
+</section>
+<section id="setting">
 <h3>2. Setting<a class="headerlink" href="#setting" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Evaluation Dataset: Cityscapes, ADK20K, PASCAL Context</p></li>
@@ -737,8 +755,8 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="result">
+</section>
+<section id="result">
 <h3>3. Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Cityscape dataset을 이용하여 학습한 다양한 SETR model의 성능을 비교</p>
@@ -774,9 +792,9 @@
 </li>
 </ul>
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/result3.png"><img alt="figure9.png" class="bg-primary mb-1 align-center" src="../../_images/result3.png" style="width: 800px;" /></a>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -830,7 +848,7 @@
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -846,8 +864,7 @@
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
