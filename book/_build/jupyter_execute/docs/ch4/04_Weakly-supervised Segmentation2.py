@@ -56,13 +56,8 @@
 
 # ## Trend
 # 
-#  :::{figure-md} markdown-fig
-# <img src="pic/weakly4.png" alt="weakly4" class="bg-primary mb-1" width="800px">
-# 
-# Evolution of weakly-supervised semantic segmantation
-# :::
 
-# In[47]:
+# In[49]:
 
 
 #@title
@@ -73,7 +68,7 @@
 import altair as alt
 import pandas as pd
 
-y_scale = [50, 95]
+y_scale = [50, 100]
 x_scale = [0, 7]
 
 viridis = ['#440154', '#472c7a', '#3b518b', '#2c718e', '#21908d', '#27ad81', '#5cc863', '#aadc32', '#fde725']
@@ -97,115 +92,72 @@ weakly2_data = pd.DataFrame({'idx': [3, 4, 6],
                      'miou' :[55.7, 62.8, 63.8],
                      'backbone' :["unknown","unknown","unknown"]})
 
-base = alt.Chart(data).encode(
+
+def GetGraphElement(data, x_scale, y_scale, perf_measure, line_color = "#000000", point_color = "#000000", text_color = "#000000", text_y_pos = -10, textperf_y_pos=-20):
+    base = alt.Chart(data).encode(
     x = alt.X("idx", scale=alt.Scale(domain=x_scale),axis=None),
-).properties (
-width = 800,
-title = ["Trend on mIoU (PASCAL VOC 2021 testset)"]
-)
+    ).properties (
+    width = 800,
+    title = ["Trend on mIoU (PASCAL VOC 2012 testset)"]
+    )
 
-line = base.mark_line(strokeWidth= 1.5, color = "#fde725").encode(
-    y=alt.Y('miou', scale=alt.Scale(domain=y_scale),axis=alt.Axis(grid=True)),
-    tooltip = [alt.Tooltip('year'),
-               alt.Tooltip('nickname'),
-               alt.Tooltip('miou'),
-               alt.Tooltip('backbone'),],
-    text = alt.Text('nickname')
-)
+    line = base.mark_line(strokeWidth= 1.5, color = line_color).encode(
+        y=alt.Y('miou', scale=alt.Scale(domain=y_scale),axis=alt.Axis(grid=True)),
+        #text = alt.Text('nickname')
+    )
 
-points = base.mark_circle(strokeWidth= 3, color = "#000000").encode(
-         y=alt.Y('miou', scale=alt.Scale(domain=y_scale), axis=None),
-        tooltip = [alt.Tooltip('year'),
-        alt.Tooltip('nickname'),
-        alt.Tooltip('miou'),
-        alt.Tooltip('backbone'),],
-)
+    points = base.mark_circle(strokeWidth= 3, color = point_color).encode(
+            y=alt.Y(perf_measure, scale=alt.Scale(domain=y_scale), axis=None),
+            tooltip = [alt.Tooltip('year'),
+            alt.Tooltip('nickname'),
+            alt.Tooltip(perf_measure),
+            alt.Tooltip('backbone'),],
+    )
 
-point_nick = points.mark_text(align='center', baseline='middle', dy = -10,).encode(
-    y= alt.Y('miou', scale=alt.Scale(domain=y_scale), axis=None),
-    text=alt.Text('miou'),
-    color= alt.value("#000000")
-)
-point_perf = points.mark_text(align='center', baseline='middle', dy = 20,).encode(
-    y= alt.Y('miou', scale=alt.Scale(domain=y_scale), axis=None),
-    text=alt.Text('nickname'),
-    color= alt.value("#000000")
-)
+    point_nick = points.mark_text(align='center', baseline='middle', dy = text_y_pos,).encode(
+        y= alt.Y(perf_measure, scale=alt.Scale(domain=y_scale), axis=None),
+        text=alt.Text(perf_measure),
+        color= alt.value(text_color)
+    )
+    point_perf = points.mark_text(align='center', baseline='middle', dy = textperf_y_pos).encode(
+        y= alt.Y(perf_measure, scale=alt.Scale(domain=y_scale), axis=None),
+        text=alt.Text('nickname'),
+        color= alt.value(text_color)
+    )   
 
-# Layer all the elements together 
-#(line+point_text+point_text2).resolve_scale(y = 'independent')
+    return base, line, points, point_nick, point_perf
 
-
-
-
-
-base2 = alt.Chart(weakly_data).encode(
-    x = alt.X("idx", scale=alt.Scale(domain=x_scale),axis=None),
-).properties (
-width = 800,
-title = ["Trend on mIoU (PASCAL VOC 2021 testset)"]
-)
-
-line2 = base2.mark_line(strokeWidth= 1.5, color = "#cb4154" ).encode(
-    y=alt.Y('miou', scale=alt.Scale(domain=y_scale),axis=alt.Axis(grid=True)),
-    text = alt.Text('nickname')
-)
-
-points2 = base2.mark_circle(strokeWidth= 3, color = "#cb4154").encode(
-        y=alt.Y('miou', scale=alt.Scale(domain=y_scale), axis=None),
-        tooltip = [alt.Tooltip('year'),
-        alt.Tooltip('nickname'),
-        alt.Tooltip('miou'),
-        alt.Tooltip('backbone'),],
-)
-
-point_nick2 = points2.mark_text(align='center', baseline='middle', dy = -20,).encode(
-    y= alt.Y('miou', scale=alt.Scale(domain=y_scale), axis=None),
-    text=alt.Text('miou'),
-    color= alt.value("#cb4154")
-)
-point_perf2 = points2.mark_text(align='center', baseline='middle', dy = -30,).encode(
-    y= alt.Y('miou', scale=alt.Scale(domain=y_scale), axis=None),
-    text=alt.Text('nickname'),
-    color= alt.value("#cb4154")
-)
+def description_test(pos_x, pos_y, text, color):
+    return alt.Chart({'values':[{}]}).mark_text(align = "left", baseline ="top").encode(
+        x = alt.value(pos_x),
+        y = alt.value(pos_y),
+        text = alt.value([text]),
+        color= alt.value(color)
+    )
+    
 
 
 
+base, line, points, point_nick, point_perf = GetGraphElement(data, x_scale, y_scale, 'miou', 
+                                                            line_color = "#fde725", point_color = "#000000", text_color = "#000000", 
+                                                            text_y_pos = -10, textperf_y_pos=20)
+base2, line2, points2, point_nick2, point_perf2 = GetGraphElement(weakly_data, x_scale, y_scale, 'miou', 
+                                                                    line_color = "#cb4154", point_color = "#cb4154", text_color = "#cb4154", 
+                                                                    text_y_pos = -20, textperf_y_pos=-30)
+base3, line3, points3, point_nick3, point_perf3 = GetGraphElement(weakly2_data, x_scale, y_scale, 'miou', 
+                                                                    line_color = "#3b518b", point_color = "#3b518b", text_color = "#3b518b", 
+                                                                    text_y_pos = 20, textperf_y_pos=30)
 
+description1 = description_test(5,5,'Full Supervision','#fde725')
+description2 = description_test(5,20,'weakly supervised setting \n (learning pixel affinity)','#cb4154')
+description3 = description_test(5,35,'weakly supervised setting \n (adversarial erasing)','#3b518b')
 
-base3 = alt.Chart(weakly2_data).encode(
-    x = alt.X("idx", scale=alt.Scale(domain=x_scale),axis=None),
-).properties (
-width = 800,
-title = ["Trend on mIoU (PASCAL VOC 2021 testset)"]
-)
-
-line3 = base3.mark_line(strokeWidth= 1.5, color = "#3b518b" ).encode(
-    y=alt.Y('miou', scale=alt.Scale(domain=y_scale),axis=alt.Axis(grid=True)),
-    text = alt.Text('nickname')
-)
-
-points3 = base3.mark_circle(strokeWidth= 3, color = "#3b518b").encode(
-        y=alt.Y('miou', scale=alt.Scale(domain=y_scale), axis=None),
-        tooltip = [alt.Tooltip('year'),
-        alt.Tooltip('nickname'),
-        alt.Tooltip('miou'),
-        alt.Tooltip('backbone'),],
-)
-
-point_nick3 = points3.mark_text(align='center', baseline='middle', dy = 20,).encode(
-    y= alt.Y('miou', scale=alt.Scale(domain=y_scale), axis=None),
-    text=alt.Text('miou'),
-    color= alt.value("#3b518b")
-)
-point_perf3 = points3.mark_text(align='center', baseline='middle', dy = 30,).encode(
-    y= alt.Y('miou', scale=alt.Scale(domain=y_scale), axis=None),
-    text=alt.Text('nickname'),
-    color= alt.value("#3b518b")
-)
-
-(line+points+point_nick+point_perf+line2+points2+point_nick2+point_perf2+ line3+points3+point_nick3+point_perf3).resolve_scale(y = 'independent')
+(
+    description1+description2+description3+
+    line+points+point_nick+point_perf+
+    line2+points2+point_nick2+point_perf2+ 
+    line3+points3+point_nick3+point_perf3
+).resolve_scale(y = 'independent')
 
 
 # 

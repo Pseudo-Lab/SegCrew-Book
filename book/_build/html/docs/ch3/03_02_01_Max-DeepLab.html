@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>MaX-DeepLab - CVPR 21 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,21 +32,21 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -58,7 +59,10 @@
     <link rel="next" title="Overview" href="../ch4/04_Weakly-supervised%20Segmentation2.html" />
     <link rel="prev" title="B. Box-free Method" href="03_02_Box_Free.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -74,6 +78,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -93,14 +101,14 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Semantic Segmentation
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch1/01_Semantic%20Segmentation.html">
+  <a class="reference internal" href="../ch1/01_Semantic%20Segmentation2.html">
    Overview
   </a>
  </li>
@@ -186,7 +194,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Instance Segmentation
  </span>
@@ -240,7 +248,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
@@ -296,7 +304,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
@@ -352,7 +360,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -408,7 +416,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
@@ -571,7 +579,7 @@
         
               <div>
                 
-  <div class="section" id="max-deeplab-cvpr-21">
+  <section class="tex2jax_ignore mathjax_ignore" id="max-deeplab-cvpr-21">
 <h1>MaX-DeepLab - CVPR 21<a class="headerlink" href="#max-deeplab-cvpr-21" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
@@ -590,7 +598,7 @@
 <li><p><strong>Last updated on Jun. 15, 2022</strong></p></li>
 </ul>
 </div>
-<div class="section" id="contribution">
+<section id="contribution">
 <h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>End-to-end panoptic segmentation 방법을 제안</p>
@@ -602,15 +610,17 @@
 </li>
 <li><p>COCO dataset에 대해서 새로운 test time augmentation을 적용하지 않고도 SOTA 성능을 확보함.</p></li>
 </ul>
-</div>
-<div class="section" id="background">
+</section>
+<section id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-default" id="prev-method">
+<figure class="align-default" id="prev-method">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab1.png"><img alt="maxdeeplab1" class="bg-primary mb-1" src="../../_images/maxdeeplab1.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 66 </span><span class="caption-text">Overview of Previous Method (Source: arXiv:2012.00759)</span><a class="headerlink" href="#prev-method" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 65 </span><span class="caption-text">Overview of Previous Method (Source: arXiv:2012.00759)</span><a class="headerlink" href="#prev-method" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul>
-<li><p>기존의 panoptic segmentation method는 <a class="reference internal" href="#prev-method"><span class="std std-numref">Fig. 66</span></a>의 붉은색으로 표현된 내용과 같이 surrogate sub-task들에 의존하여 panoptic segmentation mask 결과를 구함.</p></li>
+<li><p>기존의 panoptic segmentation method는 <a class="reference internal" href="#prev-method"><span class="std std-numref">Fig. 65</span></a>의 붉은색으로 표현된 내용과 같이 surrogate sub-task들에 의존하여 panoptic segmentation mask 결과를 구함.</p></li>
 <li><p>즉 기존의 panoptic segmentation은 한번에 결과값을 구하는 것이 아니라 여러 task들로 구성되어 있는 다소 복잡한 pipeline 으로 구성되어 있다. (e.g. anchors, box assignment rules, non-maximum suppression, thing-stuff merging)</p></li>
 <li><p>복잡한 pipeline으로 구성되어 각각의 surrogate task에서 “undesired artifact”가 발생할 수 있고 pipeline을 거치면서 더 큰 artifact / noise로 번질 수 있기 때문에 최근에는 pipeline을 간소화 하는 방향으로 여러 연구들이 소개되고 있다.</p>
 <p><strong>(1) Box Based Method in Panoptic Segmentation</strong></p>
@@ -626,10 +636,10 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="proposed-method">
+</section>
+<section id="proposed-method">
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="max-deeplab-formulation">
+<section id="max-deeplab-formulation">
 <h3>1. MaX-DeepLab formulation<a class="headerlink" href="#max-deeplab-formulation" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>Panoptic Segmentation은 입력 영상 <span class="math notranslate nohighlight">\(I \in \mathbb{R}^{H \times W \times 3}\)</span>을 set of class-labeled mask로 분할하는 문제로 정의할 수 있다.</p>
@@ -662,17 +672,21 @@
 \[
 \hat{z}_{H,W}=\arg\max_i \hat{m}_{i,h,w}, \forall h \in \{1,2,...,H\}, \forall w \in \{1,2,...,W\}
 \]</div>
-</div>
-<div class="section" id="model-architecture">
+</section>
+<section id="model-architecture">
 <h3>2. Model Architecture<a class="headerlink" href="#model-architecture" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="markdown-fig">
+<figure class="align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab11.png"><img alt="maxdeeplab1" class="bg-primary mb-1" src="../../_images/maxdeeplab11.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 67 </span><span class="caption-text">An overview of the dual-path transformer architecture (Source: Source: arXiv:2012.00759)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id1">
+<figcaption>
+<p><span class="caption-number">Fig. 66 </span><span class="caption-text">An overview of the dual-path transformer architecture (Source: Source: arXiv:2012.00759)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab12.png"><img alt="maxdeeplab1" class="bg-primary mb-1" src="../../_images/maxdeeplab12.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 68 </span><span class="caption-text">Overview of MaX-DeepLab (Source: <a class="reference external" href="https://ai.googleblog.com/2021/04/max-deeplab-dual-path-transformers-for.html">https://ai.googleblog.com/2021/04/max-deeplab-dual-path-transformers-for.html</a>)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 67 </span><span class="caption-text">Overview of MaX-DeepLab (Source: <a class="reference external" href="https://ai.googleblog.com/2021/04/max-deeplab-dual-path-transformers-for.html">https://ai.googleblog.com/2021/04/max-deeplab-dual-path-transformers-for.html</a>)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>MaX-DeepLab은 dual-path transformer, stacked decoder, output heads (for mask and classes prediction)으로 구성된다.</p></li>
 </ul>
@@ -730,8 +744,8 @@ y_a^{p}=\sum_{n=1}^{N}\text{softmax}_n(q_a^p\cdot k_n^m)v_n^m
 </li>
 <li><p>Mask prediction 과정은 CondInst and SOLOv2 모델에 영감을 받았지만, 두 방법이 hand-designed object centers와 things와 stuff mask의 merge가 필요한 반면 제안된 방법은 end-to-end 방식으로 mask prediction을 추정할 수 있다.</p></li>
 </ul>
-</div>
-<div class="section" id="pq-style-loss">
+</section>
+<section id="pq-style-loss">
 <h3>3. PQ-style loss<a class="headerlink" href="#pq-style-loss" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Model을 학습하기 위해 panoptic quality (PQ)의 정의를 활용한 PQ-style loss를 이용한다. PQ는 다음과 같이 recognition quality(RQ)와 segmentation quality(SQ)로 정의된다.</p></li>
@@ -827,8 +841,8 @@ y_a^{p}=\sum_{n=1}^{N}\text{softmax}_n(q_a^p\cdot k_n^m)v_n^m
     \]</div>
 </li>
 </ul>
-</div>
-<div class="section" id="auxiliary-losses">
+</section>
+<section id="auxiliary-losses">
 <h3>4. Auxiliary Losses<a class="headerlink" href="#auxiliary-losses" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>학습 과정에서 PQ-style loss와 더불어 auxiliary losses를 적용했을 때 이득이 있음을 확인함.</p></li>
@@ -860,11 +874,11 @@ y_a^{p}=\sum_{n=1}^{N}\text{softmax}_n(q_a^p\cdot k_n^m)v_n^m
 <li><p>각 pixel의 semantic feature를 추출하기 위해 backbone의 output에 Panoptic-DeepLab model의 semantic head를 연결함.</p></li>
 <li><p>semantic head를 첫번째 decoder(stride 4)에 연결했을 때 최종 mask feature를 분리하는데 도움이 됨을 확인함.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="experimentation-result">
+</section>
+</section>
+<section id="experimentation-result">
 <h2>Experimentation Result<a class="headerlink" href="#experimentation-result" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="tech-details">
+<section id="tech-details">
 <h3>1. Tech. details<a class="headerlink" href="#tech-details" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Computing resources: 32 TPU cores for 100k iterations (54 epochs)</p></li>
@@ -878,8 +892,8 @@ y_a^{p}=\sum_{n=1}^{N}\text{softmax}_n(q_a^p\cdot k_n^m)v_n^m
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="result">
+</section>
+<section id="result">
 <h3>2. Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>COCO val. set과 test-dev set에서 single-scale model인 MaX-DeepLab-S가 기존 box-based method 및 box-free method 대비 높은 PQ를 나타냄.</p></li>
@@ -888,9 +902,9 @@ y_a^{p}=\sum_{n=1}^{N}\text{softmax}_n(q_a^p\cdot k_n^m)v_n^m
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab21.png"><img alt="maxdeeplab21.png" class="bg-primary mb-1 align-center" src="../../_images/maxdeeplab21.png" style="width: 500px;" /></a>
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab22.png"><img alt="maxdeeplab22.png" class="bg-primary mb-1 align-center" src="../../_images/maxdeeplab22.png" style="width: 500px;" /></a>
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maxdeeplab23.png"><img alt="maxdeeplab23.png" class="bg-primary mb-1 align-center" src="../../_images/maxdeeplab23.png" style="width: 800px;" /></a>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -944,7 +958,7 @@ y_a^{p}=\sum_{n=1}^{N}\text{softmax}_n(q_a^p\cdot k_n^m)v_n^m
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -960,8 +974,7 @@ y_a^{p}=\sum_{n=1}^{N}\text{softmax}_n(q_a^p\cdot k_n^m)v_n^m
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

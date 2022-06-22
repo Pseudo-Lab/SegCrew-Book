@@ -4,7 +4,7 @@ parts:
 - caption: Semantic Segmentation
   numbered: False
   chapters:
-  - file: docs/ch1/01_Semantic Segmentation    
+  - file: docs/ch1/01_Semantic Segmentation2    
   - file: docs/ch1/01_01_fullyconvNet
     sections:
     - file: docs/ch1/01_01_01_fcn
