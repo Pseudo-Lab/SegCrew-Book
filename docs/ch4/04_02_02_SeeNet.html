@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>SeeNet - NeurIPS 2018 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,50 +20,66 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Overview" href="../ch5/05%20Semi-supervised%20Segmentation.html" />
+    <link rel="next" title="GCNet - ICCV 2021" href="04_02_03_GCNet.html" />
     <link rel="prev" title="[Draft] AE-PSL - CVPR 2017" href="04_02_01_AE-PSL.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -70,10 +88,15 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -86,14 +109,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   [가짜연구소] Segmentation 완전정복
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    [가짜연구소] Segmentation 완전정복
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Semantic Segmentation
  </span>
@@ -186,7 +210,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Instance Segmentation
  </span>
@@ -240,7 +264,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
@@ -296,7 +320,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
@@ -349,10 +373,15 @@
      SeeNet - NeurIPS 2018
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_02_03_GCNet.html">
+     GCNet - ICCV 2021
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -408,7 +437,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
@@ -422,90 +451,180 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/ch4/04_02_02_SeeNet.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/Pseudo-Lab/SegCrew-Book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch4/04_02_02_SeeNet.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Pseudo-Lab/SegCrew-Book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch4/04_02_02_SeeNet.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/docs/ch4/04_02_02_SeeNet.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#problem-statement">
    Problem Statement
@@ -584,17 +703,111 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>SeeNet - NeurIPS 2018</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-statement">
+   Problem Statement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution">
+   Contribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   BackGround
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   <strong>
+    Proposed Method
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#observations">
+     1. Observations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#self-erasing">
+     2. Self-Erasing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#self-erasing-network">
+     3. Self-Erasing Network
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experimental-results">
+   Experimental Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     1. Implementation Details
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-role-of-self-erasing">
+     2. The Role of Self-Erasing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparison-with-the-state-of-the-arts">
+     3. Comparison with the State-of-the-Arts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discussion">
+     4. Discussion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#note">
+   Note
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="seenet-neurips-2018">
-<h1>SeeNet - NeurIPS 2018<a class="headerlink" href="#seenet-neurips-2018" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="seenet-neurips-2018">
+<h1>SeeNet - NeurIPS 2018<a class="headerlink" href="#seenet-neurips-2018" title="Permalink to this headline">#</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
 <p class="admonition-title">Information</p>
@@ -611,14 +824,14 @@
 <li><p><strong>Last updated on Jan. 5, 2022</strong></p></li>
 </ul>
 </div>
-<div class="section" id="problem-statement">
-<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">¶</a></h2>
+<section id="problem-statement">
+<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Adversarial Erasing 기법을 계속 적용할 경우 배경에도 Attention 영역이 넓혀지는 문제가 존재한다.</p></li>
 </ul>
-</div>
-<div class="section" id="contribution">
-<h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="contribution">
+<h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Self-Erasing이라는 전략을 통해서 위에서 발생하는 문제점을 해결</p>
 <ul>
@@ -628,44 +841,52 @@
 </li>
 <li><p>Pascal VOC에서 SOTA 성능을 달성</p></li>
 </ul>
-</div>
-<div class="section" id="background">
-<h2>BackGround<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="background">
+<h2>BackGround<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
 <p><strong>Adversarial Erasing Strategy</strong></p>
-<div class="figure align-default" id="markdown-fig">
+<figure class="align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet3.png"><img alt="seenet3" class="bg-primary mb-1" src="../../_images/seenet3.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 81 </span><span class="caption-text">ACoL architecture (Source: arXiv:1804.06962)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 81 </span><span class="caption-text">ACoL architecture (Source: arXiv:1804.06962)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>Object Region Mining과 비슷한 전략이지만, Classifier Branch를 두개 두어서 A에서 얻은 특징맵을 B에 들어가기전에 제거해서 사용</p></li>
 <li><p>하지만, 배경영역까지 Attention 결과가 넓혀지는 문제가 존재</p></li>
 </ul>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet4.png"><img alt="seenet4" class="bg-primary mb-1" src="../../_images/seenet4.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 82 </span><span class="caption-text">GAIN architecture (Source: arXiv:1802.10171)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="proposed-method">
-<h2><strong>Proposed Method</strong><a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="observations">
-<h3>1. Observations<a class="headerlink" href="#observations" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="typical-arch">
+<figcaption>
+<p><span class="caption-number">Fig. 82 </span><span class="caption-text">GAIN architecture (Source: arXiv:1802.10171)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="proposed-method">
+<h2><strong>Proposed Method</strong><a class="headerlink" href="#proposed-method" title="Permalink to this headline">#</a></h2>
+<section id="observations">
+<h3>1. Observations<a class="headerlink" href="#observations" title="Permalink to this headline">#</a></h3>
+<figure class="align-default" id="typical-arch">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet6.png"><img alt="seenet6" class="bg-primary mb-1" src="../../_images/seenet6.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 83 </span><span class="caption-text">(a) A typical adversarial erasing approach and (b-e) Attention maps (source: arXiv:2002.08098)</span><a class="headerlink" href="#typical-arch" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 83 </span><span class="caption-text">(a) A typical adversarial erasing approach and (b-e) Attention maps (source: arXiv:2002.08098)</span><a class="headerlink" href="#typical-arch" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>AE Step이 진행됨에 따라서 Object 영역 이외까지 Attention이 확장되는 문제가 발생</p></li>
 <li><p>일반적으로, 사람도 가장 중요한 부분을 먼저 보고 그 외로 관심있는 부분을 보는 것은 (b-e) 동일하지만 차이는 사람은 배경을 제대로 구분해서 그 부분을 보지 않는다.</p></li>
 <li><p>하지만, attention network는 이미지 레이블만 존재하여 배경을 구분할 수 없다는 문제가 있다.</p></li>
 <li><p>배경에 대한 prior을 attention network에 전달하여 배경을 구분할 수 있는 방법을 제안함.</p></li>
 </ul>
-</div>
-<div class="section" id="self-erasing">
-<h3>2. Self-Erasing<a class="headerlink" href="#self-erasing" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="seenet-fig2">
+</section>
+<section id="self-erasing">
+<h3>2. Self-Erasing<a class="headerlink" href="#self-erasing" title="Permalink to this headline">#</a></h3>
+<figure class="align-default" id="seenet-fig2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet8.png"><img alt="seenet8" class="bg-primary mb-1" src="../../_images/seenet8.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 84 </span><span class="caption-text">Illustrations explaining how to generate ternary masks. (source: arXiv:2002.08098)</span><a class="headerlink" href="#seenet-fig2" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 84 </span><span class="caption-text">Illustrations explaining how to generate ternary masks. (source: arXiv:2002.08098)</span><a class="headerlink" href="#seenet-fig2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(S_A\)</span>에서 초기 Attention을 생성. 단, 이때 생성된 Attention을 <a class="reference internal" href="#seenet-fig2"><span class="std std-numref">Fig. 84</span></a>의 (c)와 같이 2개의 threshold를 적용하여  3가지의 영역으로 나눔</p>
 <ul>
@@ -690,13 +911,15 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="self-erasing-network">
-<h3>3. Self-Erasing Network<a class="headerlink" href="#self-erasing-network" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="seenet-fig3">
+</section>
+<section id="self-erasing-network">
+<h3>3. Self-Erasing Network<a class="headerlink" href="#self-erasing-network" title="Permalink to this headline">#</a></h3>
+<figure class="align-default" id="seenet-fig3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seenet7.png"><img alt="seenet7" class="bg-primary mb-1" src="../../_images/seenet7.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 85 </span><span class="caption-text">Overview of the proposed approach. (source: arXiv:2002.08098)</span><a class="headerlink" href="#seenet-fig3" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 85 </span><span class="caption-text">Overview of the proposed approach. (source: arXiv:2002.08098)</span><a class="headerlink" href="#seenet-fig3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(S_A\)</span>부터 <span class="math notranslate nohighlight">\(S_C\)</span>로 구성된 3가지의 브랜치로 구성된 형태</p></li>
 <li><p><span class="math notranslate nohighlight">\(S_A\)</span>는 초기의 Attention을 추출하는 역할을, <span class="math notranslate nohighlight">\(S_B\)</span>, <span class="math notranslate nohighlight">\(S_C\)</span>는 Self-Erasing을 수행함.</p></li>
@@ -788,12 +1011,12 @@
 </div>
 <p><strong>(6) Proxy ground-truth 생성</strong></p>
 <img alt="seenet10.png" class="bg-primary mb-1 align-center" src="../../_images/seenet10.png" />
-</div>
-</div>
-<div class="section" id="experimental-results">
-<h2>Experimental Results<a class="headerlink" href="#experimental-results" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="implementation-details">
-<h3>1. Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="experimental-results">
+<h2>Experimental Results<a class="headerlink" href="#experimental-results" title="Permalink to this headline">#</a></h2>
+<section id="implementation-details">
+<h3>1. Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">#</a></h3>
 <p>(1) Datasets and evaluation metrics</p>
 <ul class="simple">
 <li><p>PASCAL VOC 2012 : 20 Semantic classes and background</p>
@@ -831,9 +1054,9 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="the-role-of-self-erasing">
-<h3>2. The Role of Self-Erasing<a class="headerlink" href="#the-role-of-self-erasing" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="the-role-of-self-erasing">
+<h3>2. The Role of Self-Erasing<a class="headerlink" href="#the-role-of-self-erasing" title="Permalink to this headline">#</a></h3>
 <img alt="seenet11.png" class="bg-primary mb-1 align-center" src="../../_images/seenet11.png" />
 <ul class="simple">
 <li><p>ACoL 대비해서 성능 향상</p></li>
@@ -849,17 +1072,17 @@
 </li>
 <li><p>Table1에서 ACoL 부분에서 확인할 수 있듯이, 배경부분을 추출시에 saliency map을 배경으로 사용하는 것보다 우리의 접근법이 효율적</p></li>
 </ul>
-</div>
-<div class="section" id="comparison-with-the-state-of-the-arts">
-<h3>3. Comparison with the State-of-the-Arts<a class="headerlink" href="#comparison-with-the-state-of-the-arts" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="comparison-with-the-state-of-the-arts">
+<h3>3. Comparison with the State-of-the-Arts<a class="headerlink" href="#comparison-with-the-state-of-the-arts" title="Permalink to this headline">#</a></h3>
 <img alt="seenet13.png" class="bg-primary mb-1 align-center" src="../../_images/seenet13.png" />
 <ul class="simple">
 <li><p>CAM을 기반으로 attention map을 생성한 DCSP보다 SeeNet이 성능이 높음</p></li>
 <li><p>기존 adversarial erasing 접근법인 AE-PSL, GAIN 보다 성능이 높음</p></li>
 </ul>
-</div>
-<div class="section" id="discussion">
-<h3>4. Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="discussion">
+<h3>4. Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">#</a></h3>
 <img alt="seenet14.png" class="bg-primary mb-1 align-center" src="../../_images/seenet14.png" />
 <ul class="simple">
 <li><p>다른 레이블을 가지는 Semantic Objects가 결합된 경우 attention model이 정확하게 이를 분리를 잘 못함</p></li>
@@ -874,25 +1097,25 @@
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>초기 Attention map을 기반으로 배경 정보를 추출</p></li>
 <li><p>배경 정보에 기반하여 2개의 Self-Erasing 전략 2개를 적용하여 배경영역으로 attention이 퍼지는 것을 방지</p></li>
 <li><p>attention map의 quality를 평가하기 위해서, attention map을 weakly-supervised semantic segmentation task에 saliency map과 결합해서 적용</p></li>
 <li><p>proxy ground-truths에 기반한 세그멘테이션 결과가 기존 SOTA 모델 성능보다 높았음</p></li>
 </ul>
-</div>
-<div class="section" id="note">
-<h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="note">
+<h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>논문을 읽고 든 생각이 두개의 Branch에 대한 효과가 Feature map에서 어떻게 영향을 끼치는지 시각적으로 보여줬으면, 더 이해가 좋았을 것 같음</p></li>
 <li><p>Review에서 언급된 것처럼 <span class="math notranslate nohighlight">\(S_C\)</span>의 영역이 학습에는 왜 필요하고, 테스트과정에는 왜 필요하지 않은지에 대한 명확한 언급이 없음</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -916,54 +1139,48 @@
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="04_02_01_AE-PSL.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">[Draft] AE-PSL - CVPR 2017</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="04_02_01_AE-PSL.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">[Draft] AE-PSL - CVPR 2017</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="04_02_03_GCNet.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">GCNet - ICCV 2021</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="../ch5/05%20Semi-supervised%20Segmentation.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Overview</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By PseudoLab<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By PseudoLab<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>

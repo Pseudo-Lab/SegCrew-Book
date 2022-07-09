@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>SETR - CVPR 2021 &#8212; Segmentation Complete</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,50 +20,66 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Overview" href="../ch2/02%20Instance%20Segmentation2.html" />
     <link rel="prev" title="C. Transformer based method" href="01_03_transformer.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -70,10 +88,15 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
       
@@ -86,14 +109,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   [가짜연구소] Segmentation 완전정복
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    [가짜연구소] Segmentation 완전정복
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Semantic Segmentation
  </span>
@@ -186,7 +210,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Instance Segmentation
  </span>
@@ -240,7 +264,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Panoptic Segmentation
  </span>
@@ -296,7 +320,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Weakly-supervised Segmentation
  </span>
@@ -349,10 +373,15 @@
      SeeNet - NeurIPS 2018
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch4/04_02_03_GCNet.html">
+     GCNet - ICCV 2021
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Semi-supervised Segmentation
  </span>
@@ -408,7 +437,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
@@ -422,90 +451,180 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/ch1/01_03_01_SETR.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/Pseudo-Lab/SegCrew-Book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch1/01_03_01_SETR.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Pseudo-Lab/SegCrew-Book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch1/01_03_01_SETR.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/docs/ch1/01_03_01_SETR.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
    Introduction
@@ -562,17 +681,89 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>SETR - CVPR 2021</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contributions">
+   Contributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequentialization-and-position-embedding">
+     1. Sequentialization and Position Embedding
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformer-encoder">
+     2. Transformer Encoder
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decoder">
+     3. Decoder
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experiment-result">
+   Experiment Result
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     1. Implementation Details
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting">
+     2. Setting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#result">
+     3. Result
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="setr-cvpr-2021">
-<h1>SETR - CVPR 2021<a class="headerlink" href="#setr-cvpr-2021" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="setr-cvpr-2021">
+<h1>SETR - CVPR 2021<a class="headerlink" href="#setr-cvpr-2021" title="Permalink to this headline">#</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
 <p class="admonition-title">Information</p>
@@ -588,8 +779,8 @@
 <li><p><strong>Last updated on Jun. 4, 2022</strong></p></li>
 </ul>
 </div>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>CNN 기반 Semantic Segmentation</p>
 <ul>
@@ -605,10 +796,12 @@
 </ul>
 </li>
 </ul>
-<div class="figure align-default" id="markdown-fig">
+<figure class="align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/setr1.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/setr1.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">FCN architecture (source: arXiv:1411.4038)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">FCN architecture (source: arXiv:1411.4038)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>SETR(“SE”mantic + “TR”ansformer)</p>
 <ul>
@@ -619,18 +812,18 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="contributions">
-<h2>Contributions<a class="headerlink" href="#contributions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="contributions">
+<h2>Contributions<a class="headerlink" href="#contributions" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Transformer Encoder를 적용한 새로운 semantic segmentation 구조를 제안
 (Encoder-Decoder -&gt; Sequence to Sequence)</p></li>
 <li><p>다양한 복잡도를 가진 Decoder를 적용하여 Self Attention의 특징 추출 효과에 대한 광범위한 해석 수행함.</p></li>
 <li><p>SOTA 성능 달성 (ADE20K:  50.28% mIoU  Pascal Context:  55.83% mIoU)</p></li>
 </ul>
-</div>
-<div class="section" id="proposed-method">
-<h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="proposed-method">
+<h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>SETR(”SE”gmentation + “TR”ansformers)</p>
 <ul>
@@ -638,20 +831,22 @@
 </ul>
 </li>
 </ul>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/architecture.png"><img alt="figure2" class="bg-primary mb-1" src="../../_images/architecture.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Schematic illustration of SETR (source: arXiv:2012.15840)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-<div class="section" id="sequentialization-and-position-embedding">
-<h3>1. Sequentialization and Position Embedding<a class="headerlink" href="#sequentialization-and-position-embedding" title="Permalink to this headline">¶</a></h3>
+<figcaption>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Schematic illustration of SETR (source: arXiv:2012.15840)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="sequentialization-and-position-embedding">
+<h3>1. Sequentialization and Position Embedding<a class="headerlink" href="#sequentialization-and-position-embedding" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Transformer 모델을 사용하기 위해 <span class="math notranslate nohighlight">\(H \times W \times 3\)</span> resolution의 이미지를 <span class="math notranslate nohighlight">\(C\)</span> hidden channel size를 가지는 <span class="math notranslate nohighlight">\(L\)</span>개의 sequential vector 형태로 re-representation 함.</p></li>
 <li><p>본 논문에서는 ViT와 동일하게 입력 영상을 <span class="math notranslate nohighlight">\(16 \times 16\)</span> 개의 patch로 분할한다. 각각의 patch를  flatten 한 후 linear projection하여 <span class="math notranslate nohighlight">\(C\)</span>차원으로 축소하여 결과 적으로 1차원 patch embedding의 sequence로  변환한다. (L X C, L = H/16 X W/16)</p></li>
 <li><p>순서 정보를 주기 위해 각 patch에 해당하는 position embedding을 추가한다.</p></li>
 </ul>
-</div>
-<div class="section" id="transformer-encoder">
-<h3>2. Transformer Encoder<a class="headerlink" href="#transformer-encoder" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="transformer-encoder">
+<h3>2. Transformer Encoder<a class="headerlink" href="#transformer-encoder" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>기존 Transformer와 다른점은 다음과 같다.
 (1) MSA(Multi-Head Self Attention)전 layer norm을 적용한다.<br />
@@ -664,24 +859,30 @@
 </ul>
 </li>
 </ul>
-<div class="figure align-default" id="id2">
+<figure class="align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/attention.png"><img alt="figure3" class="bg-primary mb-1" src="../../_images/attention.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">Attention map of picked points (red) (source: arXiv:2012.15840)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id3">
+<figcaption>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Attention map of picked points (red) (source: arXiv:2012.15840)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/result1.png"><img alt="figure4" class="bg-primary mb-1" src="../../_images/result1.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">Visualization of output features (source: arXiv:2012.15840)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Visualization of output features (source: arXiv:2012.15840)</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
 <li><p>Auxiliary Loss : Transformer layer 중 해당 Index에 해당 되는 output을 <span class="math notranslate nohighlight">\([H \times W \times \text{num. of class}]\)</span>로 변환 후 auxiliary loss를 계산 (channel : 2D convolution. Resolution : Bilinear Interpolation)</p></li>
 </ul>
-</div>
-<div class="section" id="decoder">
-<h3>3. Decoder<a class="headerlink" href="#decoder" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="id4">
+</section>
+<section id="decoder">
+<h3>3. Decoder<a class="headerlink" href="#decoder" title="Permalink to this headline">#</a></h3>
+<figure class="align-default" id="id4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/SETR_MLA.png"><img alt="figure5" class="bg-primary mb-1" src="../../_images/SETR_MLA.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">SETR-MLA (source: arXiv:2012.15840)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">SETR-MLA (source: arXiv:2012.15840)</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <ul>
 <li><p>Pixel Level Segmentation을 위해 Transformer Encoder의 Output H/16 X W/16 X C Feature Map을 <span class="math notranslate nohighlight">\([H \times W \times \text{num. of class}]\)</span> 형태의 Segmentation Map 형태로 Re-representation 하는 역할</p></li>
 <li><p>우선 transformer output <span class="math notranslate nohighlight">\(Z\)</span> (dim.: <span class="math notranslate nohighlight">\(\frac{HW}{256} \times C\)</span>)를 <span class="math notranslate nohighlight">\(\frac{H}{16} \times \frac{W}{16} \times C\)</span>로 reshape 후 다음과 같은 3가지 decoder를 적용하여 최종 segment map을 도출한다.</p>
@@ -701,18 +902,18 @@
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="experiment-result">
-<h2>Experiment Result<a class="headerlink" href="#experiment-result" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="implementation-details">
-<h3>1. Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="experiment-result">
+<h2>Experiment Result<a class="headerlink" href="#experiment-result" title="Permalink to this headline">#</a></h2>
+<section id="implementation-details">
+<h3>1. Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>mmsegmentation 기반으로 구현</p></li>
 <li><p>Augmentation:</p>
 <ul>
 <li><p>Random cropping (768, 512 and 480 for Cityscapes, ADE20K and Pascal Context respectively)</p></li>
-<li><p>Random horizental flipping</p></li>
+<li><p>Random horizontal flipping</p></li>
 </ul>
 </li>
 <li><p>Optimization</p>
@@ -723,9 +924,9 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="setting">
-<h3>2. Setting<a class="headerlink" href="#setting" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="setting">
+<h3>2. Setting<a class="headerlink" href="#setting" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Evaluation Dataset: Cityscapes, ADK20K, PASCAL Context</p></li>
 <li><p>SETR variants</p>
@@ -737,9 +938,9 @@
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="result">
-<h3>3. Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="result">
+<h3>3. Result<a class="headerlink" href="#result" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Cityscape dataset을 이용하여 학습한 다양한 SETR model의 성능을 비교</p>
 <ul>
@@ -774,9 +975,9 @@
 </li>
 </ul>
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/result3.png"><img alt="figure9.png" class="bg-primary mb-1 align-center" src="../../_images/result3.png" style="width: 800px;" /></a>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -800,54 +1001,48 @@
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="01_03_transformer.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">C. Transformer based method</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="01_03_transformer.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">C. Transformer based method</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../ch2/02%20Instance%20Segmentation2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Overview</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="../ch2/02%20Instance%20Segmentation2.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Overview</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By PseudoLab<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By PseudoLab<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>
