@@ -27,10 +27,10 @@ parts:
     sections:
     - file: docs/ch2/02_01_01_YOLACT
     - file: docs/ch2/02_01_02_SOLO
-    - file: docs/ch2/02_02_01_MaskRCNN
-    - file: docs/ch2/02_02_03_Deep-MAC
-    - file: docs/ch2/02_02_02_HTC
-    - file: docs/ch2/02_02_04_BCNet
+#    - file: docs/ch2/02_02_01_MaskRCNN
+#    - file: docs/ch2/02_02_03_Deep-MAC
+#    - file: docs/ch2/02_02_02_HTC
+#    - file: docs/ch2/02_02_04_BCNet
 - caption: Panoptic Segmentation
   chapters:
   - file: docs/ch3/03_Panoptic Segmentation2
@@ -38,7 +38,7 @@ parts:
     sections:
     - file: docs/ch3/03_01_01_PanopticFPN
     - file: docs/ch3/03_02_02_DETR
-    - file: docs/ch3/03_01_02_PanopticFCN
+#    - file: docs/ch3/03_01_02_PanopticFCN
   - file: docs/ch3/03_02_Box_Free
     sections:
     - file: docs/ch3/03_02_01_Max-DeepLab
@@ -51,7 +51,7 @@ parts:
     - file: docs/ch4/04_01_02_IAL
   - file: docs/ch4/04_02_AdversarialErasing
     sections:
-    - file: docs/ch4/04_02_01_AE-PSL
+#    - file: docs/ch4/04_02_01_AE-PSL
     - file: docs/ch4/04_02_02_SeeNet
     - file: docs/ch4/04_02_03_GCNet
 - caption: Semi-supervised Segmentation
