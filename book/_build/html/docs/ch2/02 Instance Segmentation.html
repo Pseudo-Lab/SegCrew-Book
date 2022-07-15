@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -237,26 +239,6 @@ const thebe_selector_output = ".output, .cell_output"
      SOLO - ECCV 20
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_02_01_MaskRCNN.html">
-     [Draft] Mask R-CNN - ICCV 2017
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_02_03_Deep-MAC.html">
-     [Draft] Deep-MAC - ICCV 2017
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_02_02_HTC.html">
-     [Draft] HTC - CVPR 2019
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_02_04_BCNet.html">
-     [Draft] BCNet - CVPR 2021
-    </a>
-   </li>
   </ul>
  </li>
 </ul>
@@ -289,11 +271,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../ch3/03_02_02_DETR.html">
      DETR - ECCV 2020
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch3/03_01_02_PanopticFCN.html">
-     [Draft] PanopticFCN - CVPR 2021
     </a>
    </li>
   </ul>
@@ -359,11 +336,6 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch4/04_02_01_AE-PSL.html">
-     [Draft] AE-PSL - CVPR 2017
-    </a>
-   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch4/04_02_02_SeeNet.html">
      SeeNet - NeurIPS 2018
@@ -636,6 +608,11 @@ title="Print to PDF"
    Trend
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -670,6 +647,11 @@ title="Print to PDF"
    Trend
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -685,22 +667,46 @@ title="Print to PDF"
 <p>Draft version</p>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<figure class="align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/instSeg2.png"><img alt="pfpn1" class="bg-primary mb-1" src="../../_images/instSeg2.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-text">Semantic Segmentation vs. Instance Segmentation (source: ??)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <ul class="simple">
-<li><p>Instance Segmentation</p></li>
+<li><p>Instance segmentation은 입력 영상에 존재하는 객체(instance)의 정보를 반영한 pixel level classification 방법으로, 각 pixel이  속한 객체 label 및 객체의 classes를 추정하는 방법이다.</p></li>
+<li><p>semantic segmentation과 같이 pixel-level의 classification으로 정의되는 것은 동일하지만, 같은 class에 속하더라도 객체별로 다른 label을 가져야 하기 때문에 위치 정보가 반영된 inference가 추가적으로 필요하다.</p></li>
+<li><p>따라서 object detection을 통해 얻은 bounding box 내의 segmentation을 수행하는 방법이 주로 적용되어, 일반적으로 instance segmentation은 배경을 제외한 객체(instance)의 영역에 대해서 class와 label을 예측한다.</p></li>
 </ul>
 </section>
 <section id="performance-measure">
 <h2>Performance Measure<a class="headerlink" href="#performance-measure" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Instance segmentation 성능평가를 위해 주로 적용되는 measure는 COCO banchmark의 평가지표로 사용되는 <span class="math notranslate nohighlight">\(\text{mask}\ AP\)</span>(average precision)으로 instance의 ground truth mask와 prediction된 mask의 IoU threshold를 0.50에서 0.05단위로 0.95까지 설정하여 구한 precision의 평균으로 구한다. COCO style의 mAP(mean AP)는 다음과 같이 계산할 수 있다.
+$<span class="math notranslate nohighlight">\(mAP=\frac{1}{C} \sum_{c \in C}\frac{|TP_c|}{|FP_c|+|TP_c|}\)</span><span class="math notranslate nohighlight">\(
+  여기서 \)</span>TP<span class="math notranslate nohighlight">\(는 true positive, \)</span>FP<span class="math notranslate nohighlight">\(는 false positive를 나타내며, \)</span>C$는 ground truth의 class 수이다.</p></li>
+<li><p>IoU threshold가 0.5 (50%)인 값을 <span class="math notranslate nohighlight">\(AP_{50}\)</span>으로, threshold가 0.7 (70%) 일 때는 <span class="math notranslate nohighlight">\(AP_{70}\)</span>으로 표현한다.</p></li>
+</ul>
 </section>
 <section id="trend">
 <h2>Trend<a class="headerlink" href="#trend" title="Permalink to this headline">#</a></h2>
 <figure class="align-default" id="performance-instseg">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/instSeg1.png"><img alt="instSeg1" class="bg-primary mb-1" src="../../_images/instSeg1.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/instSeg1.png"><img alt="instSeg1" class="bg-primary mb-1" src="../../_images/instSeg1.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">Evolution of Instance Segmentation</span><a class="headerlink" href="#performance-instseg" title="Permalink to this image">#</a></p>
+<p><span class="caption-text">Examples of AP?? (source: arXiv:1407.1808)</span><a class="headerlink" href="#performance-instseg" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p><em>Latest update: Jan 6, 2022</em></p>
+<p>맞는지 확인할 것…</p>
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.cityscapes-dataset.com/benchmarks/">https://www.cityscapes-dataset.com/benchmarks/</a></p></li>
+<li><p><a class="reference external" href="https://sviro.kl.dfki.de/instance-segmentation/">https://sviro.kl.dfki.de/instance-segmentation/</a></p></li>
+<li><p><a class="reference external" href="https://pyimagesearch.com/2022/05/02/mean-average-precision-map-using-the-coco-evaluator/">https://pyimagesearch.com/2022/05/02/mean-average-precision-map-using-the-coco-evaluator/</a></p></li>
+<li><p><a class="reference external" href="https://sviro.kl.dfki.de/instance-segmentation/">https://sviro.kl.dfki.de/instance-segmentation/</a></p></li>
+</ul>
+<p><em>Latest update: July 13, 2022</em></p>
 </section>
 </section>
 

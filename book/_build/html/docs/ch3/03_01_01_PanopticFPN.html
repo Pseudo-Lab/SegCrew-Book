@@ -207,6 +207,11 @@ const thebe_selector_output = ".output, .cell_output"
      SETR - CVPR 2021
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_03_02_Segformer.html">
+     Segformer - NeurIPS 2021
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -764,7 +769,7 @@ title="Print to PDF"
 <figure class="align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn1.png"><img alt="pfpn1" class="bg-primary mb-1" src="../../_images/pfpn1.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Panoptic FPN architecture (source: arXiv:1901.02446)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 50 </span><span class="caption-text">Panoptic FPN architecture (source: arXiv:1901.02446)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>(1) Feature Pyramid Network (FPN)</p>
@@ -781,7 +786,7 @@ title="Print to PDF"
 <figure class="align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn2.png"><img alt="pfpn2" class="bg-primary mb-1" src="../../_images/pfpn2.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 46 </span><span class="caption-text">Semantic segmentation branch (source: arXiv:1901.02446)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 51 </span><span class="caption-text">Semantic segmentation branch (source: arXiv:1901.02446)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -817,16 +822,16 @@ c. stuff region의 label 중 ‘other’ class는 area threshold를 적용하여
 <figure class="align-default" id="pfpn-backbone">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn3.png"><img alt="pfpn3" class="bg-primary mb-1" src="../../_images/pfpn3.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 47 </span><span class="caption-text">Backbone architechture (source: arXiv:1901.02446)</span><a class="headerlink" href="#pfpn-backbone" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 52 </span><span class="caption-text">Backbone architechture (source: arXiv:1901.02446)</span><a class="headerlink" href="#pfpn-backbone" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
-<li><p>Semantic segmenation에는 dilated conv.와(<a class="reference internal" href="#pfpn-backbone"><span class="std std-numref">Fig. 47</span></a>(b)), encoder-decoder(<a class="reference internal" href="#pfpn-backbone"><span class="std std-numref">Fig. 47</span></a>(c))가 backbone으로 주로 사용됨.</p></li>
+<li><p>Semantic segmenation에는 dilated conv.와(<a class="reference internal" href="#pfpn-backbone"><span class="std std-numref">Fig. 52</span></a>(b)), encoder-decoder(<a class="reference internal" href="#pfpn-backbone"><span class="std std-numref">Fig. 52</span></a>(c))가 backbone으로 주로 사용됨.</p></li>
 </ul>
 <figure class="align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/pfpn4.png"><img alt="pfpn4" class="bg-primary mb-1" src="../../_images/pfpn4.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 48 </span><span class="caption-text">Backbone architecture efficiency (source: arXiv:1901.02446)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 53 </span><span class="caption-text">Backbone architecture efficiency (source: arXiv:1901.02446)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">

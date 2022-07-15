@@ -113,7 +113,7 @@ The proposed SegFormer framework (source: arXiv:2105.15203)
     
 - Mix-FFN은 3 X 3 conv. layer를 통해 positional 정보를 추출하고 이것을 더해주는 것으로도 좋은 성능을 나타냄을 확인함.
 
-### **2 Light weight All-MLP Decoder**
+### **3 Light weight All-MLP Decoder**
 
 - 본 모델에서 제시한 hierarchical encoder가 기존 CNN대비 큰 ERF(Effective Receptive Field)를 가지므러, 단순한MLP구조로도 decoder를 구성하여 연산 효율을 높인다.
 

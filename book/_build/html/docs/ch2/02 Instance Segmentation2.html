@@ -51,11 +51,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="A. Detector based Method" href="02_02_two_stage.html" />
-    <link rel="prev" title="SETR - CVPR 2021" href="../ch1/01_03_01_SETR.html" />
+    <link rel="prev" title="Segformer - NeurIPS 2021" href="../ch1/01_03_02_Segformer.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -205,6 +207,11 @@ const thebe_selector_output = ".output, .cell_output"
      SETR - CVPR 2021
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_03_02_Segformer.html">
+     Segformer - NeurIPS 2021
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -239,26 +246,6 @@ const thebe_selector_output = ".output, .cell_output"
      SOLO - ECCV 20
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_02_01_MaskRCNN.html">
-     [Draft] Mask R-CNN - ICCV 2017
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_02_03_Deep-MAC.html">
-     [Draft] Deep-MAC - ICCV 2017
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_02_02_HTC.html">
-     [Draft] HTC - CVPR 2019
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_02_04_BCNet.html">
-     [Draft] BCNet - CVPR 2021
-    </a>
-   </li>
   </ul>
  </li>
 </ul>
@@ -291,11 +278,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../ch3/03_02_02_DETR.html">
      DETR - ECCV 2020
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch3/03_01_02_PanopticFCN.html">
-     [Draft] PanopticFCN - CVPR 2021
     </a>
    </li>
   </ul>
@@ -361,11 +343,6 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch4/04_02_01_AE-PSL.html">
-     [Draft] AE-PSL - CVPR 2017
-    </a>
-   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch4/04_02_02_SeeNet.html">
      SeeNet - NeurIPS 2018
@@ -653,8 +630,23 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#performance-measure">
+   Performance Measure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#trend">
    Trend
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
   </a>
  </li>
 </ul>
@@ -677,8 +669,23 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#performance-measure">
+   Performance Measure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#trend">
    Trend
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference">
+   Reference
   </a>
  </li>
 </ul>
@@ -693,18 +700,43 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<figure class="align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/instSeg2.png"><img alt="pfpn1" class="bg-primary mb-1" src="../../_images/instSeg2.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Semantic Segmentation vs. Instance Segmentation (source: ??)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Instance segmentation은 입력 영상에 존재하는 객체(instance)의 정보를 반영한 pixel level classification 방법으로, 각 pixel이  속한 객체 label 및 객체의 classes를 추정하는 방법이다.</p></li>
+<li><p>semantic segmentation과 같이 pixel-level의 classification으로 정의되는 것은 동일하지만, 같은 class에 속하더라도 객체별로 다른 label을 가져야 하기 때문에 위치 정보가 반영된 inference가 추가적으로 필요하다.</p></li>
+<li><p>따라서 object detection을 통해 얻은 bounding box 내의 segmentation을 수행하는 방법이 주로 적용되어, 일반적으로 instance segmentation은 배경을 제외한 객체(instance)의 영역에 대해서 class와 label을 예측한다.</p></li>
+</ul>
+</section>
+<section id="performance-measure">
+<h2>Performance Measure<a class="headerlink" href="#performance-measure" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p>Instance segmentation 성능평가를 위해 주로 적용되는 measure는 COCO banchmark의 평가지표로 사용되는 <span class="math notranslate nohighlight">\(\text{mask}\ AP\)</span>(average precision)으로 instance의 ground truth mask와 prediction된 mask의 IoU threshold를 0.50에서 0.05단위로 0.95까지 설정하여 구한 precision의 평균으로 구한다. COCO style의 mAP(mean AP)는 다음과 같이 계산할 수 있다.</p>
+<div class="math notranslate nohighlight">
+\[mAP=\frac{1}{C} \sum_{c \in C}\frac{|TP_c|}{|FP_c|+|TP_c|}\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(TP\)</span>는 true positive, <span class="math notranslate nohighlight">\(FP\)</span>는 false positive를 나타내며, <span class="math notranslate nohighlight">\(C\)</span>는 ground truth의 class 수이다.</p>
+</li>
+<li><p>IoU threshold가 0.5 (50%)인 값을 <span class="math notranslate nohighlight">\(AP_{50}\)</span>으로, threshold가 0.7 (70%) 일 때는 <span class="math notranslate nohighlight">\(AP_{70}\)</span>으로 표현한다.</p></li>
+</ul>
+</section>
 <section id="trend">
 <h2>Trend<a class="headerlink" href="#trend" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-57d328e66b3540d5b38328f859852e74"></div>
+<div id="altair-viz-d5bb9de765ec46edb127726202c4c893"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-57d328e66b3540d5b38328f859852e74") {
-      outputDiv = document.getElementById("altair-viz-57d328e66b3540d5b38328f859852e74");
+    if (outputDiv.id !== "altair-viz-d5bb9de765ec46edb127726202c4c893") {
+      outputDiv = document.getElementById("altair-viz-d5bb9de765ec46edb127726202c4c893");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -750,9 +782,18 @@ title="Print to PDF"
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "#fde725", "strokeWidth": 1.5}, "encoding": {"color": {"field": "type", "type": "nominal"}, "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": {"grid": true}, "field": "miou", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on AP (COCO Test-dev)"], "width": 800}, {"mark": {"type": "circle", "color": "#000000", "strokeWidth": 3}, "encoding": {"tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on AP (COCO Test-dev)"], "width": 800}, {"mark": {"type": "text", "align": "center", "baseline": "middle", "dy": -10}, "encoding": {"color": {"value": "#000000"}, "text": {"field": "miou", "type": "quantitative"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on AP (COCO Test-dev)"], "width": 800}, {"mark": {"type": "text", "align": "center", "baseline": "middle", "dy": 20}, "encoding": {"color": {"value": "#000000"}, "text": {"field": "nickname", "type": "nominal"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "miou", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": null, "field": "miou", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on AP (COCO Test-dev)"], "width": 800}], "data": {"name": "data-abfd8997ab3dc09b851ab9be3fa6f311"}, "resolve": {"scale": {"y": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-abfd8997ab3dc09b851ab9be3fa6f311": [{"type": "Inst. Segmentation", "idx": 1, "year": "20xx", "nickname": "YOLACT", "miou": 29.8, "backbone": "unknown"}, {"type": "Inst. Segmentation", "idx": 2, "year": "20xx", "nickname": "YOLACT++", "miou": 34.6, "backbone": "unknown"}, {"type": "Inst. Segmentation", "idx": 3, "year": "20xx", "nickname": "Mask-RCNN", "miou": 35.7, "backbone": "unknown"}, {"type": "Inst. Segmentation", "idx": 4, "year": "20xx", "nickname": "CenterMask", "miou": 38.3, "backbone": "unknown"}, {"type": "Inst. Segmentation", "idx": 5, "year": "20xx", "nickname": "HTC", "miou": 39.7, "backbone": "unknown"}, {"type": "Inst. Segmentation", "idx": 6, "year": "20xx", "nickname": "BCNet", "miou": 39.8, "backbone": "unknown"}, {"type": "Inst. Segmentation", "idx": 7, "year": "20xx", "nickname": "ISTR", "miou": 39.9, "backbone": "unknown"}, {"type": "Inst. Segmentation", "idx": 8, "year": "20xx", "nickname": "D2Det", "miou": 40.2, "backbone": "unknown"}, {"type": "Inst. Segmentation", "idx": 9, "year": "20xx", "nickname": "SOLO", "miou": 40.6, "backbone": "unknown"}, {"type": "Inst. Segmentation", "idx": 10, "year": "20xx", "nickname": "BlendMask", "miou": 41.3, "backbone": "unknown"}, {"type": "Inst. Segmentation", "idx": 11, "year": "20xx", "nickname": "DetectoRS", "miou": 47.5, "backbone": "unknown"}, {"type": "Inst. Segmentation", "idx": 12, "year": "20xx", "nickname": "QueryInst", "miou": 49.1, "backbone": "unknown"}, {"type": "Inst. Segmentation", "idx": 13, "year": "20xx", "nickname": "Swin-L", "miou": 50.2, "backbone": "unknown"}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "#fde725", "strokeWidth": 1.5}, "encoding": {"color": {"field": "type", "type": "nominal"}, "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": {"grid": true}, "field": "maskAP", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2012 testset)"], "width": 800}, {"mark": {"type": "circle", "color": "#000000", "strokeWidth": 3}, "encoding": {"tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "maskAP", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": null, "field": "maskAP", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2012 testset)"], "width": 800}, {"mark": {"type": "text", "align": "center", "baseline": "middle", "dy": -20}, "encoding": {"color": {"value": "#000000"}, "text": {"field": "maskAP", "type": "quantitative"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "maskAP", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": null, "field": "maskAP", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2012 testset)"], "width": 800}, {"mark": {"type": "text", "align": "center", "baseline": "middle", "dy": -30}, "encoding": {"color": {"value": "#000000"}, "text": {"field": "nickname", "type": "nominal"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "maskAP", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": null, "field": "maskAP", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2012 testset)"], "width": 800}, {"data": {"name": "data-d00fbd4ccdc0e69bd02d03e7bf7d7421"}, "mark": {"type": "line", "color": "#cb4154", "strokeWidth": 1.5}, "encoding": {"color": {"field": "type", "type": "nominal"}, "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": {"grid": true}, "field": "maskAP", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2012 testset)"], "width": 800}, {"data": {"name": "data-d00fbd4ccdc0e69bd02d03e7bf7d7421"}, "mark": {"type": "circle", "color": "#000000", "strokeWidth": 3}, "encoding": {"tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "maskAP", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": null, "field": "maskAP", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2012 testset)"], "width": 800}, {"data": {"name": "data-d00fbd4ccdc0e69bd02d03e7bf7d7421"}, "mark": {"type": "text", "align": "center", "baseline": "middle", "dy": -10}, "encoding": {"color": {"value": "#000000"}, "text": {"field": "maskAP", "type": "quantitative"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "maskAP", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": null, "field": "maskAP", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2012 testset)"], "width": 800}, {"data": {"name": "data-d00fbd4ccdc0e69bd02d03e7bf7d7421"}, "mark": {"type": "text", "align": "center", "baseline": "middle", "dy": 20}, "encoding": {"color": {"value": "#000000"}, "text": {"field": "nickname", "type": "nominal"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "maskAP", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": null, "field": "maskAP", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2012 testset)"], "width": 800}, {"data": {"name": "data-413ce1ab95f302ad4dd7d5c250a68935"}, "mark": {"type": "line", "color": "#3b518b", "strokeWidth": 1.5}, "encoding": {"color": {"field": "type", "type": "nominal"}, "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": {"grid": true}, "field": "maskAP", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2012 testset)"], "width": 800}, {"data": {"name": "data-413ce1ab95f302ad4dd7d5c250a68935"}, "mark": {"type": "circle", "color": "#000000", "strokeWidth": 3}, "encoding": {"tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "maskAP", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": null, "field": "maskAP", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2012 testset)"], "width": 800}, {"data": {"name": "data-413ce1ab95f302ad4dd7d5c250a68935"}, "mark": {"type": "text", "align": "center", "baseline": "middle", "dy": 20}, "encoding": {"color": {"value": "#000000"}, "text": {"field": "maskAP", "type": "quantitative"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "maskAP", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": null, "field": "maskAP", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2012 testset)"], "width": 800}, {"data": {"name": "data-413ce1ab95f302ad4dd7d5c250a68935"}, "mark": {"type": "text", "align": "center", "baseline": "middle", "dy": 30}, "encoding": {"color": {"value": "#000000"}, "text": {"field": "nickname", "type": "nominal"}, "tooltip": [{"field": "year", "type": "nominal"}, {"field": "nickname", "type": "nominal"}, {"field": "maskAP", "type": "quantitative"}, {"field": "backbone", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 14]}, "type": "quantitative"}, "y": {"axis": null, "field": "maskAP", "scale": {"domain": [25, 60]}, "type": "quantitative"}}, "title": ["Trend on mIoU (PASCAL VOC 2012 testset)"], "width": 800}], "data": {"name": "data-36e7ac2c7ee531a669fac05277c7ad9f"}, "resolve": {"scale": {"y": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-36e7ac2c7ee531a669fac05277c7ad9f": [{"type": "Anchor/proposal based method", "idx": 1, "year": "2017", "nickname": "Mask-RCNN", "maskAP": 35.7, "backbone": "unknown"}, {"type": "Anchor/proposal based method", "idx": 2, "year": "2019", "nickname": "CenterMask", "maskAP": 38.3, "backbone": "unknown"}, {"type": "Anchor/proposal based method", "idx": 3, "year": "2019", "nickname": "HTC", "maskAP": 39.7, "backbone": "unknown"}, {"type": "Anchor/proposal based method", "idx": 4, "year": "2020", "nickname": "BCNet", "maskAP": 39.8, "backbone": "unknown"}, {"type": "Anchor/proposal based method", "idx": 5, "year": "2020", "nickname": "D2Det", "maskAP": 40.2, "backbone": "unknown"}, {"type": "Anchor/proposal based method", "idx": 6, "year": "2020", "nickname": "BlendMask", "maskAP": 41.3, "backbone": "unknown"}, {"type": "Anchor/proposal based method", "idx": 7, "year": "2020", "nickname": "DetectoRS", "maskAP": 47.5, "backbone": "unknown"}], "data-d00fbd4ccdc0e69bd02d03e7bf7d7421": [{"type": "Single-stage/Anchor-free", "idx": 2, "year": "2019", "nickname": "YOLACT", "maskAP": 29.8, "backbone": "unknown"}, {"type": "Single-stage/Anchor-free", "idx": 3, "year": "2019", "nickname": "YOLACT++", "maskAP": 34.6, "backbone": "unknown"}, {"type": "Single-stage/Anchor-free", "idx": 4, "year": "2019", "nickname": "SOLO", "maskAP": 40.6, "backbone": "unknown"}, {"type": "Single-stage/Anchor-free", "idx": 6, "year": "2020", "nickname": "SOLOv2", "maskAP": 41.7, "backbone": "unknown"}], "data-413ce1ab95f302ad4dd7d5c250a68935": [{"type": "Transformer", "idx": 8, "year": "2021", "nickname": "ISTR", "maskAP": 39.9, "backbone": "ResNet101-FN, single-scale"}, {"type": "Transformer", "idx": 9, "year": "2021", "nickname": "QueryInst", "maskAP": 49.1, "backbone": "Single-scale"}, {"type": "Transformer", "idx": 10, "year": "2021", "nickname": "Swin-L", "maskAP": 51.1, "backbone": "HTC++, Multi-scale"}, {"type": "Transformer", "idx": 11, "year": "2021", "nickname": "Focal-L", "maskAP": 51.3, "backbone": "HTC++, Multi-scale"}, {"type": "Transformer", "idx": 12, "year": "2022", "nickname": "Mask DINO", "maskAP": 54.7, "backbone": "Single-scale"}]}}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.cityscapes-dataset.com/benchmarks/">https://www.cityscapes-dataset.com/benchmarks/</a></p></li>
+<li><p><a class="reference external" href="https://sviro.kl.dfki.de/instance-segmentation/">https://sviro.kl.dfki.de/instance-segmentation/</a></p></li>
+<li><p><a class="reference external" href="https://pyimagesearch.com/2022/05/02/mean-average-precision-map-using-the-coco-evaluator/">https://pyimagesearch.com/2022/05/02/mean-average-precision-map-using-the-coco-evaluator/</a></p></li>
+<li><p><a class="reference external" href="https://sviro.kl.dfki.de/instance-segmentation/">https://sviro.kl.dfki.de/instance-segmentation/</a></p></li>
+</ul>
 <p><em>Latest update: Jan 6, 2022</em></p>
 </section>
 </section>
@@ -784,11 +825,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../ch1/01_03_01_SETR.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../ch1/01_03_02_Segformer.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">SETR - CVPR 2021</p>
+            <p class="prev-next-title">Segformer - NeurIPS 2021</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="02_02_two_stage.html" title="next page">

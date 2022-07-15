@@ -20,6 +20,7 @@ parts:
   - file: docs/ch1/01_03_transformer
     sections:
     - file: docs/ch1/01_03_01_SETR
+    - file: docs/ch1/01_03_02_Segformer
 - caption: Instance Segmentation
   chapters:
   - file: docs/ch2/02 Instance Segmentation2
