@@ -56,6 +56,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Overview" href="../ch2/02%20Instance%20Segmentation2.html" />
+    <link rel="prev" title="SETR - CVPR 2021" href="01_03_01_SETR.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -120,7 +122,7 @@ const thebe_selector_output = ".output, .cell_output"
   Semantic Segmentation
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01_Semantic%20Segmentation2.html">
    Overview
@@ -190,19 +192,24 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="01_03_transformer.html">
    C. Transformer based method
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01_03_01_SETR.html">
      SETR - CVPR 2021
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Segformer - NeurIPS 2021
     </a>
    </li>
   </ul>
@@ -239,26 +246,6 @@ const thebe_selector_output = ".output, .cell_output"
      SOLO - ECCV 20
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch2/02_02_01_MaskRCNN.html">
-     [Draft] Mask R-CNN - ICCV 2017
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch2/02_02_03_Deep-MAC.html">
-     [Draft] Deep-MAC - ICCV 2017
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch2/02_02_02_HTC.html">
-     [Draft] HTC - CVPR 2019
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch2/02_02_04_BCNet.html">
-     [Draft] BCNet - CVPR 2021
-    </a>
-   </li>
   </ul>
  </li>
 </ul>
@@ -291,11 +278,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../ch3/03_02_02_DETR.html">
      DETR - ECCV 2020
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch3/03_01_02_PanopticFCN.html">
-     [Draft] PanopticFCN - CVPR 2021
     </a>
    </li>
   </ul>
@@ -361,11 +343,6 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch4/04_02_01_AE-PSL.html">
-     [Draft] AE-PSL - CVPR 2017
-    </a>
-   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch4/04_02_02_SeeNet.html">
      SeeNet - NeurIPS 2018
@@ -649,7 +626,7 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#light-weight-all-mlp-decoder">
      <strong>
-      2 Light weight All-MLP Decoder
+      3 Light weight All-MLP Decoder
      </strong>
     </a>
    </li>
@@ -722,7 +699,7 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#light-weight-all-mlp-decoder">
      <strong>
-      2 Light weight All-MLP Decoder
+      3 Light weight All-MLP Decoder
      </strong>
     </a>
    </li>
@@ -808,7 +785,7 @@ title="Print to PDF"
 <figure class="align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/segformer1.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/segformer1.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-text">Performance vs. model efficiency (source: arXiv:2105.15203)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">Performance vs. model efficiency (source: arXiv:2105.15203)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -826,7 +803,7 @@ title="Print to PDF"
 <figure class="align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/segformer2.png"><img alt="figure2" class="bg-primary mb-1" src="../../_images/segformer2.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-text">The proposed SegFormer framework (source: arXiv:2105.15203)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">The proposed SegFormer framework (source: arXiv:2105.15203)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -883,14 +860,14 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="light-weight-all-mlp-decoder">
-<h3><strong>2 Light weight All-MLP Decoder</strong><a class="headerlink" href="#light-weight-all-mlp-decoder" title="Permalink to this headline">#</a></h3>
+<h3><strong>3 Light weight All-MLP Decoder</strong><a class="headerlink" href="#light-weight-all-mlp-decoder" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>본 모델에서 제시한 hierarchical encoder가 기존 CNN대비 큰 ERF(Effective Receptive Field)를 가지므러, 단순한MLP구조로도 decoder를 구성하여 연산 효율을 높인다.</p></li>
 </ul>
 <figure class="align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/segformer3.png"><img alt="figure3" class="bg-primary mb-1" src="../../_images/segformer3.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-text">Decoder structure (source: arXiv:2105.15203)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Decoder structure (source: arXiv:2105.15203)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul>
@@ -908,7 +885,7 @@ title="Print to PDF"
 <figure class="align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/ERF.png"><img alt="figure3" class="bg-primary mb-1" src="../../_images/ERF.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">Effective Receptive Field on Cityscapes (source: arXiv:2105.15203)</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 39 </span><span class="caption-text">Effective Receptive Field on Cityscapes (source: arXiv:2105.15203)</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -1002,6 +979,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="01_03_01_SETR.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">SETR - CVPR 2021</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../ch2/02%20Instance%20Segmentation2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Overview</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

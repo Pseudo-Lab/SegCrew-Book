@@ -207,6 +207,11 @@ const thebe_selector_output = ".output, .cell_output"
      SETR - CVPR 2021
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_03_02_Segformer.html">
+     Segformer - NeurIPS 2021
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -690,7 +695,7 @@ title="Print to PDF"
 <figure class="align-default" id="pano-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/panoSeg3.PNG"><img alt="pfpn2" class="bg-primary mb-1" src="../../_images/panoSeg3.PNG" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 43 </span><span class="caption-text">Segmentation Tasks (source: <a class="reference external" href="https://arxiv.org/abs/2006.12567">arXiv:2006.12567</a>)</span><a class="headerlink" href="#pano-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 48 </span><span class="caption-text">Segmentation Tasks (source: <a class="reference external" href="https://arxiv.org/abs/2006.12567">arXiv:2006.12567</a>)</span><a class="headerlink" href="#pano-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -709,12 +714,12 @@ title="Print to PDF"
 \]</div>
 <ul class="simple">
 <li><p>PQ를 계산하기 위해 먼저 Segment matching을 수행한 후 matching된 segment에 대해 PQ를 계산한다. 이때 GT와 predicted segment와의 match 여부는 IoU가 0.5 이상이고 가장 큰 IoU를 가지는 segment를 유일한 matched segment로 판정한다.</p></li>
-<li><p>Metched segment를 계산한 후 TP(true positivie), FP(false positive)와 FN(false negative)를 구한다. 이는 <a class="reference internal" href="#gt-fig"><span class="std std-numref">Fig. 44</span></a>와 같이 나타낼 수 있다</p></li>
+<li><p>Metched segment를 계산한 후 TP(true positivie), FP(false positive)와 FN(false negative)를 구한다. 이는 <a class="reference internal" href="#gt-fig"><span class="std std-numref">Fig. 49</span></a>와 같이 나타낼 수 있다</p></li>
 </ul>
 <figure class="align-default" id="gt-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/panoSeg2.png"><img alt="pfpn2" class="bg-primary mb-1" src="../../_images/panoSeg2.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 44 </span><span class="caption-text">GT and predicted panoptic segmentations of an image (source: arXiv:1801.00868)</span><a class="headerlink" href="#gt-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 49 </span><span class="caption-text">GT and predicted panoptic segmentations of an image (source: arXiv:1801.00868)</span><a class="headerlink" href="#gt-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
