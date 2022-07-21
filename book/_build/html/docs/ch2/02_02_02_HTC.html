@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>[Draft] HTC - CVPR 2019 &#8212; Segmentation Complete</title>
+    <title>HTC - CVPR 2019 &#8212; Segmentation Complete</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -21,7 +21,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -37,7 +37,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -56,8 +56,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="[Draft] BCNet - CVPR 2021" href="02_02_04_BCNet.html" />
-    <link rel="prev" title="[Draft] Deep-MAC - ICCV 2017" href="02_02_03_Deep-MAC.html" />
+    <link rel="next" title="Overview" href="../ch3/03_Panoptic%20Segmentation2.html" />
+    <link rel="prev" title="SOLO - ECCV 20" href="02_01_02_SOLO.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -207,6 +207,11 @@ const thebe_selector_output = ".output, .cell_output"
      SETR - CVPR 2021
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_03_02_Segformer.html">
+     Segformer - NeurIPS 2021
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -241,24 +246,9 @@ const thebe_selector_output = ".output, .cell_output"
      SOLO - ECCV 20
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_02_01_MaskRCNN.html">
-     [Draft] Mask R-CNN - ICCV 2017
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_02_03_Deep-MAC.html">
-     [Draft] Deep-MAC - ICCV 2017
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     [Draft] HTC - CVPR 2019
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_02_04_BCNet.html">
-     [Draft] BCNet - CVPR 2021
+     HTC - CVPR 2019
     </a>
    </li>
   </ul>
@@ -293,11 +283,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../ch3/03_02_02_DETR.html">
      DETR - ECCV 2020
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch3/03_01_02_PanopticFCN.html">
-     [Draft] PanopticFCN - CVPR 2021
     </a>
    </li>
   </ul>
@@ -363,11 +348,6 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch4/04_02_01_AE-PSL.html">
-     [Draft] AE-PSL - CVPR 2017
-    </a>
-   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch4/04_02_02_SeeNet.html">
      SeeNet - NeurIPS 2018
@@ -625,90 +605,68 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   [Draft] HTC - CVPR 2019
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#related-works-and-problem-statement">
+   Related Works and Problem Statement
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reference">
-     Reference
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   1. Introduction
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cascade-r-cnn">
-     Cascade R-CNN
+     1. Cascade R-CNN
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cascade-mask-r-cnn">
-     Cascade Mask R-CNN
+     1. Cascade Mask R-CNN
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#scene-context">
      Scene context
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#related-work">
-   2. Related Work
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method-hybrid-task-cascade">
+   Proposed Method : Hybrid Task Cascade
   </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hybrid-task-cascade">
-   3. Hybrid Task Cascade
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#overview">
      Overview
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Cascade Mask R-CNN
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multi-task-cascade">
+     1. Multi-task Cascade
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interleaved-execution">
-     Interleaved Execution
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mask-information-flow">
-     Mask Information Flow
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#spatial-contexts-from-segmentation">
-     Spatial Contexts from Segmentation
+     2. Spatial Contexts from Segmentation
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#learning">
-     Learning
+     3. Learning
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#experiments">
-   4. Experiments
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experiments-result">
+   Experiments Result
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ablation-study">
-     Ablation Study
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     1. Implementation Details
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#result">
+     2. Result
     </a>
    </li>
   </ul>
@@ -722,7 +680,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>[Draft] HTC - CVPR 2019</h1>
+                <h1>HTC - CVPR 2019</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -732,90 +690,68 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   [Draft] HTC - CVPR 2019
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#related-works-and-problem-statement">
+   Related Works and Problem Statement
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reference">
-     Reference
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   1. Introduction
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cascade-r-cnn">
-     Cascade R-CNN
+     1. Cascade R-CNN
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cascade-mask-r-cnn">
-     Cascade Mask R-CNN
+     1. Cascade Mask R-CNN
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#scene-context">
      Scene context
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#related-work">
-   2. Related Work
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method-hybrid-task-cascade">
+   Proposed Method : Hybrid Task Cascade
   </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hybrid-task-cascade">
-   3. Hybrid Task Cascade
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#overview">
      Overview
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Cascade Mask R-CNN
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multi-task-cascade">
+     1. Multi-task Cascade
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interleaved-execution">
-     Interleaved Execution
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mask-information-flow">
-     Mask Information Flow
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#spatial-contexts-from-segmentation">
-     Spatial Contexts from Segmentation
+     2. Spatial Contexts from Segmentation
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#learning">
-     Learning
+     3. Learning
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#experiments">
-   4. Experiments
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experiments-result">
+   Experiments Result
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ablation-study">
-     Ablation Study
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     1. Implementation Details
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#result">
+     2. Result
     </a>
    </li>
   </ul>
@@ -830,78 +766,75 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="draft-htc-cvpr-2019">
-<h1>[Draft] HTC - CVPR 2019<a class="headerlink" href="#draft-htc-cvpr-2019" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="htc-cvpr-2019">
+<h1>HTC - CVPR 2019<a class="headerlink" href="#htc-cvpr-2019" title="Permalink to this headline">#</a></h1>
 <hr class="docutils" />
+<div class="admonition-information admonition">
+<p class="admonition-title">Information</p>
 <ul class="simple">
-<li><p><strong>Title:</strong> Hybrid Task Cascade for Instance Segmentation</p></li>
+<li><p><strong>Title:</strong> Hybrid Task Cascade for Instance Segmentation, CVPR 2019</p></li>
+<li><p><strong>Reference</strong></p>
+<ul>
+<li><p>Paper: <a class="reference external" href="https://arxiv.org/abs/1901.07518">https://arxiv.org/abs/1901.07518</a></p></li>
+<li><p>Code: <a class="reference external" href="https://github.com/open-mmlab/mmdetection/tree/master/configs/htc">https://github.com/open-mmlab/mmdetection/tree/master/configs/htc</a></p></li>
+</ul>
+</li>
 <li><p><strong>Review By:</strong> Hwigeon Oh</p></li>
-<li><p><strong>Edited by:</strong></p></li>
+<li><p><strong>Last updated on July. 21, 2022</strong></p></li>
 </ul>
-<hr class="docutils" />
-<section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>paper : <a class="reference external" href="https://arxiv.org/abs/1901.07518">https://arxiv.org/abs/1901.07518</a></p></li>
-<li><p>code : <a class="reference external" href="https://github.com/open-mmlab/mmdetection/tree/master/configs/htc">https://github.com/open-mmlab/mmdetection/tree/master/configs/htc</a></p></li>
-</ul>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
+</div>
+<section id="related-works-and-problem-statement">
+<h2>Related Works and Problem Statement<a class="headerlink" href="#related-works-and-problem-statement" title="Permalink to this headline">#</a></h2>
 <section id="cascade-r-cnn">
-<h2>Cascade R-CNN<a class="headerlink" href="#cascade-r-cnn" title="Permalink to this headline">#</a></h2>
+<h3>1. <a class="reference external" href="https://arxiv.org/abs/1906.09756">Cascade R-CNN</a><a class="headerlink" href="#cascade-r-cnn" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://arxiv.org/abs/1906.09756">https://arxiv.org/abs/1906.09756</a></p></li>
 <li><p>R-CNN 계열의 모델을 학습 할 때 각 anchor에 Positive/Negative class를 assign 하는 과정이 필요하다.</p></li>
-<li><p>이 과정에서 threshold <span class="math notranslate nohighlight">\(u\)</span>를 사용하는데, 이 값에 따라 모델의 성능이 달라진다.</p></li>
+<li><p>이 과정에서 threshold <span class="math notranslate nohighlight">\(u\)</span>를 사용하는데, 이 값에 따라 모델의 성능이 달라진다.</p></li>
 </ul>
-<figure class="align-default" id="markdown-fig">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/20211013181442.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/20211013181442.png" style="width: 600px;" /></a>
+<figure class="align-default" id="fig-htc1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/htc1.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/htc1.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 43 </span><span class="caption-text">Relation between perfermance and Input IoU (source: arXiv:1906.09756)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 48 </span><span class="caption-text">Relation between perfermance and Input IoU (source: arXiv:1906.09756)</span><a class="headerlink" href="#fig-htc1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">IoU</span></code>는 RPN의 output, <code class="docutils literal notranslate"><span class="pre">Output</span> <span class="pre">IoU</span></code>는 최종 prediction이다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">IoU</span></code>는 RPN의 output, <code class="docutils literal notranslate"><span class="pre">Output</span> <span class="pre">IoU</span></code>는 최종 prediction이다.</p></li>
 <li><p>결과를 관찰해 봤을 때, 다음과 같은 insight를 얻을 수 있다:</p>
 <ol class="simple">
 <li><p>Input proposal이 정확할수록 Output도 정확하다.</p></li>
-<li><p>Input이 noisy한 경우에는 <span class="math notranslate nohighlight">\(u\approx\text{Input IOU}\)</span>인 경우가 그렇지 않은 경우보다 상대적인 성능이 높다.</p></li>
-<li><p>각 <span class="math notranslate nohighlight">\(u\)</span> 별로 성능 우위를 갖는 Input IoU들이 있다.</p></li>
-<li><p>(c)를 보면 <span class="math notranslate nohighlight">\(u\)</span>가 높다고 성능이 높은 것은 아님을 알 수 있다.</p></li>
+<li><p>Input이 noisy한 경우에는 <span class="math notranslate nohighlight">\(u\approx\text{Input IOU}\)</span> 인 경우가 그렇지 않은 경우보다 상대적인 성능이 높다.</p></li>
+<li><p>각 <span class="math notranslate nohighlight">\(u\)</span> 별로 성능 우위를 갖는 Input IoU들이 있다.</p></li>
+<li><p><a class="reference internal" href="#fig-htc1"><span class="std std-numref">Fig. 48</span></a> .(c)를 보면 <span class="math notranslate nohighlight">\(u\)</span>가 높다고 성능이 높은 것은 아님을 알 수 있다.</p></li>
 <li><p>최종 prediction이 RPN의 proposal보다 더 정확하다.</p></li>
 </ol>
 </li>
 </ul>
-<figure class="align-default" id="id1">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/20211013181121.png"><img alt="20211013181121" class="bg-primary mb-1" src="../../_images/20211013181121.png" style="width: 300px;" /></a>
+<figure class="align-default" id="fig-htc2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/htc2.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/htc2.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 44 </span><span class="caption-text">Approach to improving performance (source: arXiv:1906.09756)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 49 </span><span class="caption-text">Approach to improving performance (source: arXiv:1906.09756)</span><a class="headerlink" href="#fig-htc2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
 <li><p>따라서 Cascade R-CNN에서는:</p>
 <ol class="simple">
-<li><p>다른 <span class="math notranslate nohighlight">\(u\)</span>를 가지고 학습한 여러 head를 이용</p></li>
-<li><p>RPN proposal보다 더 정확한 다른 head의 최종 prediction을 사용
-하는 것으로 모델의 성능을 높히는 접근을 한다.</p></li>
+<li><p>다른 <span class="math notranslate nohighlight">\(u\)</span>를 가지고 학습한 여러 head를 이용</p></li>
+<li><p>RPN proposal보다 더 정확한 다른 head의 최종 prediction을 사용 하는 것으로 모델의 성능을 높히는 접근을 한다.</p></li>
 </ol>
 </li>
 </ul>
 </section>
 <section id="cascade-mask-r-cnn">
-<h2>Cascade Mask R-CNN<a class="headerlink" href="#cascade-mask-r-cnn" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>단순한 Cascade R-CNN + Mask R-CNN</p></li>
-</ul>
-<figure class="align-default" id="id2">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/20211013182818.png"><img alt="20211013182818" class="bg-primary mb-1" src="../../_images/20211013182818.png" style="width: 600px;" /></a>
+<h3>1. Cascade Mask R-CNN<a class="headerlink" href="#cascade-mask-r-cnn" title="Permalink to this headline">#</a></h3>
+<ul>
+<li><p>단순한 Cascade R-CNN + Mask R-CNN</p>
+<figure class="align-default" id="fig-htc3">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/htc3.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/htc3.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Cascade Mask R-CNN (source: arXiv:1906.09756)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 50 </span><span class="caption-text">Cascade Mask R-CNN (source: arXiv:1906.09756)</span><a class="headerlink" href="#fig-htc3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<ul class="simple">
+</li>
 <li><p>bbox AP + 3.5%, mask AP + 1.2%</p></li>
 <li><p>HTC의 저자는 이 부분에 발전의 여지가 있음을 캐치했다:</p>
 <ol class="simple">
@@ -913,7 +846,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="scene-context">
-<h2>Scene context<a class="headerlink" href="#scene-context" title="Permalink to this headline">#</a></h2>
+<h3>Scene context<a class="headerlink" href="#scene-context" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>저자는 scene context가 중요한 힌트를 제공한다고 말한다.</p>
 <ul>
@@ -924,116 +857,176 @@ title="Print to PDF"
 </ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="related-work">
-<h1>2. Related Work<a class="headerlink" href="#related-work" title="Permalink to this headline">#</a></h1>
-<p>(생략)</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="hybrid-task-cascade">
-<h1>3. Hybrid Task Cascade<a class="headerlink" href="#hybrid-task-cascade" title="Permalink to this headline">#</a></h1>
+<section id="proposed-method-hybrid-task-cascade">
+<h2>Proposed Method : Hybrid Task Cascade<a class="headerlink" href="#proposed-method-hybrid-task-cascade" title="Permalink to this headline">#</a></h2>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
-<figure class="align-default" id="id3">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/20211013184718.png"><img alt="20211013184718" class="bg-primary mb-1" src="../../_images/20211013184718.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 46 </span><span class="caption-text">The architecture evolution from Cascade Mask R-CNN to Hybrid Task Cascade (source: arXiv:1901.07518)</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<ul class="simple">
-<li><p>Nontations:</p>
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h3>
 <ul>
-<li><p><span class="math notranslate nohighlight">\(\mathcal{P}\)</span> : pooling operator (e.g. RoI Align)</p></li>
-<li><p><span class="math notranslate nohighlight">\(B_{t}\)</span> : <span class="math notranslate nohighlight">\(t\)</span>-th stage box head</p></li>
-<li><p><span class="math notranslate nohighlight">\(M_{t}\)</span> : <span class="math notranslate nohighlight">\(t\)</span>-th stage mask head</p></li>
-<li><p><span class="math notranslate nohighlight">\(\textbf{r}_{t}\)</span> : <span class="math notranslate nohighlight">\(t\)</span>-th stage box prediction</p></li>
-<li><p><span class="math notranslate nohighlight">\(\textbf{m}_{t}\)</span> : <span class="math notranslate nohighlight">\(t\)</span>-th stage mask prediction</p></li>
+<li><p>저자는 instance segmentation을 위한 Hybrid Task Cascade (HTC) 구조를 제안한다. 제안된 방법은 다음과 같은 구성을 가진다.</p>
+<p>(1) 기존 방법에서 적용한 Bounding box regression과 mask prediction를 병렬 구조가 아닌 교차로 배치하여 적용</p>
+<p>(2) 각 stage의 mask prediction를 direct path로 연결</p>
+<p>(3) Contextual information을 추가하기위해 semantic segmentation branch 추가</p>
+</li>
+<li><p>Notations:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathcal{P}\)</span> : pooling operator (e.g. RoI Align)</p></li>
+<li><p><span class="math notranslate nohighlight">\(*B_{t}*\)</span> : <span class="math notranslate nohighlight">\(t\)</span>*-*th stage box head</p></li>
+<li><p><span class="math notranslate nohighlight">\(*M_{t}\)</span>* : <span class="math notranslate nohighlight">\(t\)</span>-th stage mask head</p></li>
+<li><p><span class="math notranslate nohighlight">\(\textbf{r}_{t}\)</span> : <span class="math notranslate nohighlight">\(t\)</span>-th stage box prediction</p></li>
+<li><p><span class="math notranslate nohighlight">\(\textbf{m}_{t}\)</span> : <span class="math notranslate nohighlight">\(t\)</span>-th stage mask prediction</p></li>
 </ul>
 </li>
 </ul>
-</section>
-<section id="id4">
-<h2>Cascade Mask R-CNN<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\textbf{x}_{t}^{box} = \mathcal{P}(\textbf{x}, \textbf{r}_{t-1})\)</span>, <span class="math notranslate nohighlight">\(\textbf{r}_{t} = B_{t}(\textbf{x}_{t}^{box})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\textbf{x}_{t}^{mask} = \mathcal{P}(\textbf{x}, \textbf{r}_{t-1})\)</span>, <span class="math notranslate nohighlight">\(\textbf{m}_{t} = M_{t}(\textbf{x}_{t}^{mask})\)</span></p></li>
-<li><p>box prediction과 mask prediction이 parallel하다.</p></li>
-<li><p>더 정확한, refinded box prediction으로부터 이득을 얻지 못하는 구조이다.</p></li>
-</ul>
-</section>
-<section id="interleaved-execution">
-<h2>Interleaved Execution<a class="headerlink" href="#interleaved-execution" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\textbf{x}_{t}^{box} = \mathcal{P}(\textbf{x}, \textbf{r}_{t-1})\)</span>, <span class="math notranslate nohighlight">\(\textbf{r}_{t} = B_{t}(\textbf{x}_{t}^{box})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\textbf{x}_{t}^{mask} = \mathcal{P}(\textbf{x}, \textbf{r}_{t})\)</span>, <span class="math notranslate nohighlight">\(\textbf{m}_{t} = M_{t}(\textbf{x}_{t}^{mask})\)</span></p></li>
-<li><p>refined box prediction을 활용하기 위해서 병렬적인 구조를 직렬적인 구조로 바꿨다.</p></li>
-</ul>
-</section>
-<section id="mask-information-flow">
-<h2>Mask Information Flow<a class="headerlink" href="#mask-information-flow" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\textbf{x}_{t}^{box} = \mathcal{P}(\textbf{x}, \textbf{r}_{t-1})\)</span>, <span class="math notranslate nohighlight">\(\textbf{r}_{t} = B_{t}(\textbf{x}_{t}^{box})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\textbf{x}_{t}^{mask} = \mathcal{P}(\textbf{x}, \textbf{r}_{t})\)</span>, <span class="math notranslate nohighlight">\(\textbf{m}_{t} = M_{t}( \mathcal{F}(\textbf{x}_{t}^{mask}, \textbf{m}_{t-1}^{-}))\)</span></p></li>
-<li><p>이전 step의 mask prediction도 이용해서 현재 step의 prediction을 만든다. (information flow)</p></li>
-<li><p><span class="math notranslate nohighlight">\(\textbf{m}_{t-1}^{-}\)</span>은 prediction 직전의 feature이다.</p>
-<ul>
-<li><p>아래 그림의 빨간 선</p></li>
-</ul>
-</li>
-</ul>
-<figure class="align-default" id="id5">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/20211013191211.png"><img alt="20211013191211" class="bg-primary mb-1" src="../../_images/20211013191211.png" style="width: 600px;" /></a>
+<figure class="align-default" id="fig-htc4">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/htc4.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/htc4.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 47 </span><span class="caption-text">Architecture of multi-stage mask branches (source: arXiv:1901.07518)</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 51 </span><span class="caption-text">The architecture evolution from Cascade Mask R-CNN to Hybrid Task Cascade (source: arXiv:1901.07518)</span><a class="headerlink" href="#fig-htc4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="multi-task-cascade">
+<h3>1. Multi-task Cascade<a class="headerlink" href="#multi-task-cascade" title="Permalink to this headline">#</a></h3>
+<p>(a) <strong>Cascade Mask R-CNN</strong></p>
+<ul>
+<li><p>Mask R-CNN 구조를 개선하기 위해 가장 처음으로 시도해볼 수 있는 방법이 Cascade R-CNN와 결합하는 것이다.</p></li>
+<li><p><a class="reference internal" href="#fig-htc4"><span class="std std-numref">Fig. 51</span></a>.(a)와 같이 Cascade R-CNN의 각 stage에 mask head를 추가한다. 이 과정을 수식으로 표현하면 다음과 같다.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    \textbf{x}_{t}^{box} &amp;=
+    \mathcal{P}(\textbf{x}, \textbf{r}_{t-1}), \textbf{r}_{t} = B_{t}(\textbf{x}_{t}^{box}) \\
+    \textbf{x}_{t}^{mask} &amp;= \mathcal{P}(\textbf{x}, \textbf{r}_{t-1}), \textbf{m}_{t} = M_{t}(\textbf{x}_{t}^{mask})
+    \end{aligned}
+    \end{split}\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> 는 backbone network의 CNN features이며,<br />
+<span class="math notranslate nohighlight">\(\mathbf{x}_{t}^{box}\)</span>  와 <span class="math notranslate nohighlight">\(\mathbf{x}_{t}^{mask}\)</span> 는 input RoI와 features <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> 로부터 유도되는 box와 mask feature를 나타낸다.</p>
+</li>
+<li><p>Box prediction과 mask prediction이 parallel하게 구성된 경우로 cascade 구조로 bounding box와 mask prediction에 동시에 향상을 기대할 수 있디만, bounding box refinement 성능 개선만 확인되었고, mask prediction의 개선은 크지 않았다.</p></li>
+</ul>
+<p>(b) <strong>Interleaved Execution</strong></p>
+<ul class="simple">
+<li><p>Cascade Mask R-CNN 구조에서 bounding box와 mask prediction branch는 서로 분리되어 학습되며 상호 작용이 없는 것을 알 수 있다.</p></li>
+<li><p><a class="reference internal" href="#fig-htc4"><span class="std std-numref">Fig. 51</span></a>.(b)와 같이 현 시점의 bounding box prediction 결과를 이용하여 mask prediction의 feature를 추출하도록 직렬구조로 구성할 수 있다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\textbf{x}_{t}^{box} &amp;= \mathcal{P}(\textbf{x}, \textbf{r}_{t-1}), \textbf{r}_{t} = B_{t}(\textbf{x}_{t}^{box}) \\
+\textbf{x}_{t}^{mask} &amp;= \mathcal{P}(\textbf{x}, \textbf{r}_{t}), \textbf{m}_{t} = M_{t}(\textbf{x}_{t}^{mask})
+\end{aligned}
+\end{split}\]</div>
+<p>(c) <strong>Mask Information Flow</strong></p>
+<ul>
+<li><p><a class="reference internal" href="#fig-htc4"><span class="std std-numref">Fig. 51</span></a>.(c)와 같이 이전 step의 mask prediction도 이용해서 현재 step의 prediction을 만든다. (information flow)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    \textbf{x}_{t}^{box} &amp;= \mathcal{P}(\textbf{x}, \textbf{r}_{t-1}) \textbf{r}_{t} = B_{t}(\textbf{x}_{t}^{box}) \\
+    \textbf{x}_{t}^{mask} &amp;= \mathcal{P}(\textbf{x}, \textbf{r}_{t}), \textbf{m}_{t} = M_{t}( \mathcal{F}(\textbf{x}_{t}^{mask}, \textbf{m}_{t-1}^{-}))
+    \end{aligned}
+    \end{split}\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(\textbf{m}_{t-1}^{-}\)</span>은 prediction 직전의 feature이다. Figure x2의 붉은 선에 해당한다.</p>
+</li>
+<li><p>구현 과정에서는 다음과 같이 간소화한 구조를 사용한다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{F}(\textbf{x}_{t}^{mask}, \textbf{m}_{t-1}^{-}) = \textbf{x}_{t}^{mask} + \mathcal{G}_{t}(\textbf{m}_{t-1}^{-})
+\]</div>
+<figure class="align-default" id="fig-htc5">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/htc5.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/htc5.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 52 </span><span class="caption-text">Architecture of multi-stage mask branches (source: arXiv:1901.07518)</span><a class="headerlink" href="#fig-htc5" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathcal{F}(\textbf{x}_{t}^{mask}, \textbf{m}_{t-1}^{-}) = \textbf{x}_{t}^{mask} + \mathcal{G}_{t}(\textbf{m}_{t-1}^{-})\)</span></p></li>
-<li><p>Concat하지 않고 element-wise sum을 사용했다.</p></li>
-<li><p>box <span class="math notranslate nohighlight">\(\textbf{r}_{t-1}\)</span>와 <span class="math notranslate nohighlight">\(\textbf{r}_{t}\)</span>의 크기가 달라도 pooling 하기 때문에 3x3 conv에 padding을 주면 사이즈를 같게 유지할 수 있다.</p></li>
+<li><p>Deconvolution layer전의 RoI feature를 다음 stage의 mask prediction feature로 활용하며, concatenate 하지 않고 element-wise sum을 사용힌다.</p></li>
+<li><p>이전 stage의 box <span class="math notranslate nohighlight">\(\textbf{r}_{t-1}\)</span>와 현 stage의 box <span class="math notranslate nohighlight">\(\textbf{r}_{t}\)</span>의 크기가 달라도 feature에 대해 pooling 하기 때문에 3x3 conv에 padding을 주면 사이즈를 같게 유지할 수 있다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned} m_{\bar1}&amp;=M_{\bar1}(x_t^{\text{mask}}), \\ m_{\bar2}&amp;=M_{\bar1}(\mathcal{F}(x_t^{\text{mask}},\mathbf{m}_{\bar{1}})), \\ &amp;\vdots \\ m_{\bar{t}-1}&amp;=M_{\bar{t}}(\mathcal{F}(x_t^{\text{mask}},\mathbf{m}_{\bar{t}-2})) \end{aligned}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>information path를 통해 backpropagation 과정에서 단절 없이 mask feature가 supervision을 획득할 수 있다.</p></li>
 </ul>
 </section>
 <section id="spatial-contexts-from-segmentation">
-<h2>Spatial Contexts from Segmentation<a class="headerlink" href="#spatial-contexts-from-segmentation" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\textbf{x}_{t}^{box} = \mathcal{P}(\textbf{x}, \textbf{r}_{t-1}) + \mathcal{P}(S(\mathbf{x}), \mathbf{r}_{t-1})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\textbf{r}_{t} = B_{t}(\textbf{x}_{t}^{box})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\textbf{x}_{t}^{mask} = \mathcal{P}(\textbf{x}, \textbf{r}_{t}) + \mathcal{P}(S(\mathbf{x}), \mathbf{r}_{t})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\textbf{m}_{t} = M_{t}( \mathcal{F}(\textbf{x}_{t}^{mask}, \textbf{m}_{t-1}^{-}))\)</span></p></li>
-</ul>
+<h3>2. Spatial Contexts from Segmentation<a class="headerlink" href="#spatial-contexts-from-segmentation" title="Permalink to this headline">#</a></h3>
+<ul>
+<li><p>Foreground와 background의 더 명확한 구별을 위해서 spatial context를 추가한다.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-m_{\bar1}&amp;=M_{\bar1}(x_t^{\text{mask}}), \\
-m_{\bar2}&amp;=M_{\bar1}(\mathcal{F}(x_t^{\text{mask}},\mathbf{m}_{\bar{1}})), \\ 
-&amp;\vdots \\
-m_{\bar{t}-1}&amp;=M_{\bar{t}}(\mathcal{F}(x_t^{\text{mask}},\mathbf{m}_{\bar{t}-2}))
-\end{aligned}\end{split}\]</div>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(S\)</span>는 segmentation head를 의미한다.</p></li>
-<li><p>foreground와 background의 더 명확한 구별을 위해서 spatial context를 주입한다.</p></li>
-<li><p>sementic segmentation을 수행하는 다른 branch를 만들고, 해당 branch의 feature를 이용하는 것으로 주입한다.</p></li>
+\[\begin{split}
+    \begin{aligned} 
+    \textbf{x}_{t}^{box} &amp;= \mathcal{P}(\textbf{x}, \textbf{r}_{t-1}) + \mathcal{P}(S(\mathbf{x}), \mathbf{r}_{t-1}) \\ 
+    \textbf{r}_{t} &amp;= B_{t}(\textbf{x}_{t}^{box}) \\ 
+    \textbf{x}_{t}^{mask} &amp;= \mathcal{P}(\textbf{x}, \textbf{r}_{t}) + \mathcal{P}(S(\mathbf{x}), \mathbf{r}_{t}) \\
+    \textbf{m}_{t} &amp;= M_{t}( \mathcal{F}(\textbf{x}_{t}^{mask}, \textbf{m}_{t-1}^{-}))
+    \end{aligned} 
+    \end{split}\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(S\)</span>는 segmentation head를 의미한다.</p>
+</li>
+<li><p><a class="reference internal" href="#fig-htc4"><span class="std std-numref">Fig. 51</span></a>.(d)와 같이 Semantic segmentation을 수행하는 branch를 만들고, 해당 branch의 feature를 mask prediction에 활용한다.</p></li>
 </ul>
-<figure class="align-default" id="id6">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/20211013192425.png"><img alt="20211013192425" class="bg-primary mb-1" src="../../_images/20211013192425.png" style="width: 600px;" /></a>
+<figure class="align-default" id="fig-htc6">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/htc6.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/htc6.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 48 </span><span class="caption-text">We introduce complementary contextual information by adding semantic segmentation branch. (source: arXiv:1901.07518)</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 53 </span><span class="caption-text">Semantic segmentation branch. (source: arXiv:1901.07518)</span><a class="headerlink" href="#fig-htc6" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="learning">
-<h2>Learning<a class="headerlink" href="#learning" title="Permalink to this headline">#</a></h2>
+<h3>3. Learning<a class="headerlink" href="#learning" title="Permalink to this headline">#</a></h3>
+<ul>
+<li><p>HTC의 모든 module은 미분가능하기 때문에 end-to-end로 학습이 가능하다.</p></li>
+<li><p>Loss function은 multi-task learning 형태로 구성된다.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned} 
+    &amp;\displaystyle L = \sum_{t=1}^{T} \alpha_{t}(L_{bbox}^{t} + L_{mask}^{t}) + \beta L_{seg} \\ 
+    &amp;\displaystyle L_{bbox}^{t} (c_{i}, \textbf{r}_{t}, \hat{c}_{t}, \hat{\textbf{r}}_{t}) = L_{cls}(c_{t}, \hat{c}_{t}) + L_{reg}(\textbf{r}, \hat{\textbf{r}}_{t}) \\
+    &amp;L_{mask}^{t}(\textbf{m}_{t}, \hat{\textbf{m}}_{t}) = \text{BCE}(\textbf{m}_{t}, \hat{\textbf{m}}_{t}) \\
+    &amp;L_{seg} = \text{CE}(\textbf{s}, \hat{\mathbf{s}})
+    \end{aligned} 
+    \end{split}\]</div>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\displaystyle L = \sum_{t=1}^{T} \alpha_{t}(L_{bbox}^{t} + L_{mask}^{t}) + \beta L_{seg}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\displaystyle L_{bbox}^{t} (c_{i}, \textbf{r}_{t}, \hat{c}_{t}, \hat{\textbf{r}}_{t}) = L_{cls}(c_{t}, \hat{c}_{t}) + L_{reg}(\textbf{r}, \hat{\textbf{r}}_{t})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(L_{mask}^{t}(\textbf{m}_{t}, \hat{\textbf{m}}_{t}) = \text{BCE}(\textbf{m}_{t}, \hat{\textbf{m}}_{t})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(L_{seg} = \text{CE}(\textbf{s}, \hat{\mathbf{s}})\)</span></p></li>
+<li><p>Bounding box prediction loss <span class="math notranslate nohighlight">\(L_{bbox}^{t}\)</span> 는 Cascade R-CNN과 동일한 구조로 classification loss <span class="math notranslate nohighlight">\(L_{cls}\)</span>과 bounding box regression loss <span class="math notranslate nohighlight">\(L_{reg}\)</span> 조합으로 구성된다.</p></li>
+<li><p>Mask prediction loss  <span class="math notranslate nohighlight">\(L_{mask}^{t}\)</span> 는 Mask R-CNN과 동일하게 binary cross entropy를 적용한다.</p></li>
+<li><p>Semantic segmentation loss <span class="math notranslate nohighlight">\(L_{seg}\)</span> 는 cross-entrophy를 적용한다.</p></li>
+<li><p>본 논문에서는 Cascade R-CNN의 hyperparameter와 동일하게 설정했고, 각 stage와 task의 balance를 조절하는 coefficient를 <span class="math notranslate nohighlight">\(\alpha=[1,0,5,0,25]\)</span>, <span class="math notranslate nohighlight">\(T=3\)</span>, <span class="math notranslate nohighlight">\(\beta=1\)</span> 로 설정했다.</p></li>
 </ul>
-<br>
+</li>
+</ul>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="experiments">
-<h1>4. Experiments<a class="headerlink" href="#experiments" title="Permalink to this headline">#</a></h1>
-<section id="ablation-study">
-<h2>Ablation Study<a class="headerlink" href="#ablation-study" title="Permalink to this headline">#</a></h2>
-<img alt="20211013194003.png" class="bg-primary mb-1 align-center" src="../../_images/20211013194003.png" />
+<section id="experiments-result">
+<h2>Experiments Result<a class="headerlink" href="#experiments-result" title="Permalink to this headline">#</a></h2>
+<section id="implementation-details">
+<h3>1. Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Train dataset</p>
+<ul>
+<li><p>COCO 2017train (115k images)</p></li>
+<li><p>Bounding box, mask prediction branch에는 instance annotation 적용</p></li>
+<li><p>Semantic branch에는 COCO-stuff annotation 적용</p></li>
+</ul>
+</li>
+<li><p>3-stage cascade 구조로 구성</p></li>
+<li><p>Mask R-CNN과 Cascade R-CNN을 PyTorch로 다시 구현함.</p></li>
+</ul>
+</section>
+<section id="result">
+<h3>2. Result<a class="headerlink" href="#result" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>COCO 2017 validation set과 test-dev set에서 COCO style AP를 비교한 결과 Cascade Mask R-CNN과 당시 SOTA인 PANet 대비 높은 box AP와 mask AP를 가짐을 확인.</p></li>
+</ul>
+<img alt="htc7.png" class="bg-primary mb-1 align-center" src="../../_images/htc7.png" />
+<ul class="simple">
+<li><p>Cascade, Interleaved, Mask Information flow, Semantic feature fusion을 추가할 때마나 mask AP가 증가함을 확인할 수 있음.</p></li>
+</ul>
+<img alt="htc8.png" class="bg-primary mb-1 align-center" src="../../_images/htc8.png" />
+<img alt="htc9.png" class="bg-primary mb-1 align-center" src="../../_images/htc9.png" />
+</section>
 </section>
 </section>
 
@@ -1064,17 +1057,17 @@ m_{\bar{t}-1}&amp;=M_{\bar{t}}(\mathcal{F}(x_t^{\text{mask}},\mathbf{m}_{\bar{t}
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="02_02_03_Deep-MAC.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="02_01_02_SOLO.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">[Draft] Deep-MAC - ICCV 2017</p>
+            <p class="prev-next-title">SOLO - ECCV 20</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="02_02_04_BCNet.html" title="next page">
+    <a class='right-next' id="next-link" href="../ch3/03_Panoptic%20Segmentation2.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">[Draft] BCNet - CVPR 2021</p>
+        <p class="prev-next-title">Overview</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
