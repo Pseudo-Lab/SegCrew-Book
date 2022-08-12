@@ -247,8 +247,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_01_03_SOLOv2.html">
+     SOLOv2 - NeurIPS 2020
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../ch2/02_02_02_HTC.html">
      HTC - CVPR 2019
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_04_BCNet.html">
+     BCNet - CVPR 2021
     </a>
    </li>
   </ul>
@@ -356,6 +366,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../ch4/04_02_03_GCNet.html">
      GCNet - ICCV 2021
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch4/04_02_05_PuzzleCAM.html">
+     PuzzleCAM - ICIP 2021
     </a>
    </li>
   </ul>
@@ -791,7 +806,7 @@ title="Print to PDF"
 <figure class="align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr1.png"><img alt="detr1" class="bg-primary mb-1" src="../../_images/detr1.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 60 </span><span class="caption-text">DETR directly predicts (in parallel) the final set of detections by combining a common CNN with a transformer architecture (source: arXiv:2005.12872)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 65 </span><span class="caption-text">DETR directly predicts (in parallel) the final set of detections by combining a common CNN with a transformer architecture (source: arXiv:2005.12872)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -802,7 +817,7 @@ title="Print to PDF"
 <figure class="align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr2.png"><img alt="detr2" class="bg-primary mb-1" src="../../_images/detr2.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 61 </span><span class="caption-text">DETR uses a conventional CNN backbone to learn a 2D representation of an input image. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 66 </span><span class="caption-text">DETR uses a conventional CNN backbone to learn a 2D representation of an input image. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -820,26 +835,26 @@ title="Print to PDF"
 <figure class="align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr3.png"><img alt="detr3" class="bg-primary mb-1" src="../../_images/detr3.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 62 </span><span class="caption-text">Architecture of DETR’s Transformer. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 67 </span><span class="caption-text">Architecture of DETR’s Transformer. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
-<li><p>Encoder의 output은 각 개별 object instance 정보를 포함하고 있다. 그림 <a class="reference internal" href="#detr-encoder"><span class="std std-numref">Fig. 63</span></a>와 같이 붉은 점에 해당하는 self-attention을 보면 각 위치가 포함되는 개별객체에 attention되어 있음을 확인할 수 있다.</p></li>
+<li><p>Encoder의 output은 각 개별 object instance 정보를 포함하고 있다. 그림 <a class="reference internal" href="#detr-encoder"><span class="std std-numref">Fig. 68</span></a>와 같이 붉은 점에 해당하는 self-attention을 보면 각 위치가 포함되는 개별객체에 attention되어 있음을 확인할 수 있다.</p></li>
 </ul>
 <figure class="align-default" id="detr-encoder">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr4.png"><img alt="detr4" class="bg-primary mb-1" src="../../_images/detr4.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 63 </span><span class="caption-text">Encoder self-attention for a set of reference points. The encoder is able to seperate indifidual instancese. (source: arXiv:2005.12872)</span><a class="headerlink" href="#detr-encoder" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 68 </span><span class="caption-text">Encoder self-attention for a set of reference points. The encoder is able to seperate indifidual instancese. (source: arXiv:2005.12872)</span><a class="headerlink" href="#detr-encoder" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
-<li><p><a class="reference internal" href="#detr-decoder"><span class="std std-numref">Fig. 64</span></a>와 같이 DETR는 중첩된 object도 잘 구분할 수 있다.</p></li>
+<li><p><a class="reference internal" href="#detr-decoder"><span class="std std-numref">Fig. 69</span></a>와 같이 DETR는 중첩된 object도 잘 구분할 수 있다.</p></li>
 <li><p>각 instance의 외각점 (다리, 귀, 코 등)에서 높은 attention을 가진다.</p></li>
 </ul>
 <figure class="align-default" id="detr-decoder">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr5.png"><img alt="detr5" class="bg-primary mb-1" src="../../_images/detr5.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 64 </span><span class="caption-text">Visualizing decoder attention for every predicted object (image from COCO val set). Predictions are made with DTRE-DC5 model. Attention scores are coded with differentn colors for different objects. Decoder typically  attends to object extremities, such as legs and heads. Best viweed in color (source: arXiv:2005.12872)</span><a class="headerlink" href="#detr-decoder" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 69 </span><span class="caption-text">Visualizing decoder attention for every predicted object (image from COCO val set). Predictions are made with DTRE-DC5 model. Attention scores are coded with differentn colors for different objects. Decoder typically  attends to object extremities, such as legs and heads. Best viweed in color (source: arXiv:2005.12872)</span><a class="headerlink" href="#detr-decoder" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -848,7 +863,7 @@ title="Print to PDF"
 <figure class="align-default" id="id3">
 <a class="reference internal image-reference" href="../../_images/detr6.png"><img alt="detr6" src="../../_images/detr6.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 65 </span><span class="caption-text">Examples of bipartite matching (source: arXiv:2005.12872)</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 70 </span><span class="caption-text">Examples of bipartite matching (source: arXiv:2005.12872)</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -893,7 +908,7 @@ title="Print to PDF"
 <figure class="align-default" id="id4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr7.png"><img alt="detr7" class="bg-primary mb-1" src="../../_images/detr7.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 66 </span><span class="caption-text">Illustration of the panoptic head. A binary mask is generated in parallel for each detected object, then the masks are merged using pixel-wise argmax. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 71 </span><span class="caption-text">Illustration of the panoptic head. A binary mask is generated in parallel for each detected object, then the masks are merged using pixel-wise argmax. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
