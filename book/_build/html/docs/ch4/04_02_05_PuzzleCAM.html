@@ -1,0 +1,985 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>PuzzleCAM - ICIP 2021 &#8212; Segmentation Complete</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Overview" href="../ch5/05%20Semi-supervised%20Segmentation.html" />
+    <link rel="prev" title="GCNet - ICCV 2021" href="04_02_03_GCNet.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Segmentation Complete</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    [가짜연구소] Segmentation 완전정복
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Semantic Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch1/01_Semantic%20Segmentation2.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_01_fullyconvNet.html">
+   A. Fully Convolutional Network
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_01_fcn.html">
+     FCN - CVPR 2015
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_02_DeepLabv3.html">
+     DeepLab v3 - arXiv 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_03_pspnet.html">
+     PSPNet - CVPR 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_04_encnet.html">
+     EncNet - CVPR 2018
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_02_encodedecode.html">
+   B. Convolutional encoder-decoder
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_01_unet.html">
+     U-Net - arxiv 2015
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_03_DeconvNet.html">
+     DeconvNet - ICCV 2015
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_02_segnet.html">
+     SegNet - TPAMI 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_01_multiresunet.html">
+     MultiResUNet - arxiv 2019
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_03_transformer.html">
+   C. Transformer based method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_03_01_SETR.html">
+     SETR - CVPR 2021
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_03_02_Segformer.html">
+     Segformer - NeurIPS 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Instance Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation2.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch2/02_02_two_stage.html">
+   A. Detector based Method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_01_01_YOLACT.html">
+     YOLACT - ICCV 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_01_02_SOLO.html">
+     SOLO - ECCV 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_01_03_SOLOv2.html">
+     SOLOv2 - NeurIPS 2020
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_02_HTC.html">
+     HTC - CVPR 2019
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_04_BCNet.html">
+     BCNet - CVPR 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Panoptic Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation2.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch3/03_01_Box.html">
+   A. Box based method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_01_01_PanopticFPN.html">
+     PanopticFPN - CVPR 2019
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_02_02_DETR.html">
+     DETR - ECCV 2020
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch3/03_02_Box_Free.html">
+   B. Box-free Method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_02_01_Max-DeepLab.html">
+     MaX-DeepLab - CVPR 21
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Weakly-supervised Segmentation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_Weakly-supervised%20Segmentation2.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="04_01_LearningPixelAffinity.html">
+   A. Learning Pixel Affinity
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_01_01_AffinityNet.html">
+     AffinityNet - CVPR 2018
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_01_02_IAL.html">
+     IAL - IJCV 2020
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="04_02_AdversarialErasing.html">
+   B. Adversarial Erasing
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_02_02_SeeNet.html">
+     SeeNet - NeurIPS 2018
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_02_03_GCNet.html">
+     GCNet - ICCV 2021
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     PuzzleCAM - ICIP 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Semi-supervised Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch5/05%20Semi-supervised%20Segmentation.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch5/05_01_Consistency_reg.html">
+   A. Consistency Regularization
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_01_01_CCT.html">
+     CCT - CVPR 2020
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_01_02_SemiContexAware.html">
+     Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch5/05_02_GAN.html">
+   B. GAN
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_02_01_Revisiting_CycleGAN.html">
+     Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_02_02_s4GAN.html">
+     s4GAN - arXiv:1908.05724
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/DenseCRF.html">
+   Tutorial: DenseCRF for segmentation task
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Pseudo-Lab/SegCrew-Book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch4/04_02_05_PuzzleCAM.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/docs/ch4/04_02_05_PuzzleCAM.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   INTRODUCTION
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#motivation">
+     1. Motivation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-employed-cam-method">
+     2. The employed CAM Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-puzzle-module">
+     3. The Puzzle Module
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-loss-design-for-puzzle-cam">
+     4. The Loss Design for Puzzle-CAM
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experimental-result">
+   Experimental Result
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     1. Implementation details
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ablatation-studies">
+     2. Ablatation Studies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparison-with-existing-state-of-the-art-methods">
+     3. Comparison with Existing State-of-the-Art Methods
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>PuzzleCAM - ICIP 2021</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   INTRODUCTION
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#motivation">
+     1. Motivation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-employed-cam-method">
+     2. The employed CAM Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-puzzle-module">
+     3. The Puzzle Module
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-loss-design-for-puzzle-cam">
+     4. The Loss Design for Puzzle-CAM
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experimental-result">
+   Experimental Result
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     1. Implementation details
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ablatation-studies">
+     2. Ablatation Studies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparison-with-existing-state-of-the-art-methods">
+     3. Comparison with Existing State-of-the-Art Methods
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="puzzlecam-icip-2021">
+<h1>PuzzleCAM - ICIP 2021<a class="headerlink" href="#puzzlecam-icip-2021" title="Permalink to this headline">#</a></h1>
+<hr class="docutils" />
+<div class="admonition-information admonition">
+<p class="admonition-title">Information</p>
+<ul class="simple">
+<li><p><strong>Title:</strong> Puzzle-CAM: Improved localization via matching partial and full features, ICIP 2021</p></li>
+<li><p><strong>Reference</strong></p>
+<ul>
+<li><p>Paper : <a class="reference external" href="https://arxiv.org/abs/2101.11253">https://arxiv.org/abs/2101.11253</a></p></li>
+<li><p>Code : <a class="reference external" href="https://github.com/OFRIN/PuzzleCAM">https://github.com/OFRIN/PuzzleCAM</a></p></li>
+</ul>
+</li>
+<li><p><strong>Review By:</strong> 김태규</p></li>
+<li><p><strong>Last updated on Aug. 13, 2022</strong></p></li>
+</ul>
+</div>
+<section id="introduction">
+<h2>INTRODUCTION<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>대부분의 WSSS가 segmentation network의 학습을 위해 CAM에 기반반 pseudo-labels을 생성하는 접근 방식을 사용한다.</p></li>
+<li><p>이 과정에서 가장 큰 문제는 CAM이 class를 가장 잘 구분하기 위한 영역에만 activation된다는 점이다.</p>
+<ul>
+<li><p>CAMs 는 객체의 작은 부분을 효과적으로 탐지 하지만 전체적으로 segmentation은 못한다.</p></li>
+<li><p><a class="reference internal" href="#fig-puzzlecam1"><span class="std std-numref">Fig. 99</span></a>에서 원본이미지의 CAM과 tile로 자른 이미지의 CAM이 다르게 표현된다.</p></li>
+</ul>
+</li>
+</ul>
+<figure class="align-default" id="fig-puzzlecam1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/puzzlecam1.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/puzzlecam1.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 99 </span><span class="caption-text">CAM generated from tiled and original images (source: 	arXiv:2101.11253)</span><a class="headerlink" href="#fig-puzzlecam1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>통합된 객체 영역을 검출을 위한 WSSS을 위해 <strong>Attention-based feature learning</strong> 기법을 사용한 Puzzle-CAM을 제안.</p>
+<ul>
+<li><p>Self-supervision을 제공하기 위해 tiled image와 원본 image에서 생성된 CAM에 대해<strong>Reconstructing regularization</strong>을 적용함.</p></li>
+<li><p>Network prediction consistency를 위해 image와 tiled image에서 생성되어 merge된 CAM을 분리하는 puzzle module을 제안함.  (without adding layers)</p></li>
+<li><p>Puzzle-CAM은 원본이미지의 CAM과 병합된 CAM간의 차이를 줄이는 Reconstructing regularization loss가 존재하는 샴 네트워크 형태로 구성된다.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="proposed-method">
+<h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">#</a></h2>
+<section id="motivation">
+<h3>1. Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>단일 이미지의 CAM은 각 클래스의 가장 대표적인 영역을 탐지하므로, 동일한 클래스의 CAM을 생성할 때 모델은 객체의 일부분만을 사용하여 클래스의 key feature를 찾는데 집중한다.</p></li>
+<li><p>패치가 병합된 CAM은 단일이미지의 CAM보다 저 정확하게 표현하므로, 이런 장점을 활용하기 위해, 단일이미지의 CAM과 merged CAM의 차이를 최소화 하기 위하여 Reconstructing  loss를 적용함.</p></li>
+<li><p>Reconstructing loss를 적용하여 classification network를 학습함으로써 더 정확하게 객체영역을 커버할 수 있음.</p></li>
+</ul>
+</section>
+<section id="the-employed-cam-method">
+<h3>2. The employed CAM Method<a class="headerlink" href="#the-employed-cam-method" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Feature extractor <span class="math notranslate nohighlight">\(F\)</span>와 classifier <span class="math notranslate nohighlight">\(\theta\)</span>가 주어졌을 때, CAM <span class="math notranslate nohighlight">\(A\)</span>를 생성할 수 있다. lmage leve supervision(class label)를 이용하여 classifier를 학습한 후, class c의 CAM을 추출하기 위해  c-channel classifier <span class="math notranslate nohighlight">\(\theta_c\)</span>를 weight로 적용한다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+A_c=\theta_c^{\top}f.
+\]</div>
+<ul class="simple">
+<li><p>생성된 CAM에서 최대값 기준으로 normalized하고, 각 class별로 CAM을 생성한 후 concat하여 CAM <span class="math notranslate nohighlight">\(A_c\)</span>를 생성한다.</p></li>
+</ul>
+</section>
+<section id="the-puzzle-module">
+<h3>3. The Puzzle Module<a class="headerlink" href="#the-puzzle-module" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Puzzle module은 입력 영상을 겹치지 않도록 4개의 tiled patches <span class="math notranslate nohighlight">\(\{I^{1,1},I^{1,2},I^{2,1},I^{2,2}\}\)</span> 로 분할한 후 각 tiled image에 대해 CAM <span class="math notranslate nohighlight">\(A^{i,j}\)</span>를 생성한다.</p></li>
+<li><p>생성된 tiled image의 CAM을 merge하여 단일 CAM <span class="math notranslate nohighlight">\(A^{re}\)</span>를 생성한다.</p></li>
+</ul>
+<hr class="docutils" />
+<figure class="align-default" id="fig-puzzlecam2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/puzzlecam2.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/puzzlecam2.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 100 </span><span class="caption-text">The overall architecture of the Puzzle-CAM (source: 	arXiv:2101.11253)</span><a class="headerlink" href="#fig-puzzlecam2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="the-loss-design-for-puzzle-cam">
+<h3>4. The Loss Design for Puzzle-CAM<a class="headerlink" href="#the-loss-design-for-puzzle-cam" title="Permalink to this headline">#</a></h3>
+<ul>
+<li><p>이미지 classification을 위한 prediction vector <span class="math notranslate nohighlight">\(\hat{Y}=\sigma(G(A_c))\)</span>를 도출하고, soft-margein loss를 적용하기 위해 Global Average Pooling(GAP) layer를 network 마지막에 적용한다.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \hat{Y}=\begin{cases}    \hat{Y}, &amp; \text{if $Y=1$}\\
+        1-\hat{Y}, &amp; \text{otherwise}
+      \end{cases}
+    \end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+    \mathcal{l}_{cls}(\hat{Y},Y)=-\log(Y_t)
+    \]</div>
+</li>
+<li><p>원본 영상에 대한 CAM <span class="math notranslate nohighlight">\(A^s\)</span> 와 tiled image에서 구한 CAM을 merge한 <span class="math notranslate nohighlight">\(A^{re}\)</span>를 GAP를 통해 prediction vector를 구한 후 각각 classification loss를 구한다.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \mathcal{L}_{\text{cls}}=\mathcal{l}_{\text{cls}}(\hat{Y}^s,Y), \\
+    \mathcal{L}_{\text{p-cls}}=\mathcal{l}_{\text{cls}}(\hat{Y}^{re},Y)
+    \end{split}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L}_{cls}\)</span>는 Original image에서 이어지는 Classification loss (CrossEntropy)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L}_{p-cls}\)</span>는 Puzzle Module에서 이어지는 Classification loss (CrossEntropy)</p></li>
+</ul>
+</li>
+<li><p>Reconstruction Loss <span class="math notranslate nohighlight">\(\mathcal{L}_{re}\)</span>는 Original image의 CAM과 Puzzle Module에서 나온 CAM의 L1 loss로 정의된다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}_{re}=||A^s-A^{re}||_1
+\]</div>
+<ul>
+<li><p>최종적으로 final loss는 다음과 같이 정의된다.</p>
+<div class="math notranslate nohighlight">
+\[
+    L=L_{\text{cls}}+L_{\text{p-cls}}+\alpha L_{re}
+    \]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(\alpha\)</span>는 loss간의 balance factor이다.</p>
+</li>
+<li><p>Classification loss의 경우 대략적인 object의 영역을 찾을 수 있고, reconstruction loss는 pixel level supervision과 image-level supervision의 차이를 정의한다.</p></li>
+</ul>
+</section>
+</section>
+<section id="experimental-result">
+<h2>Experimental Result<a class="headerlink" href="#experimental-result" title="Permalink to this headline">#</a></h2>
+<section id="implementation-details">
+<h3>1. Implementation details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>320~640 randomly scale → cropped (512x512)</p></li>
+<li><p>알파 = 4를 최댓값으로 놓고, 1/2 epoch마다 선형적으로 증가시켰다.</p></li>
+<li><p>PASCAL VOC 2012 data와 Semantic Boundary Dataset 사용. 다른 WSSS 연구와 동일.</p></li>
+<li><p>추론(Inference)할 때는 퍼즐 모듈없이 classifier만 적용.</p></li>
+</ul>
+</section>
+<section id="ablatation-studies">
+<h3>2. Ablatation Studies<a class="headerlink" href="#ablatation-studies" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>3가지 종류의 loss를 모두 더하여 사용하였더니 더 좋은 결과를 얻을 수 있었다.</p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/puzzlecam3.png"><img alt="puzzlecam3.png" class="bg-primary mb-1 align-center" src="../../_images/puzzlecam3.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>AffinityNet에서 사용된 Random walk과 dCRF 기법을 사용하여 더욱 좋은 성능 낼 수 있었다.</p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/puzzlecam4.png"><img alt="puzzlecam4.png" class="bg-primary mb-1 align-center" src="../../_images/puzzlecam4.png" style="width: 400px;" /></a>
+</section>
+<hr class="docutils" />
+<section id="comparison-with-existing-state-of-the-art-methods">
+<h3>3. Comparison with Existing State-of-the-Art Methods<a class="headerlink" href="#comparison-with-existing-state-of-the-art-methods" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Puzzle-CAM을 적용한 결과 VOC2012 validation set과 test set에서 기존 WSSS 방법 대바 높은 성능을 나타냄을 확인할 수 있다.</p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/puzzlecam5.png"><img alt="puzzlecam5.png" class="bg-primary mb-1 align-center" src="../../_images/puzzlecam5.png" style="width: 400px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/puzzlecam6.png"><img alt="puzzlecam6.png" class="bg-primary mb-1 align-center" src="../../_images/puzzlecam6.png" style="width: 400px;" /></a>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/ch4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="04_02_03_GCNet.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">GCNet - ICCV 2021</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../ch5/05%20Semi-supervised%20Segmentation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Overview</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By PseudoLab<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

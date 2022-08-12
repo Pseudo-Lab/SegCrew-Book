@@ -56,8 +56,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Overview" href="../ch3/03_Panoptic%20Segmentation2.html" />
-    <link rel="prev" title="SOLO - ECCV 20" href="02_01_02_SOLO.html" />
+    <link rel="next" title="BCNet - CVPR 2021" href="02_02_04_BCNet.html" />
+    <link rel="prev" title="SOLOv2 - NeurIPS 2020" href="02_01_03_SOLOv2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -246,9 +246,19 @@ const thebe_selector_output = ".output, .cell_output"
      SOLO - ECCV 20
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_01_03_SOLOv2.html">
+     SOLOv2 - NeurIPS 2020
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      HTC - CVPR 2019
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_02_04_BCNet.html">
+     BCNet - CVPR 2021
     </a>
    </li>
   </ul>
@@ -356,6 +366,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../ch4/04_02_03_GCNet.html">
      GCNet - ICCV 2021
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch4/04_02_05_PuzzleCAM.html">
+     PuzzleCAM - ICIP 2021
     </a>
    </li>
   </ul>
@@ -794,7 +809,7 @@ title="Print to PDF"
 <figure class="align-default" id="fig-htc1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/htc1.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/htc1.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 48 </span><span class="caption-text">Relation between perfermance and Input IoU (source: arXiv:1906.09756)</span><a class="headerlink" href="#fig-htc1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 51 </span><span class="caption-text">Relation between perfermance and Input IoU (source: arXiv:1906.09756)</span><a class="headerlink" href="#fig-htc1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -804,7 +819,7 @@ title="Print to PDF"
 <li><p>Input proposal이 정확할수록 Output도 정확하다.</p></li>
 <li><p>Input이 noisy한 경우에는 <span class="math notranslate nohighlight">\(u\approx\text{Input IOU}\)</span> 인 경우가 그렇지 않은 경우보다 상대적인 성능이 높다.</p></li>
 <li><p>각 <span class="math notranslate nohighlight">\(u\)</span> 별로 성능 우위를 갖는 Input IoU들이 있다.</p></li>
-<li><p><a class="reference internal" href="#fig-htc1"><span class="std std-numref">Fig. 48</span></a> .(c)를 보면 <span class="math notranslate nohighlight">\(u\)</span>가 높다고 성능이 높은 것은 아님을 알 수 있다.</p></li>
+<li><p><a class="reference internal" href="#fig-htc1"><span class="std std-numref">Fig. 51</span></a> .(c)를 보면 <span class="math notranslate nohighlight">\(u\)</span>가 높다고 성능이 높은 것은 아님을 알 수 있다.</p></li>
 <li><p>최종 prediction이 RPN의 proposal보다 더 정확하다.</p></li>
 </ol>
 </li>
@@ -812,7 +827,7 @@ title="Print to PDF"
 <figure class="align-default" id="fig-htc2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/htc2.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/htc2.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 49 </span><span class="caption-text">Approach to improving performance (source: arXiv:1906.09756)</span><a class="headerlink" href="#fig-htc2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 52 </span><span class="caption-text">Approach to improving performance (source: arXiv:1906.09756)</span><a class="headerlink" href="#fig-htc2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -831,7 +846,7 @@ title="Print to PDF"
 <figure class="align-default" id="fig-htc3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/htc3.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/htc3.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 50 </span><span class="caption-text">Cascade Mask R-CNN (source: arXiv:1906.09756)</span><a class="headerlink" href="#fig-htc3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 53 </span><span class="caption-text">Cascade Mask R-CNN (source: arXiv:1906.09756)</span><a class="headerlink" href="#fig-htc3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </li>
@@ -880,7 +895,7 @@ title="Print to PDF"
 <figure class="align-default" id="fig-htc4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/htc4.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/htc4.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 51 </span><span class="caption-text">The architecture evolution from Cascade Mask R-CNN to Hybrid Task Cascade (source: arXiv:1901.07518)</span><a class="headerlink" href="#fig-htc4" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 54 </span><span class="caption-text">The architecture evolution from Cascade Mask R-CNN to Hybrid Task Cascade (source: arXiv:1901.07518)</span><a class="headerlink" href="#fig-htc4" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -889,7 +904,7 @@ title="Print to PDF"
 <p>(a) <strong>Cascade Mask R-CNN</strong></p>
 <ul>
 <li><p>Mask R-CNN 구조를 개선하기 위해 가장 처음으로 시도해볼 수 있는 방법이 Cascade R-CNN와 결합하는 것이다.</p></li>
-<li><p><a class="reference internal" href="#fig-htc4"><span class="std std-numref">Fig. 51</span></a>.(a)와 같이 Cascade R-CNN의 각 stage에 mask head를 추가한다. 이 과정을 수식으로 표현하면 다음과 같다.</p>
+<li><p><a class="reference internal" href="#fig-htc4"><span class="std std-numref">Fig. 54</span></a>.(a)와 같이 Cascade R-CNN의 각 stage에 mask head를 추가한다. 이 과정을 수식으로 표현하면 다음과 같다.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
     \begin{aligned}
@@ -906,7 +921,7 @@ title="Print to PDF"
 <p>(b) <strong>Interleaved Execution</strong></p>
 <ul class="simple">
 <li><p>Cascade Mask R-CNN 구조에서 bounding box와 mask prediction branch는 서로 분리되어 학습되며 상호 작용이 없는 것을 알 수 있다.</p></li>
-<li><p><a class="reference internal" href="#fig-htc4"><span class="std std-numref">Fig. 51</span></a>.(b)와 같이 현 시점의 bounding box prediction 결과를 이용하여 mask prediction의 feature를 추출하도록 직렬구조로 구성할 수 있다.</p></li>
+<li><p><a class="reference internal" href="#fig-htc4"><span class="std std-numref">Fig. 54</span></a>.(b)와 같이 현 시점의 bounding box prediction 결과를 이용하여 mask prediction의 feature를 추출하도록 직렬구조로 구성할 수 있다.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -917,7 +932,7 @@ title="Print to PDF"
 \end{split}\]</div>
 <p>(c) <strong>Mask Information Flow</strong></p>
 <ul>
-<li><p><a class="reference internal" href="#fig-htc4"><span class="std std-numref">Fig. 51</span></a>.(c)와 같이 이전 step의 mask prediction도 이용해서 현재 step의 prediction을 만든다. (information flow)</p>
+<li><p><a class="reference internal" href="#fig-htc4"><span class="std std-numref">Fig. 54</span></a>.(c)와 같이 이전 step의 mask prediction도 이용해서 현재 step의 prediction을 만든다. (information flow)</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
     \begin{aligned}
@@ -936,7 +951,7 @@ title="Print to PDF"
 <figure class="align-default" id="fig-htc5">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/htc5.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/htc5.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 52 </span><span class="caption-text">Architecture of multi-stage mask branches (source: arXiv:1901.07518)</span><a class="headerlink" href="#fig-htc5" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 55 </span><span class="caption-text">Architecture of multi-stage mask branches (source: arXiv:1901.07518)</span><a class="headerlink" href="#fig-htc5" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -966,12 +981,12 @@ title="Print to PDF"
     \end{split}\]</div>
 <p>여기서 <span class="math notranslate nohighlight">\(S\)</span>는 segmentation head를 의미한다.</p>
 </li>
-<li><p><a class="reference internal" href="#fig-htc4"><span class="std std-numref">Fig. 51</span></a>.(d)와 같이 Semantic segmentation을 수행하는 branch를 만들고, 해당 branch의 feature를 mask prediction에 활용한다.</p></li>
+<li><p><a class="reference internal" href="#fig-htc4"><span class="std std-numref">Fig. 54</span></a>.(d)와 같이 Semantic segmentation을 수행하는 branch를 만들고, 해당 branch의 feature를 mask prediction에 활용한다.</p></li>
 </ul>
 <figure class="align-default" id="fig-htc6">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/htc6.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/htc6.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 53 </span><span class="caption-text">Semantic segmentation branch. (source: arXiv:1901.07518)</span><a class="headerlink" href="#fig-htc6" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 56 </span><span class="caption-text">Semantic segmentation branch. (source: arXiv:1901.07518)</span><a class="headerlink" href="#fig-htc6" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1057,17 +1072,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="02_01_02_SOLO.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="02_01_03_SOLOv2.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">SOLO - ECCV 20</p>
+            <p class="prev-next-title">SOLOv2 - NeurIPS 2020</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../ch3/03_Panoptic%20Segmentation2.html" title="next page">
+    <a class='right-next' id="next-link" href="02_02_04_BCNet.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Overview</p>
+        <p class="prev-next-title">BCNet - CVPR 2021</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
