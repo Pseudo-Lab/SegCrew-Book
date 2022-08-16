@@ -1,0 +1,1185 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>SEAM - CVPR 2020 &#8212; Segmentation Complete</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Overview" href="../ch5/05%20Semi-supervised%20Segmentation.html" />
+    <link rel="prev" title="C. Self-Attention" href="04_03_Attention.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/PseudoLab_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Segmentation Complete</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    [가짜연구소] Segmentation 완전정복
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Semantic Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch1/01_Semantic%20Segmentation2.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_01_fullyconvNet.html">
+   A. Fully Convolutional Network
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_01_fcn.html">
+     FCN - CVPR 2015
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_02_DeepLabv3.html">
+     DeepLab v3 - arXiv 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_03_pspnet.html">
+     PSPNet - CVPR 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_01_04_encnet.html">
+     EncNet - CVPR 2018
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_02_encodedecode.html">
+   B. Convolutional encoder-decoder
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_01_unet.html">
+     U-Net - arxiv 2015
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_03_DeconvNet.html">
+     DeconvNet - ICCV 2015
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_02_segnet.html">
+     SegNet - TPAMI 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_02_01_multiresunet.html">
+     MultiResUNet - arxiv 2019
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch1/01_03_transformer.html">
+   C. Transformer based method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_03_01_SETR.html">
+     SETR - CVPR 2021
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch1/01_03_02_Segformer.html">
+     Segformer - NeurIPS 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Instance Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation2.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch2/02_02_two_stage.html">
+   A. Detector based Method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_01_01_YOLACT.html">
+     YOLACT - ICCV 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_01_02_SOLO.html">
+     SOLO - ECCV 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_01_03_SOLOv2.html">
+     SOLOv2 - NeurIPS 2020
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_02_HTC.html">
+     HTC - CVPR 2019
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_04_BCNet.html">
+     BCNet - CVPR 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Panoptic Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation2.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch3/03_01_Box.html">
+   A. Box based method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_01_01_PanopticFPN.html">
+     PanopticFPN - CVPR 2019
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_02_02_DETR.html">
+     DETR - ECCV 2020
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch3/03_02_Box_Free.html">
+   B. Box-free Method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_02_01_Max-DeepLab.html">
+     MaX-DeepLab - CVPR 21
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Weakly-supervised Segmentation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="04_Weakly-supervised%20Segmentation2.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="04_01_LearningPixelAffinity.html">
+   A. Learning Pixel Affinity
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_01_01_AffinityNet.html">
+     AffinityNet - CVPR 2018
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_01_02_IAL.html">
+     IAL - IJCV 2020
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="04_02_AdversarialErasing.html">
+   B. Adversarial Erasing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_02_02_SeeNet.html">
+     SeeNet - NeurIPS 2018
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_02_03_GCNet.html">
+     GCNet - ICCV 2021
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_02_05_PuzzleCAM.html">
+     PuzzleCAM - ICIP 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="04_03_Attention.html">
+   C. Self-Attention
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     SEAM - CVPR 2020
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Semi-supervised Segmentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch5/05%20Semi-supervised%20Segmentation.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch5/05_01_Consistency_reg.html">
+   A. Consistency Regularization
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_01_01_CCT.html">
+     CCT - CVPR 2020
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_01_02_SemiContexAware.html">
+     Semi-supervised Semantic Segmentation with Directional Context-aware Consistency - CVPR 2021
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch5/05_02_GAN.html">
+   B. GAN
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_02_01_Revisiting_CycleGAN.html">
+     Revisiting CycleGAN for semi-supervised segmentation - 	arXiv:1908.11569
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch5/05_02_02_s4GAN.html">
+     s4GAN - arXiv:1908.05724
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/DenseCRF.html">
+   Tutorial: DenseCRF for segmentation task
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Pseudo-Lab/SegCrew-Book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch4/04_03_01_SEAM.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/docs/ch4/04_03_01_SEAM.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abstract">
+   Abstract
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-statement">
+   Problem Statement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution">
+   Contribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#motivation">
+     1. Motivation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equivariant-regularization-er">
+     2.
+     <strong>
+      <strong>
+       Equivariant Regularization (ER)
+      </strong>
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pixel-correlation-module-pcm">
+     3. Pixel Correlation Module (PCM)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loss-design-of-seam">
+     <strong>
+      <strong>
+       4. Loss Design of SEAM
+      </strong>
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experiments">
+   Experiments
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     1.
+     <strong>
+      Implementation Details¶
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ablation-study">
+     2. Ablation Study
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   <strong>
+    <strong>
+     Conclusion
+    </strong>
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>SEAM - CVPR 2020</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abstract">
+   Abstract
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-statement">
+   Problem Statement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution">
+   Contribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#motivation">
+     1. Motivation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equivariant-regularization-er">
+     2.
+     <strong>
+      <strong>
+       Equivariant Regularization (ER)
+      </strong>
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pixel-correlation-module-pcm">
+     3. Pixel Correlation Module (PCM)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loss-design-of-seam">
+     <strong>
+      <strong>
+       4. Loss Design of SEAM
+      </strong>
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experiments">
+   Experiments
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     1.
+     <strong>
+      Implementation Details¶
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ablation-study">
+     2. Ablation Study
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   <strong>
+    <strong>
+     Conclusion
+    </strong>
+   </strong>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="seam-cvpr-2020">
+<h1>SEAM - CVPR 2020<a class="headerlink" href="#seam-cvpr-2020" title="Permalink to this headline">#</a></h1>
+<hr class="docutils" />
+<div class="admonition-information admonition">
+<p class="admonition-title">Information</p>
+<ul class="simple">
+<li><p><strong>Title:</strong> Self-supervised Equivariant Attention Mechanism for Weakly Supervised Semantic Segmentation, CVPR 2020</p></li>
+<li><p><strong>Reference</strong></p>
+<ul>
+<li><p>Paper : <a class="reference external" href="https://arxiv.org/abs/2004.04581">https://arxiv.org/abs/2004.04581</a></p></li>
+<li><p>Code : <a class="reference external" href="https://github.com/YudeWang/SEAM">https://github.com/YudeWang/SEAM</a></p></li>
+</ul>
+</li>
+<li><p><strong>Review By:</strong> 김현우 (Kim Hyeonwoo)</p></li>
+<li><p><strong>Last updated on Aug. 16, 2022</strong></p></li>
+</ul>
+</div>
+<section id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Image-level supervision을 이용한 Weakly-supervised Semantic Segmentation (WSSS)의 대부분은 Class Activation Map (CAM)을 이용한 접근을 사용한다. 하지만, CAM의 경우는 full-supervision과 weak-supervision의 차이로 인해 object mask를 cover 하기에는 문제가 있다.</p></li>
+<li><p>본 논문은  추가적인 supervision의 제공과 full-supervision과 weak-supervision 사이의 차이를 줄일 수 있는 Self-supervised equivariant attention mechanism (SEAM)을 제안함.</p>
+<ul>
+<li><p>Semantic segmentation의 경우 spatial transformation에 상관없이 같은 pixel에 일관성 있는 클래스를 가지도록 함 (equivariance)</p></li>
+<li><p>하지만, 이러한 제약은 image-level을 통해 CAM을 생성할 때 없어지기 때문에 various transformed images에 consistency regularization을 적용하는 방법을 제안함. 이를 통해 transformation에 따라서 CAM의 결과가 달라지지 않도록 regularization을 제공</p></li>
+<li><p>추가적으로  pixel correlation module (PCM)을 이용하여 다른 픽셀의 정보를 통해서 CAM의 성능을 향상시킴</p></li>
+</ul>
+</li>
+<li><p>PASCAL VOC 2012 dataset에서 SOTA 성능을 달성</p></li>
+</ul>
+</section>
+<section id="problem-statement">
+<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p>일반적으로, 대부분의 WSSS 방법의 경우는 class activation map (CAM)이라는 효율적으로 image classification labels을 이용하여 class에 따른 object의 영역을 추정하지만, CAM의 attention이 object의 discriminative가 가장 높은 영역에만 생기거나(under-activation), 배경영역에도 attention이 나타나는 (over-activation) 문제점이 있음. (부정확함.)</p></li>
+<li><p>또한 생성된 CAMs은 affine transformations 적용했을 때, 일관성 있는 결과를 보이지 않음.</p>
+<figure class="align-default" id="fig-seam1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seam1.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/seam1.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 101 </span><span class="caption-text">CComparisons of CAMs generated by input images with different scales. (source: arXiv:2004.04581)</span><a class="headerlink" href="#fig-seam1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><a class="reference internal" href="#fig-seam1"><span class="std std-numref">Fig. 101</span></a>와 같이 rescaling transformations에 따라서 CAM의 attention region이 변함을 확인할 수 있다. 이러한 현상의 근본적인 원인은 fully and weakly supervision 사이에서 오는 차이에 의해서 발생한다.</p></li>
+</ul>
+</section>
+<section id="contribution">
+<h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>다양한 Image transformation에 대응하는 consistency regularization을 통해서 self-supervision을 제공하는 self-supervised equivariant attention mechanism (SEAM) architecture를 제안.</p>
+<ul>
+<li><p>네트워크의 예측 일관성을 높이기 위해, pixel correlation module (PCM)을 통해 각 픽셀을 위한 context appearance information를 잡고 학습된 affinity attention maps에 의해서 CAMs을 개선</p></li>
+<li><p>SEAM은 CAMs과 revised CAMs 간의 차이를 최소화하는 equivariant cross regularization (ECR) loss를 통해서 siamese network를 학습.</p></li>
+<li><p>PCM과 self-supervision이 효율적으로 결합되어 over-activated and under-activated regions을 줄임</p></li>
+</ul>
+</li>
+<li><p>PASCAL VOC 2012에서 SOTA를 달성</p></li>
+</ul>
+</section>
+<section id="proposed-method">
+<h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">#</a></h2>
+<figure class="align-default" id="fig-seam2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seam2.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/seam2.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 102 </span><span class="caption-text">The siamese network architecture of our proposed SEAM method. (source: arXiv:2004.04581)</span><a class="headerlink" href="#fig-seam2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="motivation">
+<h3>1. Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h3>
+<ul>
+<li><p>Parameter <span class="math notranslate nohighlight">\(w_s\)</span>를 가지는 semantic segmentation function이 <span class="math notranslate nohighlight">\(F_{w_s}(\cdot)\)</span>와 parameter <span class="math notranslate nohighlight">\(w_c\)</span>를 가지는 classification function이 <span class="math notranslate nohighlight">\(F_{w_c}(\cdot)\)</span>일 때, WSSS에서는 최적의 segmentation과 classification parameter가 <span class="math notranslate nohighlight">\(w_s=w_c\)</span>를 만족한다는 가정을 기반으로 한다.</p></li>
+<li><p>하지만 segmentation 함수는 <strong>equivariant</strong>에 치중하는 반면, classification은 pooling operation에 의해서 invariance에 치중하는 경향을 나타내기 때문에 학습 과정에서 두 task의 objective를 모두 달성하는 것은 불가능하다.</p>
+<ul>
+<li><p>Affine transformation <span class="math notranslate nohighlight">\(A(\cdot)\)</span>을 각 sample에 적용한다고 가정하면, segmentation function은  equivariant 경향을 나타낸다.</p>
+<div class="math notranslate nohighlight">
+\[
+        F_{w_s}(A(I)) = A(F_{w_s}(I)) = s
+        \]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(s\)</span>는 pixel-level segmentation mask를 나타낸다.</p>
+</li>
+<li><p>Classification function은 <strong>invariance</strong>에 초점을 맞춘다. 이 특성은 pooling 연산이 주된 요인이다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+    Pool(F_{w_c}(A(I))) = Pool(F_{w_c}(I))
+    \]</div>
+</li>
+<li><p>Self-attention은 network의 성능 개선을 위해 널리 사용되고 있으며, context feature dependency를 통해서 feature map을 개선할 수 있다. Aactivation map을 개선하기 위해 pixels간의 유사도를 이용하는 대부분의 WSSS 방법과 유사한 아이디어라고 할 수 있다.</p></li>
+<li><p>일반적인 self-attention은 다음과 같은 수식으로 표현할 수 있다.</p>
+<div class="math notranslate nohighlight">
+\[
+    y_i=\frac{1}{\mathscr{C}(x_i)}\sum_{\forall j}f(x_i,x_j)g(x_j)+x_i
+    \]</div>
+<div class="math notranslate nohighlight">
+\[
+    f(x_i, x_j)=e^{\theta(x_i)^T \phi(x_j)}
+    \]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(g(x_j)\)</span>는 input signal <span class="math notranslate nohighlight">\(x_j\)</span>의 representation, <span class="math notranslate nohighlight">\(f(x_i, x_j)\)</span>는 embedding space에서 계산되는 dot-produnct pixel affinity를 나타낸다.  Output signal은 <span class="math notranslate nohighlight">\(C(x_i)=\sum_{\forall j}f(x_i, x_j)\)</span>를 이용하여 normalize된다.</p>
+</li>
+<li><p>제안된 SEAM구조는 network가 일관적인 결과를 출력할 수 있도록 self-attention을 적용한다.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="equivariant-regularization-er">
+<h3>2. <strong><strong>Equivariant Regularization (ER)</strong></strong><a class="headerlink" href="#equivariant-regularization-er" title="Permalink to this headline">#</a></h3>
+<ul>
+<li><p>Fully supervised semantic segmentation 에서는 data augmentation에 의해 pixel-level labels의 변화가 생기지 않으며, 네트워크에는 implicit한 equivariant regularization이 생긴다.</p></li>
+<li><p>그러나, WSSS는 이미지 레이블을 통해 분류만 하기에 이러한 제약이 없기 때문에 같은 ER loss를 제안함.</p>
+<div class="math notranslate nohighlight">
+\[
+    L_{ER} = ||F(A(I))-A(F(I))||_{1}
+    \]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(F\)</span> network, <span class="math notranslate nohighlight">\(A\)</span>는 rescaling, rotation, flip과 같은 Affine Transformation을 나타낸다.</p>
+<p>→ Affine Transformation을 적용한 Image에서 추출한 CAM과 Original Image에서 추출한 CAM에 Affine Transformation을 적용한 CAM 사이의 차이를 최소화함으로서, CAM간의 일관성을 보장함. (ER Loss)</p>
+</li>
+</ul>
+</section>
+<section id="pixel-correlation-module-pcm">
+<h3>3. Pixel Correlation Module (PCM)<a class="headerlink" href="#pixel-correlation-module-pcm" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>ER Loss가 추가적인 supervision을 제공하지만, classical convolution layers 만으로는 이상적인 equivariance를 이루기 어렵다.</p></li>
+<li><p>이를 해결하기 위해서 self-attention에서 제공하는 context information 이용하여 pixel-wise prediction 결과를 개선한다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+y_i = \frac{1}{C(x_i)}{\sum_{\forall j}e^{\theta(x_i)^T\phi(x_j)}g(\hat{y_j})} + \hat{y_i}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+f(x_i, x_j) = \frac{\theta(x_i)^T\theta(x_j)}{||\theta(x_i)||\cdot||\theta(x_j)||}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y_i = \frac{1}{C(x_i)}{\sum_{\forall j}ReLU(\frac{\theta(x_i)^T\theta(x_j)}{||\theta(x_i)||\cdot||\theta(x_j)||})\hat{y_j}}
+\]</div>
+<figure class="align-default" id="fig-seam3">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seam3.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/seam3.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 103 </span><span class="caption-text">The structure of PCM. (source: arXiv:2004.04581)</span><a class="headerlink" href="#fig-seam3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Final CAM의 경우 original CAM과 normalized similarities을 적용한 CAM을 가중합하여 계산한다.</p></li>
+<li><p>고전적인 self-attention과는 다르게, PCM의 경우 residual connection을 제거해서 original CAM과 같은 강도를 유지한다.</p></li>
+<li><p>다른 네트워크 브랜치는 PCM에 대한 픽셀 수준의 supervision을 제공하지만 이는 ground truth만큼 정확하지 않기 때문에 <span class="math notranslate nohighlight">\(\phi, g\)</span> 의 embedding function을 제거해서 파라미터의 수를 줄임으로서 부정확한 supervision에 대한 overfitting을 방지한다.</p></li>
+</ul>
+</section>
+<section id="loss-design-of-seam">
+<h3><strong><strong>4. Loss Design of SEAM</strong></strong><a class="headerlink" href="#loss-design-of-seam" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>제안된 논문은 WSSS 조건에 의해 Image-level classification label <span class="math notranslate nohighlight">\(l\)</span> 만 supervision으로 학습에 사용한다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+L = L_{cls} + L_{ER} + L_{ECR}
+\]</div>
+<p><strong>(1)</strong> M<strong>ulti-label soft margin loss for Multi-class classification</strong></p>
+<ul>
+<li><p>Siamese network의 original CAM, 즉 원본 영상으로부터 구한 CAM <span class="math notranslate nohighlight">\(\hat{y}^{o}\)</span>와 transformed image에서 구한 CAM <span class="math notranslate nohighlight">\(\hat{y}^{t}\)</span> 에 대해 global average pooling(GAP) layer를 도입해서 이미지 분류를 위한 prediction vector <span class="math notranslate nohighlight">\(z\)</span>를 생성하고, multi-label soft margin loss를 통해서 네트워크를 학습한다.</p></li>
+<li><p>두 branch에 대한 classification loss는 다음과 같이 정의된다.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    L_{cls} &amp;= \frac{1}{2}(l_{cls}(z^o,l) + l_{cls}(z^t,l)) \\
+    &amp;\text{where }l_{cls}(z,l) = -\frac{1}{c} \sum_{c=1}^{C-1}[l_{c}log(\frac{1}{1+e^{-x_c}}) + (1-l_c)log(\frac{e^{-x_c}}{1+e^{-x_c}})]
+    \end{aligned}
+    \end{split}\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(l_{cls}\)</span> 는  <span class="math notranslate nohighlight">\(C-1\)</span> 개의 foreground object category에 대한 classification loss이다.</p>
+</li>
+</ul>
+<p><strong>(2) ER (Equivariant Regularization) loss</strong></p>
+<ul>
+<li><p>(ER) loss는 다음과 같이 정의된다.</p>
+<div class="math notranslate nohighlight">
+\[
+    L_{ER} = ||A(\hat{y^o})-\hat{y^t}||_{1}
+    \]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(A(\cdot)\)</span>은 transformation branch에서 input image에 대해 적용되는 affine transformation이다.</p>
+</li>
+</ul>
+<p><strong>(3) ECR (Equivariant Cross Regularization)  loss</strong></p>
+<ul>
+<li><p>CAM을 개선하기 위해 두 branch로 구한 CAM에 PCM 모듈을 적용하는데, 실험 결과 학습 과정에서 쉽게 local minima에 빠져 모든 pixels을 동일한 class로 predict하는 문제가 발생했다.</p></li>
+<li><p>이런 문제를 해결하기 위해 ECR loss를 제안한다.</p>
+<div class="math notranslate nohighlight">
+\[
+    L_{ECR} = ||A({y^o})-\hat{y^t}||_{1} + ||A(\hat{y^o})-y^t)||_{1}
+    \]</div>
+</li>
+<li><p>PCM의 output은 original CAM에 의해 regularize된다. 이를 통해 PCM refinement 적용중에 CAM이 degeneration되는 것을 방지할 수 있다.</p></li>
+</ul>
+<p><strong>(4) Background score</strong></p>
+<ul>
+<li><p>CAM의 경우는 foregorund class에 대해서 정의되지만, 입력 이미지의 대부분의 경우는 background 를 가지기에 PCM 과정에서 이를 무시할 수 없다.</p></li>
+<li><p>따라서, background positions에 zero vectors를 추가해서 PCM 계산에는 포함하고, gradients는 전파하지 않는다.</p>
+<div class="math notranslate nohighlight">
+\[
+    \hat{y}_{i,bkg} = 1 - \max_{1\le c \le {C}}{\hat{y}_{i,c}}
+    
+    \]</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 배경 인덱스 0을 무시하고 계산하는 것을 확인할 수 있음 </span>
+<span class="c1"># label = [배경, 개, 고양이]</span>
+<span class="n">loss_cls1</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">multilabel_soft_margin_loss</span><span class="p">(</span><span class="n">label1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:,:,:],</span> <span class="n">label</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:,:,:])</span>
+<span class="n">loss_cls2</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">multilabel_soft_margin_loss</span><span class="p">(</span><span class="n">label2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:,:,:],</span> <span class="n">label</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:,:,:])</span>
+
+<span class="n">ns</span><span class="p">,</span><span class="n">cs</span><span class="p">,</span><span class="n">hs</span><span class="p">,</span><span class="n">ws</span> <span class="o">=</span> <span class="n">cam2</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="n">loss_er</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">cam1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:,:,:]</span><span class="o">-</span><span class="n">cam2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:,:,:]))</span>
+<span class="c1">#loss_er = torch.mean(torch.pow(cam1[:,1:,:,:]-cam2[:,1:,:,:], 2)) &lt;- </span>
+<span class="n">cam1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">,:,:]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cam1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:,:,:],</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">cam2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">,:,:]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cam2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:,:,:],</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">tensor_ecr1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">max_onehot</span><span class="p">(</span><span class="n">cam2</span><span class="o">.</span><span class="n">detach</span><span class="p">())</span> <span class="o">-</span> <span class="n">cam_rv1</span><span class="p">)</span><span class="c1">#*eq_mask</span>
+<span class="n">tensor_ecr2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">max_onehot</span><span class="p">(</span><span class="n">cam1</span><span class="o">.</span><span class="n">detach</span><span class="p">())</span> <span class="o">-</span> <span class="n">cam_rv2</span><span class="p">)</span><span class="c1">#*eq_mask</span>
+<span class="n">loss_ecr1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">tensor_ecr1</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="p">(</span><span class="nb">int</span><span class="p">)(</span><span class="mi">21</span><span class="o">*</span><span class="n">hs</span><span class="o">*</span><span class="n">ws</span><span class="o">*</span><span class="mf">0.2</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">loss_ecr2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">tensor_ecr2</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="p">(</span><span class="nb">int</span><span class="p">)(</span><span class="mi">21</span><span class="o">*</span><span class="n">hs</span><span class="o">*</span><span class="n">ws</span><span class="o">*</span><span class="mf">0.2</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">loss_ecr</span> <span class="o">=</span> <span class="n">loss_ecr1</span> <span class="o">+</span> <span class="n">loss_ecr2</span>
+
+<span class="n">loss_cls</span> <span class="o">=</span> <span class="p">(</span><span class="n">loss_cls1</span> <span class="o">+</span> <span class="n">loss_cls2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">loss_rvmin1</span> <span class="o">+</span> <span class="n">loss_rvmin2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> 
+<span class="n">loss</span> <span class="o">=</span> <span class="n">loss_cls</span> <span class="o">+</span> <span class="n">loss_er</span> <span class="o">+</span> <span class="n">loss_ecr</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="experiments">
+<h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this headline">#</a></h2>
+<section id="implementation-details">
+<h3>1. <strong>Implementation Details<a class="reference external" href="https://pseudo-lab.github.io/SegCrew-Book/docs/ch4/04_01_01_AffinityNet.html#implementation-details">¶</a></strong><a class="headerlink" href="#implementation-details" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Dataset:  PASCAL VOC 2012 Benchmark (20 foreground objects and the background)</p></li>
+<li><p>Data augmentation</p>
+<ul>
+<li><p>SBD additional annotations [14] 를 적용하여 10582 images로 구성된 training set을 사용</p></li>
+</ul>
+</li>
+<li><p>Backbone</p>
+<ul>
+<li><p>ResNet38 (output stride =8, 3,4번째 stage에서 feature map 추출하고 1x1 conv.를 통해 각각 64, 128 ch로 변환</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="ablation-study">
+<h3>2. Ablation Study<a class="headerlink" href="#ablation-study" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Baseline과 비교한 결과 제안한 방법이 더 높은 mIoU를 나타냄을 확인하였고, SEAM을 이용하여 CAM을 생성한 결과 GradCAM보다 높은 성능을 확인할 수 있다.</p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seam4.png"><img alt="seam4.png" class="bg-primary mb-1 align-center" src="../../_images/seam4.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p><strong><strong>Improved Localization Mechanism:</strong></strong></p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seam5.png"><img alt="seam5.png" class="bg-primary mb-1 align-center" src="../../_images/seam5.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>다양한 <strong><strong>Affine Transformation에 대해 ER 방법의 효과를 검증한 결과 rescale만 단독 사용한 것이 가장 효과적임을 확인할 수 있다. (flip, rotation 등의 annotation을 함께 적용한 결과 성능 개선이 적음)</strong></strong></p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seam6.png"><img alt="seam6.png" class="bg-primary mb-1 align-center" src="../../_images/seam6.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p><strong><strong>Augmentation and Inference:</strong></strong></p>
+<ul>
+<li><p>Baseline의 rescaling 범위를 확장해도 pseudo label performance가 개선되지 않음.
+→  ER과 PCM의 조합이 annotation의 효과가 아님을 알 수 있다.  (Table 4)</p></li>
+<li><p>Inference 과정에서 <strong>다른 스케일의 이미지에서 prediction을 aggregating하여 multi-scale test를 수행한 결과 baseline 대비 개선된 성능을 나타냄. (Table 5)</strong></p></li>
+</ul>
+</li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seam7.png"><img alt="seam7.png" class="bg-primary mb-1 align-center" src="../../_images/seam7.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>제안된 SEAM이 baseline 대비 낮은 mFN과 mFP을 나타냄을 알 수 있음. overactivated된 baseline CAM에 비해 object region을 잘 activation한다고 할 수 있다.</p></li>
+<li><p>Image scale의 변화에 따라 mFN과 mFP의 변화가 존재하는 baseline 대비 제안된 SEAM은 일정한 수치를 나타내는 것을 확인할 수 있음. 이는 equivariance regularization이 network 학습 과정에서 효과를 나태네어 CAM을 개선한 것으로 해석할 수 있다.</p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seam8.png"><img alt="seam8.png" class="bg-primary mb-1 align-center" src="../../_images/seam8.png" style="width: 400px;" /></a>
+<p>(<strong><strong>3) Comparison with State-of-the-arts</strong></strong></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seam9.png"><img alt="seam9.png" class="bg-primary mb-1 align-center" src="../../_images/seam9.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seam10.png"><img alt="seam10.png" class="bg-primary mb-1 align-center" src="../../_images/seam10.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/seam11.png"><img alt="seam11.png" class="bg-primary mb-1 align-center" src="../../_images/seam11.png" style="width: 400px;" /></a>
+</section>
+</section>
+<section id="conclusion">
+<h2><strong><strong>Conclusion</strong></strong><a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>In this paper, we propose a self-supervised equivariant attention mechanism (SEAM) to narrow the supervision gap between fully and weakly supervised semantic segmentation by introducing additional self-supervision</p></li>
+<li><p>The SEAM embeds self-supervision into weakly supervised learning framework by exploiting equivariant regularization, which forces CAMs predicted from various transformed images to be consistent.</p></li>
+<li><p>To further improve the ability of network for generating consistent CAMs, a pixel correlation module (PCM) is designed, which refines original CAMs by learning inter-pixel similarity</p></li>
+<li><p>Our SEAM is implemented by a siamese network structure with efficient regularization losses. The generated CAMs not only keep consistent over different transformed inputs but also better fit the shape of ground truth mask</p></li>
+<li><p>The segmentation network retrained by our synthesized pixel-level pseudo labels achieves state-of-the-art performance on PASCAL VOC 2012 dataset, which proves the effectiveness of our SEAM.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/ch4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="04_03_Attention.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">C. Self-Attention</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../ch5/05%20Semi-supervised%20Segmentation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Overview</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By PseudoLab<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -375,6 +375,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch4/04_03_Attention.html">
+   C. Self-Attention
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch4/04_03_01_SEAM.html">
+     SEAM - CVPR 2020
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -391,8 +408,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="05_01_Consistency_reg.html">
    A. Consistency Regularization
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -413,8 +430,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="05_02_GAN.html">
    B. GAN
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -898,7 +915,7 @@ title="Print to PDF"
 <figure class="align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN1.png"><img alt="s4GAN1" class="bg-primary mb-1" src="../../_images/s4GAN1.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 114 </span><span class="caption-text">(a) PASCAL VOC dataset, (b) GT, (c) 5%만 가지고 supervised 방식으로 학습한 결과, (d) 95% unlabeled 데이터 가지고 제안된 GAN 기반의 branch로 shape estimation을 향상시킨 결과, (e) second branch가 false positive를 없앰으로써 high-level consistency를 가져온 결과, (f) 100% 전체로 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 117 </span><span class="caption-text">(a) PASCAL VOC dataset, (b) GT, (c) 5%만 가지고 supervised 방식으로 학습한 결과, (d) 95% unlabeled 데이터 가지고 제안된 GAN 기반의 branch로 shape estimation을 향상시킨 결과, (e) second branch가 false positive를 없앰으로써 high-level consistency를 가져온 결과, (f) 100% 전체로 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -982,7 +999,7 @@ title="Print to PDF"
 <figure class="align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN2.png"><img alt="s4GAN2" class="bg-primary mb-1" src="../../_images/s4GAN2.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 115 </span><span class="caption-text">s4GAN branch는 gan 기반의 모델로 low-level detail을 잘 잡아준다. MLMT branch는 semi-supervised multi-label classification을 수행해서 class-level information을 사용해서 false-positive prediction을 segmentation map에서 없애준다. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 118 </span><span class="caption-text">s4GAN branch는 gan 기반의 모델로 low-level detail을 잘 잡아준다. MLMT branch는 semi-supervised multi-label classification을 수행해서 class-level information을 사용해서 false-positive prediction을 segmentation map에서 없애준다. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -1007,7 +1024,7 @@ title="Print to PDF"
 <figure class="align-default" id="id3">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN3.png"><img alt="s4GAN3" class="bg-primary mb-1" src="../../_images/s4GAN3.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 116 </span><span class="caption-text">s4GAN branch (source: arXiv:1908.05724)</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 119 </span><span class="caption-text">s4GAN branch (source: arXiv:1908.05724)</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -1059,7 +1076,7 @@ title="Print to PDF"
 <figure class="align-default" id="id4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN4.png"><img alt="s4GAN4" class="bg-primary mb-1" src="../../_images/s4GAN4.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 117 </span><span class="caption-text">MLMT branch (source: arXiv:1908.05724)</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 120 </span><span class="caption-text">MLMT branch (source: arXiv:1908.05724)</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul>
@@ -1142,7 +1159,7 @@ title="Print to PDF"
 <figure class="align-default" id="id6">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN5.png"><img alt="s4GAN5" class="bg-primary mb-1" src="../../_images/s4GAN5.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 118 </span><span class="caption-text">Semi-supervised Semantic Segmentation: 제안하는 SSL을 사용해서 baselines보다 더 잘 예측함. 특히 5% 미만으로 labeled data를 사용했을 때 성능 향상이 큼 (a): pretraining 없이 PASCAL VOC 에 대한 성능, (b) COCO pre-training 하고 한 것 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 121 </span><span class="caption-text">Semi-supervised Semantic Segmentation: 제안하는 SSL을 사용해서 baselines보다 더 잘 예측함. 특히 5% 미만으로 labeled data를 사용했을 때 성능 향상이 큼 (a): pretraining 없이 PASCAL VOC 에 대한 성능, (b) COCO pre-training 하고 한 것 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -1164,7 +1181,7 @@ title="Print to PDF"
 <figure class="align-default" id="id7">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN8.png"><img alt="s4GAN8" class="bg-primary mb-1" src="../../_images/s4GAN8.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 119 </span><span class="caption-text">PASCAL VOC의 5% labeled data만으로 COCO pre-training 없이 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 122 </span><span class="caption-text">PASCAL VOC의 5% labeled data만으로 COCO pre-training 없이 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -1173,7 +1190,7 @@ title="Print to PDF"
 <figure class="align-default" id="id8">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN9.png"><img alt="s4GAN9" class="bg-primary mb-1" src="../../_images/s4GAN9.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 120 </span><span class="caption-text">PASCAL context 데이터셋으로 1/8 labeled data로 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 123 </span><span class="caption-text">PASCAL context 데이터셋으로 1/8 labeled data로 학습한 결과 (source: arXiv:1908.05724)</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -1182,7 +1199,7 @@ title="Print to PDF"
 <figure class="align-default" id="id9">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN10.png"><img alt="s4GAN10" class="bg-primary mb-1" src="../../_images/s4GAN10.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 121 </span><span class="caption-text">COCO pretraining 없이 Cityscapes 데이터셋으로 1/8 labeled data로 학습한 결과. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 124 </span><span class="caption-text">COCO pretraining 없이 Cityscapes 데이터셋으로 1/8 labeled data로 학습한 결과. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1196,7 +1213,7 @@ title="Print to PDF"
 <figure class="align-default" id="id10">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN11.png"><img alt="s4GAN11" class="bg-primary mb-1" src="../../_images/s4GAN11.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 122 </span><span class="caption-text">PASCAL VOC 5%만 사용하여 학습한 실험에 대한 ablation study. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 125 </span><span class="caption-text">PASCAL VOC 5%만 사용하여 학습한 실험에 대한 ablation study. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1208,19 +1225,19 @@ title="Print to PDF"
 <figure class="align-default" id="id11">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN12.png"><img alt="s4GAN12" class="bg-primary mb-1" src="../../_images/s4GAN12.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 123 </span><span class="caption-text">Failure cases (source: arXiv:1908.05724)</span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 126 </span><span class="caption-text">Failure cases (source: arXiv:1908.05724)</span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id12">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN13.png"><img alt="s4GAN13" class="bg-primary mb-1" src="../../_images/s4GAN13.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 124 </span><span class="caption-text">PASCAL-Context의 1/8만 사용한 Failures (source: arXiv:1908.05724)</span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 127 </span><span class="caption-text">PASCAL-Context의 1/8만 사용한 Failures (source: arXiv:1908.05724)</span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id13">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN14.png"><img alt="s4GAN14" class="bg-primary mb-1" src="../../_images/s4GAN14.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 125 </span><span class="caption-text">Cityscapes의 1/8만 사용한 Failures (source: arXiv:1908.05724)</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 128 </span><span class="caption-text">Cityscapes의 1/8만 사용한 Failures (source: arXiv:1908.05724)</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1232,7 +1249,7 @@ title="Print to PDF"
 <figure class="align-default" id="id14">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN15.png"><img alt="s4GAN15" class="bg-primary mb-1" src="../../_images/s4GAN15.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 126 </span><span class="caption-text">Discriminator output의 변화. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id14" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 129 </span><span class="caption-text">Discriminator output의 변화. (source: arXiv:1908.05724)</span><a class="headerlink" href="#id14" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -1241,7 +1258,7 @@ title="Print to PDF"
 <figure class="align-default" id="id15">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/s4GAN16.png"><img alt="s4GAN16" class="bg-primary mb-1" src="../../_images/s4GAN16.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 127 </span><span class="caption-text">(a) 5%a만 이용하여 CNN-based classification한 결과와 MT-based semi-supervised classification 결과의 ROC curve 비교. (b)는 ImageNet pre-training 없이 동일하게 비교.  (source: arXiv:1908.05724)</span><a class="headerlink" href="#id15" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 130 </span><span class="caption-text">(a) 5%a만 이용하여 CNN-based classification한 결과와 MT-based semi-supervised classification 결과의 ROC curve 비교. (b)는 ImageNet pre-training 없이 동일하게 비교.  (source: arXiv:1908.05724)</span><a class="headerlink" href="#id15" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
