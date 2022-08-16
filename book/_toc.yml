@@ -56,8 +56,10 @@ parts:
 #    - file: docs/ch4/04_02_01_AE-PSL
     - file: docs/ch4/04_02_02_SeeNet
     - file: docs/ch4/04_02_03_GCNet
-#    - file: docs/ch4/04_02_04_SEAM
     - file: docs/ch4/04_02_05_PuzzleCAM
+  - file: docs/ch4/04_03_Attention
+    sections:
+    - file: docs/ch4/04_03_01_SEAM
 - caption: Semi-supervised Segmentation
   chapters:
   - file: docs/ch5/05 Semi-supervised Segmentation
