@@ -18,6 +18,6 @@ Review By: 김현우, 송태엽
 ## Semi-Supervised learning based Segmentation
 
 ![survey3.png](pic/survey3.png)
-
-
+ 
+     
 *Latest update: Oct, 2021*
