@@ -1,12 +1,12 @@
-# [가짜연구소] Segmentation 완전정복
+# [가짜연구소] All about Segmentation
 
 ---
 
-## Segmentation 완전정복
+## All about Segmentation
 
 ---
 
-**Segmentation 완전정복** Page는 
+**All about Segmentation** Page는 
 
 1. Semantic/Instance/Panoptic Segmentation Task를,
 2. Supervised/Semi-supervised/Weakly-supervised learning에 상관없이,
@@ -17,22 +17,15 @@
 
 ---
 
-**[Editor]**
+**[가짜연구소]**
 
 송태엽, 김현우, 오휘건, 박찬민, 최종수, 김태규
 
-**[가짜연구소 3기 Segmentation 완전정복 Crew]**
-
 김건수, 이준형, 변정현, 김소연
-
-**[가짜연구소 2기 논문미식회]**
 
 김예진, 박성수, 이준명
 
-## 가짜연구소
-
 ---
-
 
 가짜연구소는 진짜 연구소는 아니지만 머신러닝 연구를 중심으로 모인 커뮤니티입니다.
 
