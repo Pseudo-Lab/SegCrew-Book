@@ -26,7 +26,7 @@ parts:
   - file: docs/ch2/02 Instance Segmentation2
   - file: docs/ch2/02_01_SlidingWnd
     sections:
-    - file: docs/ch2/02_01_01_YOLACT
+    - file: docs/ch2/02_01_01_InstanceFCN
   - file: docs/ch2/02_02_DetectorBase
     sections:
     - file: docs/ch2/02_02_01_YOLACT
