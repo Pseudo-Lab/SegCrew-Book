@@ -24,15 +24,18 @@ parts:
 - caption: Instance Segmentation
   chapters:
   - file: docs/ch2/02 Instance Segmentation2
-  - file: docs/ch2/02_02_two_stage
+  - file: docs/ch2/02_01_SlidingWnd
     sections:
     - file: docs/ch2/02_01_01_YOLACT
-    - file: docs/ch2/02_01_02_SOLO
-    - file: docs/ch2/02_01_03_SOLOv2
+  - file: docs/ch2/02_02_DetectorBase
+    sections:
+    - file: docs/ch2/02_02_01_YOLACT
+    - file: docs/ch2/02_02_02_SOLO
+    - file: docs/ch2/02_02_03_SOLOv2
 #    - file: docs/ch2/02_02_01_MaskRCNN
 #    - file: docs/ch2/02_02_03_Deep-MAC
-    - file: docs/ch2/02_02_02_HTC
-    - file: docs/ch2/02_02_04_BCNet
+    - file: docs/ch2/02_02_04_HTC
+    - file: docs/ch2/02_02_05_BCNet
 - caption: Panoptic Segmentation
   chapters:
   - file: docs/ch3/03_Panoptic Segmentation2

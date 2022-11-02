@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>A. Detector based Method &#8212; All about Segmentation</title>
+    <title>YOLACT - ICCV 19 &#8212; All about Segmentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,11 +51,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="YOLACT - ICCV 19" href="02_01_01_YOLACT.html" />
-    <link rel="prev" title="Overview" href="02%20Instance%20Segmentation2.html" />
+    <link rel="next" title="SOLO - ECCV 20" href="02_02_02_SOLO.html" />
+    <link rel="prev" title="B. Detector based Method" href="02_02_DetectorBase.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -225,37 +227,37 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
-   A. Detector based Method
+  <a class="reference internal" href="02_02_DetectorBase.html">
+   B. Detector based Method
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_01_01_YOLACT.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      YOLACT - ICCV 19
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_01_02_SOLO.html">
+    <a class="reference internal" href="02_02_02_SOLO.html">
      SOLO - ECCV 20
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_01_03_SOLOv2.html">
+    <a class="reference internal" href="02_02_03_SOLOv2.html">
      SOLOv2 - NeurIPS 2020
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_02_02_HTC.html">
+    <a class="reference internal" href="02_02_04_HTC.html">
      HTC - CVPR 2019
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_02_04_BCNet.html">
+    <a class="reference internal" href="02_02_05_BCNet.html">
      BCNet - CVPR 2021
     </a>
    </li>
@@ -289,7 +291,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch3/03_02_02_DETR.html">
+    <a class="reference internal" href="../ch3/03_01_02_DETR.html">
      DETR - ECCV 2020
     </a>
    </li>
@@ -306,8 +308,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch3/03_02_01_Max-DeepLab.html">
-     MaX-DeepLab - CVPR 21
+    <a class="reference internal" href="../ch3/03_02_01_PanopticFCN.html">
+     PanopticFCN - CVPR 2021
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch3/03_02_02_Max-DeepLab.html">
+     MaX-DeepLab - CVPR 2021
     </a>
    </li>
   </ul>
@@ -548,7 +555,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch2/02_02_two_stage.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch2/02_02_01_YOLACT.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -576,7 +583,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/docs/ch2/02_02_two_stage.md"
+        <a href="../../_sources/docs/ch2/02_02_01_YOLACT.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -613,23 +620,110 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-statement">
+   Problem Statement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution">
+   Contribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experiments">
+   Experiments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   Discussion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>A. Detector based Method</h1>
+                <h1>YOLACT - ICCV 19</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-statement">
+   Problem Statement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution">
+   Contribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experiments">
+   Experiments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   Discussion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -637,10 +731,185 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="a-detector-based-method">
-<h1>A. Detector based Method<a class="headerlink" href="#a-detector-based-method" title="Permalink to this headline">#</a></h1>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="yolact-iccv-19">
+<h1>YOLACT - ICCV 19<a class="headerlink" href="#yolact-iccv-19" title="Permalink to this headline">#</a></h1>
+<hr class="docutils" />
+<div class="admonition-information admonition">
+<p class="admonition-title">Information</p>
+<ul class="simple">
+<li><p><strong>Title:</strong> YOLACT: Real-time Instance Segmentation</p></li>
+<li><p><strong>Reference</strong></p>
+<ul>
+<li><p>Paper: <a class="reference external" href="https://arxiv.org/abs/1904.02689">https://arxiv.org/abs/1904.02689</a></p></li>
+<li><p>Code: <a class="reference external" href="https://github.com/dbolya/yolact">https://github.com/dbolya/yolact</a></p></li>
+<li><p>Blog: <a class="reference external" href="https://ganghee-lee.tistory.com/42?category=863370">https://ganghee-lee.tistory.com/42?category=863370</a></p></li>
+</ul>
+</li>
+<li><p><strong>Review By:</strong> Geonsoo Kim</p></li>
+<li><p><strong>Last updated on Mar. 18, 2022</strong></p></li>
+</ul>
 </div>
+<section id="problem-statement">
+<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>State-of-the-art instance segmentation 네트워크들은 accuracy performance 를 집중해서 연구되었고, 이를 위해 localization 과
+segmentation 순차적으로 진행되었습니다. 예를들면 Mask R-CNN 은 region proposal 을 통해 class 가 있는 곳을 예측하고나서 mask segmentation 를
+진행하는 구조를 가집니다.</p></li>
+<li><p>이런 구조는 accuracy 측면에서 장점을 가지지만, 크게 두개의 단계를 거쳐야하는 과정 때문에 final output (segmenation mask) 를 얻기까지 상대적으로
+오랜 시간이 걸립니다. COCO Dataset 으로 SOTA 모델 (accuracy 기준) 이였던 Mask R-CNN, MS R-CNN, FCIS, RetinaMask, and PA-Net 은 모두
+10 FPS 보다 느린 speed performance 를 보여줍니다.</p></li>
+<li><p>보통 25~30 FPS 이 넘으면 real-time 이라고 할수있는데 기존의 모델들은 그 기준에 한참 미치지 못합니다.</p></li>
+</ul>
+<figure class="align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/figure1.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/figure1.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Speed-performance trade-off (source arXiv:1904.02689)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="contribution">
+<h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>YOLACT is the first real-time (above 30 FPS) approach with around 30 mask mAP on COCO test-dev</p></li>
+<li><p>A novel Fast NMS approach (12 ms faster than traditional NMS)</p></li>
+</ul>
+</section>
+<section id="proposed-method">
+<h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">#</a></h2>
+<p><strong>(1) Overview</strong></p>
+<figure class="align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/figure2.png"><img alt="figure2" class="bg-primary mb-1" src="../../_images/figure2.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 42 </span><span class="caption-text">YOLACT architecture (source arXiv:1904.02689)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>(2) Prototype Generation</strong></p>
+<ul class="simple">
+<li><p>Prototype generation branch (protonet) predicts a set of k prototype masks for the entire image (no explicit localization step)</p></li>
+<li><p>Learns how to localize the feature map</p></li>
+<li><p>Takes deeper backbone feature as input and produces more robust mask and higher resolution prototypes</p></li>
+<li><p>Learns a distributed representation whose instance is segmented with a combination of prototypes that are shared
+across categories</p></li>
+</ul>
+<figure class="align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/figure3.png"><img alt="figure3" class="bg-primary mb-1" src="../../_images/figure3.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">Prototype behavior (source arXiv:1904.02689)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>(3) Mask Coefficient &amp; Assembly</strong></p>
+<ul class="simple">
+<li><p>Typical branches</p>
+<ul>
+<li><p>class branch - to predict class confidences</p></li>
+<li><p>bounding box branch - to predict 4 bounding box regressors</p></li>
+</ul>
+</li>
+<li><p>Mask coefficient branch</p>
+<ul>
+<li><p>third branch to predict k mask coefficients</p></li>
+<li><p>Localize (activate) only one instance among k prototype masks</p></li>
+</ul>
+</li>
+<li><p>Mask assembly</p>
+<ul>
+<li><p>Combine the prototype masks and mask coefficient by using a matrix multiplication</p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[M=\sigma(PC^{T})\]</div>
+<ul class="simple">
+<li><p>Apply a sigmoid non-linearity to produce final mask</p></li>
+<li><p>To train the model, three loss functions are used - classification loss, L_cls, box regression loss, L_box,
+and mask loss, L_mask (=BCE(M, M_gt)) with weights 1, 1.5, 6.125</p></li>
+</ul>
+<p><strong>(4) Fast NMS</strong></p>
+<ul class="simple">
+<li><p>Non-Maximum suppression (NMS) to suppress duplicated detections</p></li>
+<li><p>Typical NMS</p>
+<ul>
+<li><p>Sort the detected boxes by confidence</p></li>
+<li><p>Remove the anchor boxes sequentially</p></li>
+</ul>
+</li>
+<li><p>Fast NMS</p>
+<ul>
+<li><p>Remove the anchor boxes in parallel</p></li>
+</ul>
+</li>
+<li><p>Reference: <a class="reference external" href="https://ganghee-lee.tistory.com/46">https://https://ganghee-lee.tistory.com/46</a></p></li>
+</ul>
+</section>
+<section id="experiments">
+<h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this headline">#</a></h2>
+<p><strong>(1) Datasets</strong></p>
+<ul class="simple">
+<li><p>MS COCO and Pascal 2012 SBD</p></li>
+</ul>
+<p><strong>(2) Parameter setting</strong></p>
+<ul class="simple">
+<li><p>Batch size 8 on a single GPU</p></li>
+<li><p>ImageNet pre-trained weight</p></li>
+<li><p>SGD optimizer for 800k iterations</p></li>
+<li><p>Initial learning rate of 10^-3, weight decay of 5*10^-4, and momentum of 0.9</p></li>
+</ul>
+<p><strong>(3) Results</strong></p>
+<ul class="simple">
+<li><p>Comparison of speed and accuracy performance with other models</p></li>
+<li><p>YOLACT-500 offers 3.9x faster speed than previous fastest approach</p></li>
+<li><p>Also, offers competitive mask mAP</p></li>
+<li><p>Speed vs accuracy trade-off in YOLACT models</p></li>
+</ul>
+<img alt="table1.png" class="bg-primary mb-1 align-center" src="../../_images/table1.png" />
+<img alt="table2.png" class="bg-primary mb-1 align-center" src="../../_images/table2.png" />
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/table3.png"><img alt="table3.png" class="bg-primary mb-1 align-center" src="../../_images/table3.png" style="width: 500px;" /></a>
+</section>
+<section id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Despite being much faster, YOLACT fall behind SOTA instance segmentation methods in overall performance</p></li>
+<li><p>Errors caused by mistakes in the detector</p>
+<ul>
+<li><p>misclassification and box misalignment</p></li>
+</ul>
+</li>
+<li><p>Errors caused by mask generation algorithm</p>
+<ul>
+<li><p>Localization failure</p>
+<ul>
+<li><p>If there are too many objects in one spot in a scene, the network can fail to localize each object in its own prototype</p></li>
+</ul>
+</li>
+<li><p>Leakage</p>
+<ul>
+<li><p>The model works fine when the bounding box is accurate, but when it is not, the noise outside of the cropped region
+can creep into the instance mask</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img alt="figure6r1c1.png" class="bg-primary mb-1 align-center" src="../../_images/figure6r1c1.png" />
+<img alt="figure6r2c4.png" class="bg-primary mb-1 align-center" src="../../_images/figure6r2c4.png" />
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Goal: faster (real-time) instance segmentation with competitive accuracy performance</p></li>
+<li><p>Contributions</p>
+<ul>
+<li><p>parallel subtasks</p>
+<ul>
+<li><p>Prototype mask branch - generates prototype masks</p></li>
+<li><p>Mask coefficient branch - predicts mask coefficients for each instances</p></li>
+</ul>
+</li>
+<li><p>Fast NMS</p></li>
+</ul>
+</li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -670,17 +939,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="02%20Instance%20Segmentation2.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="02_02_DetectorBase.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Overview</p>
+            <p class="prev-next-title">B. Detector based Method</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="02_01_01_YOLACT.html" title="next page">
+    <a class='right-next' id="next-link" href="02_02_02_SOLO.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">YOLACT - ICCV 19</p>
+        <p class="prev-next-title">SOLO - ECCV 20</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

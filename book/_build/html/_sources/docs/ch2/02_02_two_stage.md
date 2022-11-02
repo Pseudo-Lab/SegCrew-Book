@@ -1,2 +1,0 @@
-# A. Detector based Method
-
