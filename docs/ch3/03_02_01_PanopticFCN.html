@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>SOLO - ECCV 20 &#8212; All about Segmentation</title>
+    <title>PanopticFCN - CVPR 2021 &#8212; All about Segmentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -56,8 +56,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="SOLOv2 - NeurIPS 2020" href="02_01_03_SOLOv2.html" />
-    <link rel="prev" title="YOLACT - ICCV 19" href="02_01_01_YOLACT.html" />
+    <link rel="next" title="MaX-DeepLab - CVPR 2021" href="03_02_02_Max-DeepLab.html" />
+    <link rel="prev" title="B. Box-free Method" href="03_02_Box_Free.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -220,44 +220,61 @@ const thebe_selector_output = ".output, .cell_output"
   Instance Segmentation
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="02%20Instance%20Segmentation2.html">
+  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation2.html">
    Overview
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="02_02_two_stage.html">
-   A. Detector based Method
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch2/02_01_SlidingWnd.html">
+   A. Sliding Window based Method
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_01_01_YOLACT.html">
+    <a class="reference internal" href="../ch2/02_01_01_InstanceFCN.html">
+     InstanceFCN - ECCV 2016
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch2/02_02_DetectorBase.html">
+   B. Detector based Method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_01_YOLACT.html">
      YOLACT - ICCV 19
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_02_SOLO.html">
      SOLO - ECCV 20
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_01_03_SOLOv2.html">
+    <a class="reference internal" href="../ch2/02_02_03_SOLOv2.html">
      SOLOv2 - NeurIPS 2020
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_02_02_HTC.html">
+    <a class="reference internal" href="../ch2/02_02_04_HTC.html">
      HTC - CVPR 2019
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_02_04_BCNet.html">
+    <a class="reference internal" href="../ch2/02_02_05_BCNet.html">
      BCNet - CVPR 2021
     </a>
    </li>
@@ -269,37 +286,15 @@ const thebe_selector_output = ".output, .cell_output"
   Panoptic Segmentation
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation2.html">
+  <a class="reference internal" href="03_Panoptic%20Segmentation2.html">
    Overview
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../ch3/03_01_Box.html">
+  <a class="reference internal" href="03_01_Box.html">
    A. Box based method
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch3/03_01_01_PanopticFPN.html">
-     PanopticFPN - CVPR 2019
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch3/03_02_02_DETR.html">
-     DETR - ECCV 2020
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../ch3/03_02_Box_Free.html">
-   B. Box-free Method
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -308,8 +303,35 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch3/03_02_01_Max-DeepLab.html">
-     MaX-DeepLab - CVPR 21
+    <a class="reference internal" href="03_01_01_PanopticFPN.html">
+     PanopticFPN - CVPR 2019
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_01_02_DETR.html">
+     DETR - ECCV 2020
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="03_02_Box_Free.html">
+   B. Box-free Method
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     PanopticFCN - CVPR 2021
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_02_02_Max-DeepLab.html">
+     MaX-DeepLab - CVPR 2021
     </a>
    </li>
   </ul>
@@ -330,8 +352,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../ch4/04_01_LearningPixelAffinity.html">
    A. Learning Pixel Affinity
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -352,8 +374,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../ch4/04_02_AdversarialErasing.html">
    B. Adversarial Erasing
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -379,8 +401,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../ch4/04_03_Attention.html">
    C. Self-Attention
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -408,8 +430,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../ch5/05_01_Consistency_reg.html">
    A. Consistency Regularization
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -430,8 +452,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../ch5/05_02_GAN.html">
    B. GAN
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -550,7 +572,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch2/02_01_02_SOLO.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch3/03_02_01_PanopticFCN.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -578,7 +600,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/docs/ch2/02_01_02_SOLO.md"
+        <a href="../../_sources/docs/ch3/03_02_01_PanopticFCN.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -638,11 +660,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#problem-statement">
-   Problem statement
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#contribution">
    Contribution
   </a>
@@ -653,51 +670,40 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#semantic-category">
-     1.
-     <strong>
-      Semantic Category
-     </strong>
+    <a class="reference internal nav-link" href="#kernel-generator">
+     1. Kernel Generator
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#instance-mask">
-     2.
-     <strong>
-      Instance mask
-     </strong>
+    <a class="reference internal nav-link" href="#kernel-fusion">
+     2. Kernel Fusion
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solo-learning">
-     3. SOLO learning
+    <a class="reference internal nav-link" href="#feature-encoder">
+     3. Feature Encoder
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inference">
-     4. Inference
+    <a class="reference internal nav-link" href="#training-and-inference">
+     4. Training and Inference
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#experiments">
-   Experiments
+  <a class="reference internal nav-link" href="#experimental-result">
+   Experimental Result
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#implementation-details">
-     1. Implementation Details
+    <a class="reference internal nav-link" href="#experimental-setting">
+     1. Experimental Setting
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#main-result">
-     2.  Main Result
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ablation-experiments">
-     3. Ablation Experiments
+    <a class="reference internal nav-link" href="#result">
+     2. Result
     </a>
    </li>
   </ul>
@@ -711,7 +717,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>SOLO - ECCV 20</h1>
+                <h1>PanopticFCN - CVPR 2021</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -721,11 +727,6 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#problem-statement">
-   Problem statement
-  </a>
- </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#contribution">
    Contribution
@@ -737,51 +738,40 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#semantic-category">
-     1.
-     <strong>
-      Semantic Category
-     </strong>
+    <a class="reference internal nav-link" href="#kernel-generator">
+     1. Kernel Generator
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#instance-mask">
-     2.
-     <strong>
-      Instance mask
-     </strong>
+    <a class="reference internal nav-link" href="#kernel-fusion">
+     2. Kernel Fusion
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solo-learning">
-     3. SOLO learning
+    <a class="reference internal nav-link" href="#feature-encoder">
+     3. Feature Encoder
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inference">
-     4. Inference
+    <a class="reference internal nav-link" href="#training-and-inference">
+     4. Training and Inference
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#experiments">
-   Experiments
+  <a class="reference internal nav-link" href="#experimental-result">
+   Experimental Result
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#implementation-details">
-     1. Implementation Details
+    <a class="reference internal nav-link" href="#experimental-setting">
+     1. Experimental Setting
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#main-result">
-     2.  Main Result
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ablation-experiments">
-     3. Ablation Experiments
+    <a class="reference internal nav-link" href="#result">
+     2. Result
     </a>
    </li>
   </ul>
@@ -796,219 +786,179 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="solo-eccv-20">
-<h1>SOLO - ECCV 20<a class="headerlink" href="#solo-eccv-20" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="panopticfcn-cvpr-2021">
+<h1>PanopticFCN - CVPR 2021<a class="headerlink" href="#panopticfcn-cvpr-2021" title="Permalink to this headline">#</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
 <p class="admonition-title">Information</p>
 <ul class="simple">
-<li><p><strong>Title:</strong> SOLO: Segmenting Objects by Location, ECCV 2020</p></li>
+<li><p><strong>Title:</strong> End-to-End Object Detection with Transformers, CVPR 2021</p></li>
 <li><p><strong>Reference</strong></p>
 <ul>
-<li><p>Paper: <a class="reference external" href="https://arxiv.org/abs/1912.04488">https://arxiv.org/abs/1912.04488</a></p></li>
-<li><p>Code: <a class="reference external" href="https://github.com/WXinlong/SOLO">https://github.com/WXinlong/SOLO</a></p></li>
+<li><p>Paper: <a class="reference external" href="https://arxiv.org/abs/2012.00720">https://arxiv.org/abs/2012.00720</a></p></li>
+<li><p>Code: <a class="reference external" href="https://github.com/dvlab-research/PanopticFCN">https://github.com/dvlab-research/PanopticFCN</a></p></li>
+<li><p>Presentation: <a class="reference external" href="https://yanwei-li.com/talk/PanopticFCN-talk.pdf">https://yanwei-li.com/talk/PanopticFCN-talk.pdf</a></p></li>
 </ul>
 </li>
-<li><p><strong>Review By:</strong> Chanmin Park</p></li>
-<li><p><strong>Last updated on Jun. 4, 2022</strong></p></li>
+<li><p><strong>Review By:</strong> Taeyup Song</p></li>
+<li><p><strong>Last updated on Nov. 1, 2022</strong></p></li>
 </ul>
 </div>
-<section id="problem-statement">
-<h2>Problem statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>Instance segmentation의 pixel level로 image내의 모든 object를 segmentation 하는 것이 목적이다.</p></li>
-<li><p>Detection, classification, segmentation등 여러 기술들이 합쳐져 있다 보니 semantic segmentation보다 challenge 함.</p></li>
-<li><p>일반적으로 instance segmentation은 크게 두가지 그룹으로 구분할 수 있다.</p>
-<ul>
-<li><p>Top-down(detect-then-segment) Method: Detection을 먼저 수행하고 bounding box에서 각 instance의 instance mask를 구함</p></li>
-<li><p>Bottom-up method: 각 pixel에 대응되는 embedding vector간의 affinity relation을 학습하는 방법</p></li>
-</ul>
-</li>
-</ul>
-<figure class="align-default" id="markdown-fig">
-<a class="bg-primary mb-1 reference internal image-reference" href="https://blog.kakaocdn.net/dn/c8y9So/btryEtVYFCm/sBkHBI5JATKf8e2KMzc9q0/img.png"><img alt="figure1" class="bg-primary mb-1" src="https://blog.kakaocdn.net/dn/c8y9So/btryEtVYFCm/sBkHBI5JATKf8e2KMzc9q0/img.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 44 </span><span class="caption-text">Comparison of the pipelines of Mask R-CNN and the proposed SOLO (source: arXiv:1912.04488)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<figure class="align-default" id="id1">
-<a class="bg-primary mb-1 reference internal image-reference" href="https://blog.kakaocdn.net/dn/bHSHi0/btryBq7l1VA/bKriUevoEQrAhVzDauelkK/img.png"><img alt="figure2" class="bg-primary mb-1" src="https://blog.kakaocdn.net/dn/bHSHi0/btryBq7l1VA/bKriUevoEQrAhVzDauelkK/img.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Sequential Group Networks (SGN) (source: SGN: Sequential Grouping Networks for Instance Segmentation, ICCV 2017)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<ul class="simple">
-<li><p>하지만 위의 방식들은 여러 step 구성되어 있으며, indirect 한 방법으로 detection의 성능에 의존성이 있거나, embedding learning 또는 group processing에 의존하는 문제가 있다.</p></li>
-</ul>
-</section>
 <section id="contribution">
 <h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>별도의 bounding box 및 pixel간의 pairwise relation 정보 없이 full instance mask annotation을 supervision으로 바로(directly) instance mask를 구하는 framework을 제안함.</p></li>
-<li><p>이는 COCO validation subset에서 instance간의 관계를 분석, 이를 활용하여 SOLO(segment objects by locations) framework 을 제안함.</p>
-<ol class="simple">
-<li><p>영상 내의 instance가 서로 다른 center postion을 가지거나 크기가 다름을 확인함
-→ Instance categories의 개념을 도입</p></li>
-<li><p>S x S gride cells 생성 후 instance의 center location을 이용한 instance segmentation 수행 (anchor box 사용하지 않음)</p></li>
-<li><p>Segmentic segmentation에서 주로 사용하는 FCN을 적용하여 각 pixel location의 instance category score를 dense하게 도출함.</p></li>
-</ol>
-</li>
+<li><p>Panoptic Segmentation의 things/stuff는 서로 다른 특성을 가지고 있음.
+Countable인 things class는 instance-aware features에 의존하며, object 주변에 위치한다. uncountable인 stuff class는 semantically consistent 특성, 즉 stuff class에 속한 pixel은 위치와 상관없이 같은 semantic을 가지면 같은 class로 구분되는 특성을 가짐.</p></li>
+<li><p>Panoptic-FPN과 같은 instance(thing)/semantic(stuff) branch가 분리되어 있는 separate representation 구조와 다르게 통일된 구조로 panoptic segmentation을 수행하는 unified representation을 적용함.</p></li>
+<li><p>각 instance 별로 kernel을 encode한 후 convolution을 통해 바로 prediction을 수행하는 구조를 제안하여 things와 stuff를 동일한 resolution에서 함께 prediction함.</p></li>
 </ul>
 </section>
 <section id="proposed-method">
 <h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>FPN(Feature Pyramid Network) backbone으로 feature를 추출한 후 각 grid의 probability를 도출하는 Category branch와 각 instance의 mask를 추정하는 Mask branch로 구성됨.</p></li>
-</ul>
-<figure class="align-default" id="id2">
-<a class="bg-primary mb-1 reference internal image-reference" href="https://blog.kakaocdn.net/dn/dd4mWO/btryDJ5z74b/N5WyUgqkhqHYLSoXhmgXQK/img.png"><img alt="figure3" class="bg-primary mb-1" src="https://blog.kakaocdn.net/dn/dd4mWO/btryDJ5z74b/N5WyUgqkhqHYLSoXhmgXQK/img.png" style="width: 800px;" /></a>
+<figure class="align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/panopticfcn1.png"><img alt="pfcn1" class="bg-primary mb-1" src="../../_images/panopticfcn1.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 46 </span><span class="caption-text">SOLO framework (source: arXiv:1912.04488)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 75 </span><span class="caption-text">The framework of Panoptic FCN (source: arXiv:2012.00720)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<section id="semantic-category">
-<h3>1. <strong>Semantic Category</strong><a class="headerlink" href="#semantic-category" title="Permalink to this headline">#</a></h3>
+<section id="kernel-generator">
+<h3>1. Kernel Generator<a class="headerlink" href="#kernel-generator" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>COCO validation subset에 존재하는  36,780개 object 중 98.3% object pair의 center distance가 30 pixel 이상이고, 나머지 1.7%의 40.5%의 size ratio가 1.5배 이상임을 확인</p>
+<li><p>Kernel Generator는 CornerNet과 같은 point-based object detector와 유사한 구조 적용</p></li>
+<li><p>FPN의 <span class="math notranslate nohighlight">\(i\)</span>번째 stage feature <span class="math notranslate nohighlight">\(\mathbf{X}_i\)</span>에서 position과 kernel weight를 생성하는 것을 목표로 함.</p>
 <ul>
-<li><p>결과적으로 영상에 존재하는 두 instance는 서로 다른 center location을 가지거나, 서로 다른 크기를 가짐을 알 수 있음</p></li>
-<li><p>Input image를 <span class="math notranslate nohighlight">\(S\times S\)</span>로 분할하였을 때, 각 grid는 개별적인 instance에 속한다고 가정할 수 있음.</p></li>
+<li><p>Position Head: things/stuff class의 position 정보 <span class="math notranslate nohighlight">\(\mathbf{L}_i^{th}\in \mathbb{R}^{N_{th}\times W_i \times H_i}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{L}_i^{st}\in \mathbb{R}^{N_{st}\times W_i \times H_i}\)</span></p></li>
+<li><p>Kernel Head: kernel weight map <span class="math notranslate nohighlight">\(\mathbf{G}_i\in \mathbb{R}^{C_{e}\times W_i \times H_i}\)</span></p></li>
 </ul>
 </li>
-<li><p>Input image를 <span class="math notranslate nohighlight">\(S\times S\)</span> grid로 분할하고 각 grid별로 class probability를 구함. Category branch는  <span class="math notranslate nohighlight">\(S\times S \times C\)</span> 의 output space를 가지도록 구성함.</p></li>
+</ul>
+<p><strong>(1) Position head</strong></p>
+<ul>
+<li><p>Things class가 주로 분포하는 object centers와 stuff region을 이용하여 각 category의 위치를 나타낸다. (각 feature position에 대해 어떤 class에 속하는지 나타냄.)</p>
+<ul class="simple">
+<li><p><strong>Things class:</strong> <span class="math notranslate nohighlight">\(k\)</span>번째 object가 things class중 class <span class="math notranslate nohighlight">\(c\)</span>에 해당한다고 할 때, heatmap <span class="math notranslate nohighlight">\(\mathbf{Y}_i^{th}\in[0,1]^{N_{th}\times W_i \times H_i}\)</span>에서 object에 해당하는 region의 <span class="math notranslate nohighlight">\(c\)</span>번째 channel에 1이 assign된다.</p></li>
+<li><p><strong>Stuff class:</strong> <span class="math notranslate nohighlight">\(\mathbf{Y}_i^{st}\in[0,1]^{N_{st}\times W_i \times H_i}\)</span>에 각 class에 해당하는 channel에 one-hot semantic label이 영역 크기에 맞게 표기됨.</p></li>
+<li><p>같은 semantic을 가지는 배경 영역은 하나의 instance로 취급한다.</p></li>
+</ul>
+</li>
+<li><p>Position head를 학습하기 위한 loss function은 thing class에 대한 object center loss <span class="math notranslate nohighlight">\(\mathcal{L_{pos}^{th}}\)</span>와 stuff regions에 대한 loss <span class="math notranslate nohighlight">\(\mathcal{L}^{st}_{pos}\)</span>의 합으로 표현된다.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{aligned}
+    \mathcal{L}_{\text{pos}}^{\text{th}}&amp;=\sum_i\text{FL}(\mathbf{L}_i^{\text{th}},\mathbf{Y}_i^{\text{th}})/N_{\text{th}}, \\
+    \mathcal{L}_{\text{pos}}^{\text{st}}&amp;=\sum_i\text{FL}(\mathbf{L}_i^{\text{st}},\mathbf{Y}_i^{\text{st}})/W_{i}H_{i},\\
+    \mathcal{L}_{\text{pos}}&amp;=\mathcal{L}_{\text{pos}}^{\text{th}}+\mathcal{L}_{\text{pos}}^{\text{st}}
+    \end{aligned}
+    \end{split}\]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(FL()\)</span>은 focal loss이며, <span class="math notranslate nohighlight">\(N_{th}\)</span> 와 <span class="math notranslate nohighlight">\(N_{st}\)</span> 는 각각 things와 stuff의 semantic cetegory의 수이다.</p>
+</li>
+</ul>
+<p><strong>(2) Kernel head</strong></p>
+<ul class="simple">
+<li><p>Kernel head에서는 먼저 spatial cues를 확보하기 위해 CoordConv.를 적용하여[<a class="reference external" href="https://www.youtube.com/watch?v=8yFQc6elePA">ref</a>, <a class="reference external" href="https://eng.uber.com/coordconv/">ref</a>] 유사하게 feature <span class="math notranslate nohighlight">\(X_i\)</span>의 상대적인 좌표 정보(xx, yy)를 concat하여  → <span class="math notranslate nohighlight">\(X_i^{''}\in \mathbb{R}^{(C_i+2)\times W_i \times H_i}\)</span></p></li>
+<li><p>3개의 Conv. layer를 거쳐 Kernel weight map <span class="math notranslate nohighlight">\(\mathbf{G}_i \in \mathbb{R}^{C_e \times W_i \times H_i}\)</span> 를 생성한다.</p></li>
+<li><p>position head로 부터 predictions <span class="math notranslate nohighlight">\(D_i^{\text{th}}\)</span>와 <span class="math notranslate nohighlight">\(D_i^{\text{st}}\)</span>가 주어지면, kernel weights는 대응되는 instances를 표현하도록 선택됨.</p>
+<ul>
+<li><p>e.g. things category <span class="math notranslate nohighlight">\(c\)</span>에 속한 pixel <span class="math notranslate nohighlight">\((x_c, y_c)\in D_{i}^{\text{th}}\)</span>에 대응되는 kernel weight <span class="math notranslate nohighlight">\(\mathbf{G}_{i,:,x_c,y_c} \in \mathbb{R}^{C_e \times 1 \times 1}\)</span>은 category <span class="math notranslate nohighlight">\(c\)</span>를 추정하도록 값이 설정됨.</p></li>
+</ul>
+</li>
 </ul>
 </section>
-<section id="instance-mask">
-<h3>2. <strong>Instance mask</strong><a class="headerlink" href="#instance-mask" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>Semantic category의 positive grid cell의 instance mask를 추정.</p></li>
-<li><p>Branch의 output은 분할한 각 grid에 대응되는 mask로 구성되어 있음</p>
+<section id="kernel-fusion">
+<h3>2. Kernel Fusion<a class="headerlink" href="#kernel-fusion" title="Permalink to this headline">#</a></h3>
 <ul>
-<li><p>입력 영상을 <span class="math notranslate nohighlight">\(S\times S\)</span>로 분할하고 semantic category를 구한 경우 mask branch는 <span class="math notranslate nohighlight">\(S^2\)</span> channal의 output으로 구성됨.</p></li>
-<li><p>k번재 channel의 경우 <span class="math notranslate nohighlight">\((i,j)\)</span> grid의 mask에 대응됨. (k = i * S + j)</p></li>
-</ul>
-</li>
-<li><p>Instance mask를 prediction하기 위해 FCN(Fully covolutional network)를 적용하는데, convolution operation은 spatially invariant한 특성을 가짐.
-(classification task에 적합하나, pooling 또는 stride 연산 과정에서 shift invariant 한 특성을 가짐.)</p></li>
-<li><p>이를 극복하기 위해 CoordConv을 적용하여 coordinate aware한 instance mask를 추정함.  (appendix 1.)</p></li>
-<li><p>Interpolation, adaptive-pooling, region grid-interpolation를 적용하여 <span class="math notranslate nohighlight">\(S \times S \times C\)</span> resolution의 output을 얻고 대해 loss를 적용함.</p></li>
-</ul>
-<figure class="align-default" id="id3">
-<a class="bg-primary mb-1 reference internal image-reference" href="https://blog.kakaocdn.net/dn/1gSn8/btryF8DC39W/drE3Ety8bSJusZ9LdCabQk/img.png"><img alt="figure4" class="bg-primary mb-1" src="https://blog.kakaocdn.net/dn/1gSn8/btryF8DC39W/drE3Ety8bSJusZ9LdCabQk/img.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 47 </span><span class="caption-text">SOLO Head architecture (source: arXiv:1912.04488)</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="solo-learning">
-<h3>3. SOLO learning<a class="headerlink" href="#solo-learning" title="Permalink to this headline">#</a></h3>
-<ul>
-<li><p>Label Assignment</p>
-<ul class="simple">
-<li><p>Category prediction branch의 학습을 위해 <span class="math notranslate nohighlight">\(S \times S\)</span>로 분할된 각 grid의 object category probability가 필요함. 본 논문에서는 만약 <span class="math notranslate nohighlight">\((i,j)\)</span> 번째 grid가 어떤 ground truth mask(한개의 instance만 포함됨) center region에 포함된다면, positive sample로 간주함.</p></li>
-<li><p>Center sampling은 최근 object detection task에 널리 적용되며, 유사하게 mask category classification에 적용함.</p>
-<ul>
-<li><p>mass center <span class="math notranslate nohighlight">\((c_x,c_y)\)</span>, widhth <span class="math notranslate nohighlight">\(w\)</span>, height <span class="math notranslate nohighlight">\(h\)</span>가 주어졌을 때, center region은 constant scale factor <span class="math notranslate nohighlight">\(\epsilon\)</span>으로 제어됨</p></li>
-<li><p><span class="math notranslate nohighlight">\(\epsilon=0.2\)</span>로 설정 시 평균적으로 3개의 positive sample을 얻을 수 있음.</p></li>
-</ul>
-</li>
-<li><p>Positive sample에 대한 binary mask의 경우 각 grid cell에 대해 생성함. mask의 순서는 row-major order로 구성되어도 mask prediction branch 학습에 지장이 없다고 주장함.</p></li>
-</ul>
-</li>
-<li><p>Loss Function</p>
+<li><p>기존 연구[39, 12, 45]에서는 후처리 과정에서 NMS를 적용함</p></li>
+<li><p>본 논문에서는 kernel fusion operation을 이용하여 things class의 instance awareness와 stuff class의 semantic consistency를 보전하며 다수의 FPN stage에서 반복적으로 생성되는 kernel weights를 merge한다.</p>
 <div class="math notranslate nohighlight">
 \[
-    L=L_{\text{cate}}+\lambda L_{\text{mask}}
+    K_i=\text{AvgCluster}(G'_j),
     \]</div>
-<ul>
-<li><p>Semantic Category classification을 위한 loss <span class="math notranslate nohighlight">\(L_{cate}\)</span>는 일반적인 focal loss를 적용함.</p></li>
-<li><p>Mask prediction 을 위한 loss는 다음과 같이 정의된다.</p>
-<div class="math notranslate nohighlight">
-\[
-        L_{\text{mask}}=\frac{1}{N_{pos}}\sum_k \mathbb{1}_{\{\mathbf{P}_{i,j}^{*}&gt;0\}}d_{\text{mask}}(\mathbf{m}_k,\mathbf{m}_k^{*})
-        \]</div>
-<p>여기서 indices <span class="math notranslate nohighlight">\(i=\lfloor k/S\rfloor\)</span>, <span class="math notranslate nohighlight">\(j=k\)</span> mod <span class="math notranslate nohighlight">\(S\)</span> …</p>
+<p>여기서 <span class="math notranslate nohighlight">\(\text{AvgCluster}()\)</span>는 <a class="reference external" href="https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.cluster.average_clustering.html">average-clustering</a> operation이며, candidate set <span class="math notranslate nohighlight">\(G'_j=\{G_m:\text{ID}(G_m)=\text{ID}(G_j)\}\)</span> 는 예측 결과의 ID가 <span class="math notranslate nohighlight">\(G_j\)</span> 과 같은 모든 kernel weight의 평균을 구한다.</p>
 </li>
-<li><p><span class="math notranslate nohighlight">\(d_{mask}\)</span>는 Binary Cross Entropy (BCE), Focal Loss, Dice Loss를 적용할 수 있다. 최종적으로 논문에서는 효율적이고, 안정적인 학습을 위해 Dice Loss를 적용한다.</p>
-<div class="math notranslate nohighlight">
-\[
-        L_{\text{Dice}}=1-D(\mathbf{p}, \mathbf{q})
-        \]</div>
-<p><span class="math notranslate nohighlight">\(D\)</span>는 dice coefficient로 다음과 같이 정의된다.</p>
-<div class="math notranslate nohighlight">
-\[
-        D(\mathbf{p},\mathbf{q})=\frac{2\sum_{x,y}(\mathbf{p}_{x,y},\mathbf{q}_{x,y})}
-        {\sum_{x,y}\mathbf{p}_{x,y}^2+\sum_{x,y}\mathbf{q}^2_{x,y}}
-        \]</div>
-<p>여기서 <span class="math notranslate nohighlight">\(\mathbf{p}_{x,u}\)</span>와 <span class="math notranslate nohighlight">\(\mathbf{q}_{x,u}\)</span>는 <span class="math notranslate nohighlight">\((x,y)\)</span> 위치에서의 예측된 softmask <span class="math notranslate nohighlight">\(\mathbf{p}\)</span>와 ground truth mask <span class="math notranslate nohighlight">\(\mathbf{q}\)</span>의 value이다.</p>
-</li>
-</ul>
-</li>
+<li><p>연산 과정에서 동일한 ID를 가지는  kernel weight를 하나로 merge하여 things class의 개별 instance와 staff class의 semantic categories를 각각 단일 kernel로 표현한다. 따라서 things class에 대한 instance-awareness와 stuff class에 대한 semantic-consistency를 동시에 만족하는 결과를 얻을 수 있다.</p></li>
 </ul>
 </section>
-<section id="inference">
-<h3>4. Inference<a class="headerlink" href="#inference" title="Permalink to this headline">#</a></h3>
+<section id="feature-encoder">
+<h3>3. Feature Encoder<a class="headerlink" href="#feature-encoder" title="Permalink to this headline">#</a></h3>
 <ul>
-<li><p>입력 영상에 대해 FPN을 이용하여 category score <span class="math notranslate nohighlight">\(\mathbf{p}_{i,j}\)</span>와 각 grid에 대응되는 mask <span class="math notranslate nohighlight">\(\mathbf{m}_k\)</span>를 얻음</p></li>
-<li><p>Threshold를 0.1로 적용하여 confidence가 낮은 grid를 제외시킴</p></li>
-<li><p>추정된 mask(soft mask)를 0.5 threshold 적용하여 이진화 함.</p></li>
-<li><p>foreground pixel에 대한 soft mask의 평균으로 정의되는 maskness 계산하고,</p>
+<li><p>Instance의 representation의 details를 보전하기 위해, FPN에서 생성된 고해상도 feature <span class="math notranslate nohighlight">\(\mathbf{F }^h\in \mathbb{R}^{C_e \times W/4 \times H/4}\)</span> 를 feature encoding에 적용한다.</p></li>
+<li><p>Feature <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> 가 주어지면 coord conv. 및 convolution 연산을 적용하여 position cues가 encoding된 feature <span class="math notranslate nohighlight">\(\mathbf{F}^e\in \mathbb{R}^{C_e \times W/4 \times H/4}\)</span> 를 생성한다.</p></li>
+<li><p>things와 stuff에 대한 kernel weight <span class="math notranslate nohighlight">\(K^{th}\)</span> 와 <span class="math notranslate nohighlight">\(K^{st}\)</span>가 각각 <span class="math notranslate nohighlight">\(M\)</span>, <span class="math notranslate nohighlight">\(N\)</span> 개 주어지면, 각 instance는 다음 연산을 통해 생성된다.</p>
 <div class="math notranslate nohighlight">
 \[
-    \text{maskness}=\frac{1}{N_f}\sum_{i}^{N_f}\mathbf{p}_i, \text{  where } N_f \text{ is number of FG pixels}
+    \mathbf{P}_j=K_j \otimes \mathbf{F}^e
     \]</div>
-<p>classification score와 곱하여 최종 confidence score를 계산함.</p>
+<p>여기서 <span class="math notranslate nohighlight">\(\otimes\)</span> 는 convolution 연산을 나타낸다.</p>
 </li>
+<li><p>즉 생성된 kernel weight에 대해 위 연산을 수행하면, <span class="math notranslate nohighlight">\(W/4 \times H/4\)</span> 해상도의 M+N개의 instance prediction을 생성한다. 생성된 instance prediction은 PanopticFPN과 동일하게 원본 크기로 resize 후 pixel별 class를 추정한다.</p></li>
 </ul>
 </section>
-</section>
-<section id="experiments">
-<h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this headline">#</a></h2>
-<section id="implementation-details">
-<h3>1. Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>Optimization: Stochastic gradient descent (SDG), synchronized SGD over 8 GPUs</p></li>
-<li><p>Batch Size: 16</p></li>
-<li><p>Learning Rate</p>
+<section id="training-and-inference">
+<h3>4. Training and Inference<a class="headerlink" href="#training-and-inference" title="Permalink to this headline">#</a></h3>
+<p><strong>Training Scheme</strong></p>
 <ul>
-<li><p>초기 learning rate는 0.01로 설정되며, 27 epoch에서 10으로 나누고(lr=0.001), 33번때 epoch에서 다시 한번 10으로 나눈 값을 사용함 (lr=0.0001).</p></li>
-<li><p>Weight decay 0.0001, momentum 0.9를 적용함.</p></li>
+<li><p>학습 과정에서 각 object의 center point와 stuff regions의 모든 points는 things/stuff를 위한 kernel weights 생성에 활용되어진다.</p></li>
+<li><p>Segmentation을 예측하기 위해 [<a class="reference external" href="https://arxiv.org/abs/1606.04797">Dice Loss</a>]를 적용한다.</p>
+<div class="math notranslate nohighlight">
+\[
+    \mathcal{L}_{\text{seg}}=\sum_j\text{Dice}(\mathbf{P}_j,\mathbf{Y}_j^{\text{seg}})/(M+N),
+    \]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(\mathbf{Y}_j^{seg}\)</span>는 j번째 예측 <span class="math notranslate nohighlight">\(\mathbf{P}_j\)</span>에 대응되는 ground truth이다.</p>
+</li>
+<li><p>Kernel generator를 더 잘 학습시키기 위해 각 object에 대해 다수의 positive sample을 sampling 하여 사용한다.  각 object <span class="math notranslate nohighlight">\(\mathbf{L}_i^{\text{th}}\)</span>의 내부에서 top prediction score <span class="math notranslate nohighlight">\(s\)</span>를 가지는 <span class="math notranslate nohighlight">\(k\)</span>개의 position을 선택하여 각 instance별로 <span class="math notranslate nohighlight">\(k \times M\)</span> kernels을 생성한다.</p></li>
+<li><p>stuff region의 경우 동일한 class/category에 속한 모든 point를 동등하게 반영하기 위해 factor <span class="math notranslate nohighlight">\(k\)</span>를 1로 설정한다.</p></li>
+<li><p>본 논문에서는 original Dice Loss를 weighted version으로 수정하여 사용한다.</p>
+<div class="math notranslate nohighlight">
+\[
+    \text{WDice}(\mathbf{P}_j,\mathbf{Y}_j^{\text{seg}})=\sum_k w_k\text{Dice}(\mathbf{P}_{j,k},\mathbf{Y}_{j}^{\text{seg}}),
+    \]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(w_k=\frac{s_k}{\sum_i s_i}\)</span>으로 <span class="math notranslate nohighlight">\(k\)</span>번째 weighted score를 나타낸다.</p>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}_{\text{seg}}=\sum_j\text{WDice}(\mathbf{P}_j,\mathbf{Y}_j^{\text{seg}})/(M+N),
+\]</div>
+<ul class="simple">
+<li><p>최적화 target loss <span class="math notranslate nohighlight">\(\mathcal{L}\)</span>은 position head loss <span class="math notranslate nohighlight">\(\mathcal{L}_{pos}\)</span>와 weighted Dice Loss의 weighted sum으로 표현된다.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}=\lambda_{\text{pos}}\mathcal{L}_{\text{pos}}+\lambda_{\text{seg}}\mathcal{L}_{\text{seg}}
+\]</div>
+<p><strong>Inference Scheme</strong></p>
+<ul class="simple">
+<li><p>Inference 커널생성 후 segmentation을 수행한다.</p></li>
+<li><p>Step 1) <span class="math notranslate nohighlight">\(i\)</span> 번째 position head로 부터 stuff, thing class에 해당하는 feature position을 aggregate</p></li>
+<li><p>Step 2) MaxPooling을 이용하여 Object center에 해당하는 peak point를 보전함</p></li>
+<li><p>Step 3) Kernel fusion 과정을 통해 top 100 score를 가지는 kernel을 생성하고 Feature encoder의 output과 conv 연산을 통해 prediction <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> 를 구함</p></li>
+<li><p>Step 4)  Threshold 0.4를 적용하여 softmask 생성하고, argmax를 적용하여 겹치지 않는 panoptic result를 도출함.</p></li>
+</ul>
+</section>
+</section>
+<section id="experimental-result">
+<h2>Experimental Result<a class="headerlink" href="#experimental-result" title="Permalink to this headline">#</a></h2>
+<section id="experimental-setting">
+<h3>1. Experimental Setting<a class="headerlink" href="#experimental-setting" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Backbone and feature extractor: ResNet with FPN (P2 to P5)</p></li>
+<li><p>Dataset:</p>
+<ul>
+<li><p>COCO (80 thins class, 53 stuff class)</p></li>
+<li><p>Cityscape</p></li>
+<li><p>Mapillary Vistas (37 things, class, 28 stuff class)</p></li>
 </ul>
 </li>
-<li><p>ImageNet Pre-trained weight 적용</p></li>
-<li><p>짧은 image side의 크기가 640~800 pixel 사이로 random하게 sampling하는 scale jitter를 적용함.</p></li>
 </ul>
 </section>
-<section id="main-result">
-<h3>2.  Main Result<a class="headerlink" href="#main-result" title="Permalink to this headline">#</a></h3>
+<section id="result">
+<h3>2. Result<a class="headerlink" href="#result" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>Test Dataset: MS COCO instance segmentation benchmark, 5k val2017 split.</p></li>
-<li><p>COCO test-dev mask AP(%)에 대한 성능을 비교한 결과 ResNet-101 backbone을 적용한 SOLO model의 mask AP는 36.8%로 two-stage 기반 방법인 Mask-RCNN과 유사하며, one-stage 기반 방법보다 높은 성능을 나타냄.</p></li>
+<li><p>COCO validation set에서 deformable conv.등 간단한 개선 과정을 거친 모델 (Panoptic FCN*)이 기존 방법 대비 가장 높은 PQ를 나타냄을 알 수 있다.</p></li>
+<li><p>또한 입력 크기를 400pixel로 했을 때 (Panoptic FCN-400) 비교적 높은 성능을 유지하면서 가장 높은 FPS를 나타냄을 알 수 있다.</p></li>
 </ul>
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/solo1.png"><img alt="solo1.png" class="bg-primary mb-1 align-center" src="../../_images/solo1.png" style="width: 600px;" /></a>
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/solo2.png"><img alt="solo2.png" class="bg-primary mb-1 align-center" src="../../_images/solo2.png" style="width: 600px;" /></a>
-<ul class="simple">
-<li><p>각 grid에 해당하는 soft mask prediction를 보면 각 instance의 mask를 나타냄을 확인할 수 있음. SOLO framework이 instance segmentation 문제를 position aware classification task로 처리한다는 것을 알 수 있음</p></li>
-</ul>
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/solo3.png"><img alt="solo3.png" class="bg-primary mb-1 align-center" src="../../_images/solo3.png" style="width: 600px;" /></a>
-</section>
-<section id="ablation-experiments">
-<h3>3. Ablation Experiments<a class="headerlink" href="#ablation-experiments" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>Grid 수에 따른 성능을 비교한 결과 single output feature map에 대해 mask AP가 큰 차이가 나지 않음을 알 수 있음. → SOLO framework이 grid 크기에 큰 영향을 미치지 않음을 알 수 있음.</p></li>
-<li><p>FPN을 적용한 multi-scale output을 적용할 때 큰 폭으로 성능 향상이 있음을 확인할 수 있음.</p></li>
-</ul>
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/solo4.png"><img alt="solo4.png" class="bg-primary mb-1 align-center" src="../../_images/solo4.png" style="width: 600px;" /></a>
-<ul class="simple">
-<li><p>CNN대비 CoordConv 적용시 mask AP 3.6 향상이 있었음. 이는 CNN이 Padding layer 등에 의해 spatial variant 특성을 많이 잃어버리게 되는데, 이를 보완하기 위한 CoordConv를 적용함으로써 segmentation task에서 성능 개선을 확인함</p></li>
-<li><p>여러번의 CoordConv.를 적용했을 때 유의미한 성능 개선이 나타나지 않음</p></li>
-</ul>
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/solo5.png"><img alt="solo5.png" class="bg-primary mb-1 align-center" src="../../_images/solo5.png" style="width: 600px;" /></a>
-<ul class="simple">
-<li><p>Focal loss의 경우 class inbalance에 잘 대응되되록 설계되어 insrance segmentation task왜서 BCE대비 좋은 성능을 나타냄을 확인할 수 있다 (BGE, mask loss weight 10, pixel weight 2 for positive sample, FL: mask loss weight 20)</p></li>
-<li><p>Dice Loss가 loss hyper-parameter를 직접 조절하지 않고도 가장 높은 성능을 보였다.  Dice Loss는 foreground/background pixel간의 올바른 균형을 잡을 수 있다. BCE와 FL도 hyper-parameter를 잘 조절하고 learning시 트릭을 사용하면 성능이 개선될 수 있지만. Dice loss가 학습이 더 안정적이고, 경험적인 방법을 사용하지 않고도 좋은 결과를 얻을 가성이 높다</p></li>
-</ul>
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/solo6.png"><img alt="solo6.png" class="bg-primary mb-1 align-center" src="../../_images/solo6.png" style="width: 600px;" /></a>
+<img alt="pfcn3.png" class="align-center" src="../../_images/panopticfcn2.png" />
+<img alt="pfcn3.png" class="align-center" src="../../_images/panopticfcn3.png" />
 </section>
 </section>
 </section>
@@ -1026,7 +976,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs/ch2"
+            path: "./docs/ch3"
         },
         predefinedOutput: true
     }
@@ -1040,17 +990,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="02_01_01_YOLACT.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="03_02_Box_Free.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">YOLACT - ICCV 19</p>
+            <p class="prev-next-title">B. Box-free Method</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="02_01_03_SOLOv2.html" title="next page">
+    <a class='right-next' id="next-link" href="03_02_02_Max-DeepLab.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">SOLOv2 - NeurIPS 2020</p>
+        <p class="prev-next-title">MaX-DeepLab - CVPR 2021</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

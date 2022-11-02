@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Overview &#8212; All about Segmentation</title>
+    <title>InstanceFCN - ECCV 2016 &#8212; All about Segmentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -56,6 +56,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="B. Detector based Method" href="02_02_DetectorBase.html" />
+    <link rel="prev" title="A. Sliding Window based Method" href="02_01_SlidingWnd.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -218,18 +220,35 @@ const thebe_selector_output = ".output, .cell_output"
   Instance Segmentation
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="02%20Instance%20Segmentation2.html">
    Overview
   </a>
  </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="02_01_SlidingWnd.html">
+   A. Sliding Window based Method
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     InstanceFCN - ECCV 2016
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="02_02_DetectorBase.html">
    B. Detector based Method
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -277,8 +296,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../ch3/03_01_Box.html">
    A. Box based method
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -299,8 +318,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../ch3/03_02_Box_Free.html">
    B. Box-free Method
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -333,8 +352,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../ch4/04_01_LearningPixelAffinity.html">
    A. Learning Pixel Affinity
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -355,8 +374,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../ch4/04_02_AdversarialErasing.html">
    B. Adversarial Erasing
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -382,8 +401,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../ch4/04_03_Attention.html">
    C. Self-Attention
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -411,8 +430,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../ch5/05_01_Consistency_reg.html">
    A. Consistency Regularization
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -433,8 +452,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../ch5/05_02_GAN.html">
    B. GAN
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -553,7 +572,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch2/02 Instance Segmentation.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/Pseudo-Lab/SegCrew-Book/issues/new?title=Issue%20on%20page%20%2Fdocs/ch2/02_01_01_InstanceFCN.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -581,7 +600,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/docs/ch2/02 Instance Segmentation.md"
+        <a href="../../_sources/docs/ch2/02_01_01_InstanceFCN.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -641,24 +660,48 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
+  <a class="reference internal nav-link" href="#problem-statement">
+   Problem Statement
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#performance-measure">
-   Performance Measure
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#network-architecture">
+     (1) Network Architecture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#local-coherence">
+     (2) Local Coherence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algorithm-and-implementation">
+     (3) Algorithm and Implementation
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#trend">
-   Trend
+  <a class="reference internal nav-link" href="#experimental-result">
+   Experimental Result
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reference">
-   Reference
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#result-pascal-voc-2012">
+     2. Result (PASCAL VOC 2012)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#result-ms-coco">
+     2. Result (MS COCO)
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -669,7 +712,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Overview</h1>
+                <h1>InstanceFCN - ECCV 2016</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -680,24 +723,48 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
+  <a class="reference internal nav-link" href="#problem-statement">
+   Problem Statement
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#performance-measure">
-   Performance Measure
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#network-architecture">
+     (1) Network Architecture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#local-coherence">
+     (2) Local Coherence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algorithm-and-implementation">
+     (3) Algorithm and Implementation
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#trend">
-   Trend
+  <a class="reference internal nav-link" href="#experimental-result">
+   Experimental Result
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reference">
-   Reference
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#result-pascal-voc-2012">
+     2. Result (PASCAL VOC 2012)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#result-ms-coco">
+     2. Result (MS COCO)
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -709,51 +776,135 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h1>
-<p>Draft version</p>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="instancefcn-eccv-2016">
+<h1>InstanceFCN - ECCV 2016<a class="headerlink" href="#instancefcn-eccv-2016" title="Permalink to this headline">#</a></h1>
+<hr class="docutils" />
+<div class="admonition-information admonition">
+<p class="admonition-title">Information</p>
+<ul class="simple">
+<li><p><strong>Title:</strong> Instance-sensitive Fully Convolutional Networks, ECCV 2016</p></li>
+<li><p><strong>Reference</strong></p>
+<ul>
+<li><p>Paper: <a class="reference external" href="https://arxiv.org/abs/1603.08678">https://arxiv.org/abs/1603.08678</a></p></li>
+</ul>
+</li>
+<li><p><strong>Review By:</strong> Taeyup Song, Jeonghyon Kim</p></li>
+<li><p><strong>Last updated on Nov. 1, 2022</strong></p></li>
+</ul>
+</div>
+<section id="problem-statement">
+<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">#</a></h2>
+<ul>
+<li><p>Fully convolutional network(FCN)은 semantic segmentation task에서 효과가 있다는 것이 확인되었지만, 개별 object instance를 구분하는 것은 불가능하다.</p></li>
+<li><p>개별 instance에 대한 mask map을 구하기 위해 object detection에서 적용되는 RPN(region proposal network)를 적용할 수 있다. 다만 RPN의 경우 mask level proposal을 추출할 수 없다.</p></li>
+<li><p>제안된 InstanceFCN은 각 pixel에 대한 classifier로써 동작하지만, 하나의 score map을 가지는 FCN과 다르게 각 instance에 대응되는 score map의 set을 계산하여 instance level의 segmentation을 수행한다.
+(Instance proposal은 sliding window 방식을 사용함.)</p>
 <figure class="align-default" id="markdown-fig">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/instSeg2.png"><img alt="pfpn1" class="bg-primary mb-1" src="../../_images/instSeg2.png" style="width: 600px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/instfcn1.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/instfcn1.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">Semantic Segmentation vs. Instance Segmentation (source: ??)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Methodological comparison between DeepMask and InstanceFCN (source: arXiv:1603.08678)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+</section>
+<section id="proposed-method">
+<h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>기존의 FCN과 같은 Semantic segmentation에서는 각 픽셀에 대해 cross-entropy loss를 학습에 사용하기 때문에 각 픽셀에 대해 하나의 semantic 정보만 존재하며, 두 instance가 겹치는 영역에 대한 instance segmentation 달성할 수 없다.</p></li>
+<li><p>추출한 ROI에 대해  <span class="math notranslate nohighlight">\(K \times K\)</span> instance sensitive score map을 구하고 (첫번째 instance sensitive score map은 ROI의 왼쪽 상단 영역의 score를 나타내고 두 번째는 중간 상단을 나타내는 방식) assemble하여 최종 score map을 구한다.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(K \times K\)</span> 개의 feature map을 생성</p></li>
+<li><p>각 ROI를 <span class="math notranslate nohighlight">\(K \times K\)</span> 영역으로 분할 후 각 영역의 segment map을 조합하여 최종 segment map 생성함.</p></li>
+<li><p>e.g. ) ROI의 (x,y) = (0,0) 영역은 첫번째 feature map에서 가저오고, (x,y) = (1,0) 영역은 두번째 feature map에서 가져옴. …</p></li>
+</ul>
+</li>
+<li><p>이 경우 각 score map은 인스턴스의 상대적인 위치에 대한 score만을 나타내므로 이를 통해 instance를 구분할 수 있다.</p></li>
+</ul>
+<section id="network-architecture">
+<h3>(1) Network Architecture<a class="headerlink" href="#network-architecture" title="Permalink to this headline">#</a></h3>
+<figure class="align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/instfcn2.png"><img alt="figure2" class="bg-primary mb-1" src="../../_images/instfcn2.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 42 </span><span class="caption-text">Details of the InstanceFCN architecture. (source: arXiv:1603.08678)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Backbone</strong></p>
+<ul class="simple">
+<li><p>ImageNet으로 pre-trained된 VGG-16을 backbone을 적용함.</p>
+<ul>
+<li><p>13개의 convolutional layer만으로 구성하여 임의의 입력에 대응 가능하도록 함</p></li>
+<li><p>[24] Hole algorithm, max pooling → ???</p></li>
+<li><p>Feature map에서 segment map과 instances의 score를 구하기 위한 branch로 분기함.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Instance-sensitive score maps and Instance assembling module</strong></p>
+<ul class="simple">
+<li><p>영상의 임의의 pixel은 ROI에 따라 상대적인 위치가 다르다. (Sliding window를 이용하여 ROI 추출)</p></li>
+<li><p>각 ROI에 대해 Instance의 상대적인 위치에 대한 score만을 표현하는 Instance-sensitive score map을 생성한다.</p>
+<ul>
+<li><p>Relative position을 나타내기 위해 <span class="math notranslate nohighlight">\(k \times k\)</span>  regular grid를 사용하는 경우, backbone에서 구한 feature에 대해 1x1 conv.(output ch. 512)와 3x3 conv.를 거쳐 <span class="math notranslate nohighlight">\(K^2\)</span> channel의 output을 구함</p></li>
+<li><p>이후 assembling module에서  <span class="math notranslate nohighlight">\(m \times m\)</span> 크기의 sliding window를 통해 얻은 각 ROI에 대해 score를 조합하여 object instance 를 생성함. (<span class="math notranslate nohighlight">\(m=21\)</span> pixel을 적용, feature map의 stride 8)</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Objectness score</strong></p>
+<ul class="simple">
+<li><p>backbone에서 구한 feature에 대해 3x3 conv.(output ch. 512)와  1x1 conv. 적용함.</p>
+<ul>
+<li><p>1x1 conv는 per-pixel logistic regression의 역할을 함.</p></li>
+</ul>
+</li>
+<li><p>각 sliding window에 대한 instance/non-instance를 판단함</p></li>
+</ul>
+</section>
+<section id="local-coherence">
+<h3>(2) Local Coherence<a class="headerlink" href="#local-coherence" title="Permalink to this headline">#</a></h3>
+<figure class="align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/instfcn3.png"><img alt="figure3" class="bg-primary mb-1" src="../../_images/instfcn3.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">Local coherence (source: arXiv:1603.08678)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
-<li><p>Instance segmentation은 입력 영상에 존재하는 객체(instance)의 정보를 반영한 pixel level classification 방법으로, 각 pixel이  속한 객체 label 및 객체의 classes를 추정하는 방법이다.</p></li>
-<li><p>semantic segmentation과 같이 pixel-level의 classification으로 정의되는 것은 동일하지만, 같은 class에 속하더라도 객체별로 다른 label을 가져야 하기 때문에 위치 정보가 반영된 inference가 추가적으로 필요하다.</p></li>
-<li><p>따라서 object detection을 통해 얻은 bounding box 내의 segmentation을 수행하는 방법이 주로 적용되어, 일반적으로 instance segmentation은 배경을 제외한 객체(instance)의 영역에 대해서 class와 label을 예측한다.</p></li>
+<li><p>Natural image의 pixel에 대해 인접한 ROI가 같은 prediction 값을 가질 가능성이 높으므로, sliding window를 이용하여 ROI를 추출하는 과정에서 모든 prediction을 다시 계산할 필요가 없음</p></li>
+<li><p>따라서 영상의 local coherence를 이용하여 sliding window의 수를 줄여 연산속도를 개선한다.</p></li>
 </ul>
 </section>
-<section id="performance-measure">
-<h2>Performance Measure<a class="headerlink" href="#performance-measure" title="Permalink to this headline">#</a></h2>
+<section id="algorithm-and-implementation">
+<h3>(3) Algorithm and Implementation<a class="headerlink" href="#algorithm-and-implementation" title="Permalink to this headline">#</a></h3>
+<p><strong>Training</strong></p>
+<ul>
+<li><p>256 sliding window를 random하게 생성한 후, 다음과 같은 loss function을 적용하여 network를 학슴함.</p>
+<div class="math notranslate nohighlight">
+\[
+    \sum_i \left( \mathcal{L}(p_i,p_i^* )+\sum_j \mathcal{L}(S_{i,j},S_{i,j}^* )\right)
+    \]</div>
+<p>여기서 <span class="math notranslate nohighlight">\(i\)</span> 는 sampled된 windows의 index이며, <span class="math notranslate nohighlight">\(p_i\)</span> 는 <span class="math notranslate nohighlight">\(i\)</span> 번재 window의 objectness score로 1인 경우 positive sample, 0인 경우 negative sample로 간주한다. <span class="math notranslate nohighlight">\(S_{i,j}\)</span> 는 <span class="math notranslate nohighlight">\(i\)</span> 번재 ROI의 <span class="math notranslate nohighlight">\(j\)</span> pixel의 segment map을 나타낸다. <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> 은 logistic regression loss를 적용한다.</p>
+</li>
+</ul>
+<p><strong>Inference</strong></p>
 <ul class="simple">
-<li><p>Instance segmentation 성능평가를 위해 주로 적용되는 measure는 COCO banchmark의 평가지표로 사용되는 <span class="math notranslate nohighlight">\(\text{mask}\ AP\)</span>(average precision)으로 instance의 ground truth mask와 prediction된 mask의 IoU threshold를 0.50에서 0.05단위로 0.95까지 설정하여 구한 precision의 평균으로 구한다. COCO style의 mAP(mean AP)는 다음과 같이 계산할 수 있다.
-$<span class="math notranslate nohighlight">\(mAP=\frac{1}{C} \sum_{c \in C}\frac{|TP_c|}{|FP_c|+|TP_c|}\)</span><span class="math notranslate nohighlight">\(
-  여기서 \)</span>TP<span class="math notranslate nohighlight">\(는 true positive, \)</span>FP<span class="math notranslate nohighlight">\(는 false positive를 나타내며, \)</span>C$는 ground truth의 class 수이다.</p></li>
-<li><p>IoU threshold가 0.5 (50%)인 값을 <span class="math notranslate nohighlight">\(AP_{50}\)</span>으로, threshold가 0.7 (70%) 일 때는 <span class="math notranslate nohighlight">\(AP_{70}\)</span>으로 표현한다.</p></li>
+<li><p>입력된 영상에 대해 instance-sensitive score maps과 objectness score map을 구한다.</p></li>
+<li><p>Assembling module은 densely sliding windows를 적용하여 각 position에서의 segment instance를 구한다.</p></li>
+<li><p>Multiple scale에 대응하기 위해 영상의 짧은 축에 대해 <span class="math notranslate nohighlight">\(600 \times 1.5 ^{\{-4,-3,-2,-1,.0,1\}}\)</span> 로 resize하여 instance를 추출한다.</p></li>
+<li><p>output segment에 대해 NMS를 적용하여 최종 segment map을 구한다.</p></li>
 </ul>
 </section>
-<section id="trend">
-<h2>Trend<a class="headerlink" href="#trend" title="Permalink to this headline">#</a></h2>
-<figure class="align-default" id="performance-instseg">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/instSeg1.png"><img alt="instSeg1" class="bg-primary mb-1" src="../../_images/instSeg1.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-text">Examples of AP?? (source: arXiv:1407.1808)</span><a class="headerlink" href="#performance-instseg" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>맞는지 확인할 것…</p>
 </section>
-<section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.cityscapes-dataset.com/benchmarks/">https://www.cityscapes-dataset.com/benchmarks/</a></p></li>
-<li><p><a class="reference external" href="https://sviro.kl.dfki.de/instance-segmentation/">https://sviro.kl.dfki.de/instance-segmentation/</a></p></li>
-<li><p><a class="reference external" href="https://pyimagesearch.com/2022/05/02/mean-average-precision-map-using-the-coco-evaluator/">https://pyimagesearch.com/2022/05/02/mean-average-precision-map-using-the-coco-evaluator/</a></p></li>
-<li><p><a class="reference external" href="https://sviro.kl.dfki.de/instance-segmentation/">https://sviro.kl.dfki.de/instance-segmentation/</a></p></li>
-</ul>
-<p><em>Latest update: July 13, 2022</em></p>
+<section id="experimental-result">
+<h2>Experimental Result<a class="headerlink" href="#experimental-result" title="Permalink to this headline">#</a></h2>
+<section id="result-pascal-voc-2012">
+<h3>2. Result (PASCAL VOC 2012)<a class="headerlink" href="#result-pascal-voc-2012" title="Permalink to this headline">#</a></h3>
+<img alt="instfcn4.png" class="bg-primary mb-1 align-center" src="../../_images/instfcn4.png" />
+<img alt="instfcn5.png" class="bg-primary mb-1 align-center" src="../../_images/instfcn5.png" />
+</section>
+<section id="result-ms-coco">
+<h3>2. Result (MS COCO)<a class="headerlink" href="#result-ms-coco" title="Permalink to this headline">#</a></h3>
+<img alt="instfcn6.png" class="bg-primary mb-1 align-center" src="../../_images/instfcn6.png" />
+<img alt="instfcn7.png" class="bg-primary mb-1 align-center" src="../../_images/instfcn7.png" />
+</section>
 </section>
 </section>
 
@@ -784,6 +935,20 @@ $<span class="math notranslate nohighlight">\(mAP=\frac{1}{C} \sum_{c \in C}\fra
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="02_01_SlidingWnd.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">A. Sliding Window based Method</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_02_DetectorBase.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">B. Detector based Method</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

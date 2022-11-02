@@ -1,4 +1,4 @@
-# MaX-DeepLab - CVPR 21
+# MaX-DeepLab - CVPR 2021
 
 ---
 
