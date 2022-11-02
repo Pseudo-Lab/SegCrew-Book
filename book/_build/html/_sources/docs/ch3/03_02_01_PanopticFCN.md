@@ -25,7 +25,7 @@ Countable인 things class는 instance-aware features에 의존하며, object 주
 ## Proposed Method
 
 :::{figure-md} markdown-fig
-<img src="pic/PanopticFCN/pfcn1.png" alt="pfcn1" class="bg-primary mb-1" width="400px">
+<img src="pic/PanopticFCN/panopticfcn1.png" alt="pfcn1" class="bg-primary mb-1" width="800px">
 
 The framework of Panoptic FCN (source: arXiv:2012.00720)
 :::
