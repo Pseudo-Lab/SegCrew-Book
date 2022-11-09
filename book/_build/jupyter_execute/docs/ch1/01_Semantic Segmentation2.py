@@ -76,7 +76,7 @@ def GetGraphElement(chart_title, data, x_scale, y_scale, perf_measure, line_colo
     base = alt.Chart(data).encode(
     x = alt.X("idx", scale=alt.Scale(domain=x_scale),axis=None),
     ).properties (
-    width = 800,
+    width = 600,
     title = [chart_title]
     )
 
