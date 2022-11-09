@@ -28,9 +28,8 @@
 # 
 
 # ## Trend
-# 
 
-# In[15]:
+# In[11]:
 
 
 #@title
@@ -38,53 +37,23 @@
 # https://altair-viz.github.io/user_guide/interactions.html
 # https://www.datacamp.com/tutorial/altair-in-python
 
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 import altair as alt
 import pandas as pd
 
-y_scale = [25, 60]
-x_scale = [0, 14]
 
-data1 = pd.DataFrame({'type': 7*["Anchor/proposal based method"],
-                     'idx': [1, 2, 3, 4, 5, 6, 7],
-                     'year': ["2017", "2019", "2019", "2020", "2020", "2020", "2020"],
-                     'nickname': ['Mask-RCNN', 'CenterMask', 'HTC', 'BCNet', 'D2Det', 'BlendMask', 'DetectoRS'],
-                     'maskAP' :[35.7, 38.3, 39.7, 39.8, 40.2, 41.3, 47.5],
-                     'backbone' :["unknown", "unknown", "unknown", "unknown", "unknown", "unknown", "unknown"]
-                     }
-                     )
-
-data2 = pd.DataFrame({'type': 4*["Single-stage/Anchor-free"],
-                     'idx': [2, 3, 4, 6],
-                     'year': ["2019", "2019", "2019", "2020"],
-                     'nickname': ['YOLACT', 'YOLACT++', 'SOLO', 'SOLOv2'],
-                     'maskAP' :[29.8, 34.6, 40.6, 41.7],
-                     'backbone' :["unknown", "unknown", "unknown", "unknown"]
-                     }
-                     )
-
-data3 = pd.DataFrame({'type': 5*["Transformer"],
-                     'idx': [8,9,10,11,12],
-                     'year': ["2021", "2021", "2021", "2021", "2022"],
-                     'nickname': ['ISTR', 'QueryInst', 'Swin-L', 'Focal-L', 'Mask DINO'],
-                     'maskAP' :[39.9, 49.1, 51.1, 51.3, 54.7],
-                     'backbone' :["ResNet101-FN, single-scale", "Single-scale", "HTC++, Multi-scale", "HTC++, Multi-scale", "Single-scale"]
-                     }
-                     )
-
-
-def GetGraphElement(data, x_scale, y_scale, perf_measure, line_color = "#000000", point_color = "#000000", text_color = "#000000", text_y_pos = -10, textperf_y_pos=-20):
+def GetGraphElement(chart_title, data, x_scale, y_scale, perf_measure, line_color = "#000000", point_color = "#000000", text_color = "#000000", text_y_pos = -10, textperf_y_pos=-20):
     base = alt.Chart(data).encode(
     x = alt.X("idx", scale=alt.Scale(domain=x_scale),axis=None),
     ).properties (
     width = 800,
-    title = ["Trend on mIoU (PASCAL VOC 2012 testset)"]
+    title = [chart_title]
     )
 
     line = base.mark_line(strokeWidth= 1.5, color = line_color).encode(
-        y=alt.Y('maskAP', scale=alt.Scale(domain=y_scale),axis=alt.Axis(grid=True)),
-        #text = alt.Text('nickname')
+        y=alt.Y(perf_measure, scale=alt.Scale(domain=y_scale),axis=alt.Axis(grid=True)),
         color=alt.Color('type'),
-        #opacity='type'
     )
 
     points = base.mark_circle(strokeWidth= 3, color = point_color).encode(
@@ -92,7 +61,7 @@ def GetGraphElement(data, x_scale, y_scale, perf_measure, line_color = "#000000"
             tooltip = [alt.Tooltip('year'),
             alt.Tooltip('nickname'),
             alt.Tooltip(perf_measure),
-            alt.Tooltip('backbone'),],
+            alt.Tooltip('note'),],
     )
 
     point_nick = points.mark_text(align='center', baseline='middle', dy = text_y_pos,).encode(
@@ -117,16 +86,32 @@ def description_test(pos_x, pos_y, text, color):
     )
     
 
-base, line, points, point_nick, point_perf = GetGraphElement(data1, x_scale, y_scale, 'maskAP', 
+
+# In[15]:
+
+
+data = pd.read_csv("instance_trend_cocotest.csv", sep=",")
+
+anchor_data = data.loc[data['type'] =="Anchor/proposal based method"]
+single_data = data.loc[data['type'] =="Single-stage/Anchor-free"]
+trans_data = data.loc[data['type'] =="Transformer"]
+
+perf_measure = 'maskAP'
+
+x_scale = [0,data['idx'].max()+1]
+y_scale = [((data[perf_measure].min()//5))*5,((data[perf_measure].max()//5)+1)*5]
+
+chart_title = "Trend on AP (COCO Test-dev)"
+
+base, line, points, point_nick, point_perf = GetGraphElement(chart_title, anchor_data, x_scale, y_scale, perf_measure, 
                                                             line_color = "#fde725", point_color = "#000000", text_color = "#000000", 
                                                             text_y_pos = -20, textperf_y_pos=-30)
-base2, line2, points2, point_nick2, point_perf2 = GetGraphElement(data2, x_scale, y_scale, 'maskAP', 
+base2, line2, points2, point_nick2, point_perf2 = GetGraphElement(chart_title, single_data, x_scale, y_scale, perf_measure, 
                                                                     line_color = "#cb4154", point_color = "#000000", text_color = "#000000", 
                                                                     text_y_pos = -10, textperf_y_pos=20)
-base3, line3, points3, point_nick3, point_perf3 = GetGraphElement(data3, x_scale, y_scale, 'maskAP', 
+base3, line3, points3, point_nick3, point_perf3 = GetGraphElement(chart_title, trans_data, x_scale, y_scale, perf_measure, 
                                                                     line_color = "#3b518b", point_color = "#000000", text_color = "#000000", 
                                                                     text_y_pos = 20, textperf_y_pos=30)
-
 (
     line+points+point_nick+point_perf+
     line2+points2+point_nick2+point_perf2+ 
@@ -139,6 +124,3 @@ base3, line3, points3, point_nick3, point_perf3 = GetGraphElement(data3, x_scale
 # - https://sviro.kl.dfki.de/instance-segmentation/
 # - https://pyimagesearch.com/2022/05/02/mean-average-precision-map-using-the-coco-evaluator/
 # - https://sviro.kl.dfki.de/instance-segmentation/
-
-# 
-# *Latest update: Jan 6, 2022*

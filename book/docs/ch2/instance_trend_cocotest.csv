@@ -1,0 +1,20 @@
+idx,type,year,nickname,"maskAP",note
+
+1,Anchor/proposal based method,2017,Mask-RCNN,35.7,""
+2,Anchor/proposal based method,2019,CenterMask,38.3,""
+3,Anchor/proposal based method,2019,HTC,39.7,""
+4,Anchor/proposal based method,2020,BCNet,39.8,""
+5,Anchor/proposal based method,2020,D2Det,40.2,""
+6,Anchor/proposal based method,2020,BlendMask,41.3,""
+7,Anchor/proposal based method,2020,DetectoRS,47.5,""
+
+2,Single-stage/Anchor-free,2019,YOLACT,29.8,""
+3,Single-stage/Anchor-free,2019,YOLACT++,34.6,""
+4,Single-stage/Anchor-free,2019,SOLO,40.6,""
+5,Single-stage/Anchor-free,2019,SOLOv2,41.7,""
+
+8,Transformer,2021,ISTR,39.9,"ResNet101-FN, single-scale"
+9,Transformer,2021,QueryInst,49.1,"Single-scale"
+10,Transformer,2021,Swin-L,51.1,"HTC++, Multi-scale"
+11,Transformer,2021,Focal-L,51.3,"HTC++, Multi-scale"
+12,Transformer,2022,Mask DINO,54.7,"Single-scale"
