@@ -1,0 +1,8 @@
+idx,type,year,nickname,"miou",note
+1,Semantic Segmentation,2015,FCN,62.2,"VGG16"
+2,Semantic Segmentation,2015,DeconvNet,72.5,"VGG16"
+3,Semantic Segmentation,2016,DeepLab_v2,79.7,"ResNet-101, CRF"
+4,Semantic Segmentation,2017,PSPNet,85.4,"COCO-pretrained ResNet-101"
+5,Semantic Segmentation,2017,DeepLab_v3,85.7,"COCO-pretrained ResNet-101"
+6,Semantic Segmentation,2018,EncNet,85.9,"COCO-pretrained ResNet-101"
+7,Semantic Segmentation,2018,DeepLab_v3+,89.0,"JFT pretrained Xception-65"

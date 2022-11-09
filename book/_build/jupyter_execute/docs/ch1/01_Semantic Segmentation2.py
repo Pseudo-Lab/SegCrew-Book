@@ -58,7 +58,7 @@
 
 # ## Trend
 
-# In[1]:
+# In[52]:
 
 
 #@title
@@ -66,32 +66,23 @@
 # https://altair-viz.github.io/user_guide/interactions.html
 # https://www.datacamp.com/tutorial/altair-in-python
 
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 import altair as alt
 import pandas as pd
 
-y_scale = [60, 90]
-x_scale = [0, 8]
 
-data = pd.DataFrame({'type': 7*["Semantic Segmentation"],
-                     'idx': [1, 2, 3, 4, 5, 6, 7],
-                     'year': ["2015", "2015", "2016.", "2017", "2017", "2018", "2018"],
-                     'nickname': ['FCN', 'DeconvNet', 'DeepLab_v2', 'PSPNet','DeepLab_v3','EncNet','DeepLab_v3+'],
-                     'miou' :[67.2, 72.5, 79.7, 85.4, 85.7, 85.9, 87.8],
-                     'backbone' :["unknown","unknown","unknown","unknown","unknown", "unknown", "unknown"]})
-
-def GetGraphElement(data, x_scale, y_scale, perf_measure, line_color = "#000000", point_color = "#000000", text_color = "#000000", text_y_pos = -10, textperf_y_pos=-20):
+def GetGraphElement(chart_title, data, x_scale, y_scale, perf_measure, line_color = "#000000", point_color = "#000000", text_color = "#000000", text_y_pos = -10, textperf_y_pos=-20):
     base = alt.Chart(data).encode(
     x = alt.X("idx", scale=alt.Scale(domain=x_scale),axis=None),
     ).properties (
     width = 800,
-    title = ["Trend on AP (COCO Test-dev)"]
+    title = [chart_title]
     )
 
     line = base.mark_line(strokeWidth= 1.5, color = line_color).encode(
-        y=alt.Y('miou', scale=alt.Scale(domain=y_scale),axis=alt.Axis(grid=True)),
-        #text = alt.Text('nickname')
+        y=alt.Y(perf_measure, scale=alt.Scale(domain=y_scale),axis=alt.Axis(grid=True)),
         color=alt.Color('type'),
-        #opacity='type'
     )
 
     points = base.mark_circle(strokeWidth= 3, color = point_color).encode(
@@ -99,7 +90,7 @@ def GetGraphElement(data, x_scale, y_scale, perf_measure, line_color = "#000000"
             tooltip = [alt.Tooltip('year'),
             alt.Tooltip('nickname'),
             alt.Tooltip(perf_measure),
-            alt.Tooltip('backbone'),],
+            alt.Tooltip('note'),],
     )
 
     point_nick = points.mark_text(align='center', baseline='middle', dy = text_y_pos,).encode(
@@ -124,10 +115,46 @@ def description_test(pos_x, pos_y, text, color):
     )
     
 
-base, line, points, point_nick, point_perf = GetGraphElement(data, x_scale, y_scale, 'miou', 
+
+# In[53]:
+
+
+data = pd.read_csv("semantic_trend_pascal.csv", sep=",")
+
+seg_data = data.loc[data['type'] =="Semantic Segmentation"]
+
+perf_measure = 'miou'
+
+x_scale = [0,data.shape[0]+1]
+y_scale = [((data[perf_measure].min()//5))*5,((data[perf_measure].max()//5)+1)*5]
+
+chart_title = "Trend on mean IoU (PASCAL VOC 2012 Test-dev)"
+
+base, line, points, point_nick, point_perf = GetGraphElement(chart_title, data, x_scale, y_scale, perf_measure, 
                                                             line_color = "#fde725", point_color = "#000000", text_color = "#000000", 
                                                             text_y_pos = -10, textperf_y_pos=20)
+(
+    line+points+point_nick+point_perf
+).resolve_scale(y = 'independent')
 
+
+# In[56]:
+
+
+data = pd.read_csv("semantic_trend_cityscape.csv", sep=",")
+
+seg_data = data.loc[data['type'] =="Semantic Segmentation"]
+
+perf_measure = 'miou'
+
+x_scale = [0,data.shape[0]+1]
+y_scale = [((data[perf_measure].min()//5))*5,((data[perf_measure].max()//5)+1)*5]
+
+chart_title = "Trend on mean IoU (Cityscapes test)"
+
+base, line, points, point_nick, point_perf = GetGraphElement(chart_title, data, x_scale, y_scale, perf_measure, 
+                                                            line_color = "#3b518b", point_color = "#000000", text_color = "#000000", 
+                                                            text_y_pos = -10, textperf_y_pos=20)
 (
     line+points+point_nick+point_perf
 ).resolve_scale(y = 'independent')
@@ -139,4 +166,4 @@ base, line, points, point_nick, point_perf = GetGraphElement(data, x_scale, y_sc
 # 
 # - 본 chapter에서는 semantic segmentation 논문을 i) fully convolutional network 기반 방법과 ii) convolutional encoder-decoder 방법으로 구분하여 리뷰하고 각 지금까지의 발전 현황과 개선방안에 대해 고찰한다. 
 # 
-# *Latest update: Jan 6, 2022*
+# *Latest update: Nov. 9, 2022*
