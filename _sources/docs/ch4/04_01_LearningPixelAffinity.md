@@ -21,6 +21,6 @@ Overview of Affinity based weakly-supervised semantation
 
 - 본 chapter에서는 pixel affinity를 이용한 weakly supervised segmentation 연구 결과를 리뷰한다. 
 
-    (1) AffinityNet - CVPR 2018
+    - [Learning Pixel-level Semantic Affinity Image-level Labels for Weakly Supervised Semantic Segmentation, CVPR 2018](https://pseudo-lab.github.io/SegCrew-Book/docs/ch4/04_01_01_AffinityNet.html)
     
-    (2) IAL - IJCV 2020
+    - [Weakly-Supervised Semantic Segmentation by Iterative Affinity Learning, IJCV 2020](https://pseudo-lab.github.io/SegCrew-Book/docs/ch4/04_01_02_IAL.html)
