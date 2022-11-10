@@ -1,0 +1,7 @@
+idx,type,year,nickname,"PQ",note
+1,Panoptic Segmentation,2019,Panoptic-FPN,40.9,"ResNet-101-FPN"
+2,Panoptic Segmentation,2019,UPSNet,46.6,"ResNet-101-FPN"
+3,Panoptic Segmentation,2020,Axial-DeepLab,44.2,"L-multi-scale"
+4,Panoptic Segmentation,2020,DETR,45.1,"DETR-R101"
+5,Panoptic Segmentation,2021,PanopticFCN,47.5,"DCN-101-FPN"
+6,Panoptic Segmentation,2021,MaX-DeepLab,51.3,"MaX-L backbone"

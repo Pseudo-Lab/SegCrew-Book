@@ -1,0 +1,12 @@
+idx,type,year,nickname,"miou",note
+1,Full Supervision,2015,FCN,62.2,"VGG16"
+2,Full Supervision,2017,PSPNet,85.4,"COCO-pretrained ResNet-101"
+3,Full Supervision,2020,DeepLab_v3,85.7,"COCO-pretrained ResNet-101"
+4,Full Supervision,2020,DeepLab_v3+,89.0,"JFT pretrained Xception-65"
+3,WS-learning pixel affinity,2017,RAKW,62.2,""
+4,WS-learning pixel affinity,2018,AffinityNet,63.7,""
+5,WS-learning pixel affinity,2019,IRNet,64.8,""
+6,WS-learning pixel affinity,2020,CIAN,65.3,""
+3,WS-adversarial erasing,2017,AE-PSL,55.7,""
+4,WS-adversarial erasing,2018,SeeNet,62.8,""
+6,WS-adversarial erasing,2020,EADER,63.8,""

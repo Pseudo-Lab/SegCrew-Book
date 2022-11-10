@@ -3,9 +3,6 @@
 
 # # Overview
 # 
-
-# # Overview
-# 
 # ## Introduction
 # 
 # - Semantic segmentation이란 영상을 의미적/인지적 단위로 구분하여 분할하는 기술을 의미한다. 이는 각 pixel이 어떤 semantic을 가지는지 분류하는 pixel level classification 문제로 해석할 수 있으며, 모든 pixel에 대한 prediction을 수행하기 때문에 dense prediction으로 불리우기도 한다. 
@@ -58,7 +55,7 @@
 
 # ## Trend
 
-# In[52]:
+# In[57]:
 
 
 #@title
@@ -116,7 +113,7 @@ def description_test(pos_x, pos_y, text, color):
     
 
 
-# In[53]:
+# In[60]:
 
 
 data = pd.read_csv("semantic_trend_pascal.csv", sep=",")
@@ -125,7 +122,7 @@ seg_data = data.loc[data['type'] =="Semantic Segmentation"]
 
 perf_measure = 'miou'
 
-x_scale = [0,data.shape[0]+1]
+x_scale = [0,data['idx'].max()+1]
 y_scale = [((data[perf_measure].min()//5))*5,((data[perf_measure].max()//5)+1)*5]
 
 chart_title = "Trend on mean IoU (PASCAL VOC 2012 Test-dev)"
@@ -138,7 +135,7 @@ base, line, points, point_nick, point_perf = GetGraphElement(chart_title, data, 
 ).resolve_scale(y = 'independent')
 
 
-# In[56]:
+# In[61]:
 
 
 data = pd.read_csv("semantic_trend_cityscape.csv", sep=",")
@@ -147,7 +144,7 @@ seg_data = data.loc[data['type'] =="Semantic Segmentation"]
 
 perf_measure = 'miou'
 
-x_scale = [0,data.shape[0]+1]
+x_scale = [0,data['idx'].max()+1]
 y_scale = [((data[perf_measure].min()//5))*5,((data[perf_measure].max()//5)+1)*5]
 
 chart_title = "Trend on mean IoU (Cityscapes test)"

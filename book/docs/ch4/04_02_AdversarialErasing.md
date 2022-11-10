@@ -14,6 +14,8 @@ AE-PSL architecture (Source: arXiv:1703.08448)
 
 - 본 chapter에서는 Adversarial Erasing를 이용한 weakly supervised segmentation 연구 결과를 리뷰한다.
 
-    (1) AE-PSL - CVPR 2017
+    - [Self-Erasing Network for Integral Object Attention, NeurIPS 2018](https://pseudo-lab.github.io/SegCrew-Book/docs/ch4/04_02_02_SeeNet.html)
     
-    (2) SeeNet - NeurIPS 2018
+    - [CGNet: Unlocking the Potential of Ordinary Classifier: Class-specific Adversarial Erasing Framework](https://pseudo-lab.github.io/SegCrew-Book/docs/ch4/04_02_03_GCNet.html)
+
+    - [Puzzle-CAM: Improved localization via matching partial and full features, ICIP 2021](https://pseudo-lab.github.io/SegCrew-Book/docs/ch4/04_02_05_PuzzleCAM.html)

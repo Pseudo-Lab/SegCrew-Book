@@ -56,6 +56,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="A. Box based method" href="03_01_Box.html" />
+    <link rel="prev" title="BCNet - CVPR 2021" href="../ch2/02_02_05_BCNet.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -284,9 +286,9 @@ const thebe_selector_output = ".output, .cell_output"
   Panoptic Segmentation
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="03_Panoptic%20Segmentation2.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Overview
   </a>
  </li>
@@ -531,6 +533,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Pseudo-Lab/SegCrew-Book/master?urlpath=tree/book/docs/ch3/03_Panoptic Segmentation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -598,7 +629,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/docs/ch3/03_Panoptic Segmentation.md"
+        <a href="../../_sources/docs/ch3/03_Panoptic Segmentation.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -609,7 +640,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.ipynb</span>
 </a>
 
       </li>
@@ -723,7 +754,7 @@ title="Print to PDF"
 <figure class="align-default" id="pano-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/panoSeg3.PNG"><img alt="pfpn2" class="bg-primary mb-1" src="../../_images/panoSeg3.PNG" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-text">Segmentation Tasks (source: <a class="reference external" href="https://arxiv.org/abs/2006.12567">arXiv:2006.12567</a>)</span><a class="headerlink" href="#pano-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 62 </span><span class="caption-text">Segmentation Tasks (source: <a class="reference external" href="https://arxiv.org/abs/2006.12567">arXiv:2006.12567</a>)</span><a class="headerlink" href="#pano-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -742,12 +773,12 @@ title="Print to PDF"
 \]</div>
 <ul class="simple">
 <li><p>PQ를 계산하기 위해 먼저 Segment matching을 수행한 후 matching된 segment에 대해 PQ를 계산한다. 이때 GT와 predicted segment와의 match 여부는 IoU가 0.5 이상이고 가장 큰 IoU를 가지는 segment를 유일한 matched segment로 판정한다.</p></li>
-<li><p>Metched segment를 계산한 후 TP(true positivie), FP(false positive)와 FN(false negative)를 구한다. 이는 <a class="reference internal" href="03_Panoptic%20Segmentation2.html#gt-fig"><span class="std std-numref">Fig. 63</span></a>와 같이 나타낼 수 있다</p></li>
+<li><p>Metched segment를 계산한 후 TP(true positivie), FP(false positive)와 FN(false negative)를 구한다. 이는 <a class="reference internal" href="#gt-fig"><span class="std std-numref">Fig. 63</span></a>와 같이 나타낼 수 있다</p></li>
 </ul>
 <figure class="align-default" id="gt-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/panoSeg2.png"><img alt="pfpn2" class="bg-primary mb-1" src="../../_images/panoSeg2.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-text">GT and predicted panoptic segmentations of an image (source: arXiv:1801.00868)</span><a class="headerlink" href="#gt-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 63 </span><span class="caption-text">GT and predicted panoptic segmentations of an image (source: arXiv:1801.00868)</span><a class="headerlink" href="#gt-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -763,19 +794,70 @@ title="Print to PDF"
 </section>
 <section id="trend">
 <h2>Trend<a class="headerlink" href="#trend" title="Permalink to this headline">#</a></h2>
-<figure class="align-default" id="performance-pano">
-<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/panoSeg1.png"><img alt="panoSeg1" class="bg-primary mb-1" src="../../_images/panoSeg1.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-text">Evolution of Panoptic Segmentation</span><a class="headerlink" href="#performance-pano" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<ul class="simple">
-<li><p><code class="xref std std-numref docutils literal notranslate"><span class="pre">Fig.</span> <span class="pre">%s</span></code>는 COCO Test-Dev set으로 평가한 panoptic segmentation 성능이다.</p></li>
-</ul>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-861a374fb95d47698d0bf5cf58c24ded"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-861a374fb95d47698d0bf5cf58c24ded") {
+      outputDiv = document.getElementById("altair-viz-861a374fb95d47698d0bf5cf58c24ded");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "#fde725", "strokeWidth": 1.5}, "encoding": {"color": {"field": "type", "type": "nominal"}, "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7.0]}, "type": "quantitative"}, "y": {"axis": {"grid": true}, "field": "PQ", "scale": {"domain": [40.0, 55.0]}, "type": "quantitative"}}, "title": ["Trend on Panoptic Quality (COCO Test-dev)"], "width": 600}, {"mark": {"type": "circle", "color": "#000000", "strokeWidth": 3}, "encoding": {"tooltip": [{"field": "year", "type": "quantitative"}, {"field": "nickname", "type": "nominal"}, {"field": "PQ", "type": "quantitative"}, {"field": "note", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7.0]}, "type": "quantitative"}, "y": {"axis": null, "field": "PQ", "scale": {"domain": [40.0, 55.0]}, "type": "quantitative"}}, "title": ["Trend on Panoptic Quality (COCO Test-dev)"], "width": 600}, {"mark": {"type": "text", "align": "center", "baseline": "middle", "dy": -10}, "encoding": {"color": {"value": "#000000"}, "text": {"field": "PQ", "type": "quantitative"}, "tooltip": [{"field": "year", "type": "quantitative"}, {"field": "nickname", "type": "nominal"}, {"field": "PQ", "type": "quantitative"}, {"field": "note", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7.0]}, "type": "quantitative"}, "y": {"axis": null, "field": "PQ", "scale": {"domain": [40.0, 55.0]}, "type": "quantitative"}}, "title": ["Trend on Panoptic Quality (COCO Test-dev)"], "width": 600}, {"mark": {"type": "text", "align": "center", "baseline": "middle", "dy": 20}, "encoding": {"color": {"value": "#000000"}, "text": {"field": "nickname", "type": "nominal"}, "tooltip": [{"field": "year", "type": "quantitative"}, {"field": "nickname", "type": "nominal"}, {"field": "PQ", "type": "quantitative"}, {"field": "note", "type": "nominal"}], "x": {"axis": null, "field": "idx", "scale": {"domain": [0, 7.0]}, "type": "quantitative"}, "y": {"axis": null, "field": "PQ", "scale": {"domain": [40.0, 55.0]}, "type": "quantitative"}}, "title": ["Trend on Panoptic Quality (COCO Test-dev)"], "width": 600}], "data": {"name": "data-1dca03a993566a3cb449b42880e48213"}, "resolve": {"scale": {"y": "independent"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-1dca03a993566a3cb449b42880e48213": [{"idx": 1, "type": "Panoptic Segmentation", "year": 2019, "nickname": "Panoptic-FPN", "PQ": 40.9, "note": "ResNet-101-FPN"}, {"idx": 2, "type": "Panoptic Segmentation", "year": 2019, "nickname": "UPSNet", "PQ": 46.6, "note": "ResNet-101-FPN"}, {"idx": 3, "type": "Panoptic Segmentation", "year": 2020, "nickname": "Axial-DeepLab", "PQ": 44.2, "note": "L-multi-scale"}, {"idx": 4, "type": "Panoptic Segmentation", "year": 2020, "nickname": "DETR", "PQ": 45.1, "note": "DETR-R101"}, {"idx": 5, "type": "Panoptic Segmentation", "year": 2021, "nickname": "PanopticFCN", "PQ": 47.5, "note": "DCN-101-FPN"}, {"idx": 6, "type": "Panoptic Segmentation", "year": 2021, "nickname": "MaX-DeepLab", "PQ": 51.3, "note": "MaX-L backbone"}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
 <ul class="simple">
 <li><p>본 chapter에서는 panoptic segmentation 논문을 i) box based methods와 ii) box-free methods로 구분하여 리뷰하고 각 지금까지의 발전 현황과 개선방안에 대해 고찰한다.</p></li>
 </ul>
-<p><em>Latest update: Jun 7, 2022</em></p>
+<p><em>Latest update: Nov. 10, 2022</em></p>
 </section>
 </section>
 
@@ -806,6 +888,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../ch2/02_02_05_BCNet.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">BCNet - CVPR 2021</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="03_01_Box.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A. Box based method</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

@@ -38,7 +38,7 @@ parts:
     - file: docs/ch2/02_02_05_BCNet
 - caption: Panoptic Segmentation
   chapters:
-  - file: docs/ch3/03_Panoptic Segmentation2
+  - file: docs/ch3/03_Panoptic Segmentation
   - file: docs/ch3/03_01_Box
     sections:
     - file: docs/ch3/03_01_01_PanopticFPN
@@ -49,7 +49,7 @@ parts:
     - file: docs/ch3/03_02_02_Max-DeepLab
 - caption: Weakly-supervised Segmentation
   chapters:
-  - file: docs/ch4/04_Weakly-supervised Segmentation2
+  - file: docs/ch4/04_Weakly-supervised Segmentation
   - file: docs/ch4/04_01_LearningPixelAffinity
     sections:
     - file: docs/ch4/04_01_01_AffinityNet

@@ -3,7 +3,7 @@
 ---
 
 ```{admonition} Information
-- **Title:** nd-to-End Panoptic Segmentation with Mask Transformers, CVPR 2021
+- **Title:** End-to-End Panoptic Segmentation with Mask Transformers, CVPR 2021
 
 - **Reference**
     - Paper: [https://arxiv.org/abs/2012.00759](https://arxiv.org/abs/2012.00759)
