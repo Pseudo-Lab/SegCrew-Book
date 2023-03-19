@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Overview" href="../ch3/03_Panoptic%20Segmentation2.html" />
+    <link rel="next" title="Overview" href="../ch3/03_Panoptic%20Segmentation.html" />
     <link rel="prev" title="HTC - CVPR 2019" href="02_02_04_HTC.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -222,7 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="02%20Instance%20Segmentation.html">
+  <a class="reference internal" href="02_Instance_Segmentation.html">
    Overview
   </a>
  </li>
@@ -269,6 +269,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="02_02_01_MaskRCNN.html">
+     [Draft] Mask R-CNN - ICCV 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="02_02_04_HTC.html">
      HTC - CVPR 2019
     </a>
@@ -288,7 +293,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation2.html">
+  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation.html">
    Overview
   </a>
  </li>
@@ -344,7 +349,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation2.html">
+  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation.html">
    Overview
   </a>
  </li>
@@ -380,6 +385,11 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch4/04_02_01_AE-PSL.html">
+     [Draft] AE-PSL - CVPR 2017
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch4/04_02_02_SeeNet.html">
      SeeNet - NeurIPS 2018
@@ -806,14 +816,14 @@ title="Print to PDF"
 <li><p>하지만 각 instance에 대해 개별적으로 추출된 ROI feature에서 regression되는 구조는 overlap된 objects, 특히 같은 class에 속한 objects가 overlap되었을 때, 많은 segmentation error를 확인할 수 있다.</p>
 <ul>
 <li><p>이러한 문제를 해결하기 위해 NMS와 추가적인 후처리(post processing)를 추가한 모델이 제안되었으나, 경계가 과하게 smoothing되거나 instance간의 약간의 gap이 발생하는 문제 가 있었다.</p></li>
-<li><p><a class="reference internal" href="#fig-bcnet1"><span class="std std-numref">Fig. 60</span></a>.(d)와 같ASN과 같이 amodal/occlusion mask prediction을 위한 network의 경우 겹침이 발생한 object(occludee)에만 집중하여 성능의 한계가 존재한다.</p></li>
+<li><p><a class="reference internal" href="#fig-bcnet1"><span class="std std-numref">Fig. 67</span></a>.(d)와 같ASN과 같이 amodal/occlusion mask prediction을 위한 network의 경우 겹침이 발생한 object(occludee)에만 집중하여 성능의 한계가 존재한다.</p></li>
 </ul>
 </li>
 </ul>
 <figure class="align-default" id="fig-bcnet1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/bcnet1.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/bcnet1.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 60 </span><span class="caption-text">Instance Segmentation on COCO (source: arXiv:2103.12340)</span><a class="headerlink" href="#fig-bcnet1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 67 </span><span class="caption-text">Instance Segmentation on COCO (source: arXiv:2103.12340)</span><a class="headerlink" href="#fig-bcnet1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -825,7 +835,7 @@ title="Print to PDF"
 <figure class="align-default" id="fig-bcnet2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/bcnet2.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/bcnet2.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 61 </span><span class="caption-text">Architecture of BCNet with bilayer occluder-occludee relational modeling (source: arXiv:2103.12340)</span><a class="headerlink" href="#fig-bcnet2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 68 </span><span class="caption-text">Architecture of BCNet with bilayer occluder-occludee relational modeling (source: arXiv:2103.12340)</span><a class="headerlink" href="#fig-bcnet2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul>
@@ -1077,7 +1087,7 @@ title="Print to PDF"
             <p class="prev-next-title">HTC - CVPR 2019</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../ch3/03_Panoptic%20Segmentation2.html" title="next page">
+    <a class='right-next' id="next-link" href="../ch3/03_Panoptic%20Segmentation.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Overview</p>

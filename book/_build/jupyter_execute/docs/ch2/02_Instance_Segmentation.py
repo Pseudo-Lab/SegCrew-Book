@@ -124,3 +124,6 @@ base3, line3, points3, point_nick3, point_perf3 = GetGraphElement(chart_title, t
 # - https://sviro.kl.dfki.de/instance-segmentation/
 # - https://pyimagesearch.com/2022/05/02/mean-average-precision-map-using-the-coco-evaluator/
 # - https://sviro.kl.dfki.de/instance-segmentation/
+# 
+# 
+# *Latest update: Nov. 9, 2022*

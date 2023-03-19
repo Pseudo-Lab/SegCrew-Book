@@ -1,4 +1,4 @@
-# [Draft] Mask R-CNN - ICCV 2017
+# Mask R-CNN - ICCV 2017
 
 ---
 

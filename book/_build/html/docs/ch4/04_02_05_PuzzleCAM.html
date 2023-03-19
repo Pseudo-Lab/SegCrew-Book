@@ -222,7 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
+  <a class="reference internal" href="../ch2/02_Instance_Segmentation.html">
    Overview
   </a>
  </li>
@@ -269,6 +269,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_01_MaskRCNN.html">
+     [Draft] Mask R-CNN - ICCV 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../ch2/02_02_04_HTC.html">
      HTC - CVPR 2019
     </a>
@@ -288,7 +293,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation2.html">
+  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation.html">
    Overview
   </a>
  </li>
@@ -344,7 +349,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="04_Weakly-supervised%20Segmentation2.html">
+  <a class="reference internal" href="04_Weakly-supervised%20Segmentation.html">
    Overview
   </a>
  </li>
@@ -380,6 +385,11 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_02_01_AE-PSL.html">
+     AE-PSL - CVPR 2017
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="04_02_02_SeeNet.html">
      SeeNet - NeurIPS 2018
@@ -820,14 +830,14 @@ title="Print to PDF"
 <li><p>이 과정에서 가장 큰 문제는 CAM이 class를 가장 잘 구분하기 위한 영역에만 activation된다는 점이다.</p>
 <ul>
 <li><p>CAMs 는 객체의 작은 부분을 효과적으로 탐지 하지만 전체적으로 segmentation은 못한다.</p></li>
-<li><p><a class="reference internal" href="#fig-puzzlecam1"><span class="std std-numref">Fig. 103</span></a>에서 원본이미지의 CAM과 tile로 자른 이미지의 CAM이 다르게 표현된다.</p></li>
+<li><p><a class="reference internal" href="#fig-puzzlecam1"><span class="std std-numref">Fig. 113</span></a>에서 원본이미지의 CAM과 tile로 자른 이미지의 CAM이 다르게 표현된다.</p></li>
 </ul>
 </li>
 </ul>
 <figure class="align-default" id="fig-puzzlecam1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/puzzlecam1.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/puzzlecam1.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 103 </span><span class="caption-text">CAM generated from tiled and original images (source: 	arXiv:2101.11253)</span><a class="headerlink" href="#fig-puzzlecam1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 113 </span><span class="caption-text">CAM generated from tiled and original images (source: 	arXiv:2101.11253)</span><a class="headerlink" href="#fig-puzzlecam1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -873,7 +883,7 @@ A_c=\theta_c^{\top}f.
 <figure class="align-default" id="fig-puzzlecam2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/puzzlecam2.png"><img alt="20211013181442" class="bg-primary mb-1" src="../../_images/puzzlecam2.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 104 </span><span class="caption-text">The overall architecture of the Puzzle-CAM (source: 	arXiv:2101.11253)</span><a class="headerlink" href="#fig-puzzlecam2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 114 </span><span class="caption-text">The overall architecture of the Puzzle-CAM (source: 	arXiv:2101.11253)</span><a class="headerlink" href="#fig-puzzlecam2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>

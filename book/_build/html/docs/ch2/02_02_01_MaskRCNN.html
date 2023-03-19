@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>[Draft] Mask R-CNN - ICCV 2017 &#8212; All about Segmentation</title>
+    <title>Mask R-CNN - ICCV 2017 &#8212; All about Segmentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,9 +51,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="HTC - CVPR 2019" href="02_02_04_HTC.html" />
+    <link rel="prev" title="SOLOv2 - NeurIPS 2020" href="02_02_03_SOLOv2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -216,9 +220,9 @@ const thebe_selector_output = ".output, .cell_output"
   Instance Segmentation
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="02%20Instance%20Segmentation.html">
+  <a class="reference internal" href="02_Instance_Segmentation.html">
    Overview
   </a>
  </li>
@@ -239,16 +243,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="02_02_DetectorBase.html">
    B. Detector based Method
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="02_02_01_YOLACT.html">
      YOLACT - ICCV 19
@@ -262,6 +266,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="02_02_03_SOLOv2.html">
      SOLOv2 - NeurIPS 2020
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Mask R-CNN - ICCV 2017
     </a>
    </li>
    <li class="toctree-l2">
@@ -284,7 +293,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation2.html">
+  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation.html">
    Overview
   </a>
  </li>
@@ -340,7 +349,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation2.html">
+  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation.html">
    Overview
   </a>
  </li>
@@ -376,6 +385,11 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch4/04_02_01_AE-PSL.html">
+     AE-PSL - CVPR 2017
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch4/04_02_02_SeeNet.html">
      SeeNet - NeurIPS 2018
@@ -660,6 +674,60 @@ title="Print to PDF"
    Reference
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution">
+   Contribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#architecture">
+   Architecture
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#feature-extraction">
+     1. Feature Extraction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#region-proposal-network">
+     2. Region Proposal Network
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detection-head">
+     3. Detection Head
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mask-head">
+     4. Mask Head
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loss-function">
+     5. Loss function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experimental-result">
+   Experimental Result
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     1. Implementation Details
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#main-result">
+     2.  Main Result
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -669,7 +737,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>[Draft] Mask R-CNN - ICCV 2017</h1>
+                <h1>Mask R-CNN - ICCV 2017</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -684,6 +752,60 @@ title="Print to PDF"
    Reference
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contribution">
+   Contribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#architecture">
+   Architecture
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#feature-extraction">
+     1. Feature Extraction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#region-proposal-network">
+     2. Region Proposal Network
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detection-head">
+     3. Detection Head
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mask-head">
+     4. Mask Head
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loss-function">
+     5. Loss function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experimental-result">
+   Experimental Result
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     1. Implementation Details
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#main-result">
+     2.  Main Result
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
                         </nav>
@@ -694,13 +816,13 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="draft-mask-r-cnn-iccv-2017">
-<h1>[Draft] Mask R-CNN - ICCV 2017<a class="headerlink" href="#draft-mask-r-cnn-iccv-2017" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="mask-r-cnn-iccv-2017">
+<h1>Mask R-CNN - ICCV 2017<a class="headerlink" href="#mask-r-cnn-iccv-2017" title="Permalink to this headline">#</a></h1>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><strong>Title:</strong> Mask R-CNN</p></li>
 <li><p><strong>Review By:</strong> Hwigeon Oh</p></li>
-<li><p><strong>Edited by:</strong></p></li>
+<li><p><strong>Edited by:</strong> Taeyup Song</p></li>
 </ul>
 <hr class="docutils" />
 <section id="reference">
@@ -709,6 +831,212 @@ title="Print to PDF"
 <li><p>paper : <a class="reference external" href="https://arxiv.org/abs/1703.06870">https://arxiv.org/abs/1703.06870</a></p></li>
 <li><p>code : <a class="reference external" href="https://github.com/matterport/Mask_RCNN">https://github.com/matterport/Mask_RCNN</a></p></li>
 </ul>
+</section>
+<section id="contribution">
+<h2>Contribution<a class="headerlink" href="#contribution" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Faster R-CNN을 확장한 network를 이용하여 instance segmentation 수행</p>
+<ul>
+<li><p>RPN, detection head에 추가로 mask head가 추가된 구조로 bounding box에 대해 mask prediction 추가로 수행 (각 bounding box에 대해 mask prediction 수행)</p></li>
+<li><p>classification, bbox regression, segmentation이 병렬로 구성되어 학습로직 구성이 쉬움</p></li>
+</ul>
+</li>
+<li><p>ROI pooling을 개선한 ROI Align 제안</p>
+<ul>
+<li><p>ROI pooling과 달리 quantization없는 방법으로 pooling 과정을 정교하게 수행하여 segmentation 성능을 개선.</p></li>
+</ul>
+</li>
+</ul>
+<figure class="align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maskrcnn01.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/maskrcnn01.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 54 </span><span class="caption-text">The Mask R-CNN framework (source arXiv:1703.06870)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>classification, bbox regression, segmentation이 병렬로 구성한 end-to-end train 구조</p></li>
+<li><p>class, bbox와는 분리해서 독립적으로 segmentation mask를 구성</p></li>
+<li><p>Translation/Scale equivalent를 유지하도록 설계함.</p>
+<ul>
+<li><p>Convolution, FCN: translation equivalent</p></li>
+<li><p>ConvNet: translation-invariant
+(Pooling을 통해 feature map의 resolution을 축소하는 과정에서 translate에 대한 효과가 감소한다고 알려져 있음)</p></li>
+<li><p>ROI Align: scale equivalent 하다고 주장</p></li>
+<li><p>FPN: scale-equivariance</p></li>
+</ul>
+</li>
+<li><p>Bounding Box 내 object의 mask에 집중하여, ROI 내 작은 변화에 대해서만 equivalent를 유지하는 것이 목표</p></li>
+</ul>
+<figure class="align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maskrcnn03.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/maskrcnn03.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 55 </span><span class="caption-text">Architecture (image from <a class="reference external" href="https://medium.com/&#64;jonathan_hui/image-segmentation-with-mask-r-cnn-ebe6d793272">https://medium.com/&#64;jonathan_hui/image-segmentation-with-mask-r-cnn-ebe6d793272</a>)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="feature-extraction">
+<h3>1. Feature Extraction<a class="headerlink" href="#feature-extraction" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>ResNet-50 또는 ResNet-101 backbone 사용</p>
+<ul>
+<li><p>입력 영상을 1024x1024x3으로 resize (bilinear interpolation)</p></li>
+<li><p>ResNet의 경우 800~1024크기의 입력을 사용하는 것이 가장 좋다고 알려져 있음</p></li>
+</ul>
+</li>
+<li><p>FPN 구조로 5단계  feature map 추출</p>
+<ul>
+<li><p>ResNet backbone의 경우 feature map은 <span class="math notranslate nohighlight">\([4, 8, 16, 32, 64]\)</span>의 stride를 가짐.</p></li>
+<li><p>입력영상 대비 <span class="math notranslate nohighlight">\([1/4, 1/8, 1/16, 1/32, 1/64]\)</span>배 크기의 feature map이 생성됨.</p></li>
+</ul>
+</li>
+</ul>
+<figure class="align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maskrcnn04.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/maskrcnn04.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 56 </span><span class="caption-text">Feature Extraction</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="region-proposal-network">
+<h3>2. Region Proposal Network<a class="headerlink" href="#region-proposal-network" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Faster R-CNN과 동일한 구조</p>
+<ul>
+<li><p>모든 pyramid level의 feature map에 대해 Region proposal 추출</p></li>
+<li><p>anchor는 3종류 사용 → FPN으로 scale에 대한 대응 가능</p></li>
+</ul>
+</li>
+<li><p>Implementation</p>
+<ul>
+<li><p>저자의 code에서는 최대 크기의 입력 영상 <span class="math notranslate nohighlight">\((1024, 1024, 3)\)</span>에 대해 다음과 같이 anchor를 생성해서 사용함.</p>
+<ul>
+<li><p>anchor의 크기는 각 feature map level에 따라 각 feature 위치를 중점으로
+<span class="math notranslate nohighlight">\([32, 64, 128, 256, 512]\)</span> 크기로 생성함.</p></li>
+<li><p>Anchor stride를 1로 설정하여 모든 feature point에서 3가지 종류의 anchor 생성</p></li>
+<li><p>Anchor scale로 normalize한 후 return</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="align-default" id="id3">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maskrcnn05.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/maskrcnn05.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 57 </span><span class="caption-text">Region Proposol Network (RPN)</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Cls lauer→ 각 anchor에 대해 가장 높은 IoU를 가지고, <span class="math notranslate nohighlight">\(IoU\)</span> 0.7 이상 box는 object, <span class="math notranslate nohighlight">\(IoU\)</span> 0.3 이하는 배경으로 선택</p>
+<ul>
+<li><p>최종 output dim.: <span class="math notranslate nohighlight">\(w/i \times h/i \times \text{(anchor 수)}\)</span></p></li>
+</ul>
+</li>
+<li><p>Reg layer: 각 bounding box의 좌표 offect을 prediction함.</p>
+<ul>
+<li><p>(k개의 anchor에 대해 4개 좌표를 최종 fitting함.</p></li>
+<li><p>최종 output dim.: <span class="math notranslate nohighlight">\(w/i \times h/i \times \text{(anchor 수)}*4\text{(좌표 offset)}\)</span></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="detection-head">
+<h3>3. Detection Head<a class="headerlink" href="#detection-head" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>RPN을 통해 선정된 각 proposal 영역에 대해 ROI align 과정을 통해 최종 feature를 추출</p></li>
+<li><p>추출된 proposal의 특징을 이용하여 classification 및 bounding box regression 수행</p></li>
+</ul>
+<p><a class="reference external" href="https://www.notion.so/R03_1-RoI-Pooling-RoI-Align-265c6941f41d462b9c86defcfb84d0a8">R03_1 RoI Pooling RoI Align</a></p>
+<figure class="align-default" id="id4">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maskrcnn06.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/maskrcnn06.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 58 </span><span class="caption-text">Detection head architecture</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>후처리 과정을 통해 최종 detection bounding box 도출</p>
+<figure class="align-default" id="id5">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maskrcnn07.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/maskrcnn07.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 59 </span><span class="caption-text">Post processing for bounding box</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="mask-head">
+<h3>4. Mask Head<a class="headerlink" href="#mask-head" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Detection head에서 판정된 bbox와 class prediction 값을 이용하여 mask를 구함.</p></li>
+</ul>
+<figure class="align-default" id="id6">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maskrcnn08.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/maskrcnn08.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 60 </span><span class="caption-text">Mask head Achitecture</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="loss-function">
+<h3>5. Loss function<a class="headerlink" href="#loss-function" title="Permalink to this headline">#</a></h3>
+<div class="math notranslate nohighlight">
+\[ L=L_{\text{cls}}+L_{\text{box}}+L_{\text{mask}}\]</div>
+<ul class="simple">
+<li><p>classification loss <span class="math notranslate nohighlight">\(L_\text{cls}\)</span>: cross entropy loss</p></li>
+<li><p>bbox regression loss <span class="math notranslate nohighlight">\(L_\text{box}\)</span> : smooth <span class="math notranslate nohighlight">\(L_1\)</span> loss</p></li>
+<li><p>mask loss <span class="math notranslate nohighlight">\(L_\text{mask}\)</span></p>
+<ul>
+<li><p>mask branch에 대해 (<span class="math notranslate nohighlight">\(Km^2\)</span>-dimension)binary cross-entropy loss 적용 (FCN과 동일)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="experimental-result">
+<h2>Experimental Result<a class="headerlink" href="#experimental-result" title="Permalink to this headline">#</a></h2>
+<section id="implementation-details">
+<h3>1. Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Datasets</p>
+<ul>
+<li><p>Ground truth 대비 IoU 0.5 이상인 경우 positive sample로 사용하며, mask loss <span class="math notranslate nohighlight">\(L_{\text{{mask}}}\)</span>의 경우 positive sample에 의해서만 정의됨.</p></li>
+<li><p>Image-centric training[12]를 적용하며, 입력 영상은 짧은 변을 기준으로 800pix로 resize 함.</p></li>
+</ul>
+</li>
+<li><p>Training</p>
+<ul>
+<li><p>mini-batch는 GPU당 영상 2개를 사용하며, pos./neg. sample 비율을 1:3으로 구성한 <span class="math notranslate nohighlight">\(N\)</span>개의 RoIs를 사용. (C4: N=64, FPN: N=512)</p></li>
+<li><p>8 GPU (mini-batch size 16), 160k iteration</p></li>
+<li><p>Learning rate: 0.02부터 120k 까지 10번 감소시킴</p></li>
+<li><p>Weight decay: 0.0001 with momentum 0.9</p></li>
+</ul>
+</li>
+<li><p>Inference</p>
+<ul>
+<li><p>C4에서 300개, FPN에서 1000개의 candidate를 추출.</p></li>
+<li><p>box prediction brench에서 NMS 등 후처리 적용 후 score가 높은 10% 의 candicate에 대해 mask prediction 수행하여 mask prediction에 따른 overhead를 최소화.</p></li>
+<li><p>bbox prediction시 도출된 <span class="math notranslate nohighlight">\(k\)</span>번째 class에 대한 mask prediction 수행하고, binarize 0.5 적용하여 최종 mask 도출</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="main-result">
+<h3>2.  Main Result<a class="headerlink" href="#main-result" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>COCO test-dev set에서 비교한 결과 기존 방법 대비 높은 <span class="math notranslate nohighlight">\(mask AP\)</span>를 보임을 알 수 있음.</p></li>
+</ul>
+<img alt="maskrcnn09.png" class="bg-primary mb-1 align-center" src="../../_images/maskrcnn12.png" />
+<ul class="simple">
+<li><p>RoIAlign와 RoIPool 적용 후 비교한 결과 논문에서 제안한 RoIAlgin 적용시 RoIPool 방법 대비 +7.3%의 <span class="math notranslate nohighlight">\(mask AP\)</span> 개선이 있음을 확인할 수 있다.</p>
+<ul>
+<li><p>Table 2 추가</p></li>
+</ul>
+</li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/maskrcnn13.png"><img alt="maskrcnn10.png" class="bg-primary mb-1 align-center" src="../../_images/maskrcnn13.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>Figure 5. More resolts of Mask R-CNN on COCO test images, using
+ResNet-101-FPN and running 5fps, with 35.7 mask AP</p></li>
+</ul>
+<img alt="maskrcnn09.png" class="bg-primary mb-1 align-center" src="../../_images/maskrcnn11.png" />
+</section>
 </section>
 </section>
 
@@ -739,6 +1067,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="02_02_03_SOLOv2.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">SOLOv2 - NeurIPS 2020</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_02_04_HTC.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">HTC - CVPR 2019</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
