@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>[Draft] AE-PSL - CVPR 2017 &#8212; All about Segmentation</title>
+    <title>AE-PSL - CVPR 2017 &#8212; All about Segmentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,9 +51,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/PseudoLab_logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="SeeNet - NeurIPS 2018" href="04_02_02_SeeNet.html" />
+    <link rel="prev" title="B. Adversarial Erasing" href="04_02_AdversarialErasing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -218,7 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
+  <a class="reference internal" href="../ch2/02_Instance_Segmentation.html">
    Overview
   </a>
  </li>
@@ -265,6 +269,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_01_MaskRCNN.html">
+     [Draft] Mask R-CNN - ICCV 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../ch2/02_02_04_HTC.html">
      HTC - CVPR 2019
     </a>
@@ -284,7 +293,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation2.html">
+  <a class="reference internal" href="../ch3/03_Panoptic%20Segmentation.html">
    Overview
   </a>
  </li>
@@ -338,9 +347,9 @@ const thebe_selector_output = ".output, .cell_output"
   Weakly-supervised Segmentation
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="04_Weakly-supervised%20Segmentation2.html">
+  <a class="reference internal" href="04_Weakly-supervised%20Segmentation.html">
    Overview
   </a>
  </li>
@@ -366,16 +375,21 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="04_02_AdversarialErasing.html">
    B. Adversarial Erasing
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
   <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     AE-PSL - CVPR 2017
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="04_02_02_SeeNet.html">
      SeeNet - NeurIPS 2018
@@ -633,23 +647,144 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-statement">
+   Problem Statement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-region-mining-with-ae">
+     1. Object Region Mining with AE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#online-psl-for-semantic-segmentation">
+     2. Online PSL for Semantic Segmentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experimental-result">
+   Experimental Result
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     1.
+     <strong>
+      Implementation Details
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparisons-with-state-of-the-arts">
+     2. Comparisons with State-of-the-arts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ablation-analysis">
+     3. Ablation Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>[Draft] AE-PSL - CVPR 2017</h1>
+                <h1>AE-PSL - CVPR 2017</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-statement">
+   Problem Statement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proposed-method">
+   Proposed Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-region-mining-with-ae">
+     1. Object Region Mining with AE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#online-psl-for-semantic-segmentation">
+     2. Online PSL for Semantic Segmentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experimental-result">
+   Experimental Result
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-details">
+     1.
+     <strong>
+      Implementation Details
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparisons-with-state-of-the-arts">
+     2. Comparisons with State-of-the-arts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ablation-analysis">
+     3. Ablation Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -657,22 +792,196 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="draft-ae-psl-cvpr-2017">
-<h1>[Draft] AE-PSL - CVPR 2017<a class="headerlink" href="#draft-ae-psl-cvpr-2017" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="ae-psl-cvpr-2017">
+<h1>AE-PSL - CVPR 2017<a class="headerlink" href="#ae-psl-cvpr-2017" title="Permalink to this headline">#</a></h1>
 <hr class="docutils" />
 <div class="admonition-information admonition">
 <p class="admonition-title">Information</p>
-<ul class="simple">
+<ul>
 <li><p><strong>Title:</strong> Object region mining with adversarial erasing: A simple classification to semantic segmentation approach, CVPR 2017</p></li>
 <li><p><strong>Reference</strong></p>
 <ul>
 <li><p>paper : <a class="reference external" href="https://arxiv.org/abs/1703.08448">https://arxiv.org/abs/1703.08448</a></p></li>
+<li><p>Reference :</p>
+<p><a class="reference external" href="https://biology-statistics-programming.tistory.com/176">https://biology-statistics-programming.tistory.com/176</a>
+<a class="reference external" href="https://younnggsuk.oopy.io/daeac0bd-061d-41b2-8997-27649cc55584">https://younnggsuk.oopy.io/daeac0bd-061d-41b2-8997-27649cc55584</a></p>
+</li>
 </ul>
 </li>
 <li><p><strong>Review By:</strong> 김현우</p></li>
-<li><p><strong>Edited by:</strong></p></li>
+<li><p><strong>Edited by:</strong> Taeyup Song</p></li>
 </ul>
 </div>
+<section id="problem-statement">
+<h2>Problem Statement<a class="headerlink" href="#problem-statement" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Weakly Supervised Semantic Segmentation을 위해 class label을 이용하여 Class Attention Map (CAM)을 이용한 propagation 방법을 사용하는데, CAM이 object boundary를 sharp하게 구분하지 못함.</p>
+<ul class="simple">
+<li><p>CAM은 max pooling layer 등 resolution이 낮아지면서 blury해지며, GAP에서 feature의 전체 영역에 대해 pooling하기 때문에 불필요한 부분에도 activation이 생성된다.</p></li>
+<li><p>Blurrly한 CAM을 개선하기 위해 1) sharpness를 개선할 수 있는 constrain to boundary loss와  미리 학습된 model을 이용하여 추출한 saliency 정보를 추가로 활용</p></li>
+</ul>
+</li>
+<li><p>CAN에서 attention이 가장 높은 영역을 지우고 반복적으로 attention을 구하는 방법인 Adversarial Erasing(AE) 접근 방법이 제안되었지만, boundary에서 noise가 심한 문제가 존재함.</p></li>
+</ol>
+<figure class="align-default" id="markdown-fig">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aepsl1.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/aepsl1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 100 </span><span class="caption-text">Illustration of the proposed AE approach (source arXiv:1703.08448)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="proposed-method">
+<h2>Proposed Method<a class="headerlink" href="#proposed-method" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>AE 방법을 이용한 object region mining과 semantic segmentation 결과 개선을 위한 online PSL(Prohibitive Segmentation Learning) 로 구성됨.</p></li>
+</ul>
+<section id="object-region-mining-with-ae">
+<h3>1. Object Region Mining with AE<a class="headerlink" href="#object-region-mining-with-ae" title="Permalink to this headline">#</a></h3>
+<figure class="align-default" id="id1">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aepsl2.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/aepsl2.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 101 </span><span class="caption-text">Overview of the proposed AE approach (source arXiv:1703.08448)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>작고 희소한(sparse) classification network의 분류 영역(discriminative region)을 확대하기 위해 객체에 해당하는 영역을 점진적으로 확장하는 AE 접근 방법을 적용함.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(N\)</span> 개의 training set <span class="math notranslate nohighlight">\(\mathcal{I}=\{(I_i,\mathcal{O}_i\}_{i=0}^{N}\)</span>  과 AE를 통해 발굴된 object의 영역이 <span class="math notranslate nohighlight">\(\mathcal{F}=\{F_i\}_{i=0}^{N}\)</span> 일 때, 아래 과정을 반복한다.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition-ae-approach admonition">
+<p class="admonition-title">AE Approach</p>
+<p><strong>Step 1</strong> 객체 분류 영역을 얻기 위한 classification network <span class="math notranslate nohighlight">\(M_t\)</span> 학습</p>
+<ul class="simple">
+<li><p>Network 초기화: DeepLab-CRF-LargeFOV, Global Average Pooing Layer는 <em>conv7</em>에 적용하며, representations는 FCL(fully-connected layer)를 거쳐 생성됨.</p></li>
+<li><p>Loss function: squared label prediction loss [30]</p></li>
+</ul>
+<p><strong>Step 2</strong> 높은 activation을 가지는 영역을 지우고</p>
+<ul class="simple">
+<li><p>각 image level label에 해당하는 classification activation maps <span class="math notranslate nohighlight">\(\text{CAM}(\cdot)\)</span>을 생성</p></li>
+<li><p>Hard threshold를 적용하여 높은 activation 을 가지는 영역을 제거</p></li>
+<li><p>제거된 영역은 mean pixel 값으로 채우고 다시 training에 사용.</p></li>
+<li><p>학습 과정에서 배경에 정보도 중요하므로, saliency detection 정보를 활용함.
+→ 낮은 saliency을 갖는 영역을 background <span class="math notranslate nohighlight">\(B_i\)</span> 로 설정함.</p></li>
+</ul>
+<p>Step 1 부터 반복하여 object region <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>을 찾음.</p>
+<ul>
+<li><p>학습-erase를 반복하는 과정에서 classification network는 activation이 제거된 영역보다 작지만, 영상 내에서 가장 discriminative한 region을 찾음. (가능한 classification 성능 유지하는 방향으로 학습)</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aepsl3.png"><img alt="maskrcnn09.png" class="bg-primary mb-1 align-center" src="../../_images/aepsl3.png" style="width: 400px;" /></a>
+</li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>제안된 AE 접근 방법은 초기 segmentation networks를 학습할 수 있는 segmentation mask  <span class="math notranslate nohighlight">\(\mathcal{S}=\{S_i\}^{N}_{i=1}\)</span>를 제공함.</p>
+<ul>
+<li><p>여기서 <span class="math notranslate nohighlight">\(i\)</span> 번째 segmentation mask는 <span class="math notranslate nohighlight">\(S_i=F_i \cup B_i\)</span> 와 같이 정의된다. 이때 다음에 속하는 pixel의 경우 연산에서 제외한다.</p>
+<ol class="simple">
+<li><p>서로 다른 class에 matching되는 경우 foreground regions에서 제외</p></li>
+<li><p>AE로 판단한 object regions 중 낮은 saliency를 갖는 pixels 제외</p></li>
+<li><p>semantic labels로 assign되지 않은 경우 제외</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="online-psl-for-semantic-segmentation">
+<h3>2. Online PSL for Semantic Segmentation<a class="headerlink" href="#online-psl-for-semantic-segmentation" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>AE 방법을 이용하여 초기 segmentation mask를 구하는 과정은 Fig.3의 (a)와 같다.</p>
+<ul>
+<li><p>결과 mask에서 background 영역은 “black”으로, object 영역은 “purple” 색으로 표현 됨. AE 방법을 적용하는 경우 “blue”영역과 같이 object 혹은 background와 관련된 영역의 경우 segmentation map에서 누락될 수 있다.</p></li>
+<li><p>또한 경계 영역을 나타내는데 한계가 있어, 노이즈가 포함된  semantic labels이 관찰될 수 있다.</p></li>
+</ul>
+</li>
+<li><p>AE 접근 방법의 한계를 극복하기 위해 online PSL(Prohibitive Segmentation Learning) 방법 제안함.</p></li>
+<li><p>Online PSL은 Fig 3.(b)와 같이 semantic segmentation networks에 classification branch가 추가된 형태로 구현된다. (classification branch가 일종의 attention의 역할을 함.)</p></li>
+</ul>
+<figure class="align-default" id="id2">
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aepsl4.png"><img alt="figure1" class="bg-primary mb-1" src="../../_images/aepsl4.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 102 </span><span class="caption-text">The proposed online PSL approach (source arXiv:1703.08448)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul>
+<li><p>Online PSL은 classification 결과를 이용하여 신뢰할 수 있는 카테고리 별 segmentation map을 찾고, segmentation 적은 노이즈를 가지는 보조적인(auxiliary) supervision map을 생성함.</p></li>
+<li><p>Auxiliary supervision map은 semantic segmentation network의 학습과정에서 함께 업데이트 되며 점점 신뢰성을 확보한다.</p></li>
+<li><p>Pixel location <span class="math notranslate nohighlight">\(u\)</span>에 대해 semantic label <span class="math notranslate nohighlight">\(c \in \mathcal{C}^{\text{seg}}\)</span>에 속할 확률을 구하는 segmentation networks의 prediction <span class="math notranslate nohighlight">\(f_{u,c}(I,\theta)\)</span>,  <strong>입력 영상 <span class="math notranslate nohighlight">\(I\)</span>에 대한 classification branch(image-spedific label (~=classification label) set  <span class="math notranslate nohighlight">\(\mathcal{O}^{\text{seg}}\)</span>)의 prediction이 <span class="math notranslate nohighlight">\(v\)</span>라면,</strong> additional segmentation mask는 다음과 같이 정의된다.</p>
+<div class="math notranslate nohighlight">
+\[
+    \hat{S}=\max\{[1,v]\otimes f(I;\theta)\}.
+    \]</div>
+<p>여기서 ⊗는 weighting operator이고, 추가된 <span class="math notranslate nohighlight">\(1\)</span>의 경우 background category의 weight이다.</p>
+</li>
+<li><p>이 연산을 거쳐 small classification category score를 가지는 label의 segmentation score는 축소되고, 큰 영향을 미치는 (dominant한) label에 대한 segmentation score는 강화된다.</p></li>
+<li><p>Semantic segmentation network 학습을 위해 Noise-prohibitive segmentation loss를 적용한다.</p>
+<div class="math notranslate nohighlight">
+\[
+    \min_{\theta}\sum_{I\in\mathcal{I}}J\left( f(I;\theta),S\right)+J\left( f(I;\theta),\hat{S}\right)
+    \]</div>
+<p>AE를 이용하여 구한 segmentation mask와 PSL 과정을 거쳐 생성한 mask의 cross-entropy loss의 합으로 구성된다.</p>
+<div class="math notranslate nohighlight">
+\[
+    J\left( f(I;\theta),S\right)=-\frac{1}{\sum_{c\in\mathcal{O}^{\text{seg}}}|S_c|}\sum_{c\in\mathcal{O}^{\text{seg}}}\sum_{u\in\ S_c}\log f_{u,c}(I;\theta),
+    \]</div>
+<div class="math notranslate nohighlight">
+\[
+    J\left( f(I;\theta),\hat{S}\right)=-\frac{1}{\sum_{c\in\mathcal{O}^{\text{seg}}}|\hat{S}_c|}\sum_{c\in\mathcal{O}^{\text{seg}}}\sum_{u\in\ \hat{S}_c}\log f_{u,c}(I;\theta),
+    \]</div>
+</li>
+<li><p>학습과정에서 Image label의 supervision을 사용한 segmentation의 성능은 점진적으로 개선된다.</p></li>
+<li><p>Test 과정에서 threshold <span class="math notranslate nohighlight">\(p\)</span> 보다 confidence가 낮은 경우 0으로 변경하여 최종 segmentation 결과를 생성한다.</p></li>
+</ul>
+</section>
+</section>
+<section id="experimental-result">
+<h2>Experimental Result<a class="headerlink" href="#experimental-result" title="Permalink to this headline">#</a></h2>
+<section id="implementation-details">
+<h3>1. <strong>Implementation Details</strong><a class="headerlink" href="#implementation-details" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Dataset:  PASCAL VOC 2012 Benchmark (20 foreground objects and the background)</p></li>
+<li><p>Backbone and Network architecture</p>
+<ul>
+<li><p>Classification: DeepLab-CRF-LargeFOV (ImageNet pretrained VGG-16 backbone)</p></li>
+</ul>
+</li>
+<li><p>Hyper-parameter</p>
+<ul>
+<li><p>mini-batch :  30 images (321x321 pixels randomly cropped images)</p></li>
+<li><p>AE 과정에서 상위 20% 큰 probability를 가지는 영역을 삭제</p></li>
+<li><p>Saliancy value가 0.06 미만의 값을 background로 간주함.</p></li>
+</ul>
+</li>
+<li><p>Test 과정의 threshold <span class="math notranslate nohighlight">\(p\)</span> 는 0.1로 설정.</p></li>
+</ul>
+</section>
+<section id="comparisons-with-state-of-the-arts">
+<h3>2. Comparisons with State-of-the-arts<a class="headerlink" href="#comparisons-with-state-of-the-arts" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>PASCAL VOC 2012 segmentation benchmark dataset test set에서 21개 class에 대한 pixel IoU의 평균 (<span class="math notranslate nohighlight">\(mIoU\)</span>)로 비교한 결과 box supervision을 사용한 architecture 대비 낮은 성능을 나타냈으나, Image-lavel labels를 supervision으로 사용한 archtecture중에서는 가장 좋은 성능을 나타냄을 확인할 수 있다.</p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aepsl5.png"><img alt="maskrcnn09.png" class="bg-primary mb-1 align-center" src="../../_images/aepsl5.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>제안된 방법은 다양한 object가 복잡하게 구성된 scene에서도 좋은 결과를 보이지만, AE 과정의 한계로 좋지 않은 결과도 존재함. (color와 texture 등 low level visual feature 을 활용하여 개선해야 함)</p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="../../_images/aepsl6.png"><img alt="maskrcnn09.png" class="bg-primary mb-1 align-center" src="../../_images/aepsl6.png" style="width: 600px;" /></a>
+</section>
+<section id="ablation-analysis">
+<h3>3. Ablation Analysis<a class="headerlink" href="#ablation-analysis" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>AE step에 따른 loss에 Step이 높아질 수록 loss값이 높게 나타남. (구분이 어려운 경우가 발생)</p></li>
+<li><p>또한 제거되는 영역도 object 영역을 벗어나게 됨. (적절한 Erasing 횟 수 설정이 중요)</p></li>
+</ul>
+<img alt="maskrcnn09.png" class="bg-primary mb-1 align-center" src="../../_images/aepsl7.png" />
+<ul class="simple">
+<li><p>online-PSL 기법을 적용한 결과가 적용 전 대비 mIoU가 3.2% 개선됨.</p></li>
+<li><p>PSL을 추가로 학습시키는 경우 (PSL++) mIoU가 0.9 더 개선됨</p></li>
+<li><p>Weighted map을 구하기 위한 과정에서 classification confidence 대신 정답 label을 활용하면 1.1% 추가 개선됨. (개선 가능한 최대 성능)</p></li>
+</ul>
+<img alt="maskrcnn09.png" class="bg-primary mb-1 align-center" src="../../_images/aepsl8.png" />
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -702,6 +1011,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="04_02_AdversarialErasing.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">B. Adversarial Erasing</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="04_02_02_SeeNet.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SeeNet - NeurIPS 2018</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

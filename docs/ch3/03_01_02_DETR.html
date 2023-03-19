@@ -222,7 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch2/02%20Instance%20Segmentation.html">
+  <a class="reference internal" href="../ch2/02_Instance_Segmentation.html">
    Overview
   </a>
  </li>
@@ -269,6 +269,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../ch2/02_02_01_MaskRCNN.html">
+     [Draft] Mask R-CNN - ICCV 2017
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../ch2/02_02_04_HTC.html">
      HTC - CVPR 2019
     </a>
@@ -288,7 +293,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="03_Panoptic%20Segmentation2.html">
+  <a class="reference internal" href="03_Panoptic%20Segmentation.html">
    Overview
   </a>
  </li>
@@ -344,7 +349,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation2.html">
+  <a class="reference internal" href="../ch4/04_Weakly-supervised%20Segmentation.html">
    Overview
   </a>
  </li>
@@ -380,6 +385,11 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch4/04_02_01_AE-PSL.html">
+     [Draft] AE-PSL - CVPR 2017
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch4/04_02_02_SeeNet.html">
      SeeNet - NeurIPS 2018
@@ -845,7 +855,7 @@ title="Print to PDF"
 <figure class="align-default" id="markdown-fig">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr1.png"><img alt="detr1" class="bg-primary mb-1" src="../../_images/detr1.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 68 </span><span class="caption-text">DETR directly predicts (in parallel) the final set of detections by combining a common CNN with a transformer architecture (source: arXiv:2005.12872)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 75 </span><span class="caption-text">DETR directly predicts (in parallel) the final set of detections by combining a common CNN with a transformer architecture (source: arXiv:2005.12872)</span><a class="headerlink" href="#markdown-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -856,7 +866,7 @@ title="Print to PDF"
 <figure class="align-default" id="id1">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr2.png"><img alt="detr2" class="bg-primary mb-1" src="../../_images/detr2.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 69 </span><span class="caption-text">DETR uses a conventional CNN backbone to learn a 2D representation of an input image. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 76 </span><span class="caption-text">DETR uses a conventional CNN backbone to learn a 2D representation of an input image. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -874,26 +884,26 @@ title="Print to PDF"
 <figure class="align-default" id="id2">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr3.png"><img alt="detr3" class="bg-primary mb-1" src="../../_images/detr3.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 70 </span><span class="caption-text">Architecture of DETR’s Transformer. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 77 </span><span class="caption-text">Architecture of DETR’s Transformer. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
-<li><p>Encoder의 output은 각 개별 object instance 정보를 포함하고 있다. 그림 <a class="reference internal" href="#detr-encoder"><span class="std std-numref">Fig. 71</span></a>와 같이 붉은 점에 해당하는 self-attention을 보면 각 위치가 포함되는 개별객체에 attention되어 있음을 확인할 수 있다.</p></li>
+<li><p>Encoder의 output은 각 개별 object instance 정보를 포함하고 있다. 그림 <a class="reference internal" href="#detr-encoder"><span class="std std-numref">Fig. 78</span></a>와 같이 붉은 점에 해당하는 self-attention을 보면 각 위치가 포함되는 개별객체에 attention되어 있음을 확인할 수 있다.</p></li>
 </ul>
 <figure class="align-default" id="detr-encoder">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr4.png"><img alt="detr4" class="bg-primary mb-1" src="../../_images/detr4.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 71 </span><span class="caption-text">Encoder self-attention for a set of reference points. The encoder is able to seperate indifidual instancese. (source: arXiv:2005.12872)</span><a class="headerlink" href="#detr-encoder" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 78 </span><span class="caption-text">Encoder self-attention for a set of reference points. The encoder is able to seperate indifidual instancese. (source: arXiv:2005.12872)</span><a class="headerlink" href="#detr-encoder" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
-<li><p><a class="reference internal" href="#detr-decoder"><span class="std std-numref">Fig. 72</span></a>와 같이 DETR는 중첩된 object도 잘 구분할 수 있다.</p></li>
+<li><p><a class="reference internal" href="#detr-decoder"><span class="std std-numref">Fig. 79</span></a>와 같이 DETR는 중첩된 object도 잘 구분할 수 있다.</p></li>
 <li><p>각 instance의 외각점 (다리, 귀, 코 등)에서 높은 attention을 가진다.</p></li>
 </ul>
 <figure class="align-default" id="detr-decoder">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr5.png"><img alt="detr5" class="bg-primary mb-1" src="../../_images/detr5.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 72 </span><span class="caption-text">Visualizing decoder attention for every predicted object (image from COCO val set). Predictions are made with DTRE-DC5 model. Attention scores are coded with differentn colors for different objects. Decoder typically  attends to object extremities, such as legs and heads. Best viweed in color (source: arXiv:2005.12872)</span><a class="headerlink" href="#detr-decoder" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 79 </span><span class="caption-text">Visualizing decoder attention for every predicted object (image from COCO val set). Predictions are made with DTRE-DC5 model. Attention scores are coded with differentn colors for different objects. Decoder typically  attends to object extremities, such as legs and heads. Best viweed in color (source: arXiv:2005.12872)</span><a class="headerlink" href="#detr-decoder" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -902,7 +912,7 @@ title="Print to PDF"
 <figure class="align-default" id="id3">
 <a class="reference internal image-reference" href="../../_images/detr6.png"><img alt="detr6" src="../../_images/detr6.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 73 </span><span class="caption-text">Examples of bipartite matching (source: arXiv:2005.12872)</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 80 </span><span class="caption-text">Examples of bipartite matching (source: arXiv:2005.12872)</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -947,7 +957,7 @@ title="Print to PDF"
 <figure class="align-default" id="id4">
 <a class="bg-primary mb-1 reference internal image-reference" href="../../_images/detr7.png"><img alt="detr7" class="bg-primary mb-1" src="../../_images/detr7.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 74 </span><span class="caption-text">Illustration of the panoptic head. A binary mask is generated in parallel for each detected object, then the masks are merged using pixel-wise argmax. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 81 </span><span class="caption-text">Illustration of the panoptic head. A binary mask is generated in parallel for each detected object, then the masks are merged using pixel-wise argmax. (source: arXiv:2005.12872)</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
